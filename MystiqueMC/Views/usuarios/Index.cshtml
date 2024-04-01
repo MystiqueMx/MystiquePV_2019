@@ -1,0 +1,131 @@
+﻿@model IEnumerable<MystiqueMC.DAL.VW_ObtenerUsuarios>
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    ViewBag.Title = "Usuarios";
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-md-12">
+        <h2>Usuarios</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <a class="btn btn-link col-lg-7" href="@Url.Action("Create")" style="float:right;width:7.333333%">
+                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                        <b> Agregar </b>
+                    </a>
+                    <div class="table-responsive">
+                        <table id="ContentTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Correo</th>
+                                    <th>Estatus</th>
+                                    <th>Rol</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.nombre&nbsp;@item.paterno&nbsp;@item.materno</td>
+                                        <td>@Html.DisplayFor(modelItem => item.email)</td>
+                                        <td>
+                                            @{if (item.estatus)
+                                                {
+                                                    @:ACTIVO
+                                                }
+                                                else
+                                                {
+                                                    @:INACTIVO
+                                                }
+                                            }
+                                        </td>
+                                        <td>@item.role</td>
+                                        <td class="pull-right">
+                                            @Html.ActionLink("Editar información", "Edit", new { id = item.idUsuario }, new { @class = "btn btn-sm btn-success", @style = "width:100pt" })
+                                            @Html.ActionLink("Editar permisos", "ConfigurarUsuario", new { id = item.idUsuario }, new { @class = "btn btn-sm btn-success", @style = "width:100pt" })
+                                            @if (!item.estatus)
+                                            {
+                                                @Html.ActionLink("Desbloquear", "Delete", new { id = item.idUsuario }, new { @class = "btn btn-sm btn-white", @style = "width:100pt" })
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink("Bloquear", "Delete", new { id = item.idUsuario }, new { @class = "btn btn-sm btn-danger", @style = "width:100pt" })
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @Html.ActionLink("Regresar", "Index", "Catalogos", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#ContentTable').dataTable({
+                "dom": 'T<"clear">lrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "language": {
+                    "search": "Buscar ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: initial;
+        }
+    </style>
+}
+

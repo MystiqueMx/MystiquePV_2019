@@ -1,0 +1,165 @@
+﻿@model MystiqueMC.DAL.recompensas
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    ViewBag.Title = "Agregar producto";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Agregar Producto Canje</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    @using (Html.BeginForm("Create", "Productos", FormMethod.Post, new { id = "form-agregar-recompensa", data_parsley_validate = "true", autocomplete = "off" }))
+    {
+
+        <div class="row">
+            <div class="col-lg-12" id="container-alerts"></div>
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <div class="col-md-12">
+                        <input name="canjeCliente" id="canjeCliente" type="hidden" />
+                        <input name="Precio" id="Precio" type="hidden" value="20" />
+                        <input name="canje" id="canje" type="hidden" value="20" />
+                        <input id="Configuracion" name="Configuracion" type="hidden" />
+                        <input id="productoId" name="productoId" type="hidden" />
+                        <div class="form-group col-md-6">
+                            <label for="Nombre">Familia producto</label>
+                            @Html.DropDownList("CategoriaProductoId", null, "Seleccionar", htmlAttributes: new
+                            { @class = "form-control",
+                             data_parsley_required = "true",
+                             data_parsley_errors_container = "#categoriaInsumoId-error"
+                            })
+                            <div class="row">
+                                <span for="descripcion" id="categoriaInsumoId-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Nombre">Producto</label>
+                            <select id="ddl_Productos" class="form-control" data-parsley-errors-container="productoId-error">
+                                <option>Seleccionar</option>
+                            </select>
+                            <div class="row">
+                                <span for="descripcion" id="productoId-error"></span>
+                            </div>
+
+                            <input name="Nombre" id="Nombre" type="text" class="form-control hidden" maxlength=100
+                                   data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,100}" data-inputmask-greedy="false"
+                                   data-parsley-required data-parsley-maxlength="100" data-parsley-errors-container="#nombre-error" />
+                            <span for="Nombre" id="nombre-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <label for="Vigencia">Vigencia</label>
+                            <div class="input-group input-daterange" data-provide="datepicker" data-date-language="es"
+                                 data-date-autoclose="true" data-date-orientation="bottom">
+                                <input name="VigenciaStart" type="text" class="form-control" data-parsley-required data-inputmask-mask="99/99/9999">
+                                <div class="input-group-addon">a</div>
+                                <input name="VigenciaEnd" type="text" class="form-control" data-parsley-required data-inputmask-mask="99/99/9999">
+                                <span for="Vigencia" id="vigencia-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="Descripcion">Descripción App</label>
+                            <input name="Descripcion" type="text" class="form-control" maxlength=200
+                                   data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,200}" data-inputmask-greedy="false"
+                                   data-parsley-required data-parsley-maxlength="200" data-parsley-errors-container="#descripcion-error" />
+                            <span for="Descripcion" id="descripcion-error"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6" style="padding-left: 0px;">
+                    <div class="col-lg-4" style="width: 30.333333%;padding-left: 0px;">
+                        <div class="text-center" style="width:150px;height:115px;background-color:#E1E1E1;padding-top: 30px;margin-top: 20px;">
+                            <span style="font-size:12.5px"><b>Precio Venta</b></span><br />
+                            <span style="font-size:32px" id="precioVenta"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="width: 30.333333%;padding-left: 0px;">
+                        <div class="text-center" style="width:150px;height:115px;background-color:#E1E1E1;padding-top: 30px;margin-top: 20px;">
+                            <span style="font-size:12.5px"><b>Puntos para Canje</b></span><br />
+                            <span style="font-size:32px" id="puntosCanje"></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4" style="width: 30.333333%;padding-left: 0px;">
+                        <div class="text-center" style="width:300px;height:115px;background-color:#E1E1E1;padding-top: 30px;margin-top: 20px;">
+                            <span style="font-size:12.5px"><b>Para canjearlo el cliente tendrá que consumir</b></span><br />
+                            <span style="font-size:32px" id="clienteCanje"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-lg-5" style="height:300px;">
+                <label>Imagen del producto para App</label>
+                <img id="image" src="~/Content/img/placeholders/recompensa.png">
+
+                <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage")" />
+                <input type="hidden" id="getProductos-url" value="@Url.Action("ObtenerPoductos")" />
+                <input type="hidden" id="obtenerPrecioProducto-url" value="@Url.Action("ObtenerPrecioProducto")" />
+                <input type="hidden" id="ImageUrl" name="imageUrl" />
+            </div>
+            <div class="col-lg-6 col-lg-offset-1">
+                <div class="form-group m-l-lg">
+                    <label>Vista Previa</label>
+                    <div class="img-preview " style="height:200px;width:267px;"></div>
+                    <label class="btn btn-success m-md" for="inputImage">
+                        Cambiar imagen
+                    </label>
+                    <input type="file" accept="image/*" id="inputImage" class="hide">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <br /> &nbsp;
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="@Url.Action("Fidelizacion","Home", new { tabID="canjes_button"})" class="btn btn-white m-r-sm">Cancelar</a>
+            <button type="button" class="btn btn-primary" id="btn-guardar">Guardar</button>
+            <div id="spinner" class="spiner-example" style="display:none;">
+                <div class="sk-spinner sk-spinner-circle">
+                    <div class="sk-circle1 sk-circle"></div>
+                    <div class="sk-circle2 sk-circle"></div>
+                    <div class="sk-circle3 sk-circle"></div>
+                    <div class="sk-circle4 sk-circle"></div>
+                    <div class="sk-circle5 sk-circle"></div>
+                    <div class="sk-circle6 sk-circle"></div>
+                    <div class="sk-circle7 sk-circle"></div>
+                    <div class="sk-circle8 sk-circle"></div>
+                    <div class="sk-circle9 sk-circle"></div>
+                    <div class="sk-circle10 sk-circle"></div>
+                    <div class="sk-circle11 sk-circle"></div>
+                    <div class="sk-circle12 sk-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Styles{
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Scripts/app/Productos/Create.js"></script>
+
+}
+

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="680">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="679">
+            <objects>
+                <tableViewController id="680" sceneMemberID="viewController" customClass="NotificacionViewController" storyboardIdentifier="NotificacionesID">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="0" sectionFooterHeight="28" id="681">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="684" rowHeight="70" customClass="CellNotificaciones" reuseIdentifier="NOTIFICATION_CELL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="684" id="685">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="2100" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="10" y="10" width="300" height="55"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" id="2101" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="8" y="10" width="284" height="37"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Último día para aprovechar nuestro beneficio de bebida gratis" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2102" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="2" textAlignment="justified">
+                                                            <rect key="frame" x="0.0" y="0.0" width="284" height="37"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0" height="0"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="2103" firstItem="2100" firstAttribute="trailing" secondItem="2101" secondAttribute="trailing" constant="8"/>
+                                                <constraint id="2104" firstItem="2101" firstAttribute="leading" secondItem="2100" secondAttribute="leading" constant="8"/>
+                                                <constraint id="2105" firstItem="2101" firstAttribute="top" secondItem="2100" secondAttribute="top" constant="10"/>
+                                                <constraint id="2106" firstItem="2100" firstAttribute="bottom" secondItem="2101" secondAttribute="bottom" constant="8"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="3532" firstItem="685" firstAttribute="trailing" secondItem="2100" secondAttribute="trailing" constant="10"/>
+                                        <constraint id="3818" firstItem="2100" firstAttribute="top" secondItem="685" secondAttribute="top" constant="10"/>
+                                        <constraint id="4104" firstItem="2100" firstAttribute="leading" secondItem="685" secondAttribute="leading" constant="10"/>
+                                        <constraint id="4390" firstItem="685" firstAttribute="bottom" secondItem="2100" secondAttribute="bottom" constant="5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                                <connections>
+                                    <outlet property="TextoNotificacion" destination="2102" id="name-outlet-2102"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="680" id="682"/>
+                            <outlet property="delegate" destination="680" id="683"/>
+                        </connections>
+                        <color key="sectionIndexBackgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationItem title="Notificaciones" id="5865" key="navigationItem"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="686" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235" y="-468"/>
+        </scene>
+        <scene sceneID="7224">
+            <objects>
+                <viewControllerPlaceholder id="7225" sceneMemberID="viewController" storyboardName="CollectionView" referencedIdentifier="COLLECTIONID"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7226" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="232" y="-454"/>
+        </scene>
+    </scenes>
+</document>

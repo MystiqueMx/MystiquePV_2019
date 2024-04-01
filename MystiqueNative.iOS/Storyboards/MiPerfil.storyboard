@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2509">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="1193">
+            <objects>
+                <viewController id="1194" sceneMemberID="viewController" customClass="MiPerfilViewController" storyboardIdentifier="MIPERFILID">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1226"/>
+                        <viewControllerLayoutGuide type="bottom" id="1239"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1215">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1216" translatesAutoresizingMaskIntoConstraints="NO" image="Fresco/Images/fondo_limpio.png" clipsSubviews="YES">
+                                <rect key="frame" x="-8" y="70" width="336" height="498"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1198" translatesAutoresizingMaskIntoConstraints="NO" image="Fresco/Icons/User.png">
+                                <rect key="frame" x="111" y="100" width="98" height="90"/>
+                                <constraints>
+                                    <constraint id="1218" firstItem="1198" firstAttribute="height" constant="90">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="190"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laura Alicia Ruíz Trejo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1200" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="8" y="205" width="308" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18" weight="semibold"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1210" translatesAutoresizingMaskIntoConstraints="NO" customClass="MDButton" hidden="YES">
+                                <rect key="frame" x="244" y="488" width="60" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18" weight="semibold"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.9137254901960784" green="0.4823529411764706" blue="0.15294117647058825" alpha="1"/>
+                                <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <state key="normal" image="logout-24x24.png">
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.9137254901960784" green="0.4823529411764706" blue="0.15294117647058825" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="CerrarSesion_TouchUpInside:" destination="1221" id="1220" eventType="touchUpInside"/>
+                                    <action selector="LogOut_TouchUpInside:" destination="1194" id="53073" eventType="touchUpInside"/>
+                                </connections>
+                                <constraints>
+                                    <constraint id="37579" firstItem="1210" firstAttribute="height" constant="60"/>
+                                    <constraint id="38123" firstItem="1210" firstAttribute="width" constant="60"/>
+                                </constraints>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" id="1219" translatesAutoresizingMaskIntoConstraints="NO" axis="vertical" distribution="fillEqually" spacing="16">
+                                <rect key="frame" x="16" y="246.5" width="288" height="132"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="1202" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="alicia_r21@mail.com">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="1204" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="*********" adjustsFontForContentSizeCategory="YES">
+                                        <rect key="frame" x="0.0" y="37" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="1206" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="(686)567-09-39">
+                                        <rect key="frame" x="0.0" y="74" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="tel" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="1208" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="Villas Lomas 232">
+                                        <rect key="frame" x="0.0" y="111" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="1223" firstItem="1215" firstAttribute="leadingMargin" secondItem="1216" secondAttribute="leadingMargin" constant="16"/>
+                            <constraint id="1224" firstItem="1216" firstAttribute="trailingMargin" secondItem="1215" secondAttribute="trailingMargin" constant="16"/>
+                            <constraint id="1225" firstItem="1216" firstAttribute="top" secondItem="1226" secondAttribute="bottom"/>
+                            <constraint id="1227" firstItem="1198" firstAttribute="leading" secondItem="1216" secondAttribute="leading" constant="119"/>
+                            <constraint id="1228" firstItem="1216" firstAttribute="trailing" secondItem="1198" secondAttribute="trailing" constant="119"/>
+                            <constraint id="1229" firstItem="1198" firstAttribute="top" secondItem="1216" secondAttribute="top" constant="30"/>
+                            <constraint id="1230" firstItem="1200" firstAttribute="leading" secondItem="1216" secondAttribute="leading" constant="16"/>
+                            <constraint id="1231" firstItem="1216" firstAttribute="trailing" secondItem="1200" secondAttribute="trailing" constant="12"/>
+                            <constraint id="1232" firstItem="1200" firstAttribute="top" secondItem="1198" secondAttribute="bottom" constant="15"/>
+                            <constraint id="1233" firstItem="1219" firstAttribute="leading" secondItem="1215" secondAttribute="leadingMargin"/>
+                            <constraint id="1234" firstItem="1215" firstAttribute="trailingMargin" secondItem="1219" secondAttribute="trailing"/>
+                            <constraint id="33774" firstItem="1239" firstAttribute="top" secondItem="1210" secondAttribute="bottom" constant="20"/>
+                            <constraint id="34318" firstItem="1210" firstAttribute="trailing" secondItem="1215" secondAttribute="trailingMargin"/>
+                            <constraint id="95758" firstItem="1239" firstAttribute="top" secondItem="1216" secondAttribute="bottom"/>
+                            <constraint id="96738" firstItem="1219" firstAttribute="top" secondItem="1200" secondAttribute="bottom" constant="20"/>
+                        </constraints>
+                    </view>
+                    <navigationItem title="Mi Perfil" id="1211" key="navigationItem">
+                        <barButtonItem key="rightBarButtonItem" id="1212" style="done" title="Editar">
+                            <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                            <connections>
+                                <segue id="55043" destination="54317" kind="show"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ProfilePictureDetalle" destination="1198" id="1197"/>
+                        <outlet property="Nombre" destination="1200" id="name-outlet-1200"/>
+                        <outlet property="Correo" destination="1202" id="name-outlet-1202"/>
+                        <outlet property="Password" destination="1204" id="name-outlet-1204"/>
+                        <outlet property="Telefono" destination="1206" id="name-outlet-1206"/>
+                        <outlet property="Colonia" destination="1208" id="name-outlet-1208"/>
+                        <outlet property="LogOut" destination="1210" id="name-outlet-1210"/>
+                        <segue id="69031" destination="68534" kind="show" identifier="LOGOUT_SEGUE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1240" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1224" y="931"/>
+        </scene>
+        <scene sceneID="2508">
+            <objects>
+                <navigationController id="2509" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2511" translucent="NO">
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.54509803921568623" green="0.77254901960784317" blue="0.27450980392156865" alpha="1"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        </textAttributes>
+                        <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="23608" destination="1194" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2512" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1707" y="938"/>
+        </scene>
+        <scene sceneID="54316">
+            <objects>
+                <tableViewController id="54317" sceneMemberID="viewController" customClass="ActualizarPerfilViewController" storyboardIdentifier="EditarPerfilID">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="54348">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="54317" id="54349"/>
+                            <outlet property="delegate" destination="54317" id="54350"/>
+                        </connections>
+                        <sections>
+                            <tableViewSection id="54351">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54352" rowHeight="178" shouldIndentWhileEditing="NO">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54352" id="54353">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="54354" translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES" hidden="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="195"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="54319" translatesAutoresizingMaskIntoConstraints="NO" image="Fresco/Icons/User.png" customClass="ToCircleImage">
+                                                    <rect key="frame" x="115" y="10" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint id="54355" firstItem="54319" firstAttribute="height" constant="90"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleAspectFill" id="54356" translatesAutoresizingMaskIntoConstraints="NO" distribution="fillProportionally">
+                                                    <rect key="frame" x="40" y="105" width="240" height="35"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="54339" translatesAutoresizingMaskIntoConstraints="NO">
+                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                            <color key="tintColor" colorSpace="calibratedRGB" red="0.9137254901960784" green="0.4823529411764706" blue="0.15294117647058825" alpha="1"/>
+                                                            <state key="normal" image="cameraButton-36x36.png"/>
+                                                            <connections>
+                                                                <action selector="CameraButton_TouchUpInside:" destination="54317" id="54357" eventType="touchUpInside"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="54341" translatesAutoresizingMaskIntoConstraints="NO">
+                                                            <rect key="frame" x="120" y="0.0" width="120" height="35"/>
+                                                            <color key="tintColor" colorSpace="calibratedRGB" red="0.9137254901960784" green="0.4823529411764706" blue="0.15294117647058825" alpha="1"/>
+                                                            <state key="normal" image="GalleryButton-36x36.png"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                                    <real key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="GalleryButton_TouchUpInside:" destination="54317" id="54358" eventType="touchUpInside"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                                    <constraints>
+                                                        <constraint id="54359" firstItem="54356" firstAttribute="height" constant="35"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laura Alicia Ruíz Trejo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="54343" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="16" y="148.5" width="288" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18" weight="semibold"/>
+                                                    <color key="highlightedColor" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
+                                                    <color key="textColor" colorSpace="calibratedRGB" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54360" firstItem="54353" firstAttribute="leading" secondItem="54354" secondAttribute="leading"/>
+                                                <constraint id="54361" firstItem="54353" firstAttribute="top" secondItem="54354" secondAttribute="top"/>
+                                                <constraint id="54362" firstItem="54354" firstAttribute="trailing" secondItem="54353" secondAttribute="trailing"/>
+                                                <constraint id="54363" firstItem="54353" firstAttribute="bottom" secondItem="54354" secondAttribute="bottom" constant="-17"/>
+                                                <constraint id="54364" firstItem="54319" firstAttribute="leading" secondItem="54354" secondAttribute="leading" constant="115"/>
+                                                <constraint id="54365" firstItem="54354" firstAttribute="trailing" secondItem="54319" secondAttribute="trailing" constant="115"/>
+                                                <constraint id="54366" firstItem="54319" firstAttribute="top" secondItem="54354" secondAttribute="top" constant="10"/>
+                                                <constraint id="54367" firstItem="54356" firstAttribute="leading" secondItem="54354" secondAttribute="leading" constant="40"/>
+                                                <constraint id="54368" firstItem="54354" firstAttribute="trailing" secondItem="54356" secondAttribute="trailing" constant="40"/>
+                                                <constraint id="54369" firstItem="54319" firstAttribute="bottom" secondItem="54356" secondAttribute="top" constant="-5"/>
+                                                <constraint id="54370" firstItem="54343" firstAttribute="leading" secondItem="54354" secondAttribute="leading" constant="16"/>
+                                                <constraint id="54371" firstItem="54354" firstAttribute="trailing" secondItem="54343" secondAttribute="trailing" constant="16"/>
+                                                <constraint id="54372" firstItem="54353" firstAttribute="bottom" secondItem="54343" secondAttribute="bottom" constant="8"/>
+                                            </constraints>
+                                            <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="54373" rowHeight="22">
+                                        <rect key="frame" x="0.0" y="178" width="320" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54373" id="54374">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54375" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="200" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54375" id="54376">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54321" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView" placeholder="NOMBRE*">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="name" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54377" firstItem="54321" firstAttribute="leading" secondItem="54376" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54378" firstItem="54376" firstAttribute="trailing" secondItem="54321" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54379" firstItem="54321" firstAttribute="top" secondItem="54376" secondAttribute="top" constant="4"/>
+                                                <constraint id="54380" firstItem="54376" firstAttribute="bottom" secondItem="54321" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54381" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="244" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54381" id="54382">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54327" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView" placeholder="APELLIDO PATERNO*">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="name" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.070588235294117646" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54383" firstItem="54327" firstAttribute="leading" secondItem="54382" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54384" firstItem="54382" firstAttribute="trailing" secondItem="54327" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54385" firstItem="54327" firstAttribute="top" secondItem="54382" secondAttribute="top" constant="4"/>
+                                                <constraint id="54386" firstItem="54382" firstAttribute="bottom" secondItem="54327" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="85582" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="288" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="85582" id="85583">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="85584" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView" placeholder="CIUDAD*">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="name" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="85585" firstItem="85584" firstAttribute="leading" secondItem="85583" secondAttribute="leading" constant="32"/>
+                                                <constraint id="85586" firstItem="85583" firstAttribute="trailing" secondItem="85584" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="85587" firstItem="85584" firstAttribute="top" secondItem="85583" secondAttribute="top" constant="4"/>
+                                                <constraint id="85588" firstItem="85583" firstAttribute="bottom" secondItem="85584" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54393" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="332" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54393" id="54394">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54345" clearButtonMode="whileEditing" customClass="MBAutoCompleteTextField" key="tableHeaderView" placeholder="COLONIA*">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="name" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                    <constraints>
+                                                        <constraint id="90230" firstItem="54345" firstAttribute="height" constant="36"/>
+                                                    </constraints>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54395" firstItem="54345" firstAttribute="leading" secondItem="54394" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54396" firstItem="54394" firstAttribute="trailing" secondItem="54345" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54397" firstItem="54345" firstAttribute="top" secondItem="54394" secondAttribute="top" constant="4"/>
+                                                <constraint id="91026" firstItem="54394" firstAttribute="bottom" secondItem="54345" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54399" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="376" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54399" id="54400">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54331" placeholder="FECHA DE NACIMIENTO*" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="email" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54401" firstItem="54331" firstAttribute="leading" secondItem="54400" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54402" firstItem="54400" firstAttribute="trailing" secondItem="54331" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54403" firstItem="54331" firstAttribute="top" secondItem="54400" secondAttribute="top" constant="4"/>
+                                                <constraint id="54404" firstItem="54400" firstAttribute="bottom" secondItem="54331" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54405" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="420" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54405" id="54406">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54333" placeholder="SEXO*" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="email" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54407" firstItem="54333" firstAttribute="leading" secondItem="54406" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54408" firstItem="54406" firstAttribute="trailing" secondItem="54333" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54409" firstItem="54333" firstAttribute="top" secondItem="54406" secondAttribute="top" constant="4"/>
+                                                <constraint id="54410" firstItem="54406" firstAttribute="bottom" secondItem="54333" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54411" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="464" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54411" id="54412">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54323" placeholder="TELÉFONO*" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="tel" keyboardType="numberPad" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                    <constraints>
+                                                        <constraint id="80338" firstItem="54323" firstAttribute="width" constant="257"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="80338"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=regular">
+                                                        <mask key="constraints">
+                                                            <include reference="80338"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54415" firstItem="54323" firstAttribute="top" secondItem="54412" secondAttribute="top" constant="4"/>
+                                                <constraint id="54416" firstItem="54412" firstAttribute="bottom" secondItem="54323" secondAttribute="bottom" constant="4"/>
+                                                <constraint id="83269" firstItem="54323" firstAttribute="leading" secondItem="54412" secondAttribute="leading" constant="32"/>
+                                                <constraint id="83856" firstItem="54412" firstAttribute="trailing" secondItem="54323" secondAttribute="trailing" constant="31"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54417" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="508" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54417" id="54418">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54335" placeholder="NUEVA CONTRASEÑA" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54419" firstItem="54335" firstAttribute="leading" secondItem="54418" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54420" firstItem="54418" firstAttribute="trailing" secondItem="54335" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54421" firstItem="54335" firstAttribute="top" secondItem="54418" secondAttribute="top" constant="4"/>
+                                                <constraint id="54422" firstItem="54418" firstAttribute="bottom" secondItem="54335" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="54423" rowHeight="44">
+                                        <rect key="frame" x="0.0" y="552" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="54423" id="54424">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="54329" placeholder="CONFIRMAR CONTRASEÑA" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" key="tableHeaderView">
+                                                    <rect key="frame" x="32" y="4" width="257" height="36"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" returnKeyType="next"/>
+                                                    <color key="tintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="54425" firstItem="54329" firstAttribute="leading" secondItem="54424" secondAttribute="leading" constant="32"/>
+                                                <constraint id="54426" firstItem="54424" firstAttribute="trailing" secondItem="54329" secondAttribute="trailing" constant="31"/>
+                                                <constraint id="54427" firstItem="54329" firstAttribute="top" secondItem="54424" secondAttribute="top" constant="4"/>
+                                                <constraint id="54428" firstItem="54424" firstAttribute="bottom" secondItem="54329" secondAttribute="bottom" constant="4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="98907" rowHeight="108">
+                                        <rect key="frame" x="0.0" y="596" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="98907" id="98908">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99512">
+                                                    <rect key="frame" x="32" y="14" width="256" height="40"/>
+                                                    <color key="backgroundColor" colorSpace="calibratedRGB" red="0.9137254901960784" green="0.4823529411764706" blue="0.15294117647058825" alpha="1"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <color key="tintColor" red="0.0" green="0.52549019607843139" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <state key="normal" title="Guardar">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="ButtonRegistrar_TouchUpInside:" destination="99514" id="99513" eventType="touchUpInside"/>
+                                                        <action selector="GuardarButton_TouchUpInside:" destination="54317" id="102294" eventType="touchUpInside"/>
+                                                    </connections>
+                                                    <constraints>
+                                                        <constraint id="99515" firstAttribute="height" constant="40"/>
+                                                    </constraints>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="100277" firstItem="99512" firstAttribute="leading" secondItem="98908" secondAttribute="leading" constant="32"/>
+                                                <constraint id="100468" firstAttribute="trailing" secondItem="99512" secondAttribute="trailing" constant="32"/>
+                                                <constraint id="117365" firstItem="99512" firstAttribute="top" secondItem="98908" secondAttribute="top" constant="14"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="0"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <navigationItem title="Editar Mi Perfil" id="54346" key="navigationItem"/>
+                    <connections>
+                        <outlet property="ProfilePictureDetalle" destination="54319" id="54318"/>
+                        <outlet property="editName" destination="54321" id="54320"/>
+                        <outlet property="editPhone" destination="54323" id="54322"/>
+                        <outlet property="editPaterno" destination="54327" id="54326"/>
+                        <outlet property="editPass2" destination="54329" id="54328"/>
+                        <outlet property="editBirth" destination="54331" id="54330"/>
+                        <outlet property="editSex" destination="54333" id="54332"/>
+                        <outlet property="editPass" destination="54335" id="54334"/>
+                        <outlet property="CameraButton" destination="54339" id="54338"/>
+                        <outlet property="GalleryButton" destination="54341" id="54340"/>
+                        <outlet property="namelabel" destination="54343" id="54342"/>
+                        <outlet property="COLONIA" destination="54345" id="54344"/>
+                        <outlet property="Ciudad" destination="85584" id="name-outlet-85584"/>
+                        <outlet property="GuardarButton" destination="99512" id="name-outlet-99512"/>
+                    </connections>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="900"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="54429" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-702" y="607"/>
+        </scene>
+        <scene sceneID="68533">
+            <objects>
+                <viewControllerPlaceholder id="68534" sceneMemberID="viewController" storyboardName="Main" referencedIdentifier="MainID"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="68535" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="1140"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+    <resources>
+        <image name="cameraButton-36x36.png" width="36" height="36"/>
+        <image name="GalleryButton-36x36.png" width="36" height="36"/>
+        <image name="logout-24x24.png" width="24" height="24"/>
+        <image name="Fresco/Icons/User.png" width="100" height="100"/>
+        <image name="Fresco/Images/fondo_limpio.png" width="960" height="1600"/>
+    </resources>
+</document>

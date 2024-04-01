@@ -1,0 +1,933 @@
+﻿@model WebApp.Web.Models.Productos.ProductosViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Editar Menú</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Edit", "Menu", FormMethod.Post, new { id = "form-create", data_parsley_validate = "true", @class = "one-click-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(m => m.IdProducto)
+                            @Html.HiddenFor(m => m.ForceRefresh)
+                            <input type="hidden" id="familiaId" name="familiaId" value="@ViewBag.familia" />
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.Nombre, "Nombre", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new
+                                       {
+                                           @class = "form-control",
+                                           data_parsley_maxlength = "25",
+                                           data_parsley_required = "true",
+                                           data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9.// ]{0,25}",
+                                       } })
+                                        @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        @Html.LabelFor(model => model.CategoriaProductoId, "Familia de producto", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("CategoriaProductoId", null, "Seleccionar", htmlAttributes: new { @class = "form-control", data_parsley_required = "true", })
+                                        @Html.ValidationMessageFor(model => model.CategoriaProductoId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        @Html.LabelFor(model => model.Precio, "Precio", htmlAttributes: new { @class = "control-label" })
+                                        <div class="input-group">
+
+                                            @Html.EditorFor(model => model.Precio, new { htmlAttributes = new
+                                       { @class = "form-control text-right",
+                                           data_parsley_required = "true",
+                                           data_parsley_type = "number",
+                                           data_inputmask_greedy = "false",
+                                           data_inputmask_regex = "[0-9]{0,20}\\.{0,1}[0-9]{0,2}",
+                                           @Value = Model.Precio.ToString("N"),
+                                           style ="width:100pt",
+                                       } })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        @Html.LabelFor(model => model.AreaPreparacionId, "Area Preparación", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("AreaPreparacionId", null, "Ninguna", htmlAttributes: new { @class = "form-control", })
+                                        @Html.ValidationMessageFor(model => model.AreaPreparacionId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-3 hide">
+                                        @Html.LabelFor(model => model.Clave, "Clave", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.Clave, new { htmlAttributes = new
+                                            { @class = "form-control",
+                                                data_parsley_maxlength = "20",
+                                                data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,20}",
+                                                data_parsley_required = "true",
+                                                autocomplete="asdafsfasf12"
+                                            } })
+                                        @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-3 hide">
+                                        @Html.LabelFor(model => model.indice, "Indice", htmlAttributes: new { @class = "control-label" })
+                                        @Html.TextBoxFor(model => model.indice, new
+                                            { @class = "form-control text-right",
+                                                data_parsley_maxlength = "20",
+                                                data_inputmask_regex = "[0-9]{0,3}",
+                                                data_parsley_required = "true",
+                                            })
+                                        @Html.ValidationMessageFor(model => model.indice, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-4 funkyradio hide">
+                                        <div class="col-md-12 funkyradio-primary">
+                                            @Html.EditorFor(model => model.Principal)
+                                            <label for="Principal">Marcar como principal</label>
+                                            @Html.ValidationMessageFor(model => model.Principal, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 funkyradio hide">
+                                        <div class="col-md-12 funkyradio-primary">
+                                            <input class="check-box" data-val="true" checked
+                                                   data-val-required="El campo Tiene receta es obligatorio."
+                                                   id="TieneReceta" name="TieneReceta" type="checkbox" value="true">
+                                            <label for="TieneReceta">Tiene Receta</label>
+                                            @Html.ValidationMessageFor(model => model.TieneReceta, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div id="es-ensalada-div" class="col-md-4 @(Model.Tipo > 1 ? "" : "hide")">
+                                        <div class="col-md-12">
+                                            <label class="control-label" for="ArmarCobro">Detalle en caja</label><br />
+                                            <input type="hidden" name="ArmarCobro" id="ArmarCobro" value="False" />
+                                            <button type="button" class="btn-link btn-sm m-xs @(Model.ArmarCobro? "":"hide")" id="btn-on">
+                                                <img class="m-t-n-md" src="~/Content/img/on.png" style="height:36px" />
+                                            </button>
+                                            <button type="button" class="btn-link btn-sm m-xs @(Model.ArmarCobro? "hide":"")" id="btn-off">
+                                                <img class="m-t-n-md" src="~/Content/img/off.png" style="height:36px" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- IMAGEN -->
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-lg-10">
+                                                <label>Imagen</label> <br />
+                                                <img id="images" height="200" src="@Model.Imagen" alt="">
+                                                @Html.HiddenFor(c => c.Imagen)
+                                                <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage", "Menu", null)" />
+                                                <input type="hidden" id="ImageUrl" name="imagenApp" value="@Model.imagenApp" />
+                                            </div>
+                                            <div class="col-lg-6" style="margin-top:6px">
+                                                <label class="btn btn-primary" for="inputImages">
+                                                    Cambiar imagen
+                                                </label>
+                                                <input type="file" accept="image/*" id="inputImages" class="hide">
+                                                <span id="mensaje"></span>
+                                            </div>
+                                        </div><br />
+                                        <input id="bases" name="bases" type="hidden" />
+                                    </div>
+                                    <!-- INSUMOS -->
+                                    <div class="col-lg-6">
+                                        <div id="row-recetas" class="hide">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label class="control-label">Insumos</label>
+                                                    </div>
+                                                    <div class="col-lg-6 text-right">
+                                                        <a href="#" class="btn btn-link m-sm" id="btn-agregar-insumo-receta">
+                                                            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                                                            <b> Agregar insumo </b>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <table class="table table-striped" id="tabla-detalle-receta">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Cantidad</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach (var insumo in Model.DetalleRecetas)
+                                                        {
+                                                            <tr>
+                                                                <td>@insumo.Insumos.nombre</td>
+                                                                <td>@insumo.cantidad.ToString("N") @insumo.Insumos.UnidadMedida.descripcion</td>
+                                                                <td>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Editar <span class="caret"></span>
+                                                                        </button>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><a href="#" class="trigger-edit-insumo-receta" data-receta="@insumo.recetaId" data-insumo="@insumo.insumoId" data-cantidad="@insumo.cantidad" data-unidad="@insumo.unidadMedidaId">Cambiar cantidades</a></li>
+                                                                            <li><a href="#" class="trigger-delete-insumo-receta" data-receta="@insumo.recetaId" data-insumo="@insumo.insumoId">Remover insumo</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- TIPO -->
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.TipoProducto, "Tipo de Producto", htmlAttributes: new { @class = "control-label" })
+                                        <select id="TipoProducto" name="TipoProducto" class="form-control" data-parsley-required>
+                                            @if (Model.TipoProducto == 0)
+                                            {
+                                                <option value="0" selected>Seleccionar</option>
+                                                <option value="1" title="Se puede configurar variedad y aplica receta.">Producto sencillo</option>
+                                                <option value="2" title="Se arma en base a productos sencillos, y toma la receta de los productos.">Combo</option>
+                                                <option value="3" title="Se arma en base a los productos sencillos y se configura su receta.">Producto armado</option>
+                                            }
+                                            else if (Model.TipoProducto == 1)
+                                            {
+                                                <option value="0">Seleccionar</option>
+                                                <option value="1" title="Se puede configurar variedad y aplica receta." selected>Producto sencillo</option>
+                                                <option value="2" title="Se arma en base a productos sencillos, y toma la receta de los productos.">Combo</option>
+                                                <option value="3" title="Se arma en base a los productos sencillos y se configura su receta.">Producto armado</option>
+                                            }
+                                            else if (Model.TipoProducto == 2)
+                                            {
+                                                <option value="0">Seleccionar</option>
+                                                <option value="1" title="Se puede configurar variedad y aplica receta.">Producto sencillo</option>
+                                                <option value="2" title="Se arma en base a productos sencillos, y toma la receta de los productos." selected>Combo</option>
+                                                <option value="3" title="Se arma en base a los productos sencillos y se configura su receta.">Producto armado</option>
+                                            }
+                                            else if (Model.TipoProducto == 3)
+                                            {
+                                                <option value="0">Seleccionar</option>
+                                                <option value="1" title="Se puede configurar variedad y aplica receta.">Producto sencillo</option>
+                                                <option value="2" title="Se arma en base a productos sencillos, y toma la receta de los productos.">Combo</option>
+                                                <option value="3" title="Se arma en base a los productos sencillos y se configura su receta." selected>Producto armado</option>
+                                            }
+                                        </select>
+                                        @Html.ValidationMessageFor(model => model.TipoProducto, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- VARIEDADES -->
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div id="row-variedades" class="hide">
+                                        <div class="col-md-8">
+                                            <label class="control-label">Variedades</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#modal-agregar-variedad" data-toggle="modal" class="btn btn-link m-sm pull-right">
+                                                <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                                                <b> Agregar variedad </b>
+                                            </a>
+                                        </div>
+                                        <table class="table col-md-12">
+                                            <thead>
+                                                <tr>
+                                                    <th>Imagen</th>
+                                                    <th>Descripción</th>
+                                                    <th class="text-right" data-orderable="false"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Variedades)
+                                                {
+                                                    <tr>
+                                                        <td class="col-lg-2"><img src="@item.Imagen" alt="" class="img-md"></td>
+                                                        <td class="vcenter">@Html.DisplayFor(modelItem => item.Nombre)</td>
+                                                        <td class="text-right">
+                                                            <button class="" name="editarVariedad" style="background: transparent; border: none" type="button"
+                                                                    data-button='{"Id": "@item.Id", "Nombre": "@item.Nombre", "Imagen": "@item.Imagen" }'>
+                                                                <img src="~/Content/img/editar.png" />
+                                                            </button>
+                                                            <button class="href-gray m-r-sm" name="eliminarVariedad" type="button" style="background: transparent; border: none"
+                                                                    data-button='{"Id": "@item.Id"}'>
+                                                                <img src="~/Content/img/borrar.png" />
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- CONFIGURACION -->
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div id="row-configuracion" class="hide">
+                                        <div class="col-md-8">
+                                            <label class="control-label">@(Model.EsGeneral ? "Combo configuración" : "Configurar producto armado")</label>
+                                            <input type="hidden" value="@Url.Action("ObtenerAgrupador")" id="url-get-agrupador" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="#" class="btn btn-link m-sm pull-right" id="button-add-agrupador">
+                                                <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                                                <b> Agregar configuración </b>
+                                            </a>
+                                        </div>
+                                        <table class="table col-md-12">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sección</th>
+                                                    <th>Extras</th>
+                                                    <th>Por separado</th>
+                                                    <th>Cantidad a seleccionar</th>
+                                                    <th>Cantidad de opciones</th>
+                                                    <th class="text-right " data-orderable="false"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Configuracion.Agrupadores)
+                                                {
+                                                    <tr>
+                                                        <td>@item.Descripcion</td>
+                                                        @if (item.PuedeAgregarExtra == true)
+                                                        {
+                                                            <td><img src="~/Content/Icons/check.png" style="height:24px" /></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><img src="~/Content/Icons/minus.png" style="height:24px" /></td>
+                                                        }
+                                                        @if (item.DebeConfirmarPorSeparado == true)
+                                                        {
+                                                            <td><img src="~/Content/Icons/check.png" style="height:24px" /></td>
+                                                        }
+                                                        else
+                                                        {
+                                                            <td><img src="~/Content/Icons/minus.png" style="height:24px" /></td>
+                                                        }
+                                                        <td>@item.Cantidad</td>
+                                                        <td>@(item.Opciones.Count())</td>
+                                                        <td class="text-right">
+                                                            <a href="#" class="btn-link m-r-md">
+                                                                <img src="~/Content/img/editar.png" class="trigger-edit-agrupador" data-id="@item.Id" data-desc="@item.Descripcion" style="height:18px" alt="" />
+                                                            </a>
+                                                            <a href="#" class="btn-link">
+                                                                <img src="~/Content/img/borrar.png" class="trigger-delete-agrupador" data-id="@item.Id" data-desc="@item.Descripcion" style="height:18px" alt="" />
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- PRECIO POR SUCURSALES -->
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div id="row-PrecioSucursales">
+                                        <div class="col-md-8" style="margin-bottom: 18px;">
+                                            <label class="control-label">Precio por Sucursales</label>
+                                        </div>
+                                        <input id="guardarPrecio" value="@Url.Action("GuardarNuevoPrecio", "Sucursales", null)" type="hidden" />
+                                        <table class="table col-md-12">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fecha</th>
+                                                    <th>Nombre</th>
+                                                    <th>Precio</th>
+                                                    <th class="text-right" data-orderable="false"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.PreciosSucursales.OrderBy(c => c.NombreSucursal))
+                                                {
+                                                    <tr>
+                                                        <td class="col-sm-2">@item.fechaRegistro.ToShortDateString()</td>
+                                                        <td class="col-sm-4">@Html.DisplayFor(modelItem => item.NombreSucursal)</td>
+                                                        <td class="control-orden" style="display:flex">
+                                                            <input hidden name="id" value="@item.idSucursalProducto" />
+                                                            <input class="form-control" rows="1" name="precio" style="width:22%" value="@item.Precio" />
+                                                            <img class="botton-precio-suc" src="~/Content/Icons/Actualizar.png" height="20" style="margin-top: 6px;" />
+                                                        </td>
+                                                        <td style="text-align: right;">
+                                                            @if (item.activo == true)
+                                                            {
+                                                                <button class="btn-link btn-sm m-r-n-xs" type="button" style="vertical-align:central" data-toggle="modal" data-target="#modal-estatus-inactivo-suc" data-id="@item.idSucursalProducto">
+                                                                    <img class="m-t-n-md" src="~/Content/img/on.png" style="height:24px;margin-top: 6px;" />
+                                                                </button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button class="btn-link btn-sm m-r-n-xs" type="button" data-toggle="modal" data-target="#modal-estatus-activo-suc" data-id="@item.idSucursalProducto">
+                                                                    <img class="m-t-n-md" src="~/Content/img/off.png" style="height:24px;margin-top: 6px;" />
+                                                                </button>
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- BOTONES GUARDAR/CANCELAR-->
+                            <div class="form-group">
+                                <div class="col-md-offset col-md-10">
+                                    <button type="button" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                                    @Html.ActionLink("Cancelar", "Home", new { f = ViewBag.familia }, new { @class = "btn btn-white one-click-button" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modal-eliminar">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar agrupador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> ¿Estás seguro que deseas eliminar el agrupador <span id="desc"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="form-eliminar" class="one-click-form" method="post" action="@Url.Action("EliminarVariedad")">
+                    @Html.HiddenFor(c => c.IdProducto)
+                    @Html.HiddenFor(c => c.CategoriaProductoId)
+                    <input name="idVariedadEliminar" id="idVariedadEliminar" type="hidden" />
+                    <button type="submit" class="btn btn-danger" id="btn-eliminar">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar-actualizar">Cerrar</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal" id="modal-editar-variedad">
+    <div class=" modal-dialog modal-lg" role="document">
+        <form action="@Url.Action("EditarVariedad")" id="form-editar-varidad" method="post" class="form-horizontal" data-parsley-validate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Editar Variedad</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            @Html.HiddenFor(c => c.IdProducto)
+                            @Html.HiddenFor(c => c.CategoriaProductoId)
+                            <div class="row">
+                                <input type="hidden" id="IdVariedadProducto" name="IdVariedadProducto" value="0" />
+                                <div class="col-lg-12">
+                                    <label>Descripción</label>
+                                    <input class="form-control" name="DescripcionEditar" id="DescripcionEditar" data-parsley-maxlength="100" data-parsley-required="true"
+                                           data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,100}" required />
+                                </div><br /><br /><br />
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <label>Imagen</label> <br />
+                                            <img id="imagesEditar" height="300">
+                                        </div><br /><br />
+                                        <div class="col-lg-6 col-lg-offset-1">
+                                            <label class="btn btn-primary" for="inputImagesEditar">
+                                                Cambiar imagen
+                                            </label>
+                                            <input type="file" accept="image/*" id="inputImagesEditar" class="hide">
+                                            <input type="hidden" name="ImagenEdit" id="ImagenEdit" class="hide">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-guardar-edit">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Modales recetas -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-receta">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="title-1">Agregar Receta Producto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 hide">
+                        <input type="hidden" id="url-submit-receta" value="@Url.Action("RecetaProducto", "Recetas")" />
+                        <form action="#" data-parsley-validate id="form-receta-producto">
+                            <input type="hidden" id="url-get-receta" value="@Url.Action("Receta", "Recetas")" />
+                            <input type="hidden" id="id" name="id" value="" />
+                            <input type="hidden" id="descripcion" name="descripcion" />
+                            <input type="hidden" id="productoId" name="productoId" />
+                            <div class="form-group">
+                                <label for="caducidad">Caducidad</label>
+                                <div class="input-group">
+                                    <input type="text" name="caducidad" id="caducidad" class="form-control"
+                                           data-inputmask-regex="[0-9]{0,6}" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-lte="90" data-parsley-lte-message="La caducidad no puede ser mayor a 90 días"
+                                           data-parsley-errors-container="#error-caducidad">
+                                    <div class="input-group-addon">días</div>
+                                </div>
+                                <small id="help-caducidad" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-caducidad"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="merma">Merma permitida</label>
+                                <input type="text" name="merma" id="merma" class="form-control"
+                                       data-inputmask-regex="^[0-9]{0,6}([\.][0-9]{0,2})?$" data-inputmask-greedy="false" data-parsley-required
+                                       data-parsley-errors-container="#error-merma">
+                                <small id="help-merma" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-merma"></span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label class="control-label">Insumos</label>
+                                </div>
+                                <div class="col-lg-6 text-right">
+                                    <a href="#" class="btn btn-link m-sm" id="btn-agregar-insumo-receta">
+                                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                                        <b> Agregar insumo </b>
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table table-striped" id="tabla-detalle-receta">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-guardar-receta">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-detalle-receta" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="title2">Modificar insumos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <input type="hidden" name="insumoId" id="insumoId" />
+                        <form action="@Url.Action("DetalleReceta2", "Recetas")" data-parsley-validate id="form-insumo-detalle">
+                            <input type="hidden" id="url-delete-detalle-receta" value="@Url.Action("EliminarDetalleReceta", "Recetas")" />
+                            <input type="hidden" id="url-search-unidad-minima" value="@Url.Action("BuscarUnidadMinima")" />
+                            <div class="form-group" id="row-insumo">
+                                <label for="insumoDetalle">Insumo</label>
+                                <input type="hidden" name="idReceta" value="@Model.IdReceta" />
+                                <input type="hidden" name="productoId" value="@Model.IdProducto" />
+
+
+                                <select id="insumoDetalle" name="insumoDetalle" class="form-control" data-live-search="true" data-size="6"
+                                        data-noneSelectedText="Seleccione..." data-parsley-required data-parsley-errors-container="#error-insumoDetalle">
+                                    <option value="">Seleccione...</option>
+                                    @foreach (var item in (SelectListItem[])ViewBag.Insumos)
+                                    {
+                                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                    }
+                                </select>
+                                <input type="hidden" id="unidad" name="unidad" />
+                                <small id="help-insumoDetalle" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-insumoDetalle"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad (<span id="medida-descripcion"></span>)</label>
+                                <div class="input-group">
+                                    <input type="text" name="cantidad" id="cantidad" class="form-control" onkeyup="setValue(this.value);"
+                                           data-inputmask-regex="[0-9,]{0,10}([.][0-9]{0,2})?" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-errors-container="#error-cantidad">
+                                </div>
+                                <small id="help-cantidad" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-cantidad"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-guardar-insumo-producto">Guardar</button>
+                <button type="button" class="btn btn-default" id="btn-cancelar-insumo-producto" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+<!-- MODAL AGRUPADOR -->
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-add-agrupador">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form class="col-12 one-click-form" method="post" id="form-agregar-agrupador" action="@Url.Action("ConfigurarAgrupador2")" data-parsley-validate
+                  data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div style="display:flex;">
+                        <h4 class="modal-title">Agregar configuración</h4>  &nbsp;<h4 style="margin:0; line-height:1.42857143;"> - @ViewBag.NombreProducto</h4>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="row form-inline">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre</label>
+                                    <div class="">
+                                        @Html.HiddenFor(c => c.IdProducto)
+                                        @Html.HiddenFor(c => c.Tipo)
+
+                                        <input type="hidden" name="familia" value="@ViewBag.familia" />
+                                        <input type="hidden" name="Indice" value="0" />
+                                        <input type="hidden" value="" name="Id" id="Id" />
+                                        <input type="text" name="Descripcion" id="Descripcion" class="form-control m-b-sm"
+                                               data-inputmask-greedy="false" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ\.\-,'0-9 ]{0,50}"
+                                               data-parsley-required="true" data-parsley-errors-container="error-Descripcion"
+                                               style="width:350px" />
+                                        <span class="text-danger" id="error-Descripcion"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label ">Cantidad</label>
+                                    <div class="">
+                                        <input type="text" name="Cantidad" id="Cantidad" class="form-control m-b-sm"
+                                               data-inputmask-greedy="false" data-inputmask-regex="[0-9]{0,2}" style="width:50px"
+                                               data-parsley-required="true" data-parsley-errors-container="error-Cantidad" />
+                                        <span class="text-danger" id="error-Cantidad"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row hide form-inline">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Indice</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="Indice" class="form-control m-b-sm"
+                                               data-inputmask-greedy="false" data-inputmask-regex="[0-9]{0,50}"
+                                               data-parsley-required="true" data-parsley-errors-container="error-Indice" />
+                                        <span class="text-danger" id="error-Indice"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">¿Puede agregar extras?</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="PuedeAgregarExtra" id="PuedeAgregarExtra1" value="1" class="m-r-md"> Si
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="PuedeAgregarExtra" id="PuedeAgregarExtra0" value="0" checked=""> No
+                                        </label>
+                                        <span class="text-danger" id="error-PuedeAgregarExtra"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">¿Puede solicitar por separado?</label>
+                                    <div class="">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="DebeConfirmarPorSeparado" id="DebeConfirmarPorSeparado1" value="1" class="m-r-md"> Si
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="DebeConfirmarPorSeparado" id="DebeConfirmarPorSeparado0" value="0" checked=""> No
+                                        </label>
+                                        <span class="text-danger" id="error-DebeConfirmarPorSeparado"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row form-inline">
+                            <div class="col-md-12">
+                                <div class="form-group hide" id="row-precio">
+                                    <label class="control-label">Costo del extra</label>
+                                    <div class="">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" name="CostoExtra" id="CostoExtra" class="form-control"
+                                                   data-inputmask-greedy="false" data-inputmask-regex="[0-9]{0,6}([\.][0-9]{0,2})?"
+                                                   data-parsley-required="true" data-parsley-errors-container="error-CostoExtra" />
+                                        </div>
+                                        <span class="text-danger" id="error-CostoExtra"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <div class="col-md-12 p-lg">
+                                        <select id="Opciones" class="form-control dual_select" name="Opciones" multiple
+                                                data-parsley-required data-parsley-errors-container="#error-Opciones"
+                                                data-parsley-mincheck="1" data-parsley-required-message="Debes seleccionar por lo menos uno"
+                                                style="height:350px">
+                                            @foreach (var item in (SelectListItem[])ViewBag.OpcionesInsumosProductos)
+                                            {
+                                                <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                            }
+                                        </select>
+                                        <span id="error-Opciones"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="datos-url" value="@Url.Action("ObtenerDatosSeccion2")" />
+                    </div>
+                </div> <!-- /.modal-body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" onclick="EnableDesc()" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal" id="modal-eliminar-config">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar configuración</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> ¿Estás seguro que deseas eliminar la configuración <span id="desc"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="form-eliminar" class="one-click-form" method="post" action="@Url.Action("EliminarAgrupador2")">
+                    @Html.HiddenFor(c => c.IdProducto)
+                    @Html.HiddenFor(c => c.Tipo)
+                    <input type="hidden" name="familia" value="@ViewBag.familia" />
+                    <input name="id" id="id-eliminar-config" type="hidden" />
+                    <button type="submit" class="btn btn-danger" id="btn-eliminar">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar-actualizar">Cerrar</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<div class="modal" id="modal-confirmar-cambio-tipo" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cambiar tipo de producto</h5>
+            </div>
+            <div class="modal-body">
+                <p> ¿Estás seguro que deseas cambiar el tipo de producto<span id="desc"></span>?</p>
+                <p> Al cambiar de tipo de producto es posible que pierdas la configuración actual </p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" id="btn-confirmar-cambio">Cambiar tipo</button>
+                <button type="button" class="btn btn-secondary" id="btn-revertir-cambio">Cerrar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+@Html.Partial("Modales/ModalAgregarVariedad")
+@Html.Partial("KardexProducto/VariedadesProducto/EliminarVariedadProducto")
+@Html.Partial("Modales/ModalActivoSucursal")
+@Html.Partial("Modales/ModalInactivoSucursal")
+@*@Html.Partial("KardexProducto/VariedadesProducto/ModalEditarVariedad")*@
+
+@section Scripts{
+    <script src="~/Scripts/app/Productos2/Edit.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            // Clic en actualizar precio de por sucursal
+            $('.botton-precio-suc').on('click', function (evento) {
+                var $contenedor = $(evento.target).parent('.control-orden');
+                var id = $contenedor.find('input[name = "id"]').val();
+                var precios = $contenedor.find('input[name = "precio"]').val();
+                var parametro = { id: id, precio: precios };
+                console.log(parametro);
+                $.ajax({
+                    type: "POST",
+                    url: $('#guardarPrecio').val(),
+                    dataType: 'json',
+                    data: parametro
+                }).done(function (response) {
+                    if (response != null && response.exito) {
+                        try {
+                            window.location.reload();
+                        }
+                        catch (err) {
+                            console.error(err);
+                        }
+                    }
+                    else {
+                        alert("Ocurrio un error, contacte a su administrador.");
+                    }
+                });
+            });
+            // Al seleccionar el boton de Activar producto
+            $("#modal-estatus-activo-suc").on("show.bs.modal",
+                function (event) {
+                    var $button = $(event.relatedTarget);
+                    var id = $button.data("id");
+                    $("#modal-estatus-activo-suc #idSucursalProducto").val(id);
+                    $("#modal-estatus-activo-suc #familiaRedirect").val(@ViewBag.familia);
+                });
+            // Al al seleccionar el boton de inactivar producto
+            $("#modal-estatus-inactivo-suc").on("show.bs.modal",
+                function (event) {
+                    var $button = $(event.relatedTarget);
+                    var id = $button.data("id");
+                    $("#modal-estatus-inactivo-suc #idSucursalProducto").val(id);
+                    $("#modal-estatus-inactivo-suc #familiaRedirect").val(@ViewBag.familia);
+                });
+        });
+
+        $("#form-insumo-detalle").on("submit", function () {
+            return true;
+        });
+
+        function setValue(value) {
+
+            var field = document.getElementById('cantidad');
+
+            var start = field.selectionStart, end = field.selectionEnd;
+            $("input[name=Reference]").val(field.value);
+
+            field.value = Comma(value);
+
+            field.setSelectionRange(start, end);
+        }
+
+        function Comma(Num) {
+
+            var number = parseInt(Num.replace(',', ''));
+
+            if (Number.isInteger(number)) {
+                Num += '';
+                Num = Num.replace(',', '');
+                Num = Num.replace(',', '');
+                Num = Num.replace(',', '');
+                Num = Num.replace(',', '');
+                Num = Num.replace(',', '');
+                Num = Num.replace(',', '');
+                x = Num.split('.');
+                x1 = x[0];
+                x2 = x.length > 1 ? '.' + x[1] : '';
+                var rgx = /(\d+)(\d{3})/;
+                while (rgx.test(x1))
+                    x1 = x1.replace(rgx, '$1' + ',' + '$2');
+
+                return x1 + x2;
+            }
+        }
+
+    </script>
+    <script>
+        //var idRecetaAbierta = @(Model.IdReceta.HasValue ? Html.Raw(Model.IdReceta.Value) : Html.Raw("null"));
+        var idRecetaAbierta = null;
+        var InsumoReceta = [@(string.Join(",",Model.DetalleRecetas?.Select(c=>c.insumoId)))]
+        $(document).ready(function () {
+            $("#indice").inputmask();
+            var tipo = $('#TipoProducto').val();
+            if (tipo == 1 ) {
+                $("#row-variedades").removeClass("hide");
+            }
+        });
+
+        $("#categoriaIngredienteId").change(function () {
+            var idSeccion = $(this).val();
+            var texto = $('#categoriaIngredienteId option:selected').text();
+            $('#Descripcion').val(texto);
+
+            var parametro = { id: idSeccion };
+            console.log(parametro);
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ObtenerDatosSeccion", "Menu")',
+                dataType: 'json',
+                data: parametro
+            }).done(function (response) {
+                if (response != null && response.exito) {
+                    $("#Opciones").empty();
+                    var select = document.getElementById("Opciones");
+                    for (x = 0; x < response.data.length; x++)
+                    {
+                        var option = document.createElement("option");
+                        option.text = "" + response.data[x].nombre;
+                        option.value = response.data[x].idInsumo;
+                        select.add(option);
+                    }
+                    $("#Opciones").bootstrapDualListbox("refresh");
+                }
+                else {
+                    alert("Ocurrio un error, contacte a su administrador.");
+                }
+            });
+
+        });
+
+        function EnableDesc() {
+            document.getElementById("Descripcion").disabled = false;
+        }
+        var tipo = @Model.TipoProducto;
+    </script>
+}
+@section Styles{
+    <link rel="stylesheet" href="~/Content/Plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .img-container,
+        .img-preview {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+}

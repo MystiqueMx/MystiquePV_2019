@@ -1,0 +1,279 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Reportes"))
+{
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-6">
+            <h2>Reportes</h2>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated">
+        <!-- PUNTO DE VENTA -->
+        <div class="row" style="margin-top: -30px;">
+            <h2 style="margin-left:20px;">Punto de venta</h2>
+        </div>
+
+        <div class="row">
+            <!-- REPORTE DE VENTAS -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteVentas", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Ventas</a>
+                        <div>
+                            Presenta el detalle de las ventas realizadas organizadas por dias y separadas por cortes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE DE VENTAS POR HORA -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteVentasPorHora", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Ventas por hora</a>
+                        <div>
+                            Presenta el detalle de las ventas realizadas organizadas por dias y separadas por cortes.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE DE VENTAS GRAFICAS -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteVentasGraficas", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Ventas gráficas</a>
+                        <div>
+                            Presenta el detalle de las ventas realizadas organizadas en gráficas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE CORTE Z -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteCorteZ", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Corte Z</a>
+                        <div>
+                            Presenta el listado de las Ventas en Corte Z.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <!-- REPORTE DE AGRUPADOR CONSUMOS -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteConsumoAgrupado", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Consumo X Familia</a>
+                        <div>
+                            Presenta la informacion acerca del % que representa las familias a las ventas, la frecuencia por familia y producto.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE DE CANCELADOS -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteCancelados", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Cancelaciones</a>
+                        <div>
+                            Presenta el listado de los movimientos realizados en Cancelaciones.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE CxC -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteCxC", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">CxC</a>
+                        <div>
+                            Presenta el detalle de consumos realizados por los empleados de la sucursal.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE CORTE DETALLADO -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteCorteDetallado", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Corte detallado</a>
+                        <div>
+                            Presenta el detalle de los cortes de cada turno.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <!--REPORTE RECETA PRODUCTO CONTEO MANUAL-->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteRecetaProductoConteoManual", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Consumo x venta</a>
+                        <div>
+                            Presenta el detalle del conteo manual de los productos de las recetas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--REPORTE ARQUEO-->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "Arqueos")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Arqueo</a>
+                        <div>
+                            Presenta los arqueos que se han hecho por fechas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- REPORTE GASTOS CAJA -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteGastosCaja", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Gastos caja</a>
+                        <div>
+                            Presenta el detalle de los gastos realizados por sucursal.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FIDELIZACION -->
+        @*<div class="row" style="margin-top: -20px;">
+                <h2 style="margin-left:20px;">Fidelización</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("ReporteClientes", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Usuarios registrados</a>
+                            <div>
+                                Usuarios que se registraron por medio de la APP.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("ReporteCanjeados", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Canjeados</a>
+                            <div>
+                                Productos canjeados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("ReporteCompras", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Compras</a>
+                            <div>
+                                Puntos sumados en base a compras.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("ReporteBeneficios", "Reportes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Beneficios</a>
+                            <div>
+                                Beneficios aplicados en caja.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+        @*<div class="row">
+                <div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("Index", "facturaClientes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Factura</a>
+                            <div>
+                                Factura.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+}
+@section Styles{
+    <style>
+        .btn-catalogos {
+            color: black;
+            font-size: small;
+            font-weight: bold;
+        }
+
+            .btn-catalogos:hover {
+                color: #20B193;
+                font-size: small;
+                font-weight: bold;
+            }
+    </style>
+}
+
+

@@ -1,0 +1,458 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.configuracionSistema
+
+
+@{
+    ViewBag.Title = "Detalles";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Detalles</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Listado", "Index")
+            </li>
+            <li class="active">
+                <strong>Detalles</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Detalles configuracionSistema</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diasFechasFiltros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diasFechasFiltros)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txtVincularMembresiaApp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txtVincularMembresiaApp)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urlTerminosCondiciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlTerminosCondiciones)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefonoContacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefonoContacto)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correoContacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correoContacto)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txtSolicitarBeneficioAbajo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txtSolicitarBeneficioAbajo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txtTerminosCondiciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txtTerminosCondiciones)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.txtSoporte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.txtSoporte)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.costoMembresia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.costoMembresia)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conektaPublicKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conektaPublicKey)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conektaPrivateKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conektaPrivateKey)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conektaApiVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conektaApiVersion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaInicioMembresia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaInicioMembresia)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaFinMembresia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaFinMembresia)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ftpPerfil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ftpPerfil)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ftpUser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ftpUser)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ftpPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ftpPassword)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.versionAndroid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.versionAndroid)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.versionAndroidTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.versionAndroidTest)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.versioniOS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.versioniOS)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.versioniOSTest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.versioniOSTest)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vrlPublicacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vrlPublicacion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dedicadoAComercio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dedicadoAComercio)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tienePaginaVinculacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tienePaginaVinculacion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tienePaginaConekta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tienePaginaConekta)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tienePaginaPuntos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tienePaginaPuntos)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modoTiempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modoTiempo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tiempoProgramado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tiempoProgramado)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tiempoIntervalo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tiempoIntervalo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.intervaloZonaCS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.intervaloZonaCS)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tituloCompartir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tituloCompartir)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contenidoCompartir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contenidoCompartir)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idQDC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idQDC)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mostrarComercios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mostrarComercios)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mostrarSucursales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mostrarSucursales)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.empresas.guidEmpresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.empresas.guidEmpresa)
+        </dd>
+
+
+    </dl>
+
+
+	
+    @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Edit"))
+        {  
+			@Html.ActionLink("Editar", "Edit", new { id = Model.configuracionSistemaId }, new { @class = "btn btn-primary"})
+	    }
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white"})
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

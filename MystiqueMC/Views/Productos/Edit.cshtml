@@ -1,0 +1,170 @@
+﻿@model MystiqueMC.DAL.recompensas
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    ViewBag.Title = "Editar producto";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Editar Producto Canje</h2>
+    </div>
+</div>
+    
+<div class="wrapper wrapper-content animated fadeInRight">
+    @using (Html.BeginForm("Edit", "Productos", FormMethod.Post, new {id = "form-editar-recompensa", data_parsley_validate = "true", autocomplete="off" }))
+    {
+        
+        <div class="row">
+            <div class="col-lg-12" id="container-alerts"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <div class="col-md-12">
+                            <input type="hidden" name="IdRecompensa" value="@Model.idRecompesa" />
+                            <input type="hidden" name="IdProducto" value="@Model.productoId" />
+                            <div class="form-group col-md-6">
+                                <label for="catProductos">Familia producto</label>
+                                <input name="catProductos" type="text" class="form-control" readonly maxlength=100 value="@Model.CategoriaProductos.descripcion"
+                                       data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,100}" data-inputmask-greedy="false"
+                                       data-parsley-required data-parsley-maxlength="100" data-parsley-errors-container="#categoriaInsumoId-error" />
+                                <div class="row">
+                                    <span for="catProductos" id="categoriaInsumoId-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Nombre">Nombre del producto</label>
+                                <input name="Nombre" type="text" class="form-control" readonly maxlength=100 value="@Model.catProductos.nombre"
+                                       data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,100}" data-inputmask-greedy="false"
+                                       data-parsley-required data-parsley-maxlength="100" data-parsley-errors-container="#nombre-error" />
+                                <span for="Nombre" id="nombre-error"></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group col-lg-6">
+                                <label for="Vigencia">Vigencia</label>
+                                <div class="input-group input-daterange" data-provide="datepicker" data-date-language="es"
+                                     data-date-autoclose="true" data-date-orientation="bottom">
+                                    <input name="VigenciaStart" type="text" class="form-control" value="@Model.fechaInicio.GetValueOrDefault().ToShortDateString()"
+                                           data-parsley-required data-inputmask-mask="99/99/9999">
+                                    <div class="input-group-addon">a</div>
+                                    <input name="VigenciaEnd" type="text" class="form-control" value="@Model.fechaFin.GetValueOrDefault().ToShortDateString()"
+                                           data-parsley-required data-inputmask-mask="99/99/9999">
+                                    <span for="Vigencia" id="vigencia-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Descripcion">Descripción</label>
+                                <input name="Descripcion" type="text" class="form-control" maxlength=200 value="@Model.catProductos.descripcion"
+                                       data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,200}" data-inputmask-greedy="false"
+                                       data-parsley-required data-parsley-maxlength="200" data-parsley-errors-container="#descripcion-error" />
+                                <span for="Descripcion" id="descripcion-error"></span>
+                            </div>
+                            <div class="form-group col-lg-3 hidden">
+                                <label for="Precio">Precio</label>
+                                <div class="input-group">
+                                    <input name="Precio" type="text" class="form-control" data-inputmask-regex="[0-9]{0,200}" value="@Model.valor"
+                                           data-inputmask-greedy="false" data-parsley-required data-parsley-maxlength="200"
+                                           data-parsley-gt="0">
+                                    <div class="input-group-addon">pts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-6" style="padding-left: 0px;">
+                        <div class="col-lg-4" style="width: 25.333333%;padding-left: 0px;">
+                            <div class="text-center" style="width:150px;height:115px;background-color:#E1E1E1;padding-top: 30px;margin-top: 20px;">
+                                <span style="font-size:12.5px"><b>Precio Venta</b></span><br />
+                                <span style="font-size:32px">$@Model.catProductos.Productos.precio</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" style="width: 25.333333%;padding-left: 0px;">
+                            <div class="text-center" style="width:150px;height:115px;background-color:#E1E1E1;padding-top: 30px;margin-top: 20px;">
+                                <span style="font-size:12.5px"><b>Puntos para Canje</b></span><br />
+                                <span style="font-size:32px">@String.Format("{0:0,0.0}", Model.valor) pts</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" style="width: 25.333333%;padding-left: 0px;">
+                            <div class="text-center" style="width:300px;height:115px;background-color:#E1E1E1;padding-top: 30px;margin-top: 20px;">
+                                <span style="font-size:12.5px"><b>Para canjearlo el cliente tendrá que consumir</b></span><br />
+                                <span style="font-size:32px">$@String.Format("{0:C}", Model.consumirCanje)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-3 hidden">
+                        <label for="Configuracion">Configuración Punto de Venta</label>
+                        <input name="Configuracion" type="text" class="form-control" maxlength=20
+                               data-inputmask-regex="[0-9]{0,20}" data-inputmask-greedy="false" value="@Model.catProductos.confProductoPVEquivalencia.FirstOrDefault().productoPuntoVentaId"
+                               data-parsley-required data-parsley-maxlength="20" data-parsley-errors-container="#Configuracion-error" />
+                        <span for="Configuracion" id="Configuracion-error"></span>
+                    </div>
+                    <div class="form-group col-lg-12 hidden">
+                        <label for="Comercio">Comercio</label>
+                        <input type="text" class="form-control" readonly="" value="@Model.catProductos.comercios.nombreComercial" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5">
+                <label>Imagen del producto</label> <br />
+                <img id="image" height="300" src="@HOSTNAME_IMAGENES@Model.catProductos.imagen">
+                
+                <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage")" />
+                <input type="hidden" id="ImageUrl" name="imageUrl" value="@Model.catProductos.imagen" />
+            </div>
+            <div class="col-lg-6 col-lg-offset-1">
+                <label>Vista Previa</label>
+                <div class="img-preview" style="height:200px;width:267px;"></div>
+                <label class="btn btn-success m-md" for="inputImage">
+                    Cambiar imagen
+                </label>
+                <input type="file" accept="image/*" id="inputImage" class="hide">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <button type="button" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                <a href="@Url.Action("Fidelizacion","Home", new { tabID="canjes_button"})" class="btn btn-white m-r-sm">Cancelar</a>
+
+                <div id="spinner" class="spiner-example" style="display:none;">
+                    <div class="sk-spinner sk-spinner-circle">
+                        <div class="sk-circle1 sk-circle"></div>
+                        <div class="sk-circle2 sk-circle"></div>
+                        <div class="sk-circle3 sk-circle"></div>
+                        <div class="sk-circle4 sk-circle"></div>
+                        <div class="sk-circle5 sk-circle"></div>
+                        <div class="sk-circle6 sk-circle"></div>
+                        <div class="sk-circle7 sk-circle"></div>
+                        <div class="sk-circle8 sk-circle"></div>
+                        <div class="sk-circle9 sk-circle"></div>
+                        <div class="sk-circle10 sk-circle"></div>
+                        <div class="sk-circle11 sk-circle"></div>
+                        <div class="sk-circle12 sk-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Scripts/app/Productos/Edit.js"></script>
+}
+@section Styles{
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet"  type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+}

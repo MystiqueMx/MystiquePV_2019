@@ -1,0 +1,63 @@
+﻿@using MystiqueMC.Helpers
+@{
+    MystiqueMC.DAL.usuarios Usuario = Session.ObtenerUsuario();
+    string nombreUsuario = string.Empty;
+    string rol = Session.ObtenerRol();
+    if (Usuario != null) { nombreUsuario = string.Format("{0} {1}", Usuario.nombre, Usuario.paterno); }
+}
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+
+                                @if (Session.TieneSesionActiva())
+                                {
+                                    <strong class="font-bold">
+                                        @nombreUsuario
+                                    </strong>
+                                }
+                                else
+                                {
+                                    <strong class="font-bold">
+                                        No has iniciado sesión...
+                                    </strong>
+                                }
+                            </span> 
+                            <span class="text-muted text-xs block">
+                                @if (Session.TieneSesionActiva())
+                                {
+                                    @rol
+                                    <b class=""></b>
+                                }
+                            </span>
+                        </span>
+                    </a>
+                    @*<ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        @if (Session.TieneSesionActiva())
+                        {
+                            <li><a href="#" onclick="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+                        }
+
+                    </ul>*@
+                </div>
+                <div class="logo-element">
+                    <img src="~/Content/img/logo_mystique2.png" height="50" alt="Mystique" class="Login-logo">
+                </div>
+            </li>
+            @if (Session.TieneSesionActiva())
+            {
+                Html.RenderPartial("_NavigationMenu");
+            }
+            else
+            {
+                @*<li class="@Html.IsSelected(action: "Login")">
+                    <a href="@Url.Action("Login", "Account")"><i class="fa fa-sign-in"></i> <span class="nav-label">Iniciar sesión</span></a>
+                </li>*@
+            }
+        </ul>
+    </div>
+</nav>

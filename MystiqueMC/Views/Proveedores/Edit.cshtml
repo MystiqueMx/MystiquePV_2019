@@ -1,0 +1,61 @@
+﻿@model MystiqueMC.DAL.Proveedores
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Editar Proveedor</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Edit", "Proveedores", FormMethod.Post, new { @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.idProveedor)
+                            @Html.HiddenFor(model => model.comercioId)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.descripcion, "Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control",
+                                   data_parsley_maxlength = "120",
+                                   data_parsley_required = "true",
+                                   data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,120}",
+                                   maxlength = "120",
+                                   data_parsley_errors_container = "#descripcion-error"
+                                   } })
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="descripcion-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+}

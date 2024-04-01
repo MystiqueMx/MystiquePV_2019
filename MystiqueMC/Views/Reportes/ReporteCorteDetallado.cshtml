@@ -1,0 +1,257 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model IEnumerable<MystiqueMC.DAL.SP_PV_Reporte_Cortes_Detallado_Result>
+@{
+    ViewBag.Title = "Reporte Corte Detallado";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Reporte Corte Detallado</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style="background-color:transparent;border-width:0px; margin-top:-15px">
+
+                    <div class="row">
+                        @using (Html.BeginForm())
+                        {
+                            <div class="form-group col-md-3" style="margin-left:-20pt">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
+
+                                    @Html.DropDownList("Sucursales", ViewBag.Sucursales as SelectList, "SELECCIONE", new { @class = "form-control input-sm" })
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-5" style="margin-left:-20pt">
+                                <div class="input-group input-daterange">
+                                    @*FECHA INICIO*@
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Fecha:</b></span>
+                                    <input autocomplete="off" type="text" class="form-control input-sm" id="fecha" name="fecha1" value="@ViewBag.fechaInicio">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                    @*FECHA FIN*@
+                                    <span class="input-group-addon" style="color:#6C6A67; background-color:transparent; border-color:transparent;"><b>A</b></span>
+                                    <input autocomplete="off" type="text" class="form-control input-sm" id="fecha2" name="fecha2" value="@ViewBag.fechaFin">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <span class="input-group-btn">
+                                    <button style="width:100%" class="btn btn-primary btn-sm" type="submit">Buscar</button>
+                                </span>
+                            </div>
+                        }
+                        <div class="col-md-1 pull-right">
+                            <button id="ButtonExcel" style="width:100%" class="btn btn-primary" onclick="$('#realExcel').click()">
+                                Excel &nbsp;
+
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table id="ContentTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Fecha
+                                    </th>
+                                    <th>
+                                        Rango Hora
+                                    </th>
+                                    <th>
+                                        Corte
+                                    </th>
+                                    <th class="text-right">
+                                        Saldo Dólares
+                                    </th>
+                                    <th class="text-right">
+                                        Arqueo Dólares
+                                    </th>
+                                    <th class="text-right">
+                                        Efectivo
+                                    </th>
+
+                                    <th class="text-right">
+                                        Tarjeta
+                                    </th>
+                                    <th class="text-right">
+                                        CxC
+                                    </th>
+                                    <th class="text-right">
+                                        Gastos
+                                    </th>
+                                    <th class="text-right">
+                                        Venta
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.ValueFor(modelItem => item.Fecha, "{0:dd/MM/yyyy HH:mm tt}")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RangoHora)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Corte)
+                                        </td>
+                                        <td class="text-right">
+                                            @item.SaldoDolares.Value.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.ArqueoDolares.Value.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.Deposito_Bancario.Value.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.Tarjeta.Value.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.CxC.Value.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.Gastos.Value.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+
+                                            @item.Venta.Value.ToString("N2")
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-right" colspan="3">
+                                        Totales:
+                                    </th>
+                                    <td class="text-right">@Model.Sum(i => i.SaldoDolares).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.ArqueoDolares).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.Deposito_Bancario).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.Tarjeta).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.CxC).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.Gastos).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.Venta).Value.ToString("N2")</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @Html.ActionLink("Regresar", "Index", "Reportes", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#ContentTable').DataTable({
+                "dom": '<lB<t>ip>',
+                "ordering": false,
+                "buttons": [
+                    {
+                        extend: 'excelHtml5',
+                        text: '<span id="realExcel" style="display:none" class="btn btn-primary btn-sm">Excel<span>',
+                        titleAttr: ''
+                    },
+                ],
+                "pageLength": 100,
+                "language": {
+                    "search": "Buscar   ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#fecha').datepicker({
+                language: 'es',
+                Format: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+        jQuery(document).ready(function ($) {
+            $('#fecha2').datepicker({
+                language: 'es',
+                Format: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+    </script>
+
+    <script>
+        $('#fecha').on("change", function () {
+            var startVal = $('#fecha').val();
+            $('#fecha2').data('datepicker').setStartDate(startVal);
+        });
+        $('#fecha2').on("change", function () {
+            var endVal = $('#fecha2').val();
+            $('#fecha').data('datepicker').setEndDate(endVal);
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.input-daterange').datepicker({
+            });
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+
+

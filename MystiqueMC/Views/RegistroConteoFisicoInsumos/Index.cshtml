@@ -1,0 +1,159 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model IEnumerable<MystiqueMC.DAL.RegistroConteoFisicoInsumos>
+
+@{
+    ViewBag.Title = "Index";
+
+}
+<div>
+    <div class="col-sm-6" style="margin-bottom:-33px">
+        <h2>Conteo Fisico Insumo <b>@ViewBag.nombre</b></h2>
+    </div>
+</div>
+
+<form action="@Url.Action("RegistroConteoFisicoInsumos")" method="post" id="registro-conteo-insumo" data-parsley-validate>
+    @if (Model.Count() != 0)
+    {
+        <div class="form-group" style="margin-bottom:-6px">
+            <input type="submit" value="Actualizar" class="btn btn-primary" style="margin-bottom:1px;margin-left:92%" />
+        </div>
+    }
+    else
+    {
+        <div class="form-group" style="margin-bottom:-6px">
+            <input type="submit" value="Actualizar" class="btn btn-primary" style="margin-bottom:1px;margin-left:92%" disabled />
+        </div>
+    }
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            @*AL LLEGAR*@
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <label class="control-label text-center"><b style="font-size:20px;margin-left:250px">Al llegar</b></label>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Descripción</th>
+                                    <th class="text-center">Cantidad</th>
+                                    <th class="text-center">Unidad de Medida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Where(c => c.conteoFisicoTipoRegistroId == 1))
+                                {
+                                    <tr>
+                                        <input type="hidden" id="idRegistroConteoFisicoLlegar" name="idRegistroConteoFisicoLlegar" value="@item.idRegistroConteoFisicoInsumo" />
+                                        <td class="col-lg-4 text-center">@item.ConteoFisicoInsumos.descripcion</td>
+                                        <td class="col-lg-4"><input class="form-control text-center" type="text" name="cantidadAllegar" id="cantidadAllegar" data-parsley-type="number" data-inputmask-regex="[0-9]{0,5}\.{0,1}[0-9]{0,2}" data-inputmask-greedy="false" placeholder="0" value="@item.cantidad" /></td>
+                                        <td class="col-lg-4 text-center">@item.descripcionUnidadMedida</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @*MERMA*@
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <label class="control-label text-center"><b style="font-size:20px;margin-left:250px">Merma</b></label>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Descripción</th>
+                                    <th class="text-center">Cantidad</th>
+                                    <th class="text-center">Unidad de Medida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Where(c => c.conteoFisicoTipoRegistroId == 2))
+                                {
+                                    <tr>
+                                        <input type="hidden" id="idRegistroConteoFisicoMerma" name="idRegistroConteoFisicoMerma" value="@item.idRegistroConteoFisicoInsumo" />
+                                        <td class="col-lg-4 text-center">@item.ConteoFisicoInsumos.descripcion</td>
+                                        <td class="col-lg-4"><input class="form-control text-center" type="text" name="CantidadMerma" id="CantidadMerma" data-parsley-type="number" data-inputmask-regex="[0-9]{0,5}\.{0,1}[0-9]{0,2}" data-inputmask-greedy="false" placeholder="0" value="@item.cantidad" /></td>
+                                        <td class="col-lg-4 text-center">@item.descripcionUnidadMedida</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @*ENTRADA*@
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <label class="control-label text-center"><b style="font-size:20px;margin-left:250px">Entrada</b></label>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Descripción</th>
+                                    <th class="text-center">Cantidad</th>
+                                    <th class="text-center">Unidad de Medida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Where(c => c.conteoFisicoTipoRegistroId == 3))
+                                {
+                                    <tr>
+                                        <input type="hidden" id="idRegistroConteoFisicoEntrada" name="idRegistroConteoFisicoEntrada" value="@item.idRegistroConteoFisicoInsumo" />
+                                        <td class="col-lg-4 text-center">@item.ConteoFisicoInsumos.descripcion</td>
+                                        <td class="col-lg-4"><input class="form-control text-center" type="text" name="CantidadEntrada" id="CantidadEntrada" data-parsley-type="number" data-inputmask-regex="[0-9]{0,5}\.{0,1}[0-9]{0,2}" data-inputmask-greedy="false" placeholder="0" value="@item.cantidad" /></td>
+                                        <td class="col-lg-4 text-center">@item.descripcionUnidadMedida</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            @*AL CERRAR*@
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <label class="control-label text-center"><b style="font-size:20px;margin-left:250px">Al cerrar</b></label>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Descripción</th>
+                                    <th class="text-center">Cantidad</th>
+                                    <th class="text-center">Unidad de Medida</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Where(c => c.conteoFisicoTipoRegistroId == 4))
+                                {
+                                    <tr>
+                                        <input type="hidden" id="idRegistroConteoFisicoCerrar" name="idRegistroConteoFisicoCerrar" value="@item.idRegistroConteoFisicoInsumo" />
+                                        <td class="col-lg-4 text-center">@item.ConteoFisicoInsumos.descripcion</td>
+                                        <td class="col-lg-4"><input class="form-control text-center" type="text" name="CantidadAlCerrar" id="CantidadAlCerrar" data-parsley-type="number" data-inputmask-regex="[0-9]{0,5}\.{0,1}[0-9]{0,2}" data-inputmask-greedy="false" placeholder="0" value="@item.cantidad" /></td>
+                                        <td class="col-lg-4 text-center">@item.descripcionUnidadMedida</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset col-md-10">
+                @Html.ActionLink("Regresar", "Index", "ConteoFisicoAgrupadorInsumos", null, new { @class = "btn btn-white" })
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,576 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+
+}
+@model MystiqueMC.Models.Sucursal.SucursalViewModel
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Editar Sucursal</h2>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+@using (Html.BeginForm("Edit", "sucursales", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+{
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.comercioId)
+                @Html.HiddenFor(model => model.idDatoFiscal)
+                @Html.HiddenFor(model => model.idSucursal)
+                @Html.HiddenFor(model => model.idDireccion)
+                @Html.HiddenFor(model => model.idSucursalHorarioLunes)
+                @Html.HiddenFor(model => model.idSucursalHorarioMartes)
+                @Html.HiddenFor(model => model.idSucursalHorarioMiercoles)
+                @Html.HiddenFor(model => model.idSucursalHorarioJueves)
+                @Html.HiddenFor(model => model.idSucursalHorarioViernes)
+                @Html.HiddenFor(model => model.idSucursalHorarioSabado)
+                @Html.HiddenFor(model => model.idSucursalHorarioDomingo)
+
+
+                <input type="hidden" name="comercioId" value="@ViewBag.idcomecio" />
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Nombre Sucursal</label>
+                            <input name="nombre" id="nombre" type="text" class="form-control" maxlength="50" value="@Model.nombre" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
+                                   data-parsley-required data-parsley-maxlength="50" autocomplete="off" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Calle</label>
+                            <input name="calle" id="calle" type="text" class="form-control" maxlength="50" value="@Model.calle" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
+                                   data-parsley-required data-parsley-maxlength="50" autocomplete="off" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Número Interior</label>
+                            <input name="NoInterior" id="NoInterior" type="text" class="form-control" maxlength="5" value="@Model.NoInterior" data-inputmask-regex="[0-9]{0,5}" data-inputmask-greedy="false"
+                                   data-parsley-maxlength="5" autocomplete="off" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Número Exterior</label>
+                            <input name="NoExterior" id="NoExterior" type="text" class="form-control" maxlength="10" value="@Model.NoExterior" data-inputmask-regex="[0-9]{0,10}" data-inputmask-greedy="false"
+                                   data-parsley-maxlength="5" autocomplete="off" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Código Postal</label>
+                            <input name="codigoPostal" id="codigoPostal" type="text" class="form-control" maxlength="5" value="@Model.codigoPostal" data-inputmask-regex="[0-9]{0,5}" data-inputmask-greedy="false"
+                                   data-parsley-maxlength="5" autocomplete="off" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Colonia</label>
+                            <input name="colonia" id="colonia" type="text" class="form-control" maxlength="50" value="@Model.colonia" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
+                                   data-parsley-required data-parsley-maxlength="50" autocomplete="off" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Entre Calles</label>
+                            <input name="entreCalles" id="entreCalles" type="text" class="form-control" maxlength="50" value="@Model.entreCalles" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
+                                   data-parsley-maxlength="50" autocomplete="off" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Estado</label>
+                            @Html.DropDownListFor(model => model.estadoId, new SelectList(ViewBag.estados, "idCatEstado", "estadoDescr"), new { @class = "form-control", data_parsley_required = "" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Ciudad</label>
+                            @Html.DropDownListFor(model => model.ciudadId, new SelectList(ViewBag.ciudads, "idCatCiudad", "ciudadDescr"), new { @class = "form-control", data_parsley_required = "" })
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Teléfono</label>
+                            <input type="text" name="telefono" class="form-control" id="telefono"
+                                   maxlength=15 data-inputmask-mask="(999) 999-99-99" autocomplete="nope"
+                                   data-inputmask-greedy="false" data-parsley-errors-container="#telefono-error"
+                                   data-parsley-maxlength="15" value="@Model.telefono" />
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Estatus</label>
+                            @Html.DropDownList("activo", @Model.Statuses as SelectList, new { @class = "form-control", data_parsley_required = "" })
+
+                        </div>
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Punto Venta</label>
+                            @Html.EditorFor(model => model.sucursalPuntoVenta, new { htmlAttributes = new { @class = "form-control", data_inputmask_regex = "[0-9]{0,5}", @autocomplete = "off", @data_parsley_required = "" } })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-sm-6 col-md-3">
+                            <label class="control-label">Zona</label>
+                            @Html.DropDownListFor(model => model.catZonaId, new SelectList(ViewBag.zonas, "idCatZona", "descripcion"), "Seleccione", new { @class = "form-control" , data_parsley_required = "" })
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <label class="control-label">Color Indicador</label>
+                            <input type="color" id="picker" name="picker" value="@Model.ColorIndicador" class="form-control"
+                                   data-role="colorpicker" data-opacity="true" data-parsley-required data-parsley-errors-container="#error-color" />
+                            <span id="error-color" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <input id="Latitud" name="latitud" value="@Model.latitud" hidden />
+                    </div>
+                    <div class="col-md-3">
+                        <input id="Longitud" name="longitud" value="@Model.longitud" hidden />
+                    </div>
+                    <div class="col-md-3">
+                        <input id="PlaceId" name="placeId" value="@Model.placeId" hidden />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <label class="control-label">Horario</label>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="lunes" name="diaLunes" value="Lunes" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaLunes))>
+                                    <label class="custum-control-label" for="customCheck1">Lunes</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" id="horaI" name="HorarioInicioLunes" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioLunes">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input type="text" class="form-control" id="horaF" name="HorarioFinLunes" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinLunes">
+
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <br />
+                                    <input type="checkbox" class="custom-control-input" id="martes" name="diaMartes" value="Martes" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaMartes))>
+                                    <label class="custum-control-label" for="customCheck1">Martes</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input id="horaI1" name="HorarioInicioMartes" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioMartes" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input id="horaF1" name="HorarioFinMartes" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinMartes" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <div class="custom-checkbox checkbox checkbox-primary ">
+                                    <br />
+                                    <input type="checkbox" class="custom-control-input" id="miercoles" name="diaMiercoles" value="Miercoles" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaMiercoles))>
+                                    <label class="custum-control-label" for="customCheck1">Miércoles</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input id="horaI2" name="HorarioInicioMiercoles" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioMiercoles" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input id="horaF2" name="HorarioFinMiercoles" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinMiercoles" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <br />
+                                    <input type="checkbox" class="custom-control-input" id="jueves" name="diaJueves" value="Jueves" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaJueves))>
+                                    <label class="custum-control-label" for="customCheck1">Jueves</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input id="horaI3" name="HorarioInicioJueves" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioJueves" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input id="horaF3" name="HorarioFinJueves" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinJueves" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <br />
+                                    <input type="checkbox" class="custom-control-input" id="viernes" name="diaViernes" value="Viernes" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaViernes))>
+                                    <label class="custum-control-label" for="customCheck1">Viernes</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input id="horaI4" name="HorarioInicioViernes" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioViernes" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input id="horaF4" name="HorarioFinViernes" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinViernes" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <br />
+                                    <input type="checkbox" class="custom-control-input" id="sabado" name="diaSabado" value="Sabado" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaSabado))>
+                                    <label class="custum-control-label" for="customCheck1">Sabado</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input id="horaI5" name="HorarioInicioSabado" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioSabado" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input id="horaF5" name="HorarioFinSabado" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinSabado" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-11">
+                            <div class="col-md-4">
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <br />
+                                    <input type="checkbox" class="custom-control-input" id="domingo" name="diaDomingo" value="Domingo" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaDomingo))>
+                                    <label class="custum-control-label" for="customCheck1">Domingo</label>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input id="horaI6" name="HorarioInicioDomingo" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioInicioDomingo" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                    <input id="horaF6" name="HorarioFinDomingo" class="form-control" autocomplete="off" data_inputmask_regex="^[0-9]*$" value="@Model.HorarioFinDomingo" />
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-clock"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label class="control-label">Ubicación</label>
+                <div><input id="BuscarUbicacion" type="text" style="height: 23px; width: 80%; margin-top: 10px;" /></div>
+                <div class="col-lg-6" id="map" style="height: 335px; width: 50%;"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-2">
+
+                @if (permissionsDelegate.HasPermissionForController(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()))
+                {
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                }
+                <a href="@Url.Action("Index", new { IdComercio = @ViewBag.idcomecio })" class="btn btn-white m-r-sm">Cancelar</a>
+
+
+            </div>
+        </div>
+    </div>
+    <br /><br />
+}
+@section Styles{
+    <link href="~/Content/timePicker.css" rel="stylesheet" />
+    <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2013.1.319/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="//cdn.kendostatic.com/2013.1.319/styles/kendo.default.min.css" rel="stylesheet" />
+    <style>
+
+        .demo-section {
+            height: 600px;
+            width: 600px;
+        }
+
+        #background {
+            background: transparent url(../content/web/colorpicker/interior-bg.png) no-repeat;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .column {
+            margin-top: 384px;
+            float: left;
+            width: 300px;
+            text-align: center;
+        }
+
+            .column .title {
+                color: #a3a3a3;
+                text-transform: uppercase;
+                font-size: 11px;
+                font-weight: normal;
+                padding: 41px 0 20px;
+            }
+
+        #palette {
+            vertical-align: top;
+            display: inline-block;
+        }
+
+        .k-colorpicker {
+            vertical-align: top;
+            /*margin: 20px 0;*/
+            margin-left: -104px;
+            margin-top: 27px;
+        }
+
+            .k-colorpicker .k-selected-color {
+                font-size: 0;
+                vertical-align: top;
+                line-height: 0;
+                display: inline-block;
+                height: 26px;
+                width: 225px;
+            }
+    </style>
+}
+@section Scripts {
+    <script src="~/Scripts/inputmask.min.js"></script>
+    <script src="~/Scripts/inputmask.js"></script>
+    <script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+    <script src="~/Scripts/jquery.timePicker.js"></script>
+    <link href="~/Content/timePicker.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery.timePicker.min.js"></script>
+    <script src="~/Scripts/app/Sucursales/Edit.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+
+    <script>
+        $('#horaI,#horaF,#horaF1,#horaI1,#horaI2,#horaF2,#horaF3,#horaI3,#horaF4,#horaI4,#horaF5,#horaI5,#horaF6,#horaI6').timepicker({
+            timeFormat: 'h:mm p',
+            interval: 30,
+            step: 50,
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#telefono").inputmask("mask", { "mask": "(999) 999-99-99" });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".pac-container").css("background-color", "red");
+        })
+    </script>
+    <style type="text/css">
+        .RadUpload, .RadUploadProgressArea {
+            text-align: center !important;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var infoWindow;
+        var marker;
+        var markers = [];
+        var input = document.getElementById('BuscarUbicacion');
+
+        function initMap() {
+            var coordenadas = { lat: @Model.latitud, lng: @Model.longitud };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: coordenadas,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            clearMarkers();
+            markers[0] = new google.maps.Marker({
+                position: coordenadas,
+                map: map
+            });
+
+            map.addListener('click', function (event) {
+                clearMarkers();
+                infoWindow.close();
+                addMarker(event.latLng);
+            });
+
+            infoWindow = new google.maps.InfoWindow();
+
+            google.maps.event.addListener(infoWindow, 'domready', function () {
+                map.setCenter(markers[0].getPosition());
+            });
+
+            infoWindow.open(map, markers[0]);
+
+            input = (document.getElementById('BuscarUbicacion'));
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.bindTo('bounds', map);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            var infowindow = new google.maps.InfoWindow();
+            var marker = new google.maps.Marker({
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', function () {
+                infowindow.open(map, marker);
+            });
+
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+
+                clearMarkers();
+                infowindow.close();
+                markers[0] = new google.maps.Marker({
+                    map: map
+                });
+
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    return;
+                }
+
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                }
+
+                markers[0].setPlace(({
+                    placeId: place.place_id,
+                    location: place.geometry.location
+                }));
+
+                document.getElementById("Latitud").value = place.geometry.location.lat();
+                document.getElementById("Longitud").value = place.geometry.location.lng();
+                document.getElementById("PlaceId").value = place.place_id;
+
+                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + place.formatted_address + '</div>');
+                infowindow.open(map, markers[0]);
+            });
+
+
+            function clearMarkers() {
+                setMapOnAll(null);
+            }
+            function addMarker(location) {
+                var geocoder = new google.maps.Geocoder;
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+                geocoder.geocode({ 'location': location }, function (results, status) {
+                    if (status === 'OK') {
+                        if (results[0]) {
+                            document.getElementById("Latitud").value = location.lat();
+                            document.getElementById("Longitud").value = location.lng();
+                            document.getElementById("PlaceId").value = results[0].place_id;
+                            var direccion = " ";
+                            var direccionSplit = results[0].formatted_address.split(",");
+                            for (var x = 0; x < direccionSplit.length; x++) {
+                                direccion += direccionSplit[x] + "<br>";
+                            }
+
+                            infoWindow.setContent(direccion);
+                            infoWindow.open(map, marker);
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
+                clearMarkers();
+                markers.push(marker);
+            }
+
+            function setMapOnAll(map) {
+                for (var i = 0; i < markers.length; i++) {
+                    markers[i].setMap(map);
+                }
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".pac-container").css("background-color", "red");
+        })
+    </script>
+
+    @*<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>*@
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBg48XXQ0WFCA0v2HpC4zs7EYEetu5ZAoc&callback=initMap&libraries=geometry,places"
+            async desc></script>
+
+    <script src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="//cdn.kendostatic.com/2013.1.319/js/kendo.all.min.js"></script>
+    <script>
+        function preview(e) {
+            $("#background").css("background-color", e.value);
+        }
+
+        $("#picker").kendoColorPicker({
+            value: "",
+            buttons: false,
+            select: preview
+        });
+
+        var color = document.getElementById("nombre").value
+    </script>
+
+
+}

@@ -1,0 +1,254 @@
+﻿@model WebApp.Web.Models.Productos.ProductosViewModel
+@{
+    ViewBag.Title = "Agregar";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Agregar Menú</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Create", "Menu", FormMethod.Post, new { id = "form-create", data_parsley_validate = "true", @class="one-click-form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.Nombre, "Nombre", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new
+                                   {
+                                       @class = "form-control",
+                                       data_parsley_maxlength = "25",
+                                       data_parsley_required = "true",
+                                       data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9.// ]{0,25}",
+                                   } })
+                                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.CategoriaProductoId, "Familia de producto", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownList("CategoriaProductoId", null, "Seleccionar", htmlAttributes: new { @class = "form-control", data_parsley_required = "true", })
+                                    @Html.ValidationMessageFor(model => model.CategoriaProductoId, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-2">
+                                    @Html.LabelFor(model => model.Precio, "Precio", htmlAttributes: new { @class = "control-label" })
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.Precio, new { htmlAttributes = new
+                                   { @class = "form-control text-right",
+                                       data_parsley_required = "true",
+                                       data_parsley_type = "number",
+                                       data_inputmask_greedy = "false",
+                                       data_inputmask_regex = "[0-9]{0,20}\\.{0,1}[0-9]{0,2}",
+                                       style = "width:100px",
+                                   } })
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-3">
+                                    @Html.LabelFor(model => model.AreaPreparacionId, "Area Preparación", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownList("AreaPreparacionId", null, "Ninguna", htmlAttributes: new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(model => model.AreaPreparacionId, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-4 hide">
+                                    @Html.LabelFor(model => model.Clave, "Clave", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.Clave, new { htmlAttributes = new
+                                        { @class = "form-control",
+                                            data_parsley_maxlength = "20",
+                                            data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,20}",
+                                            autocomplete="asdfgggg1"
+                                        } })
+                                    @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                                </div>
+                                @*<div class="col-md-4">
+                     @Html.LabelFor(model => model.MermaPermitida, "Merma Permitida", htmlAttributes: new { @class = "control-label" })
+                     @Html.EditorFor(model => model.MermaPermitida, new { htmlAttributes = new { @class = "form-control",
+                    data_parsley_maxlength = "10",
+                    data_inputmask_regex = "[0-9.]{0,10}",
+                } })
+                     @Html.ValidationMessageFor(model => model.MermaPermitida, "", new { @class = "text-danger" })
+                 </div>*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+
+
+
+                                <div class="col-md-4 hidden">
+                                    @Html.LabelFor(model => model.indice, "Indice", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.indice, new { htmlAttributes = new
+                                       { @class = "form-control",
+                                           data_parsley_maxlength = "20",
+                                           data_inputmask_regex = "[0-9]{0,20}",
+                                           data_parsley_required = "true",
+                                       } })
+                                    @Html.ValidationMessageFor(model => model.indice, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <div class="col-md-4 funkyradio hide">
+                                    <div class="col-md-12 funkyradio-primary">
+                                        @Html.EditorFor(model => model.Principal)
+                                        <label for="Principal">Marcar como principal</label>
+                                        @Html.ValidationMessageFor(model => model.Principal, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 funkyradio hide">
+                                    <div class="col-md-12 funkyradio-primary">
+                                        <input class="check-box" data-val="true" @(Model != null && Model.TieneReceta ? "checked" : "")
+                                               data-val-required="El campo Tiene receta es obligatorio."
+                                               id="TieneReceta" name="TieneReceta" type="checkbox" value="true"
+                                               data-parsley-multiple="ArmarCobro">
+                                        <label for="TieneReceta">Tiene Receta</label>
+                                        @Html.ValidationMessageFor(model => model.TieneReceta, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div id="es-ensalada-div" class="col-md-4 hide">
+                                    <div class="col-md-12">
+                                        <label class="control-label" for="ArmarCobro">Detalle en caja</label><br />
+                                        <input type="hidden" name="ArmarCobro" id="ArmarCobro" value="False" />
+                                        <button type="button" class="btn-link btn-sm m-xs hide" id="btn-on">
+                                            <img class="m-t-n-md" src="~/Content/img/on.png" style="height:36px" />
+                                        </button>
+                                        <button type="button" class="btn-link btn-sm m-xs" id="btn-off">
+                                            <img class="m-t-n-md" src="~/Content/img/off.png" style="height:36px" />
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-10">
+                                            <label>Imagen</label> <br />
+                                            <img id="images" height="200" src="~/Content/img/default_food.png">
+                                            @Html.HiddenFor(c => c.Imagen)
+                                            <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage", "Menu", null)" />
+                                            <input type="hidden" id="ImageUrl" name="imagenApp" value="@Model.imagenApp" />
+                                        </div>
+                                        <div class="col-lg-6" style="margin-top:6px">
+                                            @*<label>Vista Previa</label>
+                            <div class="img-preview" style="height:200px;width:267px;"></div><br />*@
+                                            <label class="btn btn-primary" for="inputImages">
+                                                Cambiar imagen
+                                            </label>
+                                            <input type="file" accept="image/*" id="inputImages" class="hide">
+                                            <span id="mensaje"></span>
+                                        </div>
+                                    </div><br />
+                                    <input id="Imagen" name="Imagen" type="hidden" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="row hide" id="row-variedades">
+                                        <a href="#modal-agregar-variedad" data-toggle="modal" type="button" class="btn btn-sm btn-primary pull-right">Agregar variedad</a>
+                                        <table class="table" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Imagen
+                                                    </th>
+                                                    <th>
+                                                        Descripción
+                                                    </th>
+
+                                                    <th class="text-right " data-orderable="false"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var item in Model.Variedades)
+                                                {
+
+                                                    <tr>
+                                                        <td class="col-lg-2">
+                                                            <img src="@item.Imagen" alt="" class="img-md">
+                                                        </td>
+                                                        <td class="vcenter">
+                                                            @Html.DisplayFor(modelItem => item.Nombre)
+                                                        </td>
+
+                                                        <td class="text-right">
+                                                            <a href="#" class="href-gray m-r-sm trigger-edit-variedad"
+                                                               data-id="@item.Id" data-descripcion="@item.Nombre">
+                                                                <i class="mdi mdi-pencil icon-size-default" aria-hidden="true"></i>
+                                                            </a>
+                                                            <a href="#" class="href-gray m-r-sm trigger-eliminar-variedad" data-id="@item.Id"
+                                                               data-descripcion="@item.Nombre">
+                                                                <i class="mdi mdi-delete icon-size-default" aria-hidden="true"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-12">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.TipoProducto, "Tipo de Producto", htmlAttributes: new { @class = "control-label" })
+                                    <select id="TipoProducto" name="TipoProducto" class="form-control" data-parsley-required>
+                                        <option value="0" selected>Seleccionar</option>
+                                        <option value="1">Producto sencillo</option>
+                                        <option value="2">Combo</option>
+                                        <option value="3">Producto armado</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(model => model.TipoProducto, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-offset col-md-10">
+                                <input type="hidden" id="indicador" name="indicador" value="0" />
+                                <button type="button" class="btn btn-primary" id="btn-guardar">Agregar</button>
+                                <button type="button" class="btn btn-primary hide" id="btn-guardar-repetir">Guardar y agregar otro</button>
+                                @Html.ActionLink("Cancelar", "Home", null, new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("Modales/ModalAgregarVariedad")
+@section Scripts{
+    <script src="~/Scripts/app/Productos2/Create.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+}
+@section Styles{
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .img-container,
+        .img-preview {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+}

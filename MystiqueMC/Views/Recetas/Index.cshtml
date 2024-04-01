@@ -1,0 +1,389 @@
+﻿@model IEnumerable<MystiqueMC.DAL.RecetasProcesados>
+
+@{
+    ViewBag.Title = "Recetas";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Recetas de procesados</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Nombre:</b></span>
+                <input autocomplete="off" type="text" class="form-control input-sm" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,300}" id="Nombre" name="Nombre" value="@ViewBag.Nombre">
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Estatus:</b></span>
+                <select name="Estatus" id="Estatus" class="form-control">
+                    @if (ViewBag.estatus)
+                    {
+                        <option value="1" selected>Activo</option>
+                        <option value="0">Inactivo</option>
+                    }
+                    else
+                    {
+                        <option value="1">Activo</option>
+                        <option value="0" selected>Inactivo</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md">
+            <button style="width:3%" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    }
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <a class="btn btn-link col-lg-7" href="#" id="button-agregar-procesado" style="float:right;width:7.333333%">
+                            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                            <b>Agregar</b>
+                        </a>
+                        <br /><br />
+                        <div class="sk-spinner sk-spinner-rotating-plane"></div>
+                        <input type="hidden" id="url-get-procesado" value="@Url.Action("Procesado")" />
+                        <input type="hidden" id="urlObtenerUnidadProcesado" value="@Url.Action("ObtenerUnidadProcesado")" />
+                        <ul class="table table-striped tabla-catalogos" style="padding-left: 0px;">
+                            <li class="list-group-item" style="padding:5px">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <strong>Procesado</strong>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <strong>Ingrediente</strong>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <strong>Unidad de medida procesado</strong>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <strong>Equivale a</strong>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <strong></strong>
+                                    </div>
+                                </div>
+                            </li>
+
+                            @foreach (var item in Model)
+                            {
+                                <li class="list-group-item" style="padding:5px">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            @item.descripcion
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <span>
+                                                @if (item.Insumos.esIngrediente)
+                                                {
+                                                    <img src="~/Content/Icons/check.png" style="height:24px" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Content/Icons/minus.png" style="height:24px" />
+                                                }
+                                            </span>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            delete.png
+                                            <span>@(item.cantidadProcesado.HasValue ? item.cantidadProcesado.Value.ToString("N") : "") @item.Insumos.UnidadMedida1.descripcion</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <span>@(item.Insumos.equivalencia.HasValue ? item.Insumos.equivalencia.Value.ToString("N") : "" ) @item.Insumos.UnidadMedida.descripcion</span>
+                                        </div>
+                                        <div class="col-lg-3 text-right">
+                                            <a href="#" data-id="@item.idRecetasProcesado" class="trigger-editar-procesado text-right">
+                                                <img src="~/Content/Images/editar.png" style="height:19px" />
+                                            </a>
+
+                                            @if (item.activo == true)
+                                            {
+                                                @*<button type="button" class="btn-link text-right" id="btn-eliminarProcesado" data-toggle="modal" data-target="#modal-eliminar-procesado" data-id="@item.idRecetasProcesado" data-receta="@item.descripcion">
+                                                        <img src="~/Content/Images/delete.png" style="height:19px" />
+                                                    </button>*@
+
+                                                <button class="btn-link btn-sm" style="vertical-align:central" data-toggle="modal" id="boton-inactivo" data-target="#modal-inactivar-receta" data-id="@item.idRecetasProcesado" data-receta="@item.descripcion">
+                                                    <img src="~/Content/img/on.png" style="height:24px" />
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <button class="btn-link btn-sm" data-toggle="modal" data-target="#modal-activar-receta" id="boton-activo" data-id="@item.idRecetasProcesado" data-receta="@item.descripcion">
+                                                    <img src="~/Content/img/off.png" style="height:24px" />
+                                                </button>
+                                            }
+                                        </div>
+                                        <div class="col-lg-12 collapse collapse-recetas" id="collapseExample">
+                                            <div class="well no-padding no-paddings">
+                                                @if (item.DetalleRecetaProcesados.Any())
+                                                {
+                                                    foreach (var detalle in item.DetalleRecetaProcesados.OrderBy(c => c.Insumos?.nombre))
+                                                    {
+                                                        <div class="row">
+                                                            <div class="col-md-2 p-r-md">@(detalle.Insumos?.nombre)</div>
+                                                            <div class="col-md-1">@(detalle.UnidadMedida.descripcion)</div>
+                                                            <div class="col-md-1 text-right">@(detalle.cantidad)</div>
+                                                            <div class="col-md-8">&nbsp;</div>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @*@Html.ActionLink("Regresar", "Index", "Inventarios", new { sucursaId = ViewBag.sucursaId }, new { @class = "btn btn-white" })*@
+                        @Html.ActionLink("Regresar", "Index", "Catalogos", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("Modales/ModalEliminar")
+@Html.Partial("Modales/ModalActivo")
+@Html.Partial("Modales/ModalInactivar")
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-procesado">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar Procesado</h4>
+            </div>
+            <div class="modal-body" style="padding: 10px 20px 10px 10px;">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <input type="hidden" id="url-submit-procesado" value="@Url.Action("RecetaProcesado")" />
+                        <form action="#" data-parsley-validate id="form-receta-procesado">
+                            <input type="hidden" id="idProcesado" name="id" value="" />
+                            <div class="form-group">
+                                <div class="col-lg-12" style="margin-bottom: 10px;">
+                                    <label for="descripcionProcesado">Descripción</label>
+                                    <input type="text" name="descripcionProcesado" id="descripcionProcesado" class="form-control"
+                                           data-inputmask-regex="[A-Za-z\.\-' ]{0,50}" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-errors-container="#error-descripcionProcesado">
+                                    <small id="help-descripcionProcesado" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-descripcionProcesado"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" id="row-insumoFamilia" style="margin-bottom: 10px;">
+                                <label for="insumoFamilia">Familia</label>
+                                <select id="insumoFamilia" name="insumoFamilia" class="form-control selectpicker" data-live-search="true" data-size="6"
+                                        data-noneSelectedText="Seleccione..." data-parsley-required data-parsley-errors-container="#error-insumoFamilia">
+                                    <option>Seleccionar</option>
+                                    @foreach (var item in (SelectListItem[])ViewBag.FamiliaInsumo)
+                                    {
+                                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                    }
+                                </select>
+                                <small id="help-insumoFamilia" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-insumoFamilia"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-6">
+                                    <label for="cantidadProcesados">Cantidad de procesado</label>
+                                    <input type="text" name="cantidadProcesados" id="cantidadProcesados" class="form-control"
+                                           data-inputmask-regex="[0-9,]{0,10}([.][0-9]{0,2})?" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-errors-container="#error-cantidadProcesados" style="padding-right:0px;" placeholder="0"
+                                           data-parsley-gt="0" data-parsley-gt-message="No se permiten ceros">
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="error-cantidadProcesados"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="margin-bottom: 10px;">
+                                    <label for="cantidadProcesados">unidad de medida</label>
+                                    @Html.DropDownList("unidadMedidaIdCompra", null, "Seleccionar", htmlAttributes: new
+                                   { @class = "form-control",
+                                   data_parsley_required = "true",
+                                   data_parsley_errors_container = "#unidadMedidaIdCompra-error",
+                                  })
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="unidadMedidaIdCompra-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-12" for="equivalencia">Equivale a</label>
+                                <div class="col-lg-6">
+                                    <input type="text" name="equivalencia" id="equivalencia" class="form-control"
+                                           data-inputmask-regex="[0-9,]{0,10}([.][0-9]{0,2})?" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-errors-container="#error-equivalencia" style="padding-right:0px;" placeholder="0"
+                                           data-parsley-gt="0" data-parsley-gt-message="No se permiten ceros">
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="error-equivalencia"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    @Html.DropDownList("unidadMedidaIdMinima", null, "Seleccionar", htmlAttributes: new
+                                   { @class = "form-control",
+                                   data_parsley_required = "true",
+                                   data_parsley_errors_container = "#unidadMedidaIdMinima-error",
+                                   })
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="unidadMedidaIdMinima-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <br />
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label class="control-label">Insumos</label>
+                                </div>
+                                <div class="col-lg-6 text-right">
+                                    <button type="button" class="btn btn-link" id="btn-agregar-insumo-procesado">
+                                        <i class="fas fa-plus-square" style="color:#616161; font-size:12pt"></i><b> Agregar</b>
+                                    </button>
+                                </div>
+                            </div>
+                            <table class="table table-striped" id="tabla-detalle-procesado">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btn-guardar-procesado">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-detalle-procesado" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><span id="title"></span><span id="nombreReceta"></span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="@Url.Action("DetalleProcesado")" data-parsley-validate id="form-procesado-detalle">
+                            <input type="hidden" id="url-delete-detalle-procesado" value="@Url.Action("EliminarDetalleProcesado")" />
+                            <div class="form-group">
+                                <input type="hidden" id="idProcesadoInsumo" name="idProcesadoInsumo" value="" />
+                                <input type="hidden" id="unidadProcesado" name="unidadProcesado" />
+                                <div class="col-lg-4" id="row-insumoProcesado">
+                                    <label for="insumoDetalle">Insumo</label>
+                                    <select id="insumoDetalleProcesado" name="insumoDetalleProcesado" class="form-control selectpicker" data-live-search="true" data-size="6"
+                                            data-noneSelectedText="Seleccione..." data-parsley-required data-parsley-errors-container="#error-insumoDetalleProcesado">
+                                        <option>Seleccionar</option>
+                                        @foreach (var item in (SelectListItem[])ViewBag.Insumos)
+                                        {
+                                            <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                        }
+                                    </select>
+                                    <small id="help-insumoDetalleProcesado" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-insumoDetalleProcesado"></span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="unidadDescripcion">Medida</label>
+                                    <input type="text" name="unidadDescripcion" id="unidadDescripcion" class="form-control"
+                                           data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ]{0,30}" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-errors-container="#error-unidadDescripcion" Readonly="readonly">
+                                    <small id="help-unidadDescripcion" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-unidadDescripcion"></span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label for="cantidadProcesado">Cantidad</label>
+                                    <input type="text" name="cantidadProcesado" id="cantidadProcesado" class="form-control"
+                                           data-inputmask-regex="[0-9,]{0,10}([.][0-9]{0,2})?" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-errors-container="#error-cantidadProcesado">
+                                    <small id="help-cantidadProcesado" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-cantidadProcesado"></span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="btn-cancelar-insumo-procesado">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btn-guardar-insumo-procesado">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+<div class="modal hide" id="modal-eliminar-procesado">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Eliminar procesado</h5>
+            </div>
+            <div class="modal-body">
+                <p> ¿Estás seguro que deseas eliminar el procesado: <span id="descProcesado"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="form-eliminar-procesado" method="post" action="@Url.Action("EliminarProcesado")">
+                    <input type="hidden" id="id-eliminarProcesado" name="id" value="" />
+                    <button type="submit" class="btn btn-danger" id="btn-confirmar-eliminar-procesado">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+@section Scripts{
+    <script src="~/Scripts/app/Recetas/Index.js"></script>
+    <script src="~/Scripts/Plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.es.js"></script>
+    <script src="@Url.Content("~/Scripts/Plugins/dataTables/dataTables.min.js")"></script>
+}
+@section Styles{
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Plugins/dataTables/dataTables.min.css")" />
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: initial;
+        }
+    </style>
+}

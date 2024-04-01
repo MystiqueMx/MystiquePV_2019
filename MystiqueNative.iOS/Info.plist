@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Fresco</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.GrupoRed.Fresco</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>Spanish</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>MinimumOSVersion</key>
+	<string>9.0</string>
+	<key>UIDeviceFamily</key>
+	<array>
+		<integer>1</integer>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We are using your location to find the </string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Fresco App</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Fresco App</string>
+	<key>CFBundleDisplayName</key>
+	<string>Fresco</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Utilizamos bluetooth para la localización de sucursales</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Fresco App necesita acceso a la cámara para capturar tu foto de perfil y escanear el código QR de su ticket para la suma de puntos.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Fresco app usará la cámara para tomar fotos y escanear código QR para la suma de puntos.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Fresco app usará la cámara para tomar fotos y escanear código QR para la suma de puntos.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.GrupoRed.Fresco</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.396481438560-qeti3cmlb2um61k4tvh2qhjetipjplcj</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>URL Type 1</string>
+		</dict>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb667292223740940</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>URL Type 2</string>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Twitter</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string></string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>URL Type 3</string>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.GrupoRed.CitySalads</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mystique</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>667292223740940</string>
+	<key>FacebookDisplayName</key>
+	<string>Fresco App</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.6</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Start</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+</dict>
+</plist>

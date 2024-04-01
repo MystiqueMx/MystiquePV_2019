@@ -1,0 +1,519 @@
+﻿@model Dictionary<string, IGrouping<string, MystiqueMC.DAL.Productos>>
+@{
+    ViewBag.Title = "Productos";
+
+    var rowStart = Html.Raw("<div class=\"row\">");
+    var rowEnd = Html.Raw("</div>");
+    var productosDescripcion = "";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Menú</h2>
+    </div>
+    <div class="col-sm-8 text-right">
+        <a class="btn btn-link m-sm one-click-button" href="@Url.Action("Create")">
+            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+            <b>Nuevo Producto</b>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12 wrapper wrapper-content animated fadeInRight">
+        @using (Html.BeginForm("Home", "Menu", FormMethod.Get, new { @class="one-click-form", id="form-search" }))
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Familia:</b></span>
+                        <div class="col-md-2" style="margin-left: -20px;">
+                            <a class="one-click-button" href="@Url.Action("Index", "CategoriaProductos")">
+                                <img src="~/Content/img/edit.png" style="height:22px;margin-top: 4px;" />
+                            </a>
+                        </div>
+                        <div class="col-md-10">
+                            @Html.DropDownList("f", null, "Todos", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Estatus:</b></span>
+                        <label class="radio-inline">
+                            <input type="radio" name="enabled" id="inlineRadio1" value="1" @(ViewBag.enabled as int? == 1 ? "checked" : "")> Activos
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="enabled" id="inlineRadio2" value="0" @(ViewBag.enabled as int? == 0 ? "checked" : "")> Inactivos
+                        </label>
+                        <label class="radio-inline m-r-sm">
+                            <input type="radio" name="enabled" id="inlineRadio3" value="3" @(ViewBag.enabled as int? != 1 && ViewBag.enabled as int? != 0 ? "checked" : "")> Todos
+                        </label>
+                        <button style="width:40px" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="form-group col-md-5 text-right">
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button id="toggle-cuadricula" type="button" class="btn btn-default btn-vista active">En cuadricula</button>
+                        <button id="toggle-lista" type="button" class="btn btn-default btn-vista">En lista</button>
+                        <button id="toggle-receta" type="button" class="btn btn-default btn-vista">En Receta</button>
+                        <button id="toggle-variedad" type="button" class="btn btn-default btn-vista" hidden>Variedades</button>
+                        <button id="toggle-combo" type="button" class="btn btn-default btn-vista">Configuracion </button>
+                    </div>
+                </div>
+            </div>
+
+        }
+        @foreach (var group in Model)
+        {
+            var cols = 0;
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <h3>@group.Key</h3>
+                            <ul class="list-group hide view-lista" style="width:100%;">
+                                <li class="list-group-item" style="padding:5px">
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <strong>Producto</strong>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <strong>Tipo de producto</strong>
+                                        </div>
+                                        <div class="col-lg-3 text-right">
+                                            <strong>Precio</strong>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <strong>Variedades</strong>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <strong>Activo</strong>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <strong>Configurado</strong>
+                                        </div>
+                                    </div>
+                                </li>
+                                @foreach (var item in group.Value.OrderBy(c => c.nombre))
+                                {
+                                    <li class="list-group-item" style="padding:5px">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                
+                                                <a href="@Url.Action("Edit","Menu",new { id = item.idProducto, familia = item.categoriaProductoId })" class="" style="text-decoration:underline;">
+                                                    @item.nombre
+                                                </a>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <span>
+                                                    @if (item.esCombo)
+                                                    {
+                                                        if (item.esGeneral ?? false)
+                                                        {
+                                                            @("Combo")
+                                                        }
+                                                        else
+                                                        {
+                                                            @("Producto armado")
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        @("Producto sencillo")
+                                                    }
+                                                </span>
+                                            </div>
+                                            <div class="col-lg-3 text-right">
+                                                <span>@item.precio.ToString("N2")</span>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                @if (productosDescripcion != "")
+                                                {
+                                                    productosDescripcion = "";
+                                                }
+                                                @foreach (var producto in item.VariedadProductos)
+                                                {
+                                                    if (productosDescripcion == "")
+                                                    {
+                                                        productosDescripcion = producto.descripcion;
+                                                    }
+                                                    else
+                                                    {
+                                                        productosDescripcion = productosDescripcion + ", " + producto.descripcion;
+                                                    }
+                                                }
+                                                <span data-toggle="tooltip" title="@productosDescripcion">@item.VariedadProductos.Count </span>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                @if (item.activo == true)
+                                                {
+                                                    <button class="btn-link btn-sm no-paddings m-l-sm" style="padding:0;" data-toggle="modal" data-target="#modal-estatus-inactivo" data-idproyecto="@item.idProducto" data-nombre="@item.nombre">
+                                                        <img class="" src="~/Content/img/on.png" style="height:24px" />
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <button class="btn-link btn-sm no-paddings m-l-sm" style="padding:0;" data-toggle="modal" data-target="#modal-estatus-activo" data-idproyecto="@item.idProducto" data-nombre="@item.nombre">
+                                                        <img src="~/Content/img/off.png" style="height:24px" />
+                                                    </button>
+                                                }
+                                            </div>
+                                            <div class="col-lg-1">
+                                                @if (item.ProductoEstaConfigurado?.Any(c => c.estaConfigurado) ?? false)
+                                                {
+                                                    <img src="~/Content/Icons/check.png" style="height:24px" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Content/Icons/minus.png" style="height:24px" />
+                                                }
+                                            </div>
+
+                                            @if (!item.esCombo && item.VariedadProductos.Any())
+                                            {
+                                                <div class="col-lg-12 collapse collapse-variedades" id="collapseExample">
+                                                    <div class="well no-padding no-paddings">
+
+                                                            <h5 class="m-r-md">@string.Join(", ", item.VariedadProductos.OrderBy(c => c.descripcion).Select(c=>c.descripcion))</h5>
+                                                    </div>
+                                                </div>
+                                            }
+                                            @if (item.ProductoTieneReceta.Any(c => c.tieneReceta) && item.Recetas.Any() && item.Recetas.First().DetalleRecetaProducto.Any())
+                                            {
+                                                <div class="col-lg-12 collapse collapse-recetas" id="collapseExample">
+                                                    <div class="well no-padding no-paddings">
+                                                        @if (item.ProductoTieneReceta.Any(c => c.tieneReceta) && item.Recetas.Any() && item.Recetas.First().DetalleRecetaProducto.Any())
+                                                        {
+                                                            foreach (var detalle in item.Recetas.FirstOrDefault().DetalleRecetaProducto.OrderBy(c => c.Insumos?.nombre))
+                                                            {
+                                                                <div class="row">
+                                                                    <div class="col-md-2 p-r-md">@(detalle.Insumos?.nombre)</div>
+                                                                    <div class="col-md-1">@(detalle.UnidadMedida.descripcion)</div>
+                                                                    <div class="col-md-1 text-right">@(detalle.cantidad)</div>
+                                                                    <div class="col-md-8">&nbsp;</div>
+                                                                </div>
+                                                            }
+                                                        }
+                                                    </div>
+                                                </div>
+                                            }
+                                            @if (item.esCombo && item.ConfiguracionArmadoProductos.Any())
+                                            {
+                                                <div class="col-lg-12 collapse collapse-combo" id="collapseExample">
+                                                    <div class="well no-padding no-paddings">
+                                                        @foreach (var agrupador in item.ConfiguracionArmadoProductos.Select(c=>c.AgrupadorInsumos).OrderBy(c => c.descripcion))
+                                                        {
+                                                            <h5 class="m-r-md">@(agrupador.ConfiguracionArmadoProductos.FirstOrDefault()?.cantidad) x @(agrupador.descripcion) (@(string.Join(", ", agrupador.InsumoProductos.Select(c => c.Productos == null ? c.Insumos.nombre : c.Productos.nombre))))</h5>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="view-cuadricula">
+                                @for (var i = 0; i < group.Value.Count(); i++)
+                                {
+                                    var item = group.Value.ElementAt(i);
+                                    @(cols == 0 ? rowStart : Html.Raw(""))
+                                    <div class="col-md-4">
+                                        <div class="p-sm m-sm" style="border: 1px solid">
+                                            <div class="row">
+                                                <div class="col-sm-9">
+                                                    @item.clave - @item.nombre / @(item.CategoriaProductos?.descripcion)
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <div class=" btn-sm m-r-n-xs">
+                                                        <a href="@Url.Action("Edit","Menu",new { id = item.idProducto, familia = item.categoriaProductoId })" class="btn-link one-click-button">
+                                                            <img class="m-t-n-md" src="~/Content/img/editar.png" style="height:19px" alt="" />
+                                                        </a>
+
+                                                        @if (item.activo == true)
+                                                        {
+                                                            <button class="btn-link btn-sm m-r-n-xs" style="vertical-align:central" data-toggle="modal" data-target="#modal-estatus-inactivo" data-idproyecto="@item.idProducto" data-nombre="@item.nombre">
+                                                                <img class="m-t-n-md" src="~/Content/img/on.png" style="height:24px" />
+                                                            </button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button class="btn-link btn-sm m-r-n-xs" data-toggle="modal" data-target="#modal-estatus-activo" data-idproyecto="@item.idProducto" data-nombre="@item.nombre">
+                                                                <img class="m-t-n-md" src="~/Content/img/off.png" style="height:24px" />
+                                                            </button>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <span style="font-size:1.1em;" class="m-t-md"><b>Precio: @item.precio.ToString("C").Replace("$", "")</b></span> <br />
+                                                    @if (item.esCombo)
+                                                    {
+                                                        if (item.esGeneral ?? false)
+                                                        {
+                                                            <span style="font-size:1.1em;" class="m-t-md"><b>Tipo: @("Combo")</b></span> <br />
+                                                        }
+                                                        else
+                                                        {
+
+                                                            <span style="font-size:1.1em;" class="m-t-md"><b>Tipo: @("Producto armado")</b></span> <br />
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+
+                                                        <span style="font-size:1.1em;" class="m-t-md"><b>Tipo: @("Producto sencillo")</b></span> <br />
+                                                    }
+
+                                                    @if (!item.esCombo)
+                                                    {
+                                                        if (item.VariedadProductos?.Any() ?? false)
+                                                        {
+                                                            productosDescripcion = "";
+                                                            foreach (var producto in item.VariedadProductos)
+                                                            {
+                                                                if (productosDescripcion == "")
+                                                                {
+                                                                    productosDescripcion = producto.descripcion;
+                                                                }
+                                                                else
+                                                                {
+                                                                    productosDescripcion = productosDescripcion + ", " + producto.descripcion;
+                                                                }
+                                                            }
+                                                            <span style="font-size:1.1em;" class="m-t-md" data-toggle="tooltip" title="@productosDescripcion"><b>Variedades: @item.VariedadProductos.Count</b></span> <br />
+                                                        }
+
+                                                    }
+
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    @if (item.urlImagen != null || item.urlImagen == "")
+                                                    {
+                                                        <span>
+                                                            <img src="@item.urlImagen" style="width: 100px; height: 100px;" alt="">
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span><img src="~/Content/img/default_food.png" style="width: 100px; height: 100px;" /></span>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    cols += 4;
+                                    if (cols < 12)
+                                    {
+                                        continue;
+                                    }
+                                    @(rowEnd)
+                                    cols = 0;
+                                }
+                                @if (cols <= 12 && cols != 0)
+                                {
+                                    @(rowEnd)
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col-md-12">
+                <a href="@Url.Action("Index", "Home")" class="btn btn-white">Regresar</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modales recetas -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-receta">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="title-1">Agregar Receta Producto</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 hide">
+                        <input type="hidden" id="url-submit-receta" value="@Url.Action("RecetaProducto", "Recetas")" />
+                        <form action="#" data-parsley-validate id="form-receta-producto">
+                            <input type="hidden" id="url-get-receta" value="@Url.Action("Receta", "Recetas")" />
+                            <input type="hidden" id="id" name="id" value="" />
+                            <input type="hidden" id="descripcion" name="descripcion" />
+                            <input type="hidden" id="productoId" name="productoId" />
+
+                            <div class="form-group">
+                                <label for="caducidad">Caducidad</label>
+                                <div class="input-group">
+                                    <input type="text" name="caducidad" id="caducidad" class="form-control"
+                                           data-inputmask-regex="[0-9]{0,6}" data-inputmask-greedy="false" data-parsley-required
+                                           data-parsley-lte="90" data-parsley-lte-message="La caducidad no puede ser mayor a 90 días"
+                                           data-parsley-errors-container="#error-caducidad">
+                                    <div class="input-group-addon">días</div>
+                                </div>
+                                <small id="help-caducidad" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-caducidad"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="merma">Merma permitida</label>
+                                <input type="text" name="merma" id="merma" class="form-control"
+                                       data-inputmask-regex="^[0-9]{0,6}([\.][0-9]{0,2})?$" data-inputmask-greedy="false" data-parsley-required
+                                       data-parsley-errors-container="#error-merma">
+                                <small id="help-merma" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-merma"></span>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <label class="control-label">Insumos</label>
+                                </div>
+                                <div class="col-lg-6 text-right">
+                                    <a href="#" class="btn btn-link m-sm" id="btn-agregar-insumo-receta">
+                                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                                        <b> Agregar insumo </b>
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table table-striped" id="tabla-detalle-receta">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Cantidad</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                @*<button type="button" class="btn btn-danger hide pull-left" id="btn-eliminar-receta">Eliminar receta</button>*@
+                <button type="button" class="btn btn-primary" id="btn-guardar-receta">Guardar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-detalle-receta" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="title2">Agregar insumo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form action="@Url.Action("DetalleReceta", "Recetas")" data-parsley-validate id="form-insumo-detalle">
+                            <input type="hidden" id="url-delete-detalle-receta" value="@Url.Action("EliminarDetalleReceta", "Recetas")" />
+                            <div class="form-group" id="row-insumo">
+                                <label for="insumoDetalle">Insumo</label>
+                                <input type="hidden" id="idReceta" name="idReceta" value="" />
+
+                                <select id="insumoDetalle" name="insumoDetalle" class="form-control" data-live-search="true" data-size="6"
+                                        data-noneSelectedText="Seleccione..." data-parsley-required data-parsley-errors-container="#error-insumoDetalle">
+                                    @foreach (var item in (SelectListItem[])ViewBag.Insumos)
+                                    {
+                                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                    }
+                                </select>
+                                <small id="help-insumoDetalle" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-insumoDetalle"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="unidad">Medida</label>
+                                <select id="unidad" name="unidad" class="form-control" data-live-search="true" data-size="6"
+                                        data-noneSelectedText="Seleccione..." data-parsley-required data-parsley-errors-container="#error-unidad">
+                                    @foreach (var item in (SelectListItem[])ViewBag.UnidadMedida)
+                                    {
+                                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                    }
+                                </select>
+                                <small id="help-unidad" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-unidad"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="text" name="cantidad" id="cantidad" class="form-control"
+                                       data-inputmask-regex="[0-9]{0,6}([\.][0-9]{0,2})?" data-inputmask-greedy="false" data-parsley-required
+                                       data-parsley-errors-container="#error-cantidad">
+                                <small id="help-cantidad" class="form-text text-muted"></small>
+                                <span class="text-danger" id="error-cantidad"></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btn-guardar-insumo-producto">Guardar</button>
+                <button type="button" class="btn btn-default" id="btn-cancelar-insumo-producto">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+<div class="modal" id="modal-eliminar-receta">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar receta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> ¿Estás seguro que deseas eliminar la receta: <span id="desc"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="form-eliminar-receta" method="post" action="@Url.Action("EliminarReceta", "Recetas")">
+                    <input type="hidden" id="id-eliminar" name="id" value="" />
+                    <button type="submit" class="btn btn-danger" id="btn-eliminar">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@Html.Partial("Modales/ModalEstatusActivo")
+@Html.Partial("Modales/ModalEstatusInactivo")
+@section Scripts{
+    <script src="~/Scripts/app/Productos2/Home.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/Plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="@Url.Content("~/Scripts/Plugins/dataTables/dataTables.min.js")"></script>
+    
+}
+@section Styles{
+    <style>
+        [hidden] {
+            display: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css" integrity="sha256-x8PYmLKD83R9T/sYmJn1j3is/chhJdySyhet/JuHnfY=" crossorigin="anonymous" />
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Plugins/dataTables/dataTables.min.css")" />
+}

@@ -1,0 +1,1083 @@
+ERROR 2018-05-23 17:53:10,232 448497ms UsuarioController      generarMembresia   - ERROR:An error occurred while updating the entries. See the inner exception for details.
+ERROR 2018-05-23 17:56:13,842 632107ms UsuarioController      generarMembresia   - ERROR:An error occurred while updating the entries. See the inner exception for details.
+DEBUG 2018-05-25 11:32:20,753 3189915ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:1NP70LMO|2018/04/09 06:18:06|303.00|16
+ERROR 2018-05-25 11:39:16,659 3605821ms GeneraPuntosController arCompraParaPuntos - ERROR:An error occurred while executing the command definition. See the inner exception for details.
+DEBUG 2018-05-25 11:39:23,091 3612253ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:1NP70LMO|2018/04/09 06:18:06|303.00|16
+DEBUG 2018-05-25 11:41:51,915 3761077ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:4RSLV3YR|2018/05/25 09:36:24|172.00|40
+ERROR 2018-05-25 12:34:00,154 6889316ms CanjePuntosController  gistrarCanjePuntos - ERROR:Referencia a objeto no establecida como instancia de un objeto.
+ERROR 2018-05-25 12:34:52,254 6941415ms CanjePuntosController  gistrarCanjePuntos - ERROR:Referencia a objeto no establecida como instancia de un objeto.
+ERROR 2018-05-25 12:47:02,243 333466ms CanjePuntosController  gistrarCanjePuntos - ERROR:El método no estático necesita un destino.
+ERROR 2018-05-25 12:47:30,574 361797ms CanjePuntosController  gistrarCanjePuntos - ERROR:El método no estático necesita un destino.
+ERROR 2018-05-25 12:59:46,783 1098006ms CanjePuntosController  canjearRecompensa  - ERROR:Referencia a objeto no establecida como instancia de un objeto.
+DEBUG 2018-05-28 08:43:35,756 222293ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:4RSLV3YR|2018/05/25 09:36:24|172.00|40
+DEBUG 2018-05-28 08:45:00,478 307015ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:FDJMK84H|2018/04/22 06:03:55|179.00|40
+INFO  2019-04-22 11:06:22,873   972ms ServerObjectsInstaller CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2019-04-22 11:06:23,261  1360ms ServerObjectsInstaller CallSite.Target    - Hangfire SQL objects installed.
+INFO  2019-04-22 11:06:23,304  1403ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2019-04-22 11:06:23,307  1406ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-04-22 11:06:23,307  1406ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2019-04-22 11:06:23,307  1406ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2019-04-22 11:06:23,308  1407ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2019-04-22 11:06:23,308  1407ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2019-04-22 11:06:23,308  1407ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2019-04-22 11:06:23,308  1407ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2019-04-22 11:06:23,308  1407ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2019-04-22 11:06:23,386  1485ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-04-22 11:06:23,545  1644ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2019-04-22 11:06:23,551  1650ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2019-04-22 11:06:23,600  1699ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-04-22 11:06:23,603  1702ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-22 11:06:23,603  1702ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-04-22 11:06:23,627  1726ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-22 11:06:23,657  1757ms Worker                 CallSite.Target    - Background process 'Worker #d14c100f' started.
+DEBUG 2019-04-22 11:06:23,662  1761ms Worker                 CallSite.Target    - Background process 'Worker #f55fc9d7' started.
+INFO  2019-04-22 11:06:23,687  1786ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2019-04-22 11:06:23,696  1795ms Worker                 CallSite.Target    - Background process 'Worker #d554acf1' started.
+DEBUG 2019-04-22 11:06:23,720  1819ms Worker                 CallSite.Target    - Background process 'Worker #e0640ea6' started.
+DEBUG 2019-04-22 11:06:23,725  1824ms Worker                 CallSite.Target    - Background process 'Worker #14273151' started.
+DEBUG 2019-04-22 11:06:23,737  1836ms Worker                 CallSite.Target    - Background process 'Worker #8015317d' started.
+DEBUG 2019-04-22 11:06:23,752  1851ms Worker                 CallSite.Target    - Background process 'Worker #a032feb5' started.
+DEBUG 2019-04-22 11:06:23,753  1852ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-22 11:06:23,795  1895ms Worker                 CallSite.Target    - Background process 'Worker #505b6d02' started.
+DEBUG 2019-04-22 11:06:23,809  1908ms Worker                 CallSite.Target    - Background process 'Worker #e37d30f0' started.
+DEBUG 2019-04-22 11:06:23,837  1936ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-22 11:06:23,837  1936ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-22 11:06:23,876  1975ms Worker                 CallSite.Target    - Background process 'Worker #863c72ee' started.
+DEBUG 2019-04-22 11:06:23,908  2007ms Worker                 CallSite.Target    - Background process 'Worker #ff1228f0' started.
+DEBUG 2019-04-22 11:06:23,977  2076ms Worker                 CallSite.Target    - Background process 'Worker #39ee8032' started.
+DEBUG 2019-04-22 11:06:23,983  2082ms Worker                 CallSite.Target    - Background process 'Worker #ec526a79' started.
+DEBUG 2019-04-22 11:06:24,003  2102ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-22 11:06:24,003  2102ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-22 11:06:24,004  2103ms Worker                 CallSite.Target    - Background process 'Worker #b58775e7' started.
+DEBUG 2019-04-22 11:06:24,024  2123ms Worker                 CallSite.Target    - Background process 'Worker #eed88be7' started.
+DEBUG 2019-04-22 11:06:24,037  2136ms Worker                 CallSite.Target    - Background process 'Worker #28ea0f3f' started.
+DEBUG 2019-04-22 11:06:24,052  2151ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-22 11:06:24,052  2151ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-22 11:06:24,065  2164ms Worker                 CallSite.Target    - Background process 'Worker #fdd224fb' started.
+DEBUG 2019-04-22 11:06:24,081  2180ms Worker                 CallSite.Target    - Background process 'Worker #91de1926' started.
+DEBUG 2019-04-22 11:06:24,094  2193ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-22 11:06:24,095  2194ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-22 11:06:24,094  2193ms Worker                 CallSite.Target    - Background process 'Worker #50f48a3e' started.
+DEBUG 2019-04-22 11:06:24,115  2214ms Worker                 CallSite.Target    - Background process 'Worker #799d380d' started.
+DEBUG 2019-04-22 11:06:24,117  2216ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-04-22 11:06:24,149  2248ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-22 11:06:24,150  2249ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2019-04-23 17:07:24,499  1342ms ServerObjectsInstaller CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2019-04-23 17:07:24,817  1660ms ServerObjectsInstaller CallSite.Target    - Hangfire SQL objects installed.
+INFO  2019-04-23 17:07:24,937  1780ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2019-04-23 17:07:24,940  1783ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-04-23 17:07:24,940  1783ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2019-04-23 17:07:24,941  1784ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2019-04-23 17:07:24,941  1784ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2019-04-23 17:07:24,941  1784ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2019-04-23 17:07:24,942  1785ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2019-04-23 17:07:24,942  1785ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2019-04-23 17:07:24,942  1785ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2019-04-23 17:07:25,017  1860ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-04-23 17:07:25,363  2206ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2019-04-23 17:07:25,398  2241ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2019-04-23 17:07:25,398  2241ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-04-23 17:07:25,403  2246ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-23 17:07:25,408  2251ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-04-23 17:07:25,432  2275ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:07:25,434  2277ms Worker                 CallSite.Target    - Background process 'Worker #0ffc85ba' started.
+DEBUG 2019-04-23 17:07:25,446  2289ms Worker                 CallSite.Target    - Background process 'Worker #f5da2223' started.
+INFO  2019-04-23 17:07:25,460  2303ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2019-04-23 17:07:25,461  2304ms Worker                 CallSite.Target    - Background process 'Worker #53bed247' started.
+DEBUG 2019-04-23 17:07:25,465  2308ms Worker                 CallSite.Target    - Background process 'Worker #e4b53141' started.
+DEBUG 2019-04-23 17:07:25,475  2318ms Worker                 CallSite.Target    - Background process 'Worker #13f45913' started.
+DEBUG 2019-04-23 17:07:25,499  2342ms Worker                 CallSite.Target    - Background process 'Worker #cc7a5dd0' started.
+DEBUG 2019-04-23 17:07:25,500  2343ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:07:25,517  2360ms Worker                 CallSite.Target    - Background process 'Worker #e3fc91d7' started.
+DEBUG 2019-04-23 17:07:25,525  2368ms Worker                 CallSite.Target    - Background process 'Worker #1db7cfa0' started.
+DEBUG 2019-04-23 17:07:25,549  2392ms Worker                 CallSite.Target    - Background process 'Worker #54484916' started.
+DEBUG 2019-04-23 17:07:25,572  2415ms Worker                 CallSite.Target    - Background process 'Worker #f2affccd' started.
+DEBUG 2019-04-23 17:07:25,630  2473ms Worker                 CallSite.Target    - Background process 'Worker #588cc721' started.
+DEBUG 2019-04-23 17:07:25,665  2508ms Worker                 CallSite.Target    - Background process 'Worker #acd0d2fd' started.
+DEBUG 2019-04-23 17:07:25,677  2520ms Worker                 CallSite.Target    - Background process 'Worker #7fe0ab15' started.
+DEBUG 2019-04-23 17:07:25,684  2527ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-23 17:07:25,684  2527ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-23 17:07:25,707  2550ms Worker                 CallSite.Target    - Background process 'Worker #efd90edc' started.
+DEBUG 2019-04-23 17:07:25,710  2553ms Worker                 CallSite.Target    - Background process 'Worker #1f485d40' started.
+DEBUG 2019-04-23 17:07:25,730  2573ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-23 17:07:25,731  2574ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-23 17:07:25,738  2581ms Worker                 CallSite.Target    - Background process 'Worker #7abaeabe' started.
+DEBUG 2019-04-23 17:07:25,752  2595ms Worker                 CallSite.Target    - Background process 'Worker #e6aea434' started.
+DEBUG 2019-04-23 17:07:25,787  2630ms Worker                 CallSite.Target    - Background process 'Worker #5849e7e9' started.
+DEBUG 2019-04-23 17:07:25,798  2641ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-23 17:07:25,800  2643ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-23 17:07:25,826  2669ms Worker                 CallSite.Target    - Background process 'Worker #85136d4f' started.
+DEBUG 2019-04-23 17:07:25,834  2677ms Worker                 CallSite.Target    - Background process 'Worker #4327c772' started.
+DEBUG 2019-04-23 17:07:25,841  2684ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-23 17:07:25,841  2684ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-23 17:07:25,862  2705ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-04-23 17:07:25,872  2715ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-23 17:07:25,873  2716ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-04-23 17:12:25,502 302345ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:12:25,516 302359ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:13:26,417 363260ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Datos incorrectos.
+
+ERROR 2019-04-23 17:13:33,965 370808ms GeneraPuntosController arCompraParaPuntos - ERROR:Índice fuera de los límites de la matriz.
+DEBUG 2019-04-23 17:14:20,540 417383ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Datos incorrectos.
+
+ERROR 2019-04-23 17:14:23,506 420349ms GeneraPuntosController arCompraParaPuntos - ERROR:Índice fuera de los límites de la matriz.
+DEBUG 2019-04-23 17:31:20,764 1437607ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Datos incorrectos.
+
+DEBUG 2019-04-23 17:31:20,786 1437629ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+ERROR 2019-04-23 17:31:20,919 1437762ms GeneraPuntosController arCompraParaPuntos - ERROR:Índice fuera de los límites de la matriz.
+INFO  2019-04-23 17:31:20,983 1437826ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2019-04-23 17:31:21,020 1437863ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:36:21,022 1737865ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:36:21,069 1737912ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:37:25,873 1802716ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-23 17:37:25,938 1802781ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-23 17:37:25,938 1802781ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-23 17:37:25,961 1802804ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-23 17:37:25,961 1802804ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-23 17:37:25,983 1802826ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-23 17:37:25,983 1802826ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-23 17:37:26,005 1802848ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-23 17:37:26,005 1802848ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-23 17:37:26,027 1802870ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-23 17:41:21,071 2037914ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:41:21,088 2037931ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:46:21,090 2337933ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:46:21,111 2337954ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:51:21,113 2637956ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:51:21,128 2637971ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 17:56:21,129 2937972ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 17:56:21,150 2937993ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:01:21,153 3237996ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:01:21,178 3238021ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:06:21,179 3538022ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:06:21,193 3538036ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:07:26,029 3602872ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-23 18:07:26,067 3602910ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-23 18:07:26,067 3602910ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-23 18:07:26,089 3602932ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-23 18:07:26,089 3602932ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-23 18:07:26,109 3602952ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-23 18:07:26,110 3602953ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-23 18:07:26,130 3602973ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-23 18:07:26,130 3602973ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-23 18:07:26,149 3602992ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-23 18:09:31,999 3728842ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Datos incorrectos.
+
+ERROR 2019-04-23 18:09:32,028 3728871ms GeneraPuntosController arCompraParaPuntos - ERROR:Índice fuera de los límites de la matriz.
+DEBUG 2019-04-23 18:10:21,133 3777976ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Datos incorrectos.
+
+ERROR 2019-04-23 18:10:21,168 3778011ms GeneraPuntosController arCompraParaPuntos - ERROR:Índice fuera de los límites de la matriz.
+DEBUG 2019-04-23 18:11:21,195 3838038ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:11:21,224 3838067ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:16:21,226 4138069ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:16:21,259 4138102ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:21:21,259 4438102ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:21:21,276 4438119ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:26:21,278 4738121ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:26:21,316 4738159ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-23 18:31:21,318 5038161ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-23 18:31:21,339 5038182ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2019-04-25 10:25:03,775   985ms ServerObjectsInstaller CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2019-04-25 10:25:04,361  1571ms ServerObjectsInstaller CallSite.Target    - Hangfire SQL objects installed.
+INFO  2019-04-25 10:25:04,487  1697ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2019-04-25 10:25:04,490  1700ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-04-25 10:25:04,490  1700ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2019-04-25 10:25:04,490  1700ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2019-04-25 10:25:04,490  1700ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2019-04-25 10:25:04,490  1700ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2019-04-25 10:25:04,491  1701ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2019-04-25 10:25:04,491  1701ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2019-04-25 10:25:04,491  1701ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2019-04-25 10:25:04,524  1735ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-04-25 10:25:05,021  2231ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2019-04-25 10:25:05,026  2236ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2019-04-25 10:25:05,038  2248ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-04-25 10:25:05,041  2251ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 10:25:05,096  2306ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-04-25 10:25:05,097  2307ms Worker                 CallSite.Target    - Background process 'Worker #c8e36f1a' started.
+DEBUG 2019-04-25 10:25:05,097  2307ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 10:25:05,146  2356ms Worker                 CallSite.Target    - Background process 'Worker #b626f5fb' started.
+DEBUG 2019-04-25 10:25:05,174  2384ms Worker                 CallSite.Target    - Background process 'Worker #3c4e0b51' started.
+DEBUG 2019-04-25 10:25:05,189  2399ms Worker                 CallSite.Target    - Background process 'Worker #e9f7f009' started.
+DEBUG 2019-04-25 10:25:05,189  2399ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 10:25:05,197  2407ms Worker                 CallSite.Target    - Background process 'Worker #755f145d' started.
+DEBUG 2019-04-25 10:25:05,289  2499ms Worker                 CallSite.Target    - Background process 'Worker #2d724a11' started.
+DEBUG 2019-04-25 10:25:05,324  2535ms Worker                 CallSite.Target    - Background process 'Worker #ad394e75' started.
+DEBUG 2019-04-25 10:25:05,332  2543ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 10:25:05,332  2543ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 10:25:05,351  2561ms Worker                 CallSite.Target    - Background process 'Worker #068a48e0' started.
+DEBUG 2019-04-25 10:25:05,359  2569ms Worker                 CallSite.Target    - Background process 'Worker #7f0467df' started.
+DEBUG 2019-04-25 10:25:05,394  2604ms Worker                 CallSite.Target    - Background process 'Worker #c8974a58' started.
+DEBUG 2019-04-25 10:25:05,435  2645ms Worker                 CallSite.Target    - Background process 'Worker #58aa348d' started.
+DEBUG 2019-04-25 10:25:05,471  2681ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 10:25:05,471  2681ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 10:25:05,473  2683ms Worker                 CallSite.Target    - Background process 'Worker #f76125f0' started.
+DEBUG 2019-04-25 10:25:05,542  2752ms Worker                 CallSite.Target    - Background process 'Worker #39245221' started.
+DEBUG 2019-04-25 10:25:05,575  2785ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 10:25:05,576  2786ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 10:25:05,577  2787ms Worker                 CallSite.Target    - Background process 'Worker #f9fdddf3' started.
+DEBUG 2019-04-25 10:25:05,640  2850ms Worker                 CallSite.Target    - Background process 'Worker #5a051590' started.
+DEBUG 2019-04-25 10:25:05,654  2864ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 10:25:05,655  2865ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 10:25:05,656  2866ms Worker                 CallSite.Target    - Background process 'Worker #d0ede454' started.
+DEBUG 2019-04-25 10:25:05,732  2942ms Worker                 CallSite.Target    - Background process 'Worker #36da05c7' started.
+DEBUG 2019-04-25 10:25:05,753  2963ms Worker                 CallSite.Target    - Background process 'Worker #a484e5a3' started.
+DEBUG 2019-04-25 10:25:05,753  2963ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 10:25:05,761  2971ms Worker                 CallSite.Target    - Background process 'Worker #60ba56dc' started.
+DEBUG 2019-04-25 10:25:05,776  2986ms Worker                 CallSite.Target    - Background process 'Worker #db422a42' started.
+DEBUG 2019-04-25 10:25:05,806  3016ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-04-25 10:25:05,813  3023ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+INFO  2019-04-25 12:00:08,347   611ms ServerObjectsInstaller CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2019-04-25 12:00:08,594   858ms ServerObjectsInstaller CallSite.Target    - Hangfire SQL objects installed.
+INFO  2019-04-25 12:00:08,671   934ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2019-04-25 12:00:08,676   939ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-04-25 12:00:08,677   940ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2019-04-25 12:00:08,677   940ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2019-04-25 12:00:08,677   940ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2019-04-25 12:00:08,677   940ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2019-04-25 12:00:08,678   941ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2019-04-25 12:00:08,678   941ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2019-04-25 12:00:08,678   941ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2019-04-25 12:00:08,699   963ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-04-25 12:00:08,921  1184ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2019-04-25 12:00:08,930  1193ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2019-04-25 12:00:08,980  1243ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-04-25 12:00:08,986  1249ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 12:00:09,045  1308ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-04-25 12:00:09,046  1309ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+INFO  2019-04-25 12:00:09,086  1350ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2019-04-25 12:00:09,087  1351ms Worker                 CallSite.Target    - Background process 'Worker #1602b0d7' started.
+DEBUG 2019-04-25 12:00:09,096  1360ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:00:09,121  1385ms Worker                 CallSite.Target    - Background process 'Worker #5a0dabae' started.
+DEBUG 2019-04-25 12:00:09,196  1460ms Worker                 CallSite.Target    - Background process 'Worker #df43aa51' started.
+DEBUG 2019-04-25 12:00:09,229  1493ms Worker                 CallSite.Target    - Background process 'Worker #55e15a3e' started.
+DEBUG 2019-04-25 12:00:09,267  1531ms Worker                 CallSite.Target    - Background process 'Worker #40871b87' started.
+DEBUG 2019-04-25 12:00:09,269  1533ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 12:00:09,269  1533ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 12:00:09,271  1535ms Worker                 CallSite.Target    - Background process 'Worker #17aea767' started.
+DEBUG 2019-04-25 12:00:09,298  1562ms Worker                 CallSite.Target    - Background process 'Worker #5350b805' started.
+DEBUG 2019-04-25 12:00:09,304  1568ms Worker                 CallSite.Target    - Background process 'Worker #84887a67' started.
+DEBUG 2019-04-25 12:00:09,369  1632ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 12:00:09,370  1633ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 12:00:09,369  1632ms Worker                 CallSite.Target    - Background process 'Worker #85e0e013' started.
+DEBUG 2019-04-25 12:00:09,385  1648ms Worker                 CallSite.Target    - Background process 'Worker #8b3ca613' started.
+DEBUG 2019-04-25 12:00:09,446  1709ms Worker                 CallSite.Target    - Background process 'Worker #638516c0' started.
+DEBUG 2019-04-25 12:00:09,464  1727ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 12:00:09,465  1728ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 12:00:09,464  1727ms Worker                 CallSite.Target    - Background process 'Worker #940782eb' started.
+DEBUG 2019-04-25 12:00:09,501  1764ms Worker                 CallSite.Target    - Background process 'Worker #342e3761' started.
+DEBUG 2019-04-25 12:00:09,565  1829ms Worker                 CallSite.Target    - Background process 'Worker #dfb94135' started.
+DEBUG 2019-04-25 12:00:09,565  1829ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 12:00:09,565  1829ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 12:00:09,581  1845ms Worker                 CallSite.Target    - Background process 'Worker #1386a9e4' started.
+DEBUG 2019-04-25 12:00:09,606  1870ms Worker                 CallSite.Target    - Background process 'Worker #a2714bd9' started.
+DEBUG 2019-04-25 12:00:09,613  1877ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 12:00:09,621  1885ms Worker                 CallSite.Target    - Background process 'Worker #cf098a85' started.
+DEBUG 2019-04-25 12:00:09,666  1930ms Worker                 CallSite.Target    - Background process 'Worker #6172735e' started.
+DEBUG 2019-04-25 12:00:09,678  1942ms Worker                 CallSite.Target    - Background process 'Worker #026a0673' started.
+DEBUG 2019-04-25 12:00:09,691  1955ms Worker                 CallSite.Target    - Background process 'Worker #0d9c94d3' started.
+DEBUG 2019-04-25 12:00:09,709  1973ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-04-25 12:00:09,710  1974ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-04-25 12:02:44,510 156773ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Q1BEYSC7K8|2019/04/25 11:46:49|470.00|6
+DEBUG 2019-04-25 12:03:34,802 207066ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Q1BEYSC7K8|2019/04/25 11:46:49|470.00|6
+INFO  2019-04-25 12:04:57,186   201ms ServerObjectsInstaller CallSite.Target    - Start installing Hangfire SQL objects...
+INFO  2019-04-25 12:04:57,268   283ms ServerObjectsInstaller CallSite.Target    - Hangfire SQL objects installed.
+INFO  2019-04-25 12:04:57,301   316ms BackgroundJobServer    CallSite.Target    - Starting Hangfire Server
+INFO  2019-04-25 12:04:57,304   319ms BackgroundJobServer    CallSite.Target    - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-04-25 12:04:57,304   319ms BackgroundJobServer    CallSite.Target    - Using the following options for SQL Server job storage:
+INFO  2019-04-25 12:04:57,305   320ms BackgroundJobServer    CallSite.Target    -     Queue poll interval: 00:00:15.
+INFO  2019-04-25 12:04:57,305   320ms BackgroundJobServer    CallSite.Target    - Using the following options for Hangfire Server:
+INFO  2019-04-25 12:04:57,305   320ms BackgroundJobServer    CallSite.Target    -     Worker count: 20
+INFO  2019-04-25 12:04:57,306   321ms BackgroundJobServer    CallSite.Target    -     Listening queues: 'default'
+INFO  2019-04-25 12:04:57,306   321ms BackgroundJobServer    CallSite.Target    -     Shutdown timeout: 00:00:15
+INFO  2019-04-25 12:04:57,306   321ms BackgroundJobServer    CallSite.Target    -     Schedule polling interval: 00:00:15
+DEBUG 2019-04-25 12:04:57,324   339ms groundProcessingServer CallSite.Target    - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-04-25 12:04:57,416   431ms ServerHeartbeat        CallSite.Target    - Background process 'ServerHeartbeat' started.
+DEBUG 2019-04-25 12:04:57,424   439ms ServerWatchdog         CallSite.Target    - Background process 'ServerWatchdog' started.
+DEBUG 2019-04-25 12:04:57,439   454ms ExpirationManager      CallSite.Target    - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-04-25 12:04:57,440   455ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 12:04:57,462   477ms CountersAggregator     CallSite.Target    - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-04-25 12:04:57,463   478ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:04:57,505   520ms Worker                 CallSite.Target    - Background process 'Worker #e4e6d132' started.
+DEBUG 2019-04-25 12:04:57,507   522ms Worker                 CallSite.Target    - Background process 'Worker #a2fd7e06' started.
+DEBUG 2019-04-25 12:04:57,511   526ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:04:57,543   558ms Worker                 CallSite.Target    - Background process 'Worker #9583c1d1' started.
+DEBUG 2019-04-25 12:04:57,555   570ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 12:04:57,555   570ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 12:04:57,555   570ms Worker                 CallSite.Target    - Background process 'Worker #8f369ef6' started.
+DEBUG 2019-04-25 12:04:57,556   571ms Worker                 CallSite.Target    - Background process 'Worker #d15b735c' started.
+DEBUG 2019-04-25 12:04:57,621   636ms Worker                 CallSite.Target    - Background process 'Worker #c45d1082' started.
+DEBUG 2019-04-25 12:04:57,644   659ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 12:04:57,645   660ms Worker                 CallSite.Target    - Background process 'Worker #1405f90f' started.
+DEBUG 2019-04-25 12:04:57,645   660ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 12:04:57,695   710ms Worker                 CallSite.Target    - Background process 'Worker #204025bc' started.
+DEBUG 2019-04-25 12:04:57,739   754ms Worker                 CallSite.Target    - Background process 'Worker #741136c9' started.
+DEBUG 2019-04-25 12:04:57,759   774ms Worker                 CallSite.Target    - Background process 'Worker #d11492b8' started.
+DEBUG 2019-04-25 12:04:57,759   774ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 12:04:57,761   776ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 12:04:57,775   790ms Worker                 CallSite.Target    - Background process 'Worker #0cc0e2cc' started.
+DEBUG 2019-04-25 12:04:57,802   817ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 12:04:57,802   817ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 12:04:57,803   818ms Worker                 CallSite.Target    - Background process 'Worker #9f494ed6' started.
+DEBUG 2019-04-25 12:04:57,822   837ms Worker                 CallSite.Target    - Background process 'Worker #a6e4410f' started.
+DEBUG 2019-04-25 12:04:57,861   876ms Worker                 CallSite.Target    - Background process 'Worker #7ebbbc65' started.
+DEBUG 2019-04-25 12:04:57,863   878ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 12:04:57,874   889ms Worker                 CallSite.Target    - Background process 'Worker #3a947c7a' started.
+DEBUG 2019-04-25 12:04:57,884   899ms Worker                 CallSite.Target    - Background process 'Worker #2a15bba4' started.
+DEBUG 2019-04-25 12:04:57,896   911ms Worker                 CallSite.Target    - Background process 'Worker #be5bc76a' started.
+DEBUG 2019-04-25 12:04:57,909   924ms Worker                 CallSite.Target    - Background process 'Worker #ea1e5fac' started.
+DEBUG 2019-04-25 12:04:57,910   925ms Worker                 CallSite.Target    - Background process 'Worker #d7be9006' started.
+DEBUG 2019-04-25 12:04:57,950   965ms Worker                 CallSite.Target    - Background process 'Worker #a48842f7' started.
+DEBUG 2019-04-25 12:04:57,959   974ms DelayedJobScheduler    CallSite.Target    - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-04-25 12:04:57,986  1001ms RecurringJobScheduler  CallSite.Target    - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-04-25 12:05:12,826 15842ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Q1BEYSC7K8|2019/04/25 11:46:49|470.00|6
+ERROR 2019-04-25 12:07:53,247 176262ms GeneraPuntosController arCompraParaPuntos - ERROR:An error occurred while executing the command definition. See the inner exception for details.
+DEBUG 2019-04-25 12:07:53,589 176604ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #9f494ed6' process. Execution will be retried (attempt #1) in 00:00:01 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,615 176630ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #741136c9' process. Execution will be retried (attempt #1) in 00:00:00 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,616 176631ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #c45d1082' process. Execution will be retried (attempt #1) in 00:00:01 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,589 176604ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #0cc0e2cc' process. Execution will be retried (attempt #1) in 00:00:00 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,614 176629ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #d11492b8' process. Execution will be retried (attempt #1) in 00:00:00 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,615 176630ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #204025bc' process. Execution will be retried (attempt #1) in 00:00:01 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,589 176604ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #d15b735c' process. Execution will be retried (attempt #1) in 00:00:01 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,615 176630ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #1405f90f' process. Execution will be retried (attempt #1) in 00:00:01 seconds.
+System.InvalidOperationException: Valor de tiempo de espera caducado. El período de tiempo de espera expiró antes de obtener una conexión del grupo. Esto puede suceder porque todas las conexiones de la agrupación estaban en uso y se alcanzó el máximo tamaño del grupo.
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+DEBUG 2019-04-25 12:07:53,738 176753ms Worker                 CallSite.Target    - Error occurred during execution of 'Worker #9583c1d1' process. Execution will be retried (attempt #1) in 00:00:01 seconds.
+System.Data.SqlClient.SqlException (0x80131904): El cliente no pudo establecer una conexión debido a un error durante el proceso de inicialización de la conexión previo al inicio de sesión. Entre las causas posibles se incluyen: el cliente intentó conectar con una versión no compatible de SQL Server; el servidor estaba demasiado ocupado para aceptar nuevas conexiones; o bien, había una limitación de recursos (memoria insuficiente o número máximo de conexiones permitidas) en el servidor. (provider: TCP Provider, error: 0 - Se ha forzado la interrupción de una conexión existente por el host remoto.) ---> System.ComponentModel.Win32Exception (0x80004005): Se ha forzado la interrupción de una conexión existente por el host remoto
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   en System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   en System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   en Hangfire.SqlServer.SqlServerJobQueue.DequeueUsingTransaction(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   en Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   en Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   en Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+ClientConnectionId:e1900f1d-f6f4-4b1e-b2d4-4efc7d91745c
+Error Number:10054,State:0,Class:20
+DEBUG 2019-04-25 12:08:59,084 242099ms GeneraPuntosController arCompraParaPuntos - codigoEntrada:Q1BEYSC7K8|2019/04/25 11:46:49|470.00|6
+ERROR 2019-04-25 12:09:28,636 271651ms GeneraPuntosController arCompraParaPuntos - ERROR:An error occurred while executing the command definition. See the inner exception for details.
+INFO  2019-04-25 12:09:57,503 300518ms ServerWatchdog         CallSite.Target    - 1 servers were removed due to timeout
+DEBUG 2019-04-25 12:09:57,514 300529ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:09:57,532 300548ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:14:57,533 600549ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:14:57,549 600565ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:19:57,551 900566ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:19:57,564 900580ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:24:57,565 1200580ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:24:57,589 1200604ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:29:57,590 1500605ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:29:57,603 1500618ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:34:57,604 1800620ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:34:57,633 1800648ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:34:57,865 1800880ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 12:34:57,892 1800907ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 12:34:57,892 1800907ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 12:34:57,912 1800927ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 12:34:57,912 1800927ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 12:34:57,932 1800947ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 12:34:57,933 1800948ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 12:34:57,952 1800967ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 12:34:57,952 1800967ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 12:34:57,972 1800987ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 12:39:57,634 2100649ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:39:57,663 2100679ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:44:57,665 2400680ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:44:57,693 2400708ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:49:57,696 2700711ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:49:57,726 2700741ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:54:57,728 3000743ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:54:57,760 3000775ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 12:59:57,762 3300777ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 12:59:57,778 3300793ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:04:57,779 3600795ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:04:57,809 3600825ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:04:57,972 3600987ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 13:04:58,036 3601051ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 13:04:58,037 3601052ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 13:04:58,061 3601076ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 13:04:58,061 3601076ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 13:04:58,080 3601095ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 13:04:58,080 3601095ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 13:04:58,098 3601113ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 13:04:58,099 3601114ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 13:04:58,118 3601133ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 13:09:57,811 3900826ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:09:57,831 3900846ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:14:57,832 4200847ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:14:57,846 4200861ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:19:57,846 4500861ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:19:57,877 4500892ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:24:57,877 4800893ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:24:57,907 4800923ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:29:57,909 5100924ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:29:57,922 5100937ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:34:57,923 5400938ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:34:57,943 5400958ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:34:58,119 5401134ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 13:34:58,163 5401178ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 13:34:58,163 5401178ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 13:34:58,213 5401228ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 13:34:58,213 5401228ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 13:34:58,240 5401255ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 13:34:58,241 5401256ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 13:34:58,266 5401281ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 13:34:58,266 5401281ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 13:34:58,285 5401300ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 13:39:57,944 5700959ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:39:57,967 5700983ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:44:57,968 6000983ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:44:57,997 6001012ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:49:57,999 6301014ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:49:58,015 6301030ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:54:58,015 6601030ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:54:58,045 6601060ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 13:59:58,046 6901061ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 13:59:58,059 6901075ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:04:58,060 7201076ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:04:58,085 7201100ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:04:58,286 7201301ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 14:04:58,312 7201327ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 14:04:58,312 7201327ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 14:04:58,333 7201348ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 14:04:58,333 7201348ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 14:04:58,354 7201369ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 14:04:58,354 7201369ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 14:04:58,373 7201388ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 14:04:58,374 7201389ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 14:04:58,395 7201410ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 14:09:58,087 7501102ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:09:58,116 7501131ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:14:58,118 7801133ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:14:58,146 7801161ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:19:58,147 8101163ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:19:58,166 8101182ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:24:58,167 8401182ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:24:58,195 8401211ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:29:58,197 8701212ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:29:58,213 8701228ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:34:58,214 9001229ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:34:58,235 9001250ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:34:58,395 9001411ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 14:34:58,440 9001455ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 14:34:58,440 9001455ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 14:34:58,470 9001485ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 14:34:58,470 9001485ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 14:34:58,498 9001513ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 14:34:58,498 9001513ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 14:34:58,521 9001536ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 14:34:58,521 9001536ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 14:34:58,548 9001563ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 14:39:58,236 9301251ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:39:58,251 9301266ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:44:58,252 9601268ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:44:58,271 9601287ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:49:58,294 9901309ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:49:58,311 9901326ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:54:58,312 10201327ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:54:58,326 10201341ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 14:59:58,327 10501342ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 14:59:58,344 10501359ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 15:04:58,344 10801359ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 15:04:58,359 10801374ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 15:04:58,548 10801563ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-04-25 15:04:58,599 10801614ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-04-25 15:04:58,599 10801614ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Job' table...
+DEBUG 2019-04-25 15:04:58,635 10801650ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Job' table.
+DEBUG 2019-04-25 15:04:58,636 10801651ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'List' table...
+DEBUG 2019-04-25 15:04:58,664 10801679ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'List' table.
+DEBUG 2019-04-25 15:04:58,664 10801679ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Set' table...
+DEBUG 2019-04-25 15:04:58,687 10801702ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Set' table.
+DEBUG 2019-04-25 15:04:58,688 10801703ms ExpirationManager      CallSite.Target    - Removing outdated records from the 'Hash' table...
+DEBUG 2019-04-25 15:04:58,708 10801724ms ExpirationManager      CallSite.Target    - Outdated records removed from the 'Hash' table.
+DEBUG 2019-04-25 15:09:58,361 11101376ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 15:09:58,379 11101394ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 15:14:58,381 11401396ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 15:14:58,404 11401420ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 15:19:58,406 11701421ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 15:19:58,437 11701452ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+DEBUG 2019-04-25 15:24:58,437 12001452ms CountersAggregator     CallSite.Target    - Aggregating records in 'Counter' table...
+DEBUG 2019-04-25 15:24:58,451 12001466ms CountersAggregator     CallSite.Target    - Records from the 'Counter' table aggregated.
+INFO  2019-06-07 08:19:55,981   498ms ServerObjectsInstaller ateAndExecuteVoid2 - Start installing Hangfire SQL objects...
+INFO  2019-06-07 08:19:56,091   608ms ServerObjectsInstaller Log                - Hangfire SQL objects installed.
+INFO  2019-06-07 08:19:56,134   651ms BackgroundJobServer    Log                - Starting Hangfire Server
+INFO  2019-06-07 08:19:56,137   654ms BackgroundJobServer    Log                - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-06-07 08:19:56,138   655ms BackgroundJobServer    Log                - Using the following options for SQL Server job storage:
+INFO  2019-06-07 08:19:56,138   655ms BackgroundJobServer    Log                -     Queue poll interval: 00:00:15.
+INFO  2019-06-07 08:19:56,138   655ms BackgroundJobServer    Log                - Using the following options for Hangfire Server:
+INFO  2019-06-07 08:19:56,138   655ms BackgroundJobServer    Log                -     Worker count: 20
+INFO  2019-06-07 08:19:56,139   656ms BackgroundJobServer    Log                -     Listening queues: 'default'
+INFO  2019-06-07 08:19:56,139   656ms BackgroundJobServer    Log                -     Shutdown timeout: 00:00:15
+INFO  2019-06-07 08:19:56,139   656ms BackgroundJobServer    Log                -     Schedule polling interval: 00:00:15
+DEBUG 2019-06-07 08:19:56,153   670ms groundProcessingServer ateAndExecuteVoid2 - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-06-07 08:19:56,362   879ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' started.
+DEBUG 2019-06-07 08:19:56,363   880ms ServerWatchdog         Log                - Background process 'ServerWatchdog' started.
+DEBUG 2019-06-07 08:19:56,364   881ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-06-07 08:19:56,366   883ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-06-07 08:19:56,366   883ms ExpirationManager      Log                - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-06-07 08:19:56,368   885ms Worker                 Log                - Background process 'Worker #db857c57' started.
+DEBUG 2019-06-07 08:19:56,369   886ms Worker                 Log                - Background process 'Worker #423e9746' started.
+DEBUG 2019-06-07 08:19:56,371   888ms Worker                 Log                - Background process 'Worker #67f5bc9a' started.
+DEBUG 2019-06-07 08:19:56,372   889ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:19:56,373   890ms Worker                 Log                - Background process 'Worker #b459045c' started.
+DEBUG 2019-06-07 08:19:56,374   891ms Worker                 Log                - Background process 'Worker #f468519b' started.
+DEBUG 2019-06-07 08:19:56,376   893ms Worker                 Log                - Background process 'Worker #409d4a29' started.
+DEBUG 2019-06-07 08:19:56,378   895ms Worker                 Log                - Background process 'Worker #8656fdf4' started.
+DEBUG 2019-06-07 08:19:56,379   896ms Worker                 Log                - Background process 'Worker #e0b3400e' started.
+DEBUG 2019-06-07 08:19:56,383   900ms Worker                 Log                - Background process 'Worker #66b56fab' started.
+DEBUG 2019-06-07 08:19:56,384   901ms Worker                 Log                - Background process 'Worker #4fc8e005' started.
+DEBUG 2019-06-07 08:19:56,386   903ms Worker                 Log                - Background process 'Worker #a683e6f8' started.
+DEBUG 2019-06-07 08:19:56,387   904ms Worker                 Log                - Background process 'Worker #fc09e4b8' started.
+DEBUG 2019-06-07 08:19:56,391   908ms Worker                 Log                - Background process 'Worker #bdee5106' started.
+DEBUG 2019-06-07 08:19:56,394   911ms Worker                 Log                - Background process 'Worker #a7b9d691' started.
+DEBUG 2019-06-07 08:19:56,396   913ms Worker                 Log                - Background process 'Worker #689a70cd' started.
+DEBUG 2019-06-07 08:19:56,396   913ms ExpirationManager      Log                - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-06-07 08:19:56,396   913ms ExpirationManager      Log                - Removing outdated records from the 'Job' table...
+DEBUG 2019-06-07 08:19:56,397   914ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:19:56,398   915ms Worker                 Log                - Background process 'Worker #92093227' started.
+DEBUG 2019-06-07 08:19:56,399   916ms Worker                 Log                - Background process 'Worker #4a11af7c' started.
+DEBUG 2019-06-07 08:19:56,399   916ms Worker                 Log                - Background process 'Worker #17742204' started.
+DEBUG 2019-06-07 08:19:56,400   917ms Worker                 Log                - Background process 'Worker #a9be5428' started.
+DEBUG 2019-06-07 08:19:56,401   918ms Worker                 Log                - Background process 'Worker #77e380b5' started.
+DEBUG 2019-06-07 08:19:56,402   919ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-06-07 08:19:56,406   923ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-06-07 08:19:56,446   963ms ExpirationManager      Log                - Outdated records removed from the 'Job' table.
+DEBUG 2019-06-07 08:19:56,446   963ms ExpirationManager      Log                - Removing outdated records from the 'List' table...
+DEBUG 2019-06-07 08:19:56,450   967ms ExpirationManager      Log                - Outdated records removed from the 'List' table.
+DEBUG 2019-06-07 08:19:56,450   967ms ExpirationManager      Log                - Removing outdated records from the 'Set' table...
+DEBUG 2019-06-07 08:19:56,454   971ms ExpirationManager      Log                - Outdated records removed from the 'Set' table.
+DEBUG 2019-06-07 08:19:56,454   971ms ExpirationManager      Log                - Removing outdated records from the 'Hash' table...
+DEBUG 2019-06-07 08:19:56,457   974ms ExpirationManager      Log                - Outdated records removed from the 'Hash' table.
+DEBUG 2019-06-07 08:24:56,393 300910ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:24:56,399 300916ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:29:56,396 600913ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:29:56,404 600921ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:34:56,401 900918ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:34:56,407 900924ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:39:56,404 1200921ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:39:56,411 1200928ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:44:56,408 1500925ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:44:56,417 1500934ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:49:56,414 1800931ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:49:56,421 1800938ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:49:56,432 1800949ms ExpirationManager      Log                - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-06-07 08:49:56,440 1800956ms ExpirationManager      Log                - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-06-07 08:49:56,441 1800958ms ExpirationManager      Log                - Removing outdated records from the 'Job' table...
+DEBUG 2019-06-07 08:49:56,446 1800963ms ExpirationManager      Log                - Outdated records removed from the 'Job' table.
+DEBUG 2019-06-07 08:49:56,447 1800964ms ExpirationManager      Log                - Removing outdated records from the 'List' table...
+DEBUG 2019-06-07 08:49:56,453 1800969ms ExpirationManager      Log                - Outdated records removed from the 'List' table.
+DEBUG 2019-06-07 08:49:56,453 1800969ms ExpirationManager      Log                - Removing outdated records from the 'Set' table...
+DEBUG 2019-06-07 08:49:56,459 1800976ms ExpirationManager      Log                - Outdated records removed from the 'Set' table.
+DEBUG 2019-06-07 08:49:56,460 1800977ms ExpirationManager      Log                - Removing outdated records from the 'Hash' table...
+DEBUG 2019-06-07 08:49:56,464 1800980ms ExpirationManager      Log                - Outdated records removed from the 'Hash' table.
+DEBUG 2019-06-07 08:54:56,418 2100935ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:54:56,424 2100941ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 08:59:56,420 2400937ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 08:59:56,426 2400943ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:04:56,423 2700940ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 09:04:56,430 2700947ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:07:03,058 2827575ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' stopped.
+DEBUG 2019-06-07 09:07:03,058 2827575ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' stopped.
+DEBUG 2019-06-07 09:07:03,061 2827578ms Worker                 Log                - Background process 'Worker #f468519b' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,061 2827578ms Worker                 Log                - Background process 'Worker #f468519b' stopped.
+DEBUG 2019-06-07 09:07:03,061 2827578ms Worker                 Log                - Background process 'Worker #8656fdf4' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,061 2827578ms Worker                 Log                - Background process 'Worker #db857c57' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,062 2827579ms Worker                 Log                - Background process 'Worker #db857c57' stopped.
+DEBUG 2019-06-07 09:07:03,062 2827579ms Worker                 Log                - Background process 'Worker #8656fdf4' stopped.
+DEBUG 2019-06-07 09:07:03,062 2827579ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,062 2827579ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' stopped.
+DEBUG 2019-06-07 09:07:03,061 2827578ms Worker                 Log                - Background process 'Worker #4a11af7c' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,058 2827575ms ServerWatchdog         Log                - Background process 'ServerWatchdog' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #a7b9d691' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,063 2827580ms Worker                 Log                - Background process 'Worker #4a11af7c' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #409d4a29' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,064 2827581ms Worker                 Log                - Background process 'Worker #409d4a29' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #689a70cd' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #423e9746' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,065 2827582ms Worker                 Log                - Background process 'Worker #689a70cd' stopped.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #67f5bc9a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,065 2827582ms Worker                 Log                - Background process 'Worker #67f5bc9a' stopped.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #a683e6f8' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #77e380b5' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,066 2827583ms Worker                 Log                - Background process 'Worker #77e380b5' stopped.
+DEBUG 2019-06-07 09:07:03,066 2827583ms Worker                 Log                - Background process 'Worker #a683e6f8' stopped.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #e0b3400e' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,066 2827583ms Worker                 Log                - Background process 'Worker #e0b3400e' stopped.
+DEBUG 2019-06-07 09:07:03,061 2827578ms Worker                 Log                - Background process 'Worker #66b56fab' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,067 2827584ms Worker                 Log                - Background process 'Worker #66b56fab' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #17742204' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,067 2827584ms Worker                 Log                - Background process 'Worker #17742204' stopped.
+DEBUG 2019-06-07 09:07:03,065 2827582ms Worker                 Log                - Background process 'Worker #423e9746' stopped.
+DEBUG 2019-06-07 09:07:03,060 2827577ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' stopped.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #b459045c' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,068 2827585ms Worker                 Log                - Background process 'Worker #b459045c' stopped.
+DEBUG 2019-06-07 09:07:03,063 2827580ms Worker                 Log                - Background process 'Worker #a7b9d691' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #a9be5428' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #fc09e4b8' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,069 2827586ms Worker                 Log                - Background process 'Worker #fc09e4b8' stopped.
+DEBUG 2019-06-07 09:07:03,069 2827586ms Worker                 Log                - Background process 'Worker #a9be5428' stopped.
+DEBUG 2019-06-07 09:07:03,059 2827576ms Worker                 Log                - Background process 'Worker #4fc8e005' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,069 2827586ms Worker                 Log                - Background process 'Worker #4fc8e005' stopped.
+DEBUG 2019-06-07 09:07:03,058 2827575ms Worker                 Log                - Background process 'Worker #bdee5106' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,070 2827587ms Worker                 Log                - Background process 'Worker #bdee5106' stopped.
+DEBUG 2019-06-07 09:07:03,060 2827577ms Worker                 Log                - Background process 'Worker #92093227' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:07:03,070 2827587ms Worker                 Log                - Background process 'Worker #92093227' stopped.
+DEBUG 2019-06-07 09:07:03,086 2827603ms groundProcessingServer Log                - Background process 'BackgroundProcessingServer' stopped.
+INFO  2019-06-07 09:07:03,087 2827604ms BackgroundJobServer    Log                - Hangfire Server stopped.
+INFO  2019-06-07 09:16:21,202  2395ms ServerObjectsInstaller ateAndExecuteVoid2 - Start installing Hangfire SQL objects...
+INFO  2019-06-07 09:16:21,349  2542ms ServerObjectsInstaller Log                - Hangfire SQL objects installed.
+INFO  2019-06-07 09:16:21,394  2587ms BackgroundJobServer    Log                - Starting Hangfire Server
+INFO  2019-06-07 09:16:21,399  2592ms BackgroundJobServer    Log                - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-06-07 09:16:21,399  2592ms BackgroundJobServer    Log                - Using the following options for SQL Server job storage:
+INFO  2019-06-07 09:16:21,400  2593ms BackgroundJobServer    Log                -     Queue poll interval: 00:00:15.
+INFO  2019-06-07 09:16:21,400  2593ms BackgroundJobServer    Log                - Using the following options for Hangfire Server:
+INFO  2019-06-07 09:16:21,400  2593ms BackgroundJobServer    Log                -     Worker count: 20
+INFO  2019-06-07 09:16:21,400  2593ms BackgroundJobServer    Log                -     Listening queues: 'default'
+INFO  2019-06-07 09:16:21,400  2593ms BackgroundJobServer    Log                -     Shutdown timeout: 00:00:15
+INFO  2019-06-07 09:16:21,400  2593ms BackgroundJobServer    Log                -     Schedule polling interval: 00:00:15
+DEBUG 2019-06-07 09:16:21,416  2609ms groundProcessingServer ateAndExecuteVoid2 - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-06-07 09:16:21,644  2837ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' started.
+DEBUG 2019-06-07 09:16:21,645  2838ms ServerWatchdog         Log                - Background process 'ServerWatchdog' started.
+DEBUG 2019-06-07 09:16:21,649  2842ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-06-07 09:16:21,649  2842ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-06-07 09:16:21,650  2843ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 09:16:21,650  2843ms ExpirationManager      Log                - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-06-07 09:16:21,650  2843ms Worker                 Log                - Background process 'Worker #45f665db' started.
+DEBUG 2019-06-07 09:16:21,652  2845ms Worker                 Log                - Background process 'Worker #1fe0512a' started.
+DEBUG 2019-06-07 09:16:21,653  2846ms Worker                 Log                - Background process 'Worker #188657b6' started.
+DEBUG 2019-06-07 09:16:21,655  2848ms Worker                 Log                - Background process 'Worker #5a7c9c82' started.
+DEBUG 2019-06-07 09:16:21,657  2850ms Worker                 Log                - Background process 'Worker #d1999ecc' started.
+DEBUG 2019-06-07 09:16:21,658  2851ms Worker                 Log                - Background process 'Worker #f38a5e4f' started.
+DEBUG 2019-06-07 09:16:21,660  2853ms Worker                 Log                - Background process 'Worker #59a0c614' started.
+DEBUG 2019-06-07 09:16:21,661  2854ms Worker                 Log                - Background process 'Worker #47262f03' started.
+DEBUG 2019-06-07 09:16:21,671  2864ms Worker                 Log                - Background process 'Worker #14edac6a' started.
+DEBUG 2019-06-07 09:16:21,674  2867ms Worker                 Log                - Background process 'Worker #9819527a' started.
+DEBUG 2019-06-07 09:16:21,675  2868ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:16:21,678  2871ms Worker                 Log                - Background process 'Worker #17f08f7e' started.
+DEBUG 2019-06-07 09:16:21,683  2876ms Worker                 Log                - Background process 'Worker #8a2529c3' started.
+DEBUG 2019-06-07 09:16:21,684  2877ms ExpirationManager      Log                - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-06-07 09:16:21,684  2877ms ExpirationManager      Log                - Removing outdated records from the 'Job' table...
+DEBUG 2019-06-07 09:16:21,685  2878ms Worker                 Log                - Background process 'Worker #86382c48' started.
+DEBUG 2019-06-07 09:16:21,688  2881ms Worker                 Log                - Background process 'Worker #a7452f34' started.
+DEBUG 2019-06-07 09:16:21,691  2884ms Worker                 Log                - Background process 'Worker #6eeb493c' started.
+DEBUG 2019-06-07 09:16:21,693  2886ms Worker                 Log                - Background process 'Worker #bcdd2a14' started.
+DEBUG 2019-06-07 09:16:21,695  2888ms Worker                 Log                - Background process 'Worker #87283c5d' started.
+DEBUG 2019-06-07 09:16:21,699  2892ms Worker                 Log                - Background process 'Worker #b4c87f35' started.
+DEBUG 2019-06-07 09:16:21,700  2893ms Worker                 Log                - Background process 'Worker #f9ed814e' started.
+DEBUG 2019-06-07 09:16:21,702  2895ms Worker                 Log                - Background process 'Worker #89781ad7' started.
+DEBUG 2019-06-07 09:16:21,703  2896ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-06-07 09:16:21,707  2900ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-06-07 09:16:21,732  2925ms ExpirationManager      Log                - Outdated records removed from the 'Job' table.
+DEBUG 2019-06-07 09:16:21,732  2925ms ExpirationManager      Log                - Removing outdated records from the 'List' table...
+DEBUG 2019-06-07 09:16:21,735  2928ms ExpirationManager      Log                - Outdated records removed from the 'List' table.
+DEBUG 2019-06-07 09:16:21,735  2928ms ExpirationManager      Log                - Removing outdated records from the 'Set' table...
+DEBUG 2019-06-07 09:16:21,739  2932ms ExpirationManager      Log                - Outdated records removed from the 'Set' table.
+DEBUG 2019-06-07 09:16:21,739  2932ms ExpirationManager      Log                - Removing outdated records from the 'Hash' table...
+DEBUG 2019-06-07 09:16:21,746  2939ms ExpirationManager      Log                - Outdated records removed from the 'Hash' table.
+DEBUG 2019-06-07 09:21:21,672 302865ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 09:21:21,678 302871ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:26:21,675 602868ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 09:26:21,681 602874ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:31:21,678 902871ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 09:31:21,684 902877ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:36:21,681 1202875ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 09:36:21,687 1202881ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 09:37:15,890 1257083ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' stopped.
+DEBUG 2019-06-07 09:37:15,891 1257084ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' stopped.
+DEBUG 2019-06-07 09:37:15,891 1257084ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' stopped.
+DEBUG 2019-06-07 09:37:15,891 1257084ms ServerWatchdog         Log                - Background process 'ServerWatchdog' stopped.
+DEBUG 2019-06-07 09:37:15,892 1257085ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' stopped.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #17f08f7e' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #17f08f7e' stopped.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #6eeb493c' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,892 1257085ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #59a0c614' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,894 1257087ms Worker                 Log                - Background process 'Worker #59a0c614' stopped.
+DEBUG 2019-06-07 09:37:15,894 1257087ms Worker                 Log                - Background process 'Worker #89781ad7' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,895 1257088ms Worker                 Log                - Background process 'Worker #89781ad7' stopped.
+DEBUG 2019-06-07 09:37:15,894 1257087ms Worker                 Log                - Background process 'Worker #bcdd2a14' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,896 1257089ms Worker                 Log                - Background process 'Worker #188657b6' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,896 1257089ms Worker                 Log                - Background process 'Worker #188657b6' stopped.
+DEBUG 2019-06-07 09:37:15,896 1257089ms Worker                 Log                - Background process 'Worker #bcdd2a14' stopped.
+DEBUG 2019-06-07 09:37:15,894 1257087ms Worker                 Log                - Background process 'Worker #5a7c9c82' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,894 1257087ms Worker                 Log                - Background process 'Worker #8a2529c3' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,897 1257090ms Worker                 Log                - Background process 'Worker #5a7c9c82' stopped.
+DEBUG 2019-06-07 09:37:15,897 1257090ms Worker                 Log                - Background process 'Worker #8a2529c3' stopped.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #1fe0512a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #f9ed814e' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,897 1257090ms Worker                 Log                - Background process 'Worker #f9ed814e' stopped.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #6eeb493c' stopped.
+DEBUG 2019-06-07 09:37:15,897 1257090ms Worker                 Log                - Background process 'Worker #1fe0512a' stopped.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #a7452f34' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,898 1257091ms Worker                 Log                - Background process 'Worker #a7452f34' stopped.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #45f665db' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #d1999ecc' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,898 1257091ms Worker                 Log                - Background process 'Worker #45f665db' stopped.
+DEBUG 2019-06-07 09:37:15,898 1257091ms Worker                 Log                - Background process 'Worker #d1999ecc' stopped.
+DEBUG 2019-06-07 09:37:15,894 1257087ms Worker                 Log                - Background process 'Worker #47262f03' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,899 1257092ms Worker                 Log                - Background process 'Worker #47262f03' stopped.
+DEBUG 2019-06-07 09:37:15,894 1257087ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' stopped.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #9819527a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,899 1257092ms Worker                 Log                - Background process 'Worker #9819527a' stopped.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #14edac6a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #87283c5d' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,899 1257092ms Worker                 Log                - Background process 'Worker #87283c5d' stopped.
+DEBUG 2019-06-07 09:37:15,899 1257092ms Worker                 Log                - Background process 'Worker #14edac6a' stopped.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #b4c87f35' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,893 1257086ms Worker                 Log                - Background process 'Worker #86382c48' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,900 1257093ms Worker                 Log                - Background process 'Worker #b4c87f35' stopped.
+DEBUG 2019-06-07 09:37:15,900 1257093ms Worker                 Log                - Background process 'Worker #86382c48' stopped.
+DEBUG 2019-06-07 09:37:15,892 1257085ms Worker                 Log                - Background process 'Worker #f38a5e4f' was stopped due to a shutdown request.
+DEBUG 2019-06-07 09:37:15,900 1257093ms Worker                 Log                - Background process 'Worker #f38a5e4f' stopped.
+DEBUG 2019-06-07 09:37:15,925 1257118ms groundProcessingServer Log                - Background process 'BackgroundProcessingServer' stopped.
+INFO  2019-06-07 09:37:15,925 1257118ms BackgroundJobServer    Log                - Hangfire Server stopped.
+INFO  2019-06-07 10:00:14,215   689ms ServerObjectsInstaller ateAndExecuteVoid2 - Start installing Hangfire SQL objects...
+INFO  2019-06-07 10:00:14,310   784ms ServerObjectsInstaller Log                - Hangfire SQL objects installed.
+INFO  2019-06-07 10:00:14,326   800ms BackgroundJobServer    Log                - Starting Hangfire Server
+INFO  2019-06-07 10:00:14,326   800ms BackgroundJobServer    Log                - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                - Using the following options for SQL Server job storage:
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                -     Queue poll interval: 00:00:15.
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                - Using the following options for Hangfire Server:
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                -     Worker count: 20
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                -     Listening queues: 'default'
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                -     Shutdown timeout: 00:00:15
+INFO  2019-06-07 10:00:14,327   801ms BackgroundJobServer    Log                -     Schedule polling interval: 00:00:15
+DEBUG 2019-06-07 10:00:14,335   809ms groundProcessingServer ateAndExecuteVoid2 - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-06-07 10:00:14,468   942ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' started.
+DEBUG 2019-06-07 10:00:14,470   944ms ServerWatchdog         Log                - Background process 'ServerWatchdog' started.
+DEBUG 2019-06-07 10:00:14,473   947ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-06-07 10:00:14,474   948ms ExpirationManager      Log                - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-06-07 10:00:14,475   949ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-06-07 10:00:14,475   949ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:00:14,476   950ms Worker                 Log                - Background process 'Worker #fb44b73e' started.
+DEBUG 2019-06-07 10:00:14,479   953ms Worker                 Log                - Background process 'Worker #e52be9af' started.
+DEBUG 2019-06-07 10:00:14,480   954ms Worker                 Log                - Background process 'Worker #ebf2bb60' started.
+DEBUG 2019-06-07 10:00:14,481   955ms Worker                 Log                - Background process 'Worker #6ef82958' started.
+DEBUG 2019-06-07 10:00:14,483   957ms Worker                 Log                - Background process 'Worker #33ac25d9' started.
+DEBUG 2019-06-07 10:00:14,484   958ms Worker                 Log                - Background process 'Worker #1bd1e02a' started.
+DEBUG 2019-06-07 10:00:14,486   960ms Worker                 Log                - Background process 'Worker #73218f8b' started.
+DEBUG 2019-06-07 10:00:14,488   962ms Worker                 Log                - Background process 'Worker #6ba53a05' started.
+DEBUG 2019-06-07 10:00:14,491   965ms Worker                 Log                - Background process 'Worker #feeb6a3f' started.
+DEBUG 2019-06-07 10:00:14,492   966ms Worker                 Log                - Background process 'Worker #0aac76c5' started.
+DEBUG 2019-06-07 10:00:14,494   968ms Worker                 Log                - Background process 'Worker #50e69028' started.
+DEBUG 2019-06-07 10:00:14,495   969ms ExpirationManager      Log                - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-06-07 10:00:14,496   970ms ExpirationManager      Log                - Removing outdated records from the 'Job' table...
+DEBUG 2019-06-07 10:00:14,498   972ms Worker                 Log                - Background process 'Worker #95ee996d' started.
+DEBUG 2019-06-07 10:00:14,500   974ms Worker                 Log                - Background process 'Worker #f6c87a48' started.
+DEBUG 2019-06-07 10:00:14,504   978ms Worker                 Log                - Background process 'Worker #f38f2628' started.
+DEBUG 2019-06-07 10:00:14,505   979ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:00:14,507   981ms Worker                 Log                - Background process 'Worker #71ec8478' started.
+DEBUG 2019-06-07 10:00:14,510   984ms Worker                 Log                - Background process 'Worker #943190c5' started.
+DEBUG 2019-06-07 10:00:14,514   988ms Worker                 Log                - Background process 'Worker #480c6c31' started.
+DEBUG 2019-06-07 10:00:14,515   989ms Worker                 Log                - Background process 'Worker #e72b62e6' started.
+DEBUG 2019-06-07 10:00:14,521   995ms Worker                 Log                - Background process 'Worker #a289b362' started.
+DEBUG 2019-06-07 10:00:14,522   996ms Worker                 Log                - Background process 'Worker #9a497140' started.
+DEBUG 2019-06-07 10:00:14,524   998ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-06-07 10:00:14,525   999ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-06-07 10:00:14,528  1002ms ExpirationManager      Log                - Outdated records removed from the 'Job' table.
+DEBUG 2019-06-07 10:00:14,528  1002ms ExpirationManager      Log                - Removing outdated records from the 'List' table...
+DEBUG 2019-06-07 10:00:14,538  1012ms ExpirationManager      Log                - Outdated records removed from the 'List' table.
+DEBUG 2019-06-07 10:00:14,538  1012ms ExpirationManager      Log                - Removing outdated records from the 'Set' table...
+DEBUG 2019-06-07 10:00:14,542  1016ms ExpirationManager      Log                - Outdated records removed from the 'Set' table.
+DEBUG 2019-06-07 10:00:14,542  1016ms ExpirationManager      Log                - Removing outdated records from the 'Hash' table...
+DEBUG 2019-06-07 10:00:14,546  1020ms ExpirationManager      Log                - Outdated records removed from the 'Hash' table.
+DEBUG 2019-06-07 10:05:14,503 300977ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:05:14,510 300984ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:10:14,507 600981ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:10:14,513 600987ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:15:14,510 900984ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:15:14,516 900990ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:20:14,514 1200988ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:20:14,520 1200994ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:25:14,518 1500992ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:25:14,524 1500998ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:30:14,521 1800995ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 10:30:14,529 1801003ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 10:30:14,529 1801003ms ExpirationManager      Log                - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-06-07 10:30:14,536 1801010ms ExpirationManager      Log                - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-06-07 10:30:14,536 1801010ms ExpirationManager      Log                - Removing outdated records from the 'Job' table...
+DEBUG 2019-06-07 10:30:14,541 1801015ms ExpirationManager      Log                - Outdated records removed from the 'Job' table.
+DEBUG 2019-06-07 10:30:14,541 1801015ms ExpirationManager      Log                - Removing outdated records from the 'List' table...
+DEBUG 2019-06-07 10:30:14,552 1801026ms ExpirationManager      Log                - Outdated records removed from the 'List' table.
+DEBUG 2019-06-07 10:30:14,552 1801026ms ExpirationManager      Log                - Removing outdated records from the 'Set' table...
+DEBUG 2019-06-07 10:30:14,559 1801033ms ExpirationManager      Log                - Outdated records removed from the 'Set' table.
+DEBUG 2019-06-07 10:30:14,559 1801033ms ExpirationManager      Log                - Removing outdated records from the 'Hash' table...
+DEBUG 2019-06-07 10:30:14,564 1801038ms ExpirationManager      Log                - Outdated records removed from the 'Hash' table.
+DEBUG 2019-06-07 10:31:12,615 1859089ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' stopped.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #e72b62e6' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #feeb6a3f' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #feeb6a3f' stopped.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #e72b62e6' stopped.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #f38f2628' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #0aac76c5' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,616 1859090ms Worker                 Log                - Background process 'Worker #f38f2628' stopped.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #0aac76c5' stopped.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #71ec8478' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #73218f8b' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #73218f8b' stopped.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #71ec8478' stopped.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #6ba53a05' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #6ba53a05' stopped.
+DEBUG 2019-06-07 10:31:12,617 1859091ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' stopped.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #f6c87a48' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #f6c87a48' stopped.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #33ac25d9' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #fb44b73e' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #fb44b73e' stopped.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #33ac25d9' stopped.
+DEBUG 2019-06-07 10:31:12,618 1859092ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,618 1859092ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' stopped.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #480c6c31' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,618 1859092ms Worker                 Log                - Background process 'Worker #480c6c31' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #1bd1e02a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,619 1859093ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #e52be9af' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #a289b362' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #a289b362' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #e52be9af' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #ebf2bb60' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #ebf2bb60' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #9a497140' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #943190c5' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,620 1859094ms Worker                 Log                - Background process 'Worker #943190c5' stopped.
+DEBUG 2019-06-07 10:31:12,620 1859094ms Worker                 Log                - Background process 'Worker #95ee996d' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,620 1859094ms Worker                 Log                - Background process 'Worker #95ee996d' stopped.
+DEBUG 2019-06-07 10:31:12,620 1859094ms Worker                 Log                - Background process 'Worker #9a497140' stopped.
+DEBUG 2019-06-07 10:31:12,617 1859091ms Worker                 Log                - Background process 'Worker #50e69028' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,620 1859094ms Worker                 Log                - Background process 'Worker #50e69028' stopped.
+DEBUG 2019-06-07 10:31:12,618 1859092ms ServerWatchdog         Log                - Background process 'ServerWatchdog' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms Worker                 Log                - Background process 'Worker #1bd1e02a' stopped.
+DEBUG 2019-06-07 10:31:12,619 1859093ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' stopped.
+DEBUG 2019-06-07 10:31:12,620 1859094ms Worker                 Log                - Background process 'Worker #6ef82958' was stopped due to a shutdown request.
+DEBUG 2019-06-07 10:31:12,621 1859095ms Worker                 Log                - Background process 'Worker #6ef82958' stopped.
+DEBUG 2019-06-07 10:31:12,637 1859111ms groundProcessingServer Log                - Background process 'BackgroundProcessingServer' stopped.
+INFO  2019-06-07 10:31:12,638 1859112ms BackgroundJobServer    Log                - Hangfire Server stopped.
+INFO  2019-06-07 14:53:48,768  1761ms ServerObjectsInstaller ateAndExecuteVoid2 - Start installing Hangfire SQL objects...
+INFO  2019-06-07 14:53:48,886  1880ms ServerObjectsInstaller Log                - Hangfire SQL objects installed.
+INFO  2019-06-07 14:53:48,901  1895ms BackgroundJobServer    Log                - Starting Hangfire Server
+INFO  2019-06-07 14:53:48,902  1896ms BackgroundJobServer    Log                - Using job storage: 'SQL Server: KAMIZAMA7\MSSQLSERVER16@Hangfire'
+INFO  2019-06-07 14:53:48,902  1896ms BackgroundJobServer    Log                - Using the following options for SQL Server job storage:
+INFO  2019-06-07 14:53:48,902  1896ms BackgroundJobServer    Log                -     Queue poll interval: 00:00:15.
+INFO  2019-06-07 14:53:48,902  1896ms BackgroundJobServer    Log                - Using the following options for Hangfire Server:
+INFO  2019-06-07 14:53:48,902  1896ms BackgroundJobServer    Log                -     Worker count: 20
+INFO  2019-06-07 14:53:48,902  1896ms BackgroundJobServer    Log                -     Listening queues: 'default'
+INFO  2019-06-07 14:53:48,903  1897ms BackgroundJobServer    Log                -     Shutdown timeout: 00:00:15
+INFO  2019-06-07 14:53:48,903  1897ms BackgroundJobServer    Log                -     Schedule polling interval: 00:00:15
+DEBUG 2019-06-07 14:53:48,912  1906ms groundProcessingServer ateAndExecuteVoid2 - Background process 'BackgroundProcessingServer' started.
+DEBUG 2019-06-07 14:53:49,115  2109ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' started.
+DEBUG 2019-06-07 14:53:49,121  2115ms ServerWatchdog         Log                - Background process 'ServerWatchdog' started.
+DEBUG 2019-06-07 14:53:49,122  2116ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+DEBUG 2019-06-07 14:53:49,122  2116ms ExpirationManager      Log                - Removing outdated records from the 'AggregatedCounter' table...
+DEBUG 2019-06-07 14:53:49,127  2121ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+DEBUG 2019-06-07 14:53:49,127  2121ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 14:53:49,144  2138ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 14:53:49,149  2143ms ExpirationManager      Log                - Outdated records removed from the 'AggregatedCounter' table.
+DEBUG 2019-06-07 14:53:49,149  2143ms ExpirationManager      Log                - Removing outdated records from the 'Job' table...
+DEBUG 2019-06-07 14:53:49,153  2147ms ExpirationManager      Log                - Outdated records removed from the 'Job' table.
+DEBUG 2019-06-07 14:53:49,153  2147ms ExpirationManager      Log                - Removing outdated records from the 'List' table...
+DEBUG 2019-06-07 14:53:49,156  2150ms ExpirationManager      Log                - Outdated records removed from the 'List' table.
+DEBUG 2019-06-07 14:53:49,156  2150ms ExpirationManager      Log                - Removing outdated records from the 'Set' table...
+DEBUG 2019-06-07 14:53:49,157  2151ms Worker                 Log                - Background process 'Worker #47cb3dcb' started.
+DEBUG 2019-06-07 14:53:49,159  2153ms ExpirationManager      Log                - Outdated records removed from the 'Set' table.
+DEBUG 2019-06-07 14:53:49,159  2153ms ExpirationManager      Log                - Removing outdated records from the 'Hash' table...
+DEBUG 2019-06-07 14:53:49,159  2153ms Worker                 Log                - Background process 'Worker #04e52d0d' started.
+DEBUG 2019-06-07 14:53:49,163  2157ms ExpirationManager      Log                - Outdated records removed from the 'Hash' table.
+DEBUG 2019-06-07 14:53:49,169  2163ms Worker                 Log                - Background process 'Worker #b2ee107a' started.
+DEBUG 2019-06-07 14:53:49,186  2180ms Worker                 Log                - Background process 'Worker #5d963f3a' started.
+DEBUG 2019-06-07 14:53:49,197  2191ms Worker                 Log                - Background process 'Worker #bdef2c66' started.
+DEBUG 2019-06-07 14:53:49,210  2204ms Worker                 Log                - Background process 'Worker #26dc4da5' started.
+DEBUG 2019-06-07 14:53:49,210  2204ms Worker                 Log                - Background process 'Worker #830e9a0f' started.
+DEBUG 2019-06-07 14:53:49,226  2220ms Worker                 Log                - Background process 'Worker #b4f9746a' started.
+DEBUG 2019-06-07 14:53:49,230  2224ms Worker                 Log                - Background process 'Worker #30b67f81' started.
+DEBUG 2019-06-07 14:53:49,231  2225ms Worker                 Log                - Background process 'Worker #bf4dae4e' started.
+DEBUG 2019-06-07 14:53:49,233  2227ms Worker                 Log                - Background process 'Worker #6ed12cb6' started.
+DEBUG 2019-06-07 14:53:49,238  2232ms Worker                 Log                - Background process 'Worker #a1a6fcfb' started.
+DEBUG 2019-06-07 14:53:49,243  2237ms Worker                 Log                - Background process 'Worker #4c14b683' started.
+DEBUG 2019-06-07 14:53:49,244  2238ms Worker                 Log                - Background process 'Worker #dcf598b3' started.
+DEBUG 2019-06-07 14:53:49,246  2240ms Worker                 Log                - Background process 'Worker #10f1218b' started.
+DEBUG 2019-06-07 14:53:49,260  2254ms Worker                 Log                - Background process 'Worker #c6dd05bd' started.
+DEBUG 2019-06-07 14:53:49,266  2260ms Worker                 Log                - Background process 'Worker #9b74db15' started.
+DEBUG 2019-06-07 14:53:49,281  2275ms Worker                 Log                - Background process 'Worker #accb0859' started.
+DEBUG 2019-06-07 14:53:49,293  2287ms Worker                 Log                - Background process 'Worker #299ae5bd' started.
+DEBUG 2019-06-07 14:53:49,325  2319ms Worker                 Log                - Background process 'Worker #4508b039' started.
+DEBUG 2019-06-07 14:53:49,330  2324ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' started.
+DEBUG 2019-06-07 14:53:49,351  2345ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' started.
+DEBUG 2019-06-07 14:58:49,133 302127ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 14:58:49,141 302135ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 15:03:49,131 602125ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 15:03:49,137 602131ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 15:08:49,126 902120ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 15:08:49,132 902126ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 15:13:49,123 1202117ms CountersAggregator     Log                - Aggregating records in 'Counter' table...
+DEBUG 2019-06-07 15:13:49,129 1202123ms CountersAggregator     Log                - Records from the 'Counter' table aggregated.
+DEBUG 2019-06-07 15:14:45,058 1258052ms CountersAggregator     Log                - Background process 'Hangfire.SqlServer.CountersAggregator' stopped.
+DEBUG 2019-06-07 15:14:45,058 1258052ms DelayedJobScheduler    Log                - Background process 'DelayedJobScheduler' stopped.
+DEBUG 2019-06-07 15:14:45,058 1258052ms ServerHeartbeat        Log                - Background process 'ServerHeartbeat' stopped.
+DEBUG 2019-06-07 15:14:45,059 1258053ms ServerWatchdog         Log                - Background process 'ServerWatchdog' stopped.
+DEBUG 2019-06-07 15:14:45,059 1258053ms ExpirationManager      Log                - Background process 'Hangfire.SqlServer.ExpirationManager' stopped.
+DEBUG 2019-06-07 15:14:45,059 1258053ms Worker                 Log                - Background process 'Worker #830e9a0f' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,059 1258053ms Worker                 Log                - Background process 'Worker #830e9a0f' stopped.
+DEBUG 2019-06-07 15:14:45,059 1258053ms Worker                 Log                - Background process 'Worker #10f1218b' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #04e52d0d' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #04e52d0d' stopped.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #26dc4da5' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #bf4dae4e' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #bf4dae4e' stopped.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #26dc4da5' stopped.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #30b67f81' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,063 1258057ms Worker                 Log                - Background process 'Worker #30b67f81' stopped.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #5d963f3a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,064 1258058ms Worker                 Log                - Background process 'Worker #5d963f3a' stopped.
+DEBUG 2019-06-07 15:14:45,061 1258055ms Worker                 Log                - Background process 'Worker #dcf598b3' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,064 1258058ms Worker                 Log                - Background process 'Worker #dcf598b3' stopped.
+DEBUG 2019-06-07 15:14:45,061 1258055ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,064 1258058ms RecurringJobScheduler  Log                - Background process 'RecurringJobScheduler' stopped.
+DEBUG 2019-06-07 15:14:45,061 1258055ms Worker                 Log                - Background process 'Worker #bdef2c66' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,065 1258059ms Worker                 Log                - Background process 'Worker #bdef2c66' stopped.
+DEBUG 2019-06-07 15:14:45,061 1258055ms Worker                 Log                - Background process 'Worker #4c14b683' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,065 1258059ms Worker                 Log                - Background process 'Worker #4c14b683' stopped.
+DEBUG 2019-06-07 15:14:45,062 1258056ms Worker                 Log                - Background process 'Worker #b4f9746a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,065 1258059ms Worker                 Log                - Background process 'Worker #b4f9746a' stopped.
+DEBUG 2019-06-07 15:14:45,062 1258056ms Worker                 Log                - Background process 'Worker #a1a6fcfb' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,065 1258059ms Worker                 Log                - Background process 'Worker #a1a6fcfb' stopped.
+DEBUG 2019-06-07 15:14:45,059 1258053ms Worker                 Log                - Background process 'Worker #6ed12cb6' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,066 1258060ms Worker                 Log                - Background process 'Worker #6ed12cb6' stopped.
+DEBUG 2019-06-07 15:14:45,063 1258057ms Worker                 Log                - Background process 'Worker #c6dd05bd' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #299ae5bd' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,066 1258060ms Worker                 Log                - Background process 'Worker #299ae5bd' stopped.
+DEBUG 2019-06-07 15:14:45,066 1258060ms Worker                 Log                - Background process 'Worker #c6dd05bd' stopped.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #4508b039' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,066 1258060ms Worker                 Log                - Background process 'Worker #4508b039' stopped.
+DEBUG 2019-06-07 15:14:45,061 1258055ms Worker                 Log                - Background process 'Worker #47cb3dcb' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,062 1258056ms Worker                 Log                - Background process 'Worker #9b74db15' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,067 1258061ms Worker                 Log                - Background process 'Worker #9b74db15' stopped.
+DEBUG 2019-06-07 15:14:45,066 1258060ms Worker                 Log                - Background process 'Worker #47cb3dcb' stopped.
+DEBUG 2019-06-07 15:14:45,062 1258056ms Worker                 Log                - Background process 'Worker #b2ee107a' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,072 1258066ms Worker                 Log                - Background process 'Worker #b2ee107a' stopped.
+DEBUG 2019-06-07 15:14:45,060 1258054ms Worker                 Log                - Background process 'Worker #10f1218b' stopped.
+DEBUG 2019-06-07 15:14:45,061 1258055ms Worker                 Log                - Background process 'Worker #accb0859' was stopped due to a shutdown request.
+DEBUG 2019-06-07 15:14:45,073 1258067ms Worker                 Log                - Background process 'Worker #accb0859' stopped.
+DEBUG 2019-06-07 15:14:45,137 1258131ms groundProcessingServer Log                - Background process 'BackgroundProcessingServer' stopped.
+INFO  2019-06-07 15:14:45,137 1258131ms BackgroundJobServer    Log                - Hangfire Server stopped.

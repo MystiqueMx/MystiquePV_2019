@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)xamarin.build.download\0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.build.download\0.4.7\build\Xamarin.Build.Download.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.ios.instanceid\2.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.ios.instanceid\2.0.8\build\Xamarin.Firebase.iOS.InstanceID.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.ios.core\4.0.13.1\build\Xamarin.Firebase.iOS.Core.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.ios.core\4.0.13.1\build\Xamarin.Firebase.iOS.Core.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.ios.analytics\4.0.5.1\build\Xamarin.Firebase.iOS.Analytics.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.ios.analytics\4.0.5.1\build\Xamarin.Firebase.iOS.Analytics.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.google.ios.signin\4.1.1.1\build\Xamarin.Google.iOS.SignIn.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.google.ios.signin\4.1.1.1\build\Xamarin.Google.iOS.SignIn.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.google.ios.maps\2.5.0\build\Xamarin.Google.iOS.Maps.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.google.ios.maps\2.5.0\build\Xamarin.Google.iOS.Maps.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.ios.performancemonitoring\1.1.0.1\build\Xamarin.Firebase.iOS.PerformanceMonitoring.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.ios.performancemonitoring\1.1.0.1\build\Xamarin.Firebase.iOS.PerformanceMonitoring.targets')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.firebase.ios.crashlytics\3.10.1\build\Xamarin.Firebase.iOS.Crashlytics.targets" Condition="Exists('$(NuGetPackageRoot)xamarin.firebase.ios.crashlytics\3.10.1\build\Xamarin.Firebase.iOS.Crashlytics.targets')" />
+    <Import Project="$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('$(NuGetPackageRoot)netstandard.library\2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  </ImportGroup>
+</Project>

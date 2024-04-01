@@ -1,0 +1,172 @@
+﻿@model MystiqueMC.DAL.usuarios
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    ViewBag.Title = "Agregar";
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Agregar un nuevo usuario</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Create", "usuarios", FormMethod.Post, new { id = "form-crear-USUARIOS", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.nombre, "Nombre", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.nombre,
+                                   new { htmlAttributes = new
+                                   {   @name = "nombretext",
+                                       @class = "form-control",
+                                       data_parsley_maxlength = "100",
+                                       max_length = "100",
+                                       data_parsley_errors_container = "#nombre-error",
+                                       data_parsley_required = "true",
+                                       data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{0,100}"
+                                   } })
+                                    <div class="row">
+                                        <span style="color:red" for="nombretext" id="nombre-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.paterno, "Paterno", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.paterno, new { htmlAttributes =
+                                   new { @class = "form-control",
+                                       data_parsley_maxlength = "50",
+                                       data_parsley_required = "true",
+                                       data_parsley_errors_container = "#paterno-error",
+                                       data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{0,100}"
+                                   } })
+                                    <div class="row">
+                                        <span style="color:red" for="paterno" id="paterno-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.materno, "Materno", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    <input autocomplete="off" class="form-control" type="text" name="materno" id="materno" data-parsley-maxlength="50"
+                                           data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ ]{0,100}" data-parsley-errors-container="#materno-error" />
+                                    <div class="row">
+                                        <span style="color:red" for="materno" id="materno-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group"> 
+                                @Html.LabelFor(model => model.telefono, "Teléfono", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @Id = "telefonoContacto", data_parsley_errors_container = "#telefono-error" } })
+                                    <div class="row">
+                                        <span style="color:red" for="telefono" id="telefono-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.email, "E-mail", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new
+                               {
+                                   @class = "form-control",
+                                   data_parsley_type = "email",
+                                   data_parsley_maxlength = "100",
+                                   data_parsley_required = "true",
+                                   data_parsley_errors_container = "#email-error",
+                                   autocomplete = "new-password",
+                                   data_parsley_remote = Url.Action("ValidarEmail"),
+                                   data_parsley_remote_reverse = "true",
+                                   data_parsley_remote_message = "Este email ya se encuentra registrado"
+                               } })
+                                    <div class="row">
+                                        <span style="color:red" for="email" id="email-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.password, "Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.PasswordFor(model => model.password, new { type = "password", @class = "form-control", autocomplete = "new-password", data_parsley_maxlength = "50", data_parsley_required = "true", data_parsley_errors_container = "#pass-error" })
+                                    <div class="row">
+                                        <span style="color:red" for="password" id="pass-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.aspNetUsersId, "Rol", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.DropDownList("AspRol", (ViewBag.AspNetRoles as SelectList), new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            @if (rol == "WebMaster")
+                            {
+                                <div class="form-group">
+                                    <label for="Empresa" class="control-label col-md-2">Empresa</label>
+                                    <div class="col-md-5">
+                                        @Html.DropDownList("Empresa", (ViewBag.Empresas as SelectList), new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Agregar" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/Scripts/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#FechaNac').datepicker({
+                language: 'es',
+                Format: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#telefonoContacto")
+                .inputmask("mask",
+                 {
+                   "mask": "(999) 999-99-99",
+                   'autoUnmask': true,
+                   'removeMaskOnSubmit': true
+                 });
+        });
+    </script>
+}

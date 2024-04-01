@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingLeft="@dimen/standard_margin"
+            android:paddingRight="@dimen/standard_margin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alignmentMode="alignBounds"
+          >
+   <TextView
+      android:id="@+id/title_template"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="6dp"
+      android:layout_gravity="center"
+      android:paddingTop="10dp"
+      android:gravity="center"
+      android:textStyle="bold"
+      android:textSize="18dp"
+      android:text="Beneficio seleccionado: "
+    />  
+  <ImageView 
+     android:id="@+id/qr_code"
+    android:rotation="90"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:scaleType="fitCenter"
+  />
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_margin="6dp"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:textSize="16dp"
+      android:text="Preséntalo en caja para su canje."
+    />
+  <LinearLayout
+    android:orientation="horizontal"
+    android:gravity="end"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/dialog_barcode_close"
+        android:text="@string/dialog_barcode_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="end"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/none" />
+    <Button
+        android:id="@+id/dialog_barcode_action"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="end"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/none" />
+  </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,169 @@
+﻿@model MystiqueMcApi.Helpers.Pdf.ViewModels.PdfFactura
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        html {
+            font-family: Roboto;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        body {
+            font-family: Roboto;
+        }
+
+        h5 {
+            font-family: Roboto;
+            margin-bottom: 0pt;
+        }
+
+        table {
+            font-family: Roboto;
+            border: 1px solid black;
+            border-spacing: 0px;
+            width: 100%;
+        }
+
+            table tr th {
+                font-family: Roboto;
+                background-color: gray;
+                color: white;
+                padding: 5px;
+            }
+
+            table tr td {
+                font-family: Roboto;
+                margin: 0px;
+                padding: 5px;
+            }
+
+        td {
+            font-family: Roboto;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="" style="margin-top:-35pt;font-family: Roboto;">
+        <center>
+            <h3 style="margin-bottom:0">FACTURA</h3>
+            <h5 style="margin-top:0">@Model.Folio</h5>
+        </center>
+        <h5 style="margin-bottom:0;margin-top:2px"><b>FOLIO FISCAL:</b> @Model.UUID</h5>
+        <h5 style="margin-top:0"><b>FECHA DE EMISION:</b> @Model.FechaEmision</h5>
+
+        <h5 style="margin-bottom:5pt;margin-top:2pt"><b>Emisor</b></h5>
+        <table class="table table-bordered table-condensed" frame="" style="font-size:smaller">
+            <tr>
+                <td style="width:78%"><b>NOMBRE: </b>@Model.NombreEmisor</td>
+                <td style="width:22%"><b>RFC: </b>@Model.RFCEmisor</td>
+            </tr>
+            <tr>
+                <td><b>REGIMEN: </b>@Model.Regimen</td>
+                <td><b>CP: </b>@Model.CPEmisor</td>
+            </tr>
+            <tr>
+
+                <td colspan="2"><b>DIRECCION: </b>@Model.DireccionEmisor</td>
+
+            </tr>
+        </table>
+
+        <h5 style="margin-bottom:5pt;margin-top:2pt"><b>Receptor</b></h5>
+        <table class="table table-bordered table-condensed" frame="box" style="font-size:smaller;">
+            <tr>
+                <td style="width:78%"><b>NOMBRE: </b>@Model.NombreReceptor</td>
+                <td style="width:22%"><b>RFC: </b>@Model.RFCReceptor</td>
+            </tr>
+            <tr>
+                <td><b>USO CFDI: </b>@Model.UsoCFDI</td>
+                <td><b>CP: </b>@Model.CPReceptor</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>DIRECCION: </b>@Model.DireccionReceptor</td>
+
+            </tr>
+        </table>
+
+        <h5 style="margin-bottom:5pt;margin-top:2pt"><b>Conceptos</b></h5>
+        <table class="table table-bordered table-condensed" frame="box" style="font-size:smaller">
+            <tr>
+                <th>Cantidad</th>
+                <th>U.M</th>
+                <th>Clave</th>
+                <th>Descripción</th>
+                <th align="right">Valor Unitario</th>
+                <th align="right">Importe</th>
+            </tr>
+            @foreach (var dato in Model.ListaConceptos)
+            {
+                <tr>
+                    <td>@dato.Cantidad</td>
+                    <td>@dato.UM</td>
+                    <td>@dato.Clave</td>
+                    <td>@dato.Descripcion</td>
+                    <td style="text-align:right">@dato.ValorUnitario</td>
+                    <td align="right">@dato.Importe</td>
+                </tr>
+            }
+        </table>
+        <br />
+        <table class="table table-bordered table-condensed" frame="" style="font-size:smaller;">
+            <tr>
+                <td colspan="3"><b>@Model.CondicionesDePago</b></td>
+
+            </tr>
+            <tr>
+                <td>M&eacute;todo de pago: @Model.MetodoPago</td>
+                <td align="right">Sub Total:</td>
+                <td align="right">$@Model.SubTotal</td>
+            </tr>
+            <tr>
+                <td><b>Cantidad con letra</b></td>
+                <td align="right">IVA Trasladado: </td>
+                <td align="right">$@Model.IVATrasladado</td>
+
+            </tr>
+            <tr>
+                <td align="left">Son: @Model.CantidadLetra</td>
+                <td align="right"><b>Total:</b></td>
+                <td align="right"><b>$@Model.Total</b></td>
+            </tr>
+        </table>
+        <h5 style="margin-top:2pt"><b>Sello Digital CFDI:</b></h5>
+        <div class="col-md-12">
+            <p style="overflow-wrap:break-word;font-size:x-small;margin-left:0pt;padding:0pt">
+                @Model.SelloDigital
+            </p>
+        </div>
+        <h5 style="margin-top:2pt"><b>Sello del SAT:</b></h5>
+        <div class="col-md-12">
+            <p style="overflow-wrap:break-word;font-size:x-small;margin-left:0pt;padding:0pt">
+                @Model.SelloSAT
+            </p>
+        </div>
+
+        <h5 style="margin-top:2pt;float:right"><b>Número de Serie del Certificado del SAT:</b>@Model.NoCertificadoSAT</h5>
+
+        <table border="0" style="">
+            <tr style="margin-left:-10pt">
+                <td style="width:15%">
+                    <img src="@Model.QR" style="height:3cm;width:3cm" />
+                </td>
+                <td style="width:85%">
+                    <h5 style="margin-top:2pt"><b>Cadena Original del complemento de certificación digital del SAT:</b></h5>
+                    <p style="font-size:x-small;">
+                        @Model.CadenaDigitalSAT
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+<footer>
+    <center><p style="font-size:x-small;margin-top:50pt"><b>Este documento es una representación impresa de un CFDI</b></p></center>
+</footer>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="MasterDetailTheme" parent="MasterDetailTheme.Base">
+		<!--If you are using MasterDetailPage you will want to set these, else you can leave them out-->
+		<!--  <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>-->
+    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:statusBarColor">@color/primaryDark</item>
+   <item name="android:windowActivityTransitions">true</item>
+
+    <!-- specify enter and exit transitions -->
+    <!--<item name="android:windowEnterTransition">
+      @transition/fade_in
+    </item>
+    <item name="android:windowExitTransition">
+      @transition/fade_in
+    </item>
+    <item name="android:windowReenterTransition">
+      @transition/fade_in
+    </item>-->
+
+    <item name="android:windowSharedElementEnterTransition">
+      @transition/change_image_transform
+    </item>
+    <item name="android:windowSharedElementExitTransition">
+      @transition/change_image_transform
+    </item>
+
+	</style>
+	<style name="SplashTheme" parent="SplashTheme.Base">
+		<item name="android:windowTranslucentNavigation">true</item>
+		<item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    <item name="android:statusBarColor">@android:color/transparent</item>
+	</style>
+
+</resources>

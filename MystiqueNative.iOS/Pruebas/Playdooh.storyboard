@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1128">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="1127">
+            <objects>
+                <navigationController id="1128" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1130">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.50196078431372548" green="0.74117647058823533" blue="0.00392156862745098" alpha="1"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue id="107927" destination="93202" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1131" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-944" y="-456"/>
+        </scene>
+        <scene sceneID="2903">
+            <objects>
+                <viewController id="2904" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2901"/>
+                        <viewControllerLayoutGuide type="bottom" id="2902"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2905">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beneficios" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="46011" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="123" y="219" width="74" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15" weight="medium"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="46012" translatesAutoresizingMaskIntoConstraints="NO" image="beneficios_100x100.png" fixedFrame="YES">
+                                <rect key="frame" x="110" y="137" width="100" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="49037" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="40" y="262" width="106" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2906" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="-466"/>
+        </scene>
+        <scene sceneID="29828">
+            <objects>
+                <tableViewController id="29829" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" sectionHeaderHeight="0" sectionFooterHeight="28" id="29830">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="29833" rowHeight="144">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="29833" id="29834">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="38962" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="9" y="9" width="302" height="129.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" id="38963" translatesAutoresizingMaskIntoConstraints="NO" spacing="40" misplaced="YES">
+                                                    <rect key="frame" x="15" y="6" width="279" height="120"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capturar Puntos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="38964" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="119.5" height="120"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="27" weight="semibold"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0" height="0"/>
+                                                            <constraints/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="38965" translatesAutoresizingMaskIntoConstraints="NO" image="imgMenuCPPuntos.png">
+                                                            <rect key="frame" x="159.5" y="0.0" width="119.5" height="120"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="38966" firstItem="38963" firstAttribute="top" secondItem="38962" secondAttribute="top" constant="6"/>
+                                                <constraint id="38967" firstItem="38963" firstAttribute="leading" secondItem="38962" secondAttribute="leading" constant="15"/>
+                                                <constraint id="38968" firstItem="38962" firstAttribute="trailing" secondItem="38963" secondAttribute="trailing" constant="8"/>
+                                                <constraint id="38969" firstItem="38962" firstAttribute="bottom" secondItem="38963" secondAttribute="bottom" constant="6"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="51787" firstItem="38962" firstAttribute="top" secondItem="29834" secondAttribute="top" constant="9"/>
+                                        <constraint id="52227" firstItem="38962" firstAttribute="leading" secondItem="29834" secondAttribute="leading" constant="9"/>
+                                        <constraint id="52667" firstItem="29834" firstAttribute="trailing" secondItem="38962" secondAttribute="trailing" constant="9"/>
+                                        <constraint id="55307" firstItem="29834" firstAttribute="bottom" secondItem="38962" secondAttribute="bottom" constant="5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="37643" rowHeight="144">
+                                <rect key="frame" x="0.0" y="144" width="320" height="144"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37643" id="37644">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="50897" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="8" y="6" width="304" height="132"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" id="50898" translatesAutoresizingMaskIntoConstraints="NO" spacing="-50">
+                                                    <rect key="frame" x="15" y="6" width="289" height="120"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mi Saldo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="50899" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="169.5" height="120"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="27" weight="semibold"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0" height="0"/>
+                                                            <constraints/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="50900" translatesAutoresizingMaskIntoConstraints="NO" image="imgMenuCPSaldo.png">
+                                                            <rect key="frame" x="119.5" y="0.0" width="169.5" height="120"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="50901" firstItem="50898" firstAttribute="top" secondItem="50897" secondAttribute="top" constant="6"/>
+                                                <constraint id="50902" firstItem="50898" firstAttribute="leading" secondItem="50897" secondAttribute="leading" constant="15"/>
+                                                <constraint id="50903" firstItem="50897" firstAttribute="trailing" secondItem="50898" secondAttribute="trailing"/>
+                                                <constraint id="50904" firstItem="50897" firstAttribute="bottom" secondItem="50898" secondAttribute="bottom" constant="6"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="57072" firstItem="50897" firstAttribute="leading" secondItem="37644" secondAttribute="leading" constant="8"/>
+                                        <constraint id="57512" firstItem="50897" firstAttribute="top" secondItem="37644" secondAttribute="top" constant="6"/>
+                                        <constraint id="57513" firstItem="37644" firstAttribute="trailing" secondItem="50897" secondAttribute="trailing" constant="8"/>
+                                        <constraint id="57514" firstItem="37644" firstAttribute="bottom" secondItem="50897" secondAttribute="bottom" constant="5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="38075" rowHeight="144">
+                                <rect key="frame" x="0.0" y="288" width="320" height="144"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="38075" id="38076">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="59294" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="8" y="6" width="304" height="132"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" id="59295" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="15" y="6" width="289" height="120"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canjear Puntos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="59296" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="2">
+                                                            <rect key="frame" x="0.0" y="0.0" width="144.5" height="120"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="27" weight="semibold"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <size key="shadowOffset" width="0" height="0"/>
+                                                            <constraints/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="59297" translatesAutoresizingMaskIntoConstraints="NO" image="imgMenuCPCanjear.png" clipsSubviews="YES">
+                                                            <rect key="frame" x="144.5" y="0.0" width="144.5" height="120"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="59298" firstItem="59295" firstAttribute="top" secondItem="59294" secondAttribute="top" constant="6"/>
+                                                <constraint id="59299" firstItem="59295" firstAttribute="leading" secondItem="59294" secondAttribute="leading" constant="15"/>
+                                                <constraint id="59300" firstItem="59294" firstAttribute="trailing" secondItem="59295" secondAttribute="trailing"/>
+                                                <constraint id="59301" firstItem="59294" firstAttribute="bottom" secondItem="59295" secondAttribute="bottom" constant="6"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="60184" firstItem="59294" firstAttribute="top" secondItem="38076" secondAttribute="top" constant="6"/>
+                                        <constraint id="60624" firstItem="59294" firstAttribute="leading" secondItem="38076" secondAttribute="leading" constant="8"/>
+                                        <constraint id="61064" firstItem="38076" firstAttribute="trailing" secondItem="59294" secondAttribute="trailing" constant="8"/>
+                                        <constraint id="61504" firstItem="38076" firstAttribute="bottom" secondItem="59294" secondAttribute="bottom" constant="5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="38507" rowHeight="144">
+                                <rect key="frame" x="0.0" y="432" width="320" height="144"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="38507" id="38508">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="143.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="62383" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="8" y="6" width="304" height="132"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recompensas por canjear" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="62385" adjustsFontForContentSizeCategory="YES" numberOfLines="2" key="tableFooterView">
+                                                    <rect key="frame" x="15" y="17" width="196" height="98"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="27" weight="semibold"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <size key="shadowOffset" width="0" height="0"/>
+                                                    <constraints>
+                                                        <constraint id="91381" firstItem="62385" firstAttribute="height" constant="98"/>
+                                                    </constraints>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="89182" firstItem="62385" firstAttribute="leading" secondItem="62383" secondAttribute="leading" constant="15"/>
+                                                <constraint id="89622" firstItem="62385" firstAttribute="top" secondItem="62383" secondAttribute="top" constant="17"/>
+                                                <constraint id="90062" firstItem="62383" firstAttribute="trailing" secondItem="62385" secondAttribute="trailing" constant="93"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="65468" firstItem="62383" firstAttribute="top" secondItem="38508" secondAttribute="top" constant="6"/>
+                                        <constraint id="65908" firstItem="62383" firstAttribute="leading" secondItem="38508" secondAttribute="leading" constant="8"/>
+                                        <constraint id="66348" firstItem="38508" firstAttribute="trailing" secondItem="62383" secondAttribute="trailing" constant="8"/>
+                                        <constraint id="66788" firstItem="38508" firstAttribute="bottom" secondItem="62383" secondAttribute="bottom" constant="5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="29829" id="29831"/>
+                            <outlet property="delegate" destination="29829" id="29832"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem title="City Points" id="30324" key="navigationItem"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="800"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="29835" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="-1255"/>
+        </scene>
+        <scene sceneID="93201">
+            <objects>
+                <viewController id="93202" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="93199"/>
+                        <viewControllerLayoutGuide type="bottom" id="93200"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="93203">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="94884" translatesAutoresizingMaskIntoConstraints="NO" image="headerPerfil.png" clipsSubviews="YES">
+                                <rect key="frame" x="0.0" y="64" width="320" height="181"/>
+                                <constraints>
+                                    <constraint id="104315" firstItem="94884" firstAttribute="height" constant="181"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="94877" translatesAutoresizingMaskIntoConstraints="NO" image="User_Default.png" customClass="ToCircleImage">
+                                <rect key="frame" x="119" y="94" width="82" height="90"/>
+                                <constraints>
+                                    <constraint id="94878" firstItem="94877" firstAttribute="height" constant="90"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laura Alicia Ruíz Trejo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="119152" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="199" width="288" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18" weight="semibold"/>
+                                <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" id="141539" translatesAutoresizingMaskIntoConstraints="NO" axis="vertical" distribution="fillEqually" spacing="10">
+                                <rect key="frame" x="16" y="263" width="288" height="114"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="94880" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="alicia_r21@mail.com" userInteractionEnabled="NO">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="94881" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="*********" adjustsFontForContentSizeCategory="YES" userInteractionEnabled="NO">
+                                        <rect key="frame" x="0.0" y="31" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="94882" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="(686)567-09-39" userInteractionEnabled="NO">
+                                        <rect key="frame" x="0.0" y="62" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="tel" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" id="124457" translatesAutoresizingMaskIntoConstraints="NO" clearButtonMode="whileEditing" customClass="UnderlineUITextfield" enabled="NO" text="Villas Lomas 232" userInteractionEnabled="NO">
+                                        <rect key="frame" x="0.0" y="93" width="288" height="21"/>
+                                        <color key="textColor" colorSpace="calibratedRGB" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="150401" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18" weight="semibold"/>
+                                <state key="normal" title="Cerrar Sesión">
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.93333333333333335" green="0.15294117647058825" blue="0.2196078431372549" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="CerrarSesion_TouchUpInside:" destination="150403" id="150402" eventType="touchUpInside"/>
+                                </connections>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="102545" firstItem="93203" firstAttribute="leadingMargin" secondItem="94884" secondAttribute="leading" constant="16"/>
+                            <constraint id="103135" firstItem="94884" firstAttribute="trailing" secondItem="93203" secondAttribute="trailingMargin" constant="16"/>
+                            <constraint id="103725" firstItem="94884" firstAttribute="top" secondItem="93199" secondAttribute="bottom"/>
+                            <constraint id="110875" firstItem="94877" firstAttribute="leading" secondItem="94884" secondAttribute="leading" constant="119"/>
+                            <constraint id="111465" firstItem="94884" firstAttribute="trailing" secondItem="94877" secondAttribute="trailing" constant="119"/>
+                            <constraint id="112055" firstItem="94877" firstAttribute="top" secondItem="94884" secondAttribute="top" constant="30"/>
+                            <constraint id="120920" firstItem="119152" firstAttribute="leading" secondItem="94884" secondAttribute="leading" constant="20"/>
+                            <constraint id="121510" firstItem="94884" firstAttribute="trailing" secondItem="119152" secondAttribute="trailing" constant="12"/>
+                            <constraint id="122100" firstItem="119152" firstAttribute="top" secondItem="94877" secondAttribute="bottom" constant="15"/>
+                            <constraint id="144485" firstItem="141539" firstAttribute="leading" secondItem="93203" secondAttribute="leadingMargin"/>
+                            <constraint id="145075" firstItem="93203" firstAttribute="trailingMargin" secondItem="141539" secondAttribute="trailing"/>
+                            <constraint id="145665" firstItem="141539" firstAttribute="top" secondItem="94884" secondAttribute="bottom" constant="18"/>
+                        </constraints>
+                    </view>
+                    <navigationItem title="Mi Perfil" id="107926" key="navigationItem">
+                        <barButtonItem key="rightBarButtonItem" id="156932" image="accountEdit.png">
+                            <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93204" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-522" y="-407"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="accountEdit.png" width="25" height="25"/>
+        <image name="background_login.png" width="320" height="480"/>
+        <image name="beneficiosTicker.jpg" width="721" height="1271"/>
+        <image name="buscar-24x24.png" width="24" height="24"/>
+        <image name="cameraButton-36x36.png" width="36" height="36"/>
+        <image name="checked_checkbox.png" width="25" height="25"/>
+        <image name="chevron-down.png" width="100" height="100"/>
+        <image name="Close-36x36.png" width="36" height="36"/>
+        <image name="coment-24x24.png" width="25" height="25"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="delete.png" width="48" height="48"/>
+        <image name="fivestar.png" width="240" height="48"/>
+        <image name="fondoMenu.png" width="362" height="155"/>
+        <image name="fourstar.png" width="240" height="48"/>
+        <image name="GalleryButton-36x36.png" width="36" height="36"/>
+        <image name="headerPerfil.png" width="370" height="160"/>
+        <image name="ic_barcode-24x24.png" width="24" height="24"/>
+        <image name="ic_barcode.png" width="25" height="25"/>
+        <image name="ic_delete.png" width="25" height="25"/>
+        <image name="ic_emptyStar.png" width="50" height="50"/>
+        <image name="ic_marker.png" width="36" height="36"/>
+        <image name="ic_phone.png" width="36" height="36"/>
+        <image name="ic_puntos.png" width="96" height="96"/>
+        <image name="ic_qrcode.png" width="25" height="25"/>
+        <image name="ic_settings_white.png" width="24" height="24"/>
+        <image name="ic_share.png" width="25" height="25"/>
+        <image name="ic_star.png" width="50" height="50"/>
+        <image name="ic_wallet.png" width="25" height="25"/>
+        <image name="ic_wallet_white_24dp.png" width="108" height="108"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="iconCameraBlack.png" width="24" height="24"/>
+        <image name="iconCancel.png" width="25" height="25"/>
+        <image name="iconCancel2x.png" width="50" height="50"/>
+        <image name="iconCancel3x.png" width="75" height="75"/>
+        <image name="iconGalleryBlack.png" width="24" height="24"/>
+        <image name="iconoTelefono.png" width="24" height="24"/>
+        <image name="iconoUbicacion.png" width="24" height="24"/>
+        <image name="iconSearch.png" width="18" height="18"/>
+        <image name="imgClienteFrecuente.png" width="330" height="330"/>
+        <image name="imgMenuCPCanjear.png" width="220" height="120"/>
+        <image name="imgMenuCPClienteFrec.png" width="220" height="120"/>
+        <image name="imgMenuCPPuntos.png" width="220" height="120"/>
+        <image name="imgMenuCPSaldo.png" width="220" height="120"/>
+        <image name="LoadingIndicator.png" width="128" height="128"/>
+        <image name="location-24x24.png" width="24" height="24"/>
+        <image name="locationPin.png" width="36" height="36"/>
+        <image name="login_logo.png" width="270" height="150"/>
+        <image name="LogInLogo.png" width="190" height="190"/>
+        <image name="logo_FB.png" width="11" height="23"/>
+        <image name="logoCS.png" width="200" height="112"/>
+        <image name="logout-24x24.png" width="25" height="25"/>
+        <image name="markerMap.png" width="31" height="30"/>
+        <image name="member-24x24.png" width="25" height="25"/>
+        <image name="menu-24x24.png" width="50" height="50"/>
+        <image name="menu2-36x36.png" width="18" height="18"/>
+        <image name="notificaciones-24x24.png" width="24" height="24"/>
+        <image name="onestar.png" width="240" height="48"/>
+        <image name="perfilMenu.png" width="85" height="85"/>
+        <image name="phone-24x24.png" width="24" height="24"/>
+        <image name="PhoneIcon.png" width="36" height="36"/>
+        <image name="points-24x24.png" width="24" height="24"/>
+        <image name="previous.png" width="13" height="21"/>
+        <image name="profilepic.png" width="612" height="409"/>
+        <image name="ProfileS.PNG" width="593" height="407"/>
+        <image name="qr-ex.jpg" width="330" height="330"/>
+        <image name="QuierodeComer-24x24.png" width="24" height="24"/>
+        <image name="QuierodeComer-30x30.png" width="30" height="30"/>
+        <image name="SaveIcon-24x24.png" width="24" height="24"/>
+        <image name="sucursales.png" width="24" height="24"/>
+        <image name="TabbedMapa.png" width="93" height="68"/>
+        <image name="TabbedPatrocinadores.png" width="93" height="69"/>
+        <image name="TakePhoto-24x24.png" width="24" height="24"/>
+        <image name="tarjetaDigital.png" width="640" height="1136"/>
+        <image name="threestar.png" width="240" height="48"/>
+        <image name="twostar.png" width="240" height="48"/>
+        <image name="unchecked_checkbox.png" width="25" height="25"/>
+        <image name="up.png" width="100" height="100"/>
+        <image name="user-24x24.png" width="24" height="24"/>
+        <image name="User_Default.png" width="200" height="200"/>
+        <image name="UserDefault.png" width="200" height="200"/>
+        <image name="WalletButon-100x100.png" width="200" height="200"/>
+        <image name="walletImage.PNG" width="657" height="252"/>
+        <image name="walletImage2.png" width="657" height="246"/>
+        <image name="zerostar.png" width="240" height="48"/>
+        <image name="acercade_100x100.png" width="100" height="100"/>
+        <image name="beneficios_100x100.png" width="100" height="100"/>
+        <image name="citypoints_100x100.png" width="100" height="100"/>
+        <image name="comentarios_100x100.png" width="100" height="100"/>
+        <image name="down.png" width="29" height="29"/>
+        <image name="haztupedido_500x500-01.png" width="500" height="501"/>
+        <image name="home-24x24.png" width="24" height="24"/>
+        <image name="membresia_100x100.png" width="100" height="100"/>
+        <image name="miperfil_100x100.png" width="100" height="100"/>
+        <image name="wallet_100x100.png" width="100" height="100"/>
+        <image name="Notificaciones.png" width="36" height="36"/>
+        <image name="Notification-48x48.png" width="24" height="24"/>
+    </resources>
+</document>

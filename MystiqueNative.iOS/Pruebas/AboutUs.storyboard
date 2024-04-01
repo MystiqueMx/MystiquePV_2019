@@ -1,0 +1,569 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="85543">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="396">
+            <objects>
+                <viewController id="397" sceneMemberID="viewController" title="About Us">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="394"/>
+                        <viewControllerLayoutGuide type="bottom" id="395"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="398">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" colorSpace="calibratedRGB" red="0" green="0.52549019607843139" blue="1" alpha="1"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="226562" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES" misplaced="YES">
+                                <rect key="frame" x="-4" y="186" width="324" height="333"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="230394" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES" misplaced="YES">
+                                        <rect key="frame" x="8" y="0.0" width="316" height="333"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="28434" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                                <rect key="frame" x="15" y="5" width="176" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16" weight="semibold"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <constraints/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What make us different?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="28998" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES" ambiguous="YES">
+                                                <rect key="frame" x="8" y="186" width="185" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16" weight="semibold"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint id="239309" firstItem="230394" firstAttribute="trailing" secondItem="28998" secondAttribute="trailing" constant="16"/>
+                                            <constraint id="239491" firstItem="28998" firstAttribute="leading" secondItem="230394" secondAttribute="leading" constant="8"/>
+                                            <constraint id="239673" firstItem="28434" firstAttribute="top" secondItem="230394" secondAttribute="top" constant="5"/>
+                                            <constraint id="239855" firstItem="28434" firstAttribute="leading" secondItem="230394" secondAttribute="leading" constant="15"/>
+                                            <constraint id="240037" firstItem="230394" firstAttribute="trailing" secondItem="28434" secondAttribute="trailing" constant="18"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint id="233460" firstItem="230394" firstAttribute="top" secondItem="226562" secondAttribute="top"/>
+                                    <constraint id="233614" firstItem="230394" firstAttribute="leading" secondItem="226562" secondAttribute="leading"/>
+                                    <constraint id="234075" firstItem="230394" firstAttribute="trailing" secondItem="226562" secondAttribute="trailing"/>
+                                    <constraint id="234229" firstItem="230394" firstAttribute="top" secondItem="226562" secondAttribute="top"/>
+                                    <constraint id="234383" firstItem="230394" firstAttribute="trailing" secondItem="226562" secondAttribute="trailing"/>
+                                    <constraint id="234844" firstItem="230394" firstAttribute="bottom" secondItem="226562" secondAttribute="bottom"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="227175" firstItem="395" firstAttribute="top" secondItem="226562" secondAttribute="bottom"/>
+                            <constraint id="227635" firstItem="226562" firstAttribute="trailing" secondItem="398" secondAttribute="trailing"/>
+                            <constraint id="227789" firstItem="398" firstAttribute="leadingMargin" secondItem="226562" secondAttribute="leading" constant="20"/>
+                        </constraints>
+                    </view>
+                    <navigationItem title="About Us" id="807" key="navigationItem">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="2566" image="Icons/Home.png">
+                            <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <tabBarItem key="tabBarItem" id="6748" title="About Us" image="img/infoicon-24x24.png" selectedImage="img/infoicon-24x24.png"/>
+                    <connections/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="399" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1148" y="-370"/>
+        </scene>
+        <scene sceneID="6428">
+            <objects>
+                <viewController id="6429" sceneMemberID="viewController" customClass="LocationViewController" title="Location">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6424"/>
+                        <viewControllerLayoutGuide type="bottom" id="6425"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6430">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68622">
+                                <rect key="frame" x="39" y="370" width="242" height="35"/>
+                                <color key="backgroundColor" red="0.32549019607843138" green="0.69411764705882351" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19" weight="medium"/>
+                                <state key="normal" title="Make Call">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <color key="backgroundColor" red="0.15686274509803921" green="0.32156862745098042" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </variation>
+                                <connections>
+                                    <action selector="IniciarSesionButton_TouchUpInside:" destination="68624" id="68623" eventType="touchUpInside"/>
+                                    <action selector="MakeCallButton_TouchUpInside:" destination="6429" id="105773" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" id="70648" translatesAutoresizingMaskIntoConstraints="NO" text="Calle 10 #8452 Zona Centro Tijuana B.C, Mexico" editable="NO" selectable="NO">
+                                <rect key="frame" x="78" y="290" width="163" height="80"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15" weight="light"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <constraints>
+                                    <constraint id="79026" firstItem="70648" firstAttribute="height" constant="80"/>
+                                </constraints>
+                            </textView>
+                            <containerView contentMode="scaleToFill" id="83044" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="-4" y="20" width="328" height="265"/>
+                                <connections>
+                                    <segue destination="83046" kind="embed" id="83045"/>
+                                </connections>
+                                <constraints>
+                                    <constraint id="90487" firstItem="83044" firstAttribute="height" constant="265"/>
+                                </constraints>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="75172" firstItem="70648" firstAttribute="leading" secondItem="6430" secondAttribute="leadingMargin" constant="62"/>
+                            <constraint id="75292" firstItem="6430" firstAttribute="trailingMargin" secondItem="70648" secondAttribute="trailing" constant="63"/>
+                            <constraint id="76484" firstItem="68622" firstAttribute="leading" secondItem="6430" secondAttribute="leadingMargin" constant="23"/>
+                            <constraint id="76604" firstItem="6430" firstAttribute="trailingMargin" secondItem="68622" secondAttribute="trailing" constant="23"/>
+                            <constraint id="79741" firstItem="68622" firstAttribute="top" secondItem="70648" secondAttribute="bottom"/>
+                            <constraint id="88697" firstItem="83044" firstAttribute="leading" secondItem="6430" secondAttribute="leadingMargin" constant="-20"/>
+                            <constraint id="88817" firstItem="6430" firstAttribute="trailingMargin" secondItem="83044" secondAttribute="trailing" constant="-20"/>
+                            <constraint id="88937" firstItem="70648" firstAttribute="top" secondItem="83044" secondAttribute="bottom" constant="5"/>
+                            <constraint id="89057" firstItem="83044" firstAttribute="top" secondItem="6424" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" id="6431" selectedImage="img/markericon-24x24.png" image="img/markericon-24x24.png" title="Location">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0" vertical="0"/>
+                    </tabBarItem>
+                    <navigationItem title="Location" id="9083" key="navigationItem"/>
+                    <connections>
+                        <outlet property="MakeCallButton" destination="68622" id="name-outlet-68622"/>
+                        <outlet property="containerMap" destination="83044" id="name-outlet-83044"/>
+                        <outlet property="Direccion" destination="70648" id="name-outlet-70648"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6432" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1265" y="-1350"/>
+        </scene>
+        <scene sceneID="59083">
+            <objects>
+                <navigationController id="59084" sceneMemberID="viewController" navigationBarHidden="YES" title="Location">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="59086">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue id="59969" destination="6429" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" title="Location" id="59635"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="59087" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Location" id="104959" translatesAutoresizingMaskIntoConstraints="NO"/>
+            </objects>
+            <point key="canvasLocation" x="-1749" y="-1339"/>
+        </scene>
+        <scene sceneID="83047">
+            <objects>
+                <viewController id="83046" sceneMemberID="viewController" customClass="MapViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="83042"/>
+                        <viewControllerLayoutGuide type="bottom" id="83043"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="83048" customClass="GMSMapView">
+                        <rect key="frame" x="0.0" y="0.0" width="328" height="265"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="83048" id="name-outlet-83048"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="83049" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-864" y="-1061"/>
+        </scene>
+        <scene sceneID="85542">
+            <objects>
+                <tabBarController id="85543" sceneMemberID="viewController" customClass="TabBarViewController" title="About Us" storyboardIdentifier="IDAboutUs">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="85546">
+                        <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                        <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <color key="selectedImageTintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                    </tabBar>
+                    <connections>
+                        <segue id="295206" destination="282756" kind="relationship" relationship="viewControllers"/>
+                        <segue id="295315" destination="59084" kind="relationship" relationship="viewControllers"/>
+                    </connections>
+                    <navigationItem title="About Us" id="299105" key="navigationItem">
+                        <barButtonItem key="rightBarButtonItem" id="300608" image="Icons/Home.png">
+                            <connections>
+                                <action selector="UIBarButtonItem300608_Activated:" destination="85543" id="301194"/>
+                            </connections>
+                            <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="85547" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2559" y="-970"/>
+        </scene>
+        <scene sceneID="251183">
+            <objects>
+                <viewController id="251184" sceneMemberID="viewController" storyboardIdentifier="login">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="251255"/>
+                        <viewControllerLayoutGuide type="bottom" id="251251"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="251195">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="251186">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="251196" userLabel="Container View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="865.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="251197" userLabel="Red View">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="251198" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/aboutus1.PNG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="210" id="251200"/>
+                                                    <constraint id="251201" firstItem="251198" firstAttribute="leading" secondItem="251197" secondAttribute="leading"/>
+                                                    <constraint id="251202" firstItem="251197" firstAttribute="trailing" secondItem="251198" secondAttribute="trailing"/>
+                                                    <constraint id="251203" firstItem="251198" firstAttribute="top" secondItem="251197" secondAttribute="top"/>
+                                                    <constraint id="251204" firstItem="251197" firstAttribute="bottom" secondItem="251198" secondAttribute="bottom" constant="24"/>
+                                                    <constraint id="251205" firstItem="251197" firstAttribute="height" constant="210"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="251206" userLabel="Green View">
+                                                <rect key="frame" x="0.0" y="210" width="414" height="420"/>
+                                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                                                <subviews/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="420" id="251218"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="251227" userLabel="Yellow View">
+                                                <rect key="frame" x="0.0" y="630" width="414" height="36.5"/>
+                                                <subviews/>
+                                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                                                <constraints>
+                                                    <constraint id="251228" firstItem="251227" firstAttribute="height" constant="36"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="251229" userLabel="Magenta View">
+                                                <rect key="frame" x="0.0" y="665.5" width="414" height="200"/>
+                                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                                                <subviews/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="251230"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="251206" secondAttribute="trailing" id="251231"/>
+                                            <constraint firstItem="251229" firstAttribute="leading" secondItem="251196" secondAttribute="leading" id="251232"/>
+                                            <constraint firstItem="251197" firstAttribute="leading" secondItem="251196" secondAttribute="leading" id="251233"/>
+                                            <constraint firstItem="251229" firstAttribute="top" secondItem="251227" secondAttribute="bottom" constant="-1" id="251234"/>
+                                            <constraint firstAttribute="bottom" secondItem="251229" secondAttribute="bottom" id="251235"/>
+                                            <constraint firstItem="251206" firstAttribute="leading" secondItem="251196" secondAttribute="leading" id="251236"/>
+                                            <constraint firstItem="251227" firstAttribute="leading" secondItem="251196" secondAttribute="leading" id="251237"/>
+                                            <constraint firstAttribute="trailing" secondItem="251197" secondAttribute="trailing" id="251238"/>
+                                            <constraint firstItem="251227" firstAttribute="top" secondItem="251206" secondAttribute="bottom" id="251239"/>
+                                            <constraint firstItem="251197" firstAttribute="top" secondItem="251196" secondAttribute="top" id="251240"/>
+                                            <constraint firstAttribute="trailing" secondItem="251227" secondAttribute="trailing" id="251241"/>
+                                            <constraint firstAttribute="trailing" secondItem="251229" secondAttribute="trailing" id="251242"/>
+                                            <constraint firstItem="251206" firstAttribute="top" secondItem="251197" secondAttribute="bottom" id="251243"/>
+                                            <constraint id="251244" firstItem="251229" firstAttribute="bottom" secondItem="251196" secondAttribute="bottom"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="251196" firstAttribute="top" secondItem="251186" secondAttribute="top" id="251245"/>
+                                    <constraint firstAttribute="trailing" secondItem="251196" secondAttribute="trailing" id="251246"/>
+                                    <constraint firstAttribute="bottom" secondItem="251196" secondAttribute="bottom" id="251247"/>
+                                    <constraint firstItem="251196" firstAttribute="leading" secondItem="251186" secondAttribute="leading" id="251248"/>
+                                </constraints>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedRGB" red="0.17647058823529413" green="0.48627450980392156" blue="0.58039215686274515" alpha="1"/>
+                        <constraints>
+                            <constraint firstItem="251186" firstAttribute="leading" secondItem="251195" secondAttribute="leadingMargin" constant="-20" id="251249"/>
+                            <constraint firstItem="251251" firstAttribute="top" secondItem="251186" secondAttribute="bottom" id="251250"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="251186" secondAttribute="trailing" constant="-20" id="251252"/>
+                            <constraint firstItem="251196" firstAttribute="width" secondItem="251195" secondAttribute="width" id="251253"/>
+                            <constraint firstItem="251186" firstAttribute="top" secondItem="251255" secondAttribute="bottom" constant="-20" id="251254"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="886"/>
+                    <connections>
+                        <outlet property="scrollView" destination="251186" id="251185"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="251256" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-732" y="-601.489"/>
+        </scene>
+        <scene sceneID="282746">
+            <objects>
+                <tableViewController id="282747" sceneMemberID="viewController" customClass="AboutUsController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="282749">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="dataSource" destination="282747" id="282750"/>
+                            <outlet property="delegate" destination="282747" id="282751"/>
+                        </connections>
+                        <sections>
+                            <tableViewSection id="282984">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="282985" rowHeight="182">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="282985" id="282986">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="284237" translatesAutoresizingMaskIntoConstraints="NO" image="Icons/aboutus1.PNG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="285309" firstItem="284237" firstAttribute="trailing" secondItem="282986" secondAttribute="trailing"/>
+                                                <constraint id="285352" firstItem="284237" firstAttribute="leading" secondItem="282986" secondAttribute="leading"/>
+                                                <constraint id="285395" firstItem="284237" firstAttribute="top" secondItem="282986" secondAttribute="top"/>
+                                                <constraint id="285438" firstItem="284237" firstAttribute="bottom" secondItem="282986" secondAttribute="bottom"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="283033">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="283034" rowHeight="348">
+                                        <rect key="frame" x="0.0" y="182" width="320" height="348"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="283034" id="283035">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="348"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" id="286255" translatesAutoresizingMaskIntoConstraints="NO" editable="NO" selectable="NO" text="-" misplaced="YES">
+                                                    <rect key="frame" x="10" y="40.5" width="300" height="204.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="302621" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="10" y="10" width="300" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17" weight="medium"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="289678" firstItem="286255" firstAttribute="leading" secondItem="283035" secondAttribute="leading" constant="10"/>
+                                                <constraint id="289749" firstItem="283035" firstAttribute="trailing" secondItem="286255" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="289820" firstItem="283035" firstAttribute="bottom" secondItem="286255" secondAttribute="bottom" constant="35"/>
+                                                <constraint id="302832" firstItem="302621" firstAttribute="leading" secondItem="283035" secondAttribute="leading" constant="10"/>
+                                                <constraint id="302875" firstItem="283035" firstAttribute="trailing" secondItem="302621" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="302918" firstItem="286255" firstAttribute="top" secondItem="302621" secondAttribute="bottom" constant="10"/>
+                                                <constraint id="303171" firstItem="302621" firstAttribute="top" secondItem="283035" secondAttribute="top" constant="10"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="283082">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="283083" rowHeight="302">
+                                        <rect key="frame" x="0.0" y="530" width="320" height="302"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="283083" id="283084">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" id="293520" translatesAutoresizingMaskIntoConstraints="NO" selectable="NO" editable="NO" text="-">
+                                                    <rect key="frame" x="10" y="40.5" width="300" height="256.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What make us different?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="303676" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="10" y="10" width="300" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17" weight="medium"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="293662" firstItem="293520" firstAttribute="leading" secondItem="283084" secondAttribute="leading" constant="10"/>
+                                                <constraint id="293733" firstItem="283084" firstAttribute="trailing" secondItem="293520" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="293804" firstItem="283084" firstAttribute="bottom" secondItem="293520" secondAttribute="bottom" constant="5"/>
+                                                <constraint id="303845" firstItem="303676" firstAttribute="leading" secondItem="283084" secondAttribute="leading" constant="10"/>
+                                                <constraint id="303888" firstItem="283084" firstAttribute="trailing" secondItem="303676" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="303931" firstItem="303676" firstAttribute="top" secondItem="283084" secondAttribute="top" constant="10"/>
+                                                <constraint id="304100" firstItem="293520" firstAttribute="top" secondItem="303676" secondAttribute="bottom" constant="10"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <color key="sectionIndexBackgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <color key="sectionIndexTrackingBackgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="900"/>
+                    <connections>
+                        <outlet property="ContentMission" destination="286255" id="name-outlet-286255"/>
+                        <outlet property="ContentMakeUsDiferrent" destination="293520" id="name-outlet-293520"/>
+                        <outlet property="AboutUsImg" destination="284237" id="name-outlet-284237"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" title="About Us" id="296589" image="img/infoicon-24x24.png"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="282754" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1612" y="-565"/>
+        </scene>
+        <scene sceneID="282755">
+            <objects>
+                <navigationController id="282756" sceneMemberID="viewController" navigationBarHidden="YES">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="282758">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="282747" kind="relationship" relationship="rootViewController" id="282757"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" title="About Us" id="282897" image="img/infoicon-24x24.png"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="282759" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2022" y="-571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icons/down.png" width="20" height="13"/>
+        <image name="Icons/Edit Pencil.png" width="30" height="30"/>
+        <image name="Icons/Find out if you qualify.png" width="31" height="30"/>
+        <image name="Icons/fingerprint.png" width="134" height="132"/>
+        <image name="Icons/gallery.png" width="64" height="64"/>
+        <image name="Icons/Home.png" width="33" height="32"/>
+        <image name="Icons/Medical Instructions.png" width="40" height="40"/>
+        <image name="Icons/My Profile.png" width="31" height="30"/>
+        <image name="Icons/Next Step.png" width="13" height="21"/>
+        <image name="Icons/next.png" width="13" height="21"/>
+        <image name="Icons/Off-racing.png" width="40" height="40"/>
+        <image name="Icons/Planning your visit.png" width="40" height="40"/>
+        <image name="Icons/Post Treatment &amp; Follow Up.png" width="31" height="30"/>
+        <image name="Icons/previous.png" width="13" height="21"/>
+        <image name="Icons/Reference Barron Program.png" width="31" height="30"/>
+        <image name="Icons/Schedule.png" width="40" height="40"/>
+        <image name="Icons/Special Needs.png" width="40" height="40"/>
+        <image name="Icons/treatment Day.png" width="31" height="30"/>
+        <image name="Icons/Treatments.png" width="31" height="30"/>
+        <image name="Icons/unchecked.png" width="27" height="27"/>
+        <image name="Icons/user.png" width="188" height="193"/>
+        <image name="Icons/Whale watching.png" width="40" height="40"/>
+        <image name="Icons/What to pack.png" width="40" height="40"/>
+        <image name="Icons/Why is Baja Famous.png" width="31" height="30"/>
+        <image name="Icons/Wine Country.png" width="40" height="40"/>
+        <image name="Icons/aboutus1.PNG" width="818" height="420"/>
+        <image name="Icons/infoIcon.png" width="50" height="50"/>
+        <image name="Icons/LocatonIcon.png" width="50" height="50"/>
+        <image name="Icons/!.png" width="41" height="40"/>
+        <image name="Icons/logo-big.png" width="222" height="212"/>
+        <image name="Icons/About Us.png" width="32" height="29"/>
+        <image name="Icons/bird hunting.png" width="40" height="40"/>
+        <image name="img/infoicon.png" width="24" height="24"/>
+        <image name="img/markericon.png" width="24" height="24"/>
+        <image name="img/infoicon-24x24.png" width="24" height="24"/>
+        <image name="img/markericon-24x24.png" width="24" height="24"/>
+        <image name="img/casitaImg.jpg" width="362" height="181"/>
+        <image name="Icons/calendar.png" width="25" height="25"/>
+        <image name="img/treatmentsimg.jpg" width="360" height="182"/>
+        <image name="accountEdit.png" width="25" height="25"/>
+        <image name="background_login.png" width="320" height="480"/>
+        <image name="checked_checkbox.png" width="25" height="25"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="delete.png" width="48" height="48"/>
+        <image name="fondoMenu.png" width="362" height="155"/>
+        <image name="headerPerfil.png" width="370" height="160"/>
+        <image name="ic_barcode.png" width="25" height="25"/>
+        <image name="ic_delete.png" width="25" height="25"/>
+        <image name="ic_emptyStar.png" width="50" height="50"/>
+        <image name="ic_marker.png" width="36" height="36"/>
+        <image name="ic_phone.png" width="36" height="36"/>
+        <image name="ic_puntos.png" width="25" height="25"/>
+        <image name="ic_qrcode.png" width="25" height="25"/>
+        <image name="ic_settings_white.png" width="24" height="24"/>
+        <image name="ic_share.png" width="25" height="25"/>
+        <image name="ic_star.png" width="50" height="50"/>
+        <image name="ic_wallet.png" width="25" height="25"/>
+        <image name="ic_wallet_white_24dp.png" width="108" height="108"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="iconCameraBlack.png" width="24" height="24"/>
+        <image name="iconCancel.png" width="25" height="25"/>
+        <image name="iconCancel2x.png" width="50" height="50"/>
+        <image name="iconCancel3x.png" width="75" height="75"/>
+        <image name="iconGalleryBlack.png" width="24" height="24"/>
+        <image name="iconoTelefono.png" width="24" height="24"/>
+        <image name="iconoUbicacion.png" width="24" height="24"/>
+        <image name="iconSearch.png" width="18" height="18"/>
+        <image name="imgClienteFrecuente.png" width="330" height="330"/>
+        <image name="imgMenuCPCanjear.png" width="220" height="120"/>
+        <image name="imgMenuCPClienteFrec.png" width="220" height="120"/>
+        <image name="imgMenuCPPuntos.png" width="220" height="120"/>
+        <image name="imgMenuCPSaldo.png" width="220" height="120"/>
+        <image name="LoadingIndicator.png" width="128" height="128"/>
+        <image name="login_logo.png" width="270" height="150"/>
+        <image name="logo_FB.png" width="11" height="23"/>
+        <image name="logoCS.png" width="200" height="112"/>
+        <image name="markerMap.png" width="31" height="30"/>
+        <image name="perfilMenu.png" width="85" height="85"/>
+        <image name="previous.png" width="13" height="21"/>
+        <image name="TabbedMapa.png" width="93" height="68"/>
+        <image name="TabbedPatrocinadores.png" width="93" height="69"/>
+        <image name="tarjetaDigital-568h.png" width="320" height="568"/>
+        <image name="tarjetaDigital.png" width="320" height="480"/>
+        <image name="unchecked_checkbox.png" width="25" height="25"/>
+    </resources>
+    <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+</document>

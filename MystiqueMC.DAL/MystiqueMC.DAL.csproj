@@ -1,0 +1,769 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{980F96C5-28F0-471C-AA43-32D305F38F76}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MystiqueMC.DAL</RootNamespace>
+    <AssemblyName>MystiqueMC.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AgrupadorInsumos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AnexoDoctor.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Aperturas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaPreparacion.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Arqueo.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetController.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetControllerActivity.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRolePermissions.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRoles.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaims.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogins.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUsers.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="beneficioAplicados.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="beneficioCalificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="beneficioHorarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="beneficios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="bitacoraFacturacion.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BitacoraSucursalesActivas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="canjePuntos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="cargaCompras.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatAseguranzas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatCategoriaArticulos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catCiudades.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catColonias.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catComercioGiros.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catCompraAplicadoEstatus.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatConceptosGastos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatDoctorEspecialidad.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriaIngrediente.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriaInsumo.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriaProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catEstados.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catEstatusAplicaPuntos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catEstatusCanjePuntos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catEstatusCargaCompras.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatEstatusCita.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatEstatusCompras.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatEstatusEquipo.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catEstatusFactura.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatEstatusOrden.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catEstatusTicket.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatGastos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatIngredienteEnsaladaPrecios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatMetodoPago.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatMovimientoInventarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catPaises.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatPedidoEstatus.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catRangoEdad.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catRegimenFiscal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatRubros.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatRubrosGastos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catSexos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatSubCategoriaArticulos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catTipoAutentificacion.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catTipoComentario.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catTipoComercios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoEquipo.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoMantenimiento.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catTipoMembresias.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatTipoPagos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catTipoRecompensas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="catUsoCFDI.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatZonas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Citas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clienteNotificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clientes.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientesCallCenter.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clientespv.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="comentarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="comercios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Compras.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="confBeneficioSucursal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="confDatosFiscalesSucursal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfEnsaladaPlatillos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracionArmadoProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfiguracionCompras.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="configuracionSistema.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfMenuPlatillos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfMenuPlatillosItemDos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfMenuPlatillosItemTres.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfMenuPlatillosItemUno.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="confProductoPVEquivalencia.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfSucursales.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="confSumaPuntos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="confUsuarioComercio.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfUsuariosComercioSucursal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConfUsuarioSucursales.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumidorConektaTarjetas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumidorDirecciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumidoresConekta.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumidorNotificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumidorOpenPay.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConsumoEmpleados.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConteoFisicoAgrupadorInsumos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConteoFisicoInsumos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConteoFisicoPeriodoCaptura.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ConteoFisicoTipoRegistro.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="datosFiscales.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="datosReceptor.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Descuentos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCompra.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleCompraReapertura.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetallePedidos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleRecetaProcesados.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleRecetaProducto.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="detalleTicketSucursal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="direccion.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorAseguranzas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="empresaBrandy.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="empresaContactos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="empresaKardex.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="empresas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Equivalencias.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturaCliente.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="facturaPendiente.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gastos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GastosPv.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GastosPvDetalle.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="historicoCancelacionRecompensas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenDoctor.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsumoProducto.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsumoProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Insumos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTres.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemUno.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoMobiliarioEquipos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="membresias.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menus.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MobiliarioEquipos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovimientoInventarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="movimientoPuntos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomContext.cs" />
+    <Compile Include="MystiqueMCModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MystiqueMCModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MystiqueMCModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MystiqueMCModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MystiqueMCModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="notificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionesHazPedido.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OpenPayTransacciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoProductoDetalle.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos1.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosConekta.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Platillos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductoEstaConfigurado.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Productos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductoTieneReceta.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedores.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="receptorCliente.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Recetas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RecetasProcesados.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="recompensas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroConteoFisicoInsumos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="representateLegal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Retiros.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="saldoPuntos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SectoresNotificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeguimientoBitacoraPedidos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeguimientoPedidos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ObtenerBeneficiosSucursal_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ObtenerListadoMovimientosPuntos_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ObtenerListadoRecompensas_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ObtenerListaMovimientosPuntos_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_BeneficioCalificacion_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_Colonias_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_Comercio_Giro_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_DetalleBeneficio_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_ListaWallet_Cliente_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_Sucursales_Activas_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_Sucursales_Poligono_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Obtener_Sucursal_Comercio_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Cancelados_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Consumo_Agrupado_Detalle_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Consumo_Agrupado_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Consumo_Empleado_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Cortes_Detallado_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Cortes_Z_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Gastos_Caja_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Receta_Producto_Conteo_Manual_Detalle_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Receta_Producto_Conteo_Manual_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_VentasGD_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_VentasG_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Ventas_Por_Horas_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_PV_Reporte_Ventas_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_ReporteVentasGrafica_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Reporte_Beneficios_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Reporte_Canje_Beneficios_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Reporte_Canje_Productos_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Reporte_Citas_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Reporte_Clientes_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Reporte_Registro_Compras_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Verificar_Datos_Entrega_Pedido_Result.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalCategoriaProducto.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalDescuentos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sucursales.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sucursalHorarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalNotificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalProveedores.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketCancelados.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketDescuentos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketPagos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketReimpresos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tickets.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TipoRecetas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransaccionesConekta.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnidadMedida.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usuarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VariedadProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_ClientesEdadesPorRango.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_ObtenerClientesConMembresia.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_ObtenerConfiguracionPuntosComercio.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_ObtenerListadoCupones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_ObtenerRecompensasPorProductos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_ObtenerUsuarios.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_Permisos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_PV_Listado_Ventas.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_PV_Ticket_Pedido_Productos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="wallet.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="MystiqueMCModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MystiqueMCModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MystiqueMCModel.edmx.diagram">
+      <DependentUpon>MystiqueMCModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MystiqueMCModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MystiqueMCModel.edmx</DependentUpon>
+      <LastGenOutput>MystiqueMCModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MystiqueMCModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MystiqueMCModel.edmx</DependentUpon>
+      <LastGenOutput>MystiqueMCModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

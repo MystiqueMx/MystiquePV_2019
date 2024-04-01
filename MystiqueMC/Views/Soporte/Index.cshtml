@@ -1,0 +1,174 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.configuracionSistema
+@{
+    ViewBag.Title = "Soporte";
+
+}
+<br />
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h3></h3>
+    </div>
+</div>
+
+
+<div id="mydiv" class="wrapper wrapper-content animated fadeInRight" style="margin-top:-15pt">
+    @using (Html.BeginForm("Edit", "Soporte", FormMethod.Post, new { id = "DatosDeSoporte", enctype = "multipart/form-data", data_parsley_validate = "true", autocomplete = "off" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content" style="background-color:transparent;border-color:transparent">
+                        <div class="row">
+
+                            @*//TELEFONO DE CONTACTO*@
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => Model.telefonoContacto, "Teléfono de Contacto", htmlAttributes: new { @class = "control-label col-md-6", @style = "margin-left:-10pt" })
+                                        @Html.EditorFor(model => Model.telefonoContacto, new { htmlAttributes = new { @class = "form-control", @id = "telefonoContacto", disabled = "disabled", @name = "telefonoContacto" } })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => Model.correoContacto, "Correo de Contacto", htmlAttributes: new { @class = "control-label col-md-6", @style = "margin-left:-10pt" })
+                                        <input name="correoContacto" type="text" class="form-control" value="@Model.correoContacto" data-parsley-maxlength="100" disabled="disabled" data-parsley-type="email"
+                                               data-parsley-errors-container="#correo-error">
+                                        <div class="row">
+                                            <span style="color:red" for="correoContacto" id="correo-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => Model.idQDC, "ID Quiero de comer", htmlAttributes: new { @class = "control-label col-md-6", @style = "margin-left:-10pt" })
+                                        <input name="idQDC" type="text" id="idQDC" class="form-control" data-inputmask-regex="[0-9]{0,6}" value="@Model.idQDC" maxlength="6" data-parsley-maxlength="6" disabled="disabled" data-parsley-type="integer"
+                                               data-parsley-errors-container="#IDQDC-error">
+                                        <div class="row">
+                                            <span style="color:red" for="idQDC" id="IDQDC-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*//CORREO DE CONTACTO*@
+                        <div class="form-group">
+                            <div class="row">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @*@Html.EditorFor(model => Model.correoContacto, new { htmlAttributes = new { @class = "form-control", disabled = "disabled", @name = "correoContacto", data_parsley_maxlength = "data_parsley_maxlength=5" } })*@
+                                </div>
+                            </div>
+                            @*//ID QUIERO DE COMER*@
+                            <div class="form-group">
+                                <div class="row">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-6">
+                                        @*//TEXTO DE TERMINOS Y CONDICIONES*@
+                                        @Html.LabelFor(model => Model.txtTerminosCondiciones, "Términos y Condiciones", htmlAttributes: new { @class = "control-label col-md-6", @style = "margin-left:-10pt" })
+                                        <textarea class="form-control" rows="5" id="txtTerminosCondiciones" name="txtTerminosCondiciones" required disabled data-parsley-maxlength="300" maxlength="300" data-parsley-errors-container="#terminos-error">@Model.txtTerminosCondiciones </textarea>
+                                        <div class="row">
+                                            <span style="color:red" for="txtTerminosCondiciones" id="terminos-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6">
+                                        @*//TEXTO DE SOPORTE*@
+                                        @Html.LabelFor(model => Model.txtSoporte, "Texto de Soporte", htmlAttributes: new { @class = "control-label col-md-6", @style = "margin-left:-10pt" })
+                                        <textarea class="form-control" rows="5" id="txtSoporte" name="txtSoporte" required disabled data-parsley-maxlength="300" data-parsley-errors-container="#soporte-error" maxlength="300">@Model.txtSoporte</textarea>
+                                        <div class="row">
+                                            <span style="color:red" for="txtSoporte" id="soporte-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" id="EditarButton_soporte" style="width:90pt" class="btn btn-warning">Editar</button>
+                                        <button type="button" id="guardarbutton_soporte" style="width:90pt;margin-left:8pt" class="btn btn-primary" disabled>Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input hidden name="configuracionSistemaId" value="@Model.configuracionSistemaId" />
+                        <input hidden name="empresaId" value="@Model.empresaId" />
+                        <input hidden name="diasFechasFiltros" value="@Model.diasFechasFiltros" />
+                        <input hidden name="txtVincularMembresiaApp" value="@Model.txtVincularMembresiaApp" />
+                        <input hidden name="urlTerminosCondiciones" value="@Model.urlTerminosCondiciones" />
+                        <input hidden name="txtSolicitarBeneficioAbajo" value="@Model.txtSolicitarBeneficioAbajo" />
+                        <input hidden name="costoMembresia" value="@Model.costoMembresia" />
+                        <input hidden name="conektaPublicKey" value="@Model.conektaPublicKey" />
+                        <input hidden name="conektaPrivateKey" value="@Model.conektaPrivateKey" />
+                        <input hidden name="conektaApiVersion" value="@Model.conektaApiVersion" />
+                        <input hidden name="fechaInicioMembresia" value="@Model.fechaInicioMembresia" />
+                        <input hidden name="fechaFinMembresia" value="@Model.fechaFinMembresia" />
+                        <input hidden name="ftpPerfil" value="@Model.ftpPerfil" />
+                        <input hidden name="ftpUser" value="@Model.ftpUser" />
+                        <input hidden name="ftpPassword" value="@Model.ftpPassword" />
+                        <input hidden name="versionAndroid" value="@Model.versionAndroid" />
+                        <input hidden name="versionAndroidTest" value="@Model.versionAndroidTest" />
+                        <input hidden name="versioniOS" value="@Model.versioniOS" />
+                        <input hidden name="versioniOSTest" value="@Model.versioniOSTest" />
+                        <input hidden name="vrlPublicacion" value="@Model.vrlPublicacion" />
+                        <input hidden name="dedicadoAComercio" value="@Convert.ToString(Model.dedicadoAComercio)" />
+                        <input hidden name="tienePaginaVinculacion" value="@Convert.ToString(Model.tienePaginaVinculacion)" />
+                        <input hidden name="tienePaginaConekta" value="@Convert.ToString(Model.tienePaginaConekta)" />
+                        <input hidden name="tienePaginaPuntos" value="@Convert.ToString(Model.tienePaginaPuntos)" />
+                        <input hidden name="modoTiempo" value="@Model.modoTiempo" />
+                        <input hidden name="tiempoProgramado" value="@Model.tiempoProgramado" />
+                        <input hidden name="tiempoIntervalo" value="@Model.tiempoIntervalo" />
+                        <input hidden name="intervaloZonaCS" value="@Model.intervaloZonaCS" />
+                        <input hidden name="tituloCompartir" value="@Model.tituloCompartir" />
+                        <input hidden name="contenidoCompartir" value="@Model.contenidoCompartir" />
+                        <input hidden name="mostrarComercios" value="@Convert.ToString(Model.mostrarComercios)" />
+                        <input hidden name="mostrarSucursales" value="@Convert.ToString(@Model.mostrarSucursales)" />
+
+                    </div>
+                </div>
+            </div>
+        </div>}
+</div><br />
+<div class="row hide"><div class="col-md-12"><a href="@Url.Action("Index", "Home")" class="btn btn-white">Regresar</a></div></div>
+<script>
+
+    $('#guardarbutton_soporte').on('click', function () {
+
+        $("#DatosDeSoporte").parsley().validate();
+        if (!$("#DatosDeSoporte").parsley().isValid()) return;
+        $("#DatosDeSoporte").submit();
+
+    });
+
+</script>
+
+
+@*@section Scripts{
+
+
+        <script>
+
+
+        </script>
+
+    }
+    @section Styles {
+
+    }*@
+

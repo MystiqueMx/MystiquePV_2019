@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1598">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="1597">
+            <objects>
+                <viewController id="1598" sceneMemberID="viewController" customClass="SumarPuntosViewController" storyboardIdentifier="SumarPuntosId">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1595"/>
+                        <viewControllerLayoutGuide type="bottom" id="1596"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1599">
+                        <rect key="frame" x="0.0" y="70" width="414" height="666"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="5054" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="79" width="414" height="414"/>
+                                <subviews>
+                                    <view contentMode="scaleAspectFit" id="3197" translatesAutoresizingMaskIntoConstraints="NO" customClass="ScannerView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint id="5059" firstAttribute="width" secondItem="5054" secondAttribute="height" multiplier="1:1"/>
+                                    <constraint id="32045" firstItem="3197" firstAttribute="top" secondItem="5054" secondAttribute="top"/>
+                                    <constraint id="32503" firstItem="3197" firstAttribute="leading" secondItem="5054" secondAttribute="leading"/>
+                                    <constraint id="32961" firstItem="3197" firstAttribute="trailing" secondItem="5054" secondAttribute="trailing"/>
+                                    <constraint id="33419" firstItem="3197" firstAttribute="bottom" secondItem="5054" secondAttribute="bottom"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escanea el código en tu ticket para agregar los puntos a tu cuenta." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8282" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0" adjustsFontForContentSizeCategory="YES">
+                                <rect key="frame" x="20" y="20" width="374" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18" weight="semibold"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si tienes problemas al escanear el código intenta tocar el recuadro para enfocar de nuevo." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="23577" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                <rect key="frame" x="20" y="505" width="374" height="38.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16" weight="semibold"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="62696" translatesAutoresizingMaskIntoConstraints="NO" customClass="MDButton">
+                                <rect key="frame" x="344" y="423" width="60" height="60"/>
+                                <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.9137254901960784" green="0.4823529411764706" blue="0.15294117647058825" alpha="1"/>
+                                <state key="normal" image="Icons/flashlight-off.png">
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.0392156862745098" green="0.37647058823529411" blue="1" alpha="1"/>
+                                </state>
+                                <constraints>
+                                    <constraint id="81312" firstAttribute="width" secondItem="62696" secondAttribute="height" multiplier="1:1"/>
+                                    <constraint id="97476" firstItem="62696" firstAttribute="height" constant="60"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="TorchButton_TouchUpInside:" destination="1598" id="106997" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="6673" firstItem="5054" firstAttribute="leading" secondItem="1599" secondAttribute="leading"/>
+                            <constraint id="6674" firstItem="5054" firstAttribute="trailing" secondItem="1599" secondAttribute="trailing"/>
+                            <constraint id="8284" firstItem="1599" firstAttribute="trailingMargin" secondItem="8282" secondAttribute="trailing"/>
+                            <constraint id="8285" firstItem="8282" firstAttribute="leading" secondItem="1599" secondAttribute="leadingMargin"/>
+                            <constraint id="8288" firstItem="8282" firstAttribute="top" secondItem="1595" secondAttribute="bottom" constant="20"/>
+                            <constraint id="8289" firstItem="5054" firstAttribute="top" secondItem="8282" secondAttribute="bottom" constant="16"/>
+                            <constraint id="28869" firstItem="23577" firstAttribute="leading" secondItem="1599" secondAttribute="leadingMargin"/>
+                            <constraint id="29399" firstItem="23577" firstAttribute="trailing" secondItem="1599" secondAttribute="trailingMargin"/>
+                            <constraint id="36486" firstItem="23577" firstAttribute="top" secondItem="5054" secondAttribute="bottom" constant="12"/>
+                            <constraint id="96322" firstItem="5054" firstAttribute="bottom" secondItem="62696" secondAttribute="bottom" constant="10"/>
+                            <constraint id="96899" firstItem="5054" firstAttribute="trailing" secondItem="62696" secondAttribute="trailing" constant="10"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem id="4813" key="navigationItem" title="Sumar Puntos" largeTitleDisplayMode="always">
+                        <barButtonItem key="backBarButtonItem" title="Regresar" id="4814"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ScanWindow" destination="3197" id="name-outlet-3197"/>
+                        <outlet property="StackScanView" destination="5054" id="name-outlet-5054"/>
+                        <outlet property="widthFrame" destination="5059" id="name-outlet-5059"/>
+                        <outlet property="TorchButton" destination="62696" id="name-outlet-62696"/>
+                    </connections>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1600" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-272" y="-479"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icons/flashlight-off.png" width="24" height="24"/>
+    </resources>
+</document>

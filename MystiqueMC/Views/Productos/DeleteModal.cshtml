@@ -1,0 +1,55 @@
+﻿<!--- MODAL INACTIVAR RECOMPENSA -->
+
+<div class="modal fade" id="modal-eliminar-canje2" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:red; background-color:white"></i></h4>
+            </div>
+            <div class="modal-body">
+                <h3 id="confirm-title">¿Esta seguro que desea inactivar la siguiente recompensa? </h3>
+                <label>&nbsp;<strong id="confirm-item"></strong></label>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "Productos", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+                {
+                    <input type="hidden" id="IdItemEliminar_canje2" name="IdRecompensa" />
+                    <input type="hidden" id="ViewBag-porcentaje2" name="ViewBagPorcentaje" />
+                    <input type="hidden" id="ViewBag-cantidadPuntos2" name="ViewBagCantidadPuntos" />
+                    <input type="hidden" id="ViewBag-equivalentePuntoPorDinero2" name="ViewBagEquivalentePuntoPorDinero" />
+                    <input type="reset" value="Cancelar" class="btn btn-defaut" data-dismiss="modal" id="form-recompensa-reset_inactivar">
+                    <input id="modal_inactivar_canje_button" data-backdrop="false" data-request-url="@Url.Action("Delete", "Productos")" type="button" value="Inactivar" class="btn btn-danger">
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#modal_inactivar_canje_button").click(function () {
+
+        $("#modal-eliminar_canje2").modal('hide');
+        $.ajax({
+            type: "POST",
+            url: $(this).data('request-url'),
+            data: {
+                IdRecompensa: $("#IdItemEliminar_canje2").val(),
+                ViewBagPorcentaje: $("#ViewBag-porcentaje2").val(),
+                ViewBagCantidadPuntos: $("#ViewBag-cantidadPuntos2").val(),
+                ViewBagEquivalentePuntoPorDinero: $("#ViewBag-equivalentePuntoPorDinero2").val()
+            },
+            success: function (result) {
+                $("#modal-eliminar_canje2").modal('hide');
+
+                $('body').removeClass('modal-open');
+                $('.modal-backdrop').remove();
+
+                $("#form-recompensa-reset_inactivar").click();
+                $("#canjes_button").click();
+            }
+        });
+    });
+
+</script>
+

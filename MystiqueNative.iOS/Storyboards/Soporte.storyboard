@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="823">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="822">
+            <objects>
+                <viewController id="823" sceneMemberID="viewController" customClass="SoporteViewController" storyboardIdentifier="SoporteID">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="820"/>
+                        <viewControllerLayoutGuide type="bottom" id="821"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="824">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Términos y Condiciones" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="58196" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="16" y="211" width="288" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16" weight="semibold"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69600" translatesAutoresizingMaskIntoConstraints="NO" text="Label">
+                                <rect key="frame" x="16" y="132" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69124" translatesAutoresizingMaskIntoConstraints="NO" text="Label">
+                                <rect key="frame" x="16" y="492" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="68648" translatesAutoresizingMaskIntoConstraints="NO" text="Label" numberOfLines="10">
+                                <rect key="frame" x="16" y="240.5" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="68172" translatesAutoresizingMaskIntoConstraints="NO" text="Label">
+                                <rect key="frame" x="16" y="164" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="55818" translatesAutoresizingMaskIntoConstraints="NO" text="Label" numberOfLines="10">
+                                <rect key="frame" x="16" y="100" width="288" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="highlightedColor"/>
+                                <color key="textColor" colorSpace="calibratedRGB" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint id="76726" firstItem="55818" firstAttribute="top" secondItem="820" secondAttribute="bottom" constant="30"/>
+                            <constraint id="77202" firstItem="55818" firstAttribute="leading" secondItem="824" secondAttribute="leadingMargin"/>
+                            <constraint id="77678" firstItem="55818" firstAttribute="trailing" secondItem="824" secondAttribute="trailingMargin"/>
+                            <constraint id="79104" firstItem="69600" firstAttribute="top" secondItem="55818" secondAttribute="bottom" constant="15"/>
+                            <constraint id="80055" firstItem="69600" firstAttribute="leading" secondItem="824" secondAttribute="leadingMargin"/>
+                            <constraint id="80531" firstItem="69600" firstAttribute="trailing" secondItem="824" secondAttribute="trailingMargin"/>
+                            <constraint id="81957" firstItem="68172" firstAttribute="top" secondItem="69600" secondAttribute="bottom" constant="15"/>
+                            <constraint id="82433" firstItem="68172" firstAttribute="leading" secondItem="824" secondAttribute="leadingMargin"/>
+                            <constraint id="82909" firstItem="68172" firstAttribute="trailing" secondItem="824" secondAttribute="trailingMargin"/>
+                            <constraint id="84810" firstItem="58196" firstAttribute="leading" secondItem="824" secondAttribute="leadingMargin"/>
+                            <constraint id="85286" firstItem="58196" firstAttribute="trailing" secondItem="824" secondAttribute="trailingMargin"/>
+                            <constraint id="85762" firstItem="58196" firstAttribute="top" secondItem="68172" secondAttribute="bottom" constant="30"/>
+                            <constraint id="87663" firstItem="68648" firstAttribute="leading" secondItem="824" secondAttribute="leadingMargin"/>
+                            <constraint id="88139" firstItem="68648" firstAttribute="trailing" secondItem="824" secondAttribute="trailingMargin"/>
+                            <constraint id="88615" firstItem="68648" firstAttribute="top" secondItem="58196" secondAttribute="bottom" constant="10"/>
+                            <constraint id="91466" firstItem="69124" firstAttribute="leading" secondItem="824" secondAttribute="leadingMargin"/>
+                            <constraint id="91942" firstItem="69124" firstAttribute="trailing" secondItem="824" secondAttribute="trailingMargin"/>
+                            <constraint id="92418" firstItem="821" firstAttribute="top" secondItem="69124" secondAttribute="bottom" constant="9"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem title="Soporte" id="3083" key="navigationItem"/>
+                    <connections>
+                        <outlet property="TelefonoLabel" destination="69600" id="name-outlet-69600"/>
+                        <outlet property="VersionLabel" destination="69124" id="name-outlet-69124"/>
+                        <outlet property="TerminosLabel" destination="68648" id="name-outlet-68648"/>
+                        <outlet property="CorreoLabel" destination="68172" id="name-outlet-68172"/>
+                        <outlet property="DescripcionLabel" destination="55818" id="name-outlet-55818"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="825" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-563" y="-465"/>
+        </scene>
+        <scene sceneID="55338">
+            <objects>
+                <viewController id="55339" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="55336"/>
+                        <viewControllerLayoutGuide type="bottom" id="55337"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="55340">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews/>
+                    </view>
+                    <connections/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55341" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-195" y="-448"/>
+        </scene>
+    </scenes>
+</document>

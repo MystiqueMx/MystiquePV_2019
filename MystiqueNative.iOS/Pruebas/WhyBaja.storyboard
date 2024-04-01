@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4279">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="4278">
+            <objects>
+                <navigationController id="4279" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4281">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="54197" destination="45621" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4282" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-640" y="-617"/>
+        </scene>
+        <scene sceneID="45620">
+            <objects>
+                <tableViewController id="45621" sceneMemberID="viewController" customClass="WhyBajaViewController" storyboardIdentifier="WhyBajaID">
+                    <tableView key="view" clipsSubviews="YES" contentMode="left" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="45622">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.66666666666666663" green="0.7686274509803922" blue="0.788235294117647" alpha="1"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="left" selectionStyle="none" indentationWidth="10" id="46515" translatesAutoresizingMaskIntoConstraints="NO" customClass="HistorialCell" reuseIdentifier="BUTTON_CELL">
+                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="46515" id="46516">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="left" id="25236" translatesAutoresizingMaskIntoConstraints="NO">
+                                            <rect key="frame" x="10" y="8" width="300" height="44"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="left" id="25237" translatesAutoresizingMaskIntoConstraints="NO" spacing="15" misplaced="YES" ambiguous="YES">
+                                                    <rect key="frame" x="15" y="2" width="280" height="39"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleAspectFill" id="25238" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="39"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="25239" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="36" height="39"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="left" id="25240" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                                            <rect key="frame" x="51" y="0.0" width="229" height="39"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="25241" translatesAutoresizingMaskIntoConstraints="NO" ambiguous="YES">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="39"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                    <color key="textColor" colorSpace="calibratedRGB" red="0.15686274509803921" green="0.32156862745098042" blue="0.42352941176470588" alpha="1"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint id="25242" firstItem="25237" firstAttribute="height" constant="40"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="25244" firstItem="25237" firstAttribute="leading" secondItem="25236" secondAttribute="leading" constant="15"/>
+                                                <constraint id="25245" firstItem="25236" firstAttribute="height" constant="60"/>
+                                                <constraint id="25246" firstItem="25237" firstAttribute="top" secondItem="25236" secondAttribute="top" constant="2"/>
+                                                <constraint id="25247" firstItem="25236" firstAttribute="bottom" secondItem="25237" secondAttribute="bottom" constant="3"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint id="51800" firstItem="25236" firstAttribute="top" secondItem="46516" secondAttribute="top" constant="8"/>
+                                        <constraint id="52110" firstItem="25236" firstAttribute="leading" secondItem="46516" secondAttribute="leading" constant="10"/>
+                                        <constraint id="52420" firstItem="46516" firstAttribute="trailing" secondItem="25236" secondAttribute="trailing" constant="10"/>
+                                        <constraint id="52730" firstItem="46516" firstAttribute="bottom" secondItem="25236" secondAttribute="bottom" constant="8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0.66666666666666663" green="0.7686274509803922" blue="0.788235294117647" alpha="1"/>
+                                <connections>
+                                    <outlet property="labelbutton" destination="25241" id="name-outlet-25241"/>
+                                    <outlet property="iconobutton" destination="25239" id="name-outlet-25239"/>
+                                    <segue id="55314" destination="55144" kind="show" identifier="NavigateToItemDetailSegue"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="45621" id="45623"/>
+                            <outlet property="delegate" destination="45621" id="45624"/>
+                        </connections>
+                        <color key="sectionIndexBackgroundColor" colorSpace="calibratedRGB" red="0.66666666666666663" green="0.7686274509803922" blue="0.788235294117647" alpha="1"/>
+                    </tableView>
+                    <navigationItem title="Why is Baja famous?" id="54196" key="navigationItem">
+                        <barButtonItem key="rightBarButtonItem" id="84797" image="Icons/Home.png">
+                            <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                            <connections>
+                                <action selector="UIBarButtonItem84797_Activated:" destination="45621" id="85078"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="titleWhy" destination="54196" id="name-outlet-54196"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45627" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146" y="-629"/>
+        </scene>
+        <scene sceneID="55143">
+            <objects>
+                <viewController id="55144" sceneMemberID="viewController" customClass="DetalleViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="55141"/>
+                        <viewControllerLayoutGuide type="bottom" id="55142"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="55145">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="55400" translatesAutoresizingMaskIntoConstraints="NO" image="img/casitaImg.jpg" clipsSubviews="YES">
+                                <rect key="frame" x="-4" y="64" width="324" height="210"/>
+                                <constraints>
+                                    <constraint id="61991" firstItem="55400" firstAttribute="height" constant="210"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" textAlignment="justified" id="56685" translatesAutoresizingMaskIntoConstraints="NO" editable="NO" showsHorizontalScrollIndicator="NO" text="-" selectable="NO" adjustsFontForContentSizeCategory="YES" showsVerticalScrollIndicator="NO">
+                                <rect key="frame" x="6" y="284" width="306" height="284"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            </textView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="59349" firstItem="55400" firstAttribute="top" secondItem="55141" secondAttribute="bottom"/>
+                            <constraint id="59476" firstItem="55400" firstAttribute="trailing" secondItem="55145" secondAttribute="trailing"/>
+                            <constraint id="59645" firstItem="55145" firstAttribute="leadingMargin" secondItem="55400" secondAttribute="leading" constant="20"/>
+                            <constraint id="60486" firstItem="56685" firstAttribute="leading" secondItem="55145" secondAttribute="leadingMargin" constant="-10"/>
+                            <constraint id="60529" firstItem="56685" firstAttribute="trailing" secondItem="55145" secondAttribute="trailing" constant="-8"/>
+                            <constraint id="60572" firstItem="55142" firstAttribute="top" secondItem="56685" secondAttribute="bottom"/>
+                            <constraint id="60615" firstItem="56685" firstAttribute="top" secondItem="55400" secondAttribute="bottom" constant="10"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageDetail" destination="55400" id="name-outlet-55400"/>
+                        <outlet property="textDetail" destination="56685" id="name-outlet-56685"/>
+                        <outlet property="titleLabel" destination="60683" id="name-outlet-60683"/>
+                        <outlet property="homebn" destination="83618" id="name-outlet-83618"/>
+                        <segue id="87757" destination="86128" kind="show" identifier="HomeSegue"/>
+                    </connections>
+                    <navigationItem title="Title" id="60683" key="navigationItem">
+                        <barButtonItem key="rightBarButtonItem" id="83618" image="Icons/Home.png">
+                            <color key="tintColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                            <connections>
+                                <action selector="Homebn_Activated:" destination="55144" id="88479"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="55146" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="255" y="-620"/>
+        </scene>
+        <scene sceneID="86127">
+            <objects>
+                <viewControllerPlaceholder id="86128" sceneMemberID="viewController" storyboardName="Main" referencedIdentifier="MenuControllerID"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="86129" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="-568"/>
+        </scene>
+        <scene sceneID="89409">
+            <objects>
+                <viewController id="89410" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="89407"/>
+                        <viewControllerLayoutGuide type="bottom" id="89408"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="89411">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" colorSpace="calibratedRGB" red="0.66666666666666663" green="0.7686274509803922" blue="0.788235294117647" alpha="1"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="89414" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="10" y="57" width="300" height="40"/>
+                                <color key="backgroundColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="tintColor" colorSpace="calibratedRGB" red="0.15686274509803921" green="0.32156862745098042" blue="0.42352941176470588" alpha="1"/>
+                                <state key="normal" title="Item" image="Icons/Find out if you qualify.png">
+                                    <color key="titleColor" colorSpace="calibratedRGB" red="0.15686274509803921" green="0.32156862745098042" blue="0.42352941176470588" alpha="1"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute keyPath="layer.cornerRadius" type="number">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="buttonCell" destination="89414" id="name-outlet-89414"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="89412" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-12" y="41"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Icons/bird hunting.png" width="40" height="40"/>
+        <image name="Icons/calendar.png" width="25" height="25"/>
+        <image name="Icons/camera.png" width="64" height="64"/>
+        <image name="Icons/check.png" width="16" height="13"/>
+        <image name="Icons/checked.png" width="26" height="25"/>
+        <image name="Icons/clock.png" width="23" height="24"/>
+        <image name="Icons/Contact Us.png" width="31" height="30"/>
+        <image name="Icons/Culinary scene.png" width="40" height="40"/>
+        <image name="Icons/down gray.png" width="14" height="10"/>
+        <image name="Icons/down.png" width="20" height="13"/>
+        <image name="Icons/Edit Pencil.png" width="30" height="30"/>
+        <image name="Icons/Find out if you qualify.png" width="31" height="30"/>
+        <image name="Icons/fingerprint.png" width="134" height="132"/>
+        <image name="Icons/gallery.png" width="64" height="64"/>
+        <image name="Icons/Home.png" width="33" height="32"/>
+        <image name="Icons/infoIcon.png" width="50" height="50"/>
+        <image name="Icons/LocatonIcon.png" width="50" height="50"/>
+        <image name="Icons/logo-big.png" width="222" height="212"/>
+        <image name="Icons/Medical Instructions.png" width="40" height="40"/>
+        <image name="Icons/My Profile.png" width="31" height="30"/>
+        <image name="Icons/Next Step.png" width="13" height="21"/>
+        <image name="Icons/next.png" width="13" height="21"/>
+        <image name="Icons/Off-racing.png" width="40" height="40"/>
+        <image name="Icons/Planning your visit.png" width="40" height="40"/>
+        <image name="Icons/Post Treatment &amp; Follow Up.png" width="31" height="30"/>
+        <image name="Icons/previous.png" width="13" height="21"/>
+        <image name="Icons/Reference Barron Program.png" width="31" height="30"/>
+        <image name="Icons/Schedule.png" width="40" height="40"/>
+        <image name="Icons/Special Needs.png" width="40" height="40"/>
+        <image name="Icons/treatment Day.png" width="31" height="30"/>
+        <image name="Icons/Treatments.png" width="31" height="30"/>
+        <image name="Icons/unchecked.png" width="27" height="27"/>
+        <image name="Icons/user.png" width="188" height="193"/>
+        <image name="Icons/Whale watching.png" width="40" height="40"/>
+        <image name="Icons/What to pack.png" width="40" height="40"/>
+        <image name="Icons/Why is Baja Famous.png" width="31" height="30"/>
+        <image name="Icons/Wine Country.png" width="40" height="40"/>
+        <image name="img/infoicon-24x24.png" width="24" height="24"/>
+        <image name="img/infoicon.png" width="24" height="24"/>
+        <image name="img/markericon-24x24.png" width="24" height="24"/>
+        <image name="img/markericon.png" width="24" height="24"/>
+        <image name="img/casitaImg.jpg" width="362" height="181"/>
+        <image name="Icons/!.png" width="41" height="40"/>
+        <image name="img/treatmentsimg.jpg" width="360" height="182"/>
+        <image name="accountEdit.png" width="25" height="25"/>
+        <image name="background_login.png" width="320" height="480"/>
+        <image name="checked_checkbox.png" width="25" height="25"/>
+        <image name="Default-568h.png" width="320" height="568"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="delete.png" width="48" height="48"/>
+        <image name="fondoMenu.png" width="362" height="155"/>
+        <image name="headerPerfil.png" width="370" height="160"/>
+        <image name="ic_barcode.png" width="25" height="25"/>
+        <image name="ic_delete.png" width="25" height="25"/>
+        <image name="ic_emptyStar.png" width="50" height="50"/>
+        <image name="ic_marker.png" width="36" height="36"/>
+        <image name="ic_phone.png" width="36" height="36"/>
+        <image name="ic_puntos.png" width="25" height="25"/>
+        <image name="ic_qrcode.png" width="25" height="25"/>
+        <image name="ic_settings_white.png" width="24" height="24"/>
+        <image name="ic_share.png" width="25" height="25"/>
+        <image name="ic_star.png" width="50" height="50"/>
+        <image name="ic_wallet.png" width="25" height="25"/>
+        <image name="ic_wallet_white_24dp.png" width="108" height="108"/>
+        <image name="Icon-60.png" width="60" height="60"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="iconCameraBlack.png" width="24" height="24"/>
+        <image name="iconCancel.png" width="25" height="25"/>
+        <image name="iconCancel2x.png" width="50" height="50"/>
+        <image name="iconCancel3x.png" width="75" height="75"/>
+        <image name="iconGalleryBlack.png" width="24" height="24"/>
+        <image name="iconoTelefono.png" width="24" height="24"/>
+        <image name="iconoUbicacion.png" width="24" height="24"/>
+        <image name="iconSearch.png" width="18" height="18"/>
+        <image name="imgClienteFrecuente.png" width="330" height="330"/>
+        <image name="imgMenuCPCanjear.png" width="220" height="120"/>
+        <image name="imgMenuCPClienteFrec.png" width="220" height="120"/>
+        <image name="imgMenuCPPuntos.png" width="220" height="120"/>
+        <image name="imgMenuCPSaldo.png" width="220" height="120"/>
+        <image name="LoadingIndicator.png" width="128" height="128"/>
+        <image name="login_logo.png" width="270" height="150"/>
+        <image name="logo_FB.png" width="11" height="23"/>
+        <image name="logoCS.png" width="200" height="112"/>
+        <image name="markerMap.png" width="31" height="30"/>
+        <image name="perfilMenu.png" width="85" height="85"/>
+        <image name="previous.png" width="13" height="21"/>
+        <image name="TabbedMapa.png" width="93" height="68"/>
+        <image name="TabbedPatrocinadores.png" width="93" height="69"/>
+        <image name="tarjetaDigital-568h.png" width="320" height="568"/>
+        <image name="tarjetaDigital.png" width="320" height="480"/>
+        <image name="unchecked_checkbox.png" width="25" height="25"/>
+    </resources>
+</document>

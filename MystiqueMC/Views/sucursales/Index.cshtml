@@ -1,0 +1,168 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model IEnumerable<MystiqueMC.DAL.sucursales>
+@{
+    ViewBag.Title = "Index";
+
+    MystiqueMC.DAL.comercios comercio = ViewBag.Comercio;
+    string titulo = "";
+    if (comercio != null)
+    {
+        titulo = "de " + comercio.nombreComercial;
+    }
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-9">
+        <h2>Sucursales @titulo</h2>
+    </div>
+    <div class="col-md-3 text-right m-t-xs">
+        <a class="btn btn-link m-sm" href="@Url.Action("Create", "sucursales", new { cc = @ViewBag.idcomercio })" ">
+            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+            <b> Agregar</b>
+        </a>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>@item.nombre</h5>
+                        <div class="ibox-tools m-b-n-md">
+                            <a href="@Url.Action("Edit", "sucursales", new { id = item.idSucursal, cc = item.comercioId })" class="btn btn-link">
+                                <img class="m-t-n-md" src="~/Content/img/edit.png" height="24" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="form-group col-lg-12">
+                                    <label for="direccion"> Dirección </label><br />
+                                    <span for="direccion" class="font-italic " id="direccion">@item.direccion.calle Col.@item.direccion.colonia #@item.direccion.numExterior C.P @item.direccion.codigoPostal @item.direccion.catCiudades.ciudadDescr, @item.direccion.catEstados.estadoDescr</span>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for=""> Teléfono </label><br />
+                                    <span for="telefono" id="telefono">@item.telefono</span>
+                                </div>
+                                <div class="form-group col-lg-12">
+
+                                    @if (rol == "Comercio")
+                                    {
+                                        <a href="@Url.Action("Menu", "sucursales", new { id = item.idSucursal, idC = item.comercioId })" class="btn btn-sm btn-primary m-t-sm">
+                                            <img src="~/Content/img/menus.png" height="20" />&nbsp;Menu
+                                        </a>
+                                    }
+                                    @if (rol == "Comercio")
+                                    {
+                                        if (item.logoTickets == null)
+                                        {
+                                            <button class="btn btn-sm btn-primary m-t-sm" style="vertical-align:central" data-toggle="modal" data-target="#modal-configuracion-caja" data-id="@item.idSucursal" data-nombre="@item.nombre">
+                                                <img src="~/Content/img/caja.png" height="20" />&nbsp;Configuración Caja
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-sm btn-primary m-t-sm" style="vertical-align:central" data-toggle="modal" data-target="#modal-configuracion-caja-edit" data-id="@item.idSucursal"
+                                                    data-maximo="@item.maxEfectivo" data-costo="@item.costoEnvio" data-imagen="@item.logoTickets" data-mensaje="@item.mensajeTicket" data-iva="@item.iva" data-nombre="@item.nombre">
+                                                <img src="~/Content/img/caja.png" height="20" />&nbsp;Configuración Caja
+                                            </button>
+                                        }
+                                   
+                                        <a href="@Url.Action("DatosFiscales", "sucursales", new { id = item.comercioId, ids = item.idSucursal })" class="btn btn-sm btn-primary m-t-sm">
+                                            <img src="~/Content/img/pencil.png" height="20" />&nbsp;Datos Fiscales
+                                        </a>
+                                    }
+                                    </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="col-sm-12">
+                                    <label><i aria-hidden="true"></i> Horarios &nbsp; </label>
+                                    @foreach (var v in item.sucursalHorarios)
+                                    {
+                                        <span><br /> @v.diasNum  @v.horarioInicio @v.horarioFin</span>
+                                    }
+                                </div>
+                            </div>
+                        </div><br />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+        <div class="row"><div class="col-md-12">
+    @switch(ViewBag.rol)
+        {
+            case "Empresa":
+            <a href="@Url.Action("IndexEmpresa", "comercios", new {idEmpresa = comercio.empresaId })" class="btn btn-white">Regresar</a>
+            break;
+        case "Comercio":
+            <a href="@Url.Action("Index", "Home")" class="btn btn-white">Regresar</a>
+            break;
+
+
+    }
+</div>
+    </div>
+</div>
+@Html.Partial("DeleteModal")
+@Html.Partial("Modales/ModalConfiguracionCaja")
+@Html.Partial("Modales/ModalConfiguracionCajaEdit")
+@section Scripts{
+    <script src="~/Scripts/app/Sucursales/Index.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    @Scripts.Render("~/plugins/dataTables")
+    <script>
+        $(document).ready(function () {
+
+            $('.table').dataTable({
+                        "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                            "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "language": {
+                            "search": "Buscar ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                                "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                        }
+                    });
+        });
+    </script>
+}
+@section Styles {
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    <style>
+        .img-container,
+        .img-preview {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+}
+

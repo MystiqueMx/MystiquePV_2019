@@ -1,0 +1,249 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@model  IEnumerable<MystiqueMC.Models.ReporteRecetaConteoManual>
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Reporte";
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    //var tienePermisoParaFiltrar = delegatePermisos.HasPermissionForAction(Session.ObtenerRol(), "Reportes", "VerSucursal");
+}
+
+<div>
+    <div class="col-sm-12">
+        <h2>Reporte Consumo X Venta</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style="background-color:transparent;border-width:0px; margin-top:-15px">
+                    <div class="row">
+                        @using (Html.BeginForm("ReporteRecetaProductoConteoManual", "Reportes", FormMethod.Post, new { enctype = "multipart/form-data", data_parsley_validate = true }))
+                        {
+                            <div class="form-group col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
+                                    @Html.DropDownList("Sucursales", ViewBag.ComprasSelect as SelectList, "SELECCIONE", new { @class = "form-control", @data_parsley_required = "true" })
+                                </div>
+                                @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Nombre" })
+                            </div>
+                            <div class="form-group col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Unidad de medida:</b></span>
+
+                                    <select id="unidadMedida" name="unidadMedida" class="form-control" data-live-search="true"
+                                            data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-sucursal">
+                                        <option value="" selected="selected">SELECCIONE</option>
+                                        <option value="False" @(ViewBag.unidadMedida as bool? == false ? "selected" : "")>MINIMA</option>
+                                        <option value="True" @(ViewBag.unidadMedida as bool? == true ? "selected" : "")>COMPRA</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Ventas" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group input-daterange">
+                                    @*FECHA INICIO*@
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Fecha:</b></span>
+                                    <input autocomplete="off" type="text" class="form-control input-sm" id="fecha1" name="fecha1" value="@(ViewBag.fecha1 as string)">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                    @*FECHA FIN*@
+                                    <span class="input-group-addon" style="color:#6C6A67; background-color:transparent; border-color:transparent;"><b>A</b></span>
+                                    <input autocomplete="off" type="text" class="form-control input-sm" id="fecha2" name="fecha2" value="@(ViewBag.fecha2 as string)">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <span class="input-group-btn">
+                                    <button style="width:100%" class="btn btn-primary btn-sm" type="submit">Buscar</button>
+                                </span>
+                            </div>
+                        }
+                        <div hidden class="col-md-1 pull-right">
+                            <button id="ButtonExcel" style="width:100%" class="btn btn-primary" onclick="$('#realExcel').click()">
+                                Excel &nbsp;
+
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table id="ContentTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-3">Nombre</th>
+                                    <th class="text-center col-md-4">Unidad</th>
+                                    <th class="text-right col-md-3">Venta por sistema</th>
+                                    <th class="text-right col-md-1">Conteo</th>
+                                    <th class=" text-right col-md-1">Diferencia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        @if (item.Nombre == null)
+                                        {
+                                            <td></td>
+                                        }
+                                        else
+                                        {
+                                            <td class="col-md-3">
+                                                @Html.ActionLink(item.Nombre, "ReporteRecetaProductoConteoManualDetalle", new
+                                           {
+                                               fecha1 = item.FechaInicialSemana,
+                                               fecha2 = item.FechaFinalSemana,
+                                               Sucursales = ViewBag.sucursalId,
+                                               insumoId = item.IdInsumo,
+                                               TotalProductosVenta = item.TotalProductosVenta,
+                                               TotalInventarioManual = item.TotalInventarioManual,
+                                               Diferencia = item.Diferencia,
+                                               nombre = item.Nombre,
+                                               unidadMedida = ViewBag.unidadMedida,
+                                               suc = ViewBag.suc
+                                           }, new { @class = "btn-color" })
+                                            </td>
+                                        }
+                                        <td>@item.UnidadMedida</td>
+                                        @if (item.TotalInventarioManual != null && item.TotalProductosVenta != null && item.Diferencia != null)
+                                        {
+                                            <td class="text-right col-md-3">@item.TotalProductosVenta.Value.ToString("N2")</td>
+                                            <td class="text-right col-md-3">@item.TotalInventarioManual.Value.ToString("N2")</td>
+                                            <td class="text-right col-md-3">@item.Diferencia.Value.ToString("N2")</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-right col-md-3">@item.TotalProductosVenta.</td>
+                                            <td class="text-right col-md-3">@item.TotalInventarioManual</td>
+                                            <td class="text-right col-md-3">@item.Diferencia</td>
+                                        }
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-right" colspan="1">
+                                        Total:
+                                    </th>
+                                    <td></td>
+                                    @if (ViewBag.SucursalId != null)
+                                    {
+                                        <td class="text-right">
+                                            @((Model.AsEnumerable().Sum(c => c.TotalProductosVenta.Value).ToString("N2")))
+                                        </td>
+                                        <td class="text-right">
+                                            @((Model.AsEnumerable().Sum(c => c.TotalInventarioManual.Value).ToString("N2")))
+                                        </td>
+                                        <td class="text-right">
+                                            @((Model.AsEnumerable().Sum(c => c.Diferencia.Value).ToString("N2")))
+                                        </td>
+                                    }
+                                </tr>
+                            </tfoot>
+
+                        </table>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10" style="padding:0pt">
+                            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white" })
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script>
+        $(document).ready(function () {
+
+            $('#ContentTable').DataTable({
+                "dom": '<lB<t>ip>',
+                "ordering": false,
+                "buttons": [
+                    {
+                        extend: 'excelHtml5',
+                        text: '<span id="realExcel" style="display:none" class="btn btn-primary btn-sm">Excel<span>',
+                        titleAttr: ''
+                    },
+                ],
+                "pageLength": 100,
+                "language": {
+                    "search": "Buscar   ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+        });
+    </script>
+    <script>
+
+        jQuery(document).ready(function ($) {
+            $('#fecha1').datepicker({
+                language: 'es',
+                Format: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+        jQuery(document).ready(function ($) {
+            $('#fecha2').datepicker({
+                language: 'es',
+                Format: "mm/dd/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+        $('#fecha1').on("change", function () {
+            var startVal = $('#fecha1').val();
+            $('#fecha2').data('datepicker').setStartDate(startVal);
+        });
+        $('#fecha2').on("change", function () {
+            var endVal = $('#fecha2').val();
+            $('#fecha1').data('datepicker').setEndDate(endVal);
+        });
+        $(document).ready(function () {
+            $('.input-daterange').datepicker({
+            });
+        });
+    </script>
+}
+@section Styles {
+    <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+
+
+

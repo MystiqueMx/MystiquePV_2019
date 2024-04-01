@@ -1,0 +1,2686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{DEF47139-97F2-4EB0-9DA1-788BE005E808}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MystiqueNative.iOS</RootNamespace>
+    <AssemblyName>MystiqueNative.iOS</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchProfiling>true</MtouchProfiling>
+    <IOSDebuggerPort>62624</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchExtraArgs>--registrar:static</MtouchExtraArgs>
+    <CodesignProvision />
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <CodesignEntitlements />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: GrupoRed Internet Develpment SA de CV (UQ339KD238)</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <OptimizePNGs>true</OptimizePNGs>
+    <BuildIpa>true</BuildIpa>
+    <CodesignProvision>FrescoApp_20190419_dis</CodesignProvision>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <MtouchDebug>true</MtouchDebug>
+    <IOSDebugOverWiFi>true</IOSDebugOverWiFi>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: GrupoRed Internet Develpment SA de CV (UQ339KD238)</CodesignKey>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>FrescoApp_20190419_dis</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer: Laura Saenz Estrada (5S66V83U4A)</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchProfiling>true</MtouchProfiling>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <IOSDebuggerPort>33656</IOSDebuggerPort>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <PlatformTarget>x86</PlatformTarget>
+    <MtouchSdkVersion>12.1</MtouchSdkVersion>
+    <CodesignProvision>FrescoApp_20190412_dev</CodesignProvision>
+    <MtouchExtraArgs>--time --time --dsym=false</MtouchExtraArgs>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <OptimizePNGs>true</OptimizePNGs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+    <StartArguments>
+    </StartArguments>
+    <EnvironmentVariables />
+    <ExtraLaunchArgs>--argument=-FIRAnalyticsDebugEnabled</ExtraLaunchArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="netstandard">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\netstandard.library\2.0.1\build\netstandard2.0\ref\netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76@1x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="Storyboards\Main.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\accountEdit%402x.png" />
+    <BundleResource Include="Resources\accountEdit%403x.png" />
+    <BundleResource Include="Resources\accountEdit.png" />
+    <BundleResource Include="Resources\acercade_100x100.png" />
+    <BundleResource Include="Resources\acercade_500x500.png" />
+    <BundleResource Include="Resources\background_login%402x.png" />
+    <BundleResource Include="Resources\background_login%403x.png" />
+    <BundleResource Include="Resources\background_login.png" />
+    <BundleResource Include="Resources\beneficiosTicker.jpg" />
+    <BundleResource Include="Resources\beneficios_100x100.png" />
+    <BundleResource Include="Resources\beneficios_500x500.png" />
+    <BundleResource Include="Resources\black.png" />
+    <BundleResource Include="Resources\buscar-24x24%402x.png" />
+    <BundleResource Include="Resources\cameraButton-36x36%402x.png" />
+    <BundleResource Include="Resources\checked_checkbox%402x.png" />
+    <BundleResource Include="Resources\checked_checkbox.png" />
+    <BundleResource Include="Resources\chevron-down.png" />
+    <BundleResource Include="Resources\citypoints_100x100.png" />
+    <BundleResource Include="Resources\citypoints_500x500.png" />
+    <BundleResource Include="Resources\Close-36x36%402x.png" />
+    <BundleResource Include="Resources\coment-24x24%402x.png" />
+    <BundleResource Include="Resources\comentarios_100x100.png" />
+    <BundleResource Include="Resources\comentarios_500x500.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\delete-30x30%403x.png" />
+    <BundleResource Include="Resources\delete.png" />
+    <BundleResource Include="Resources\down.png" />
+    <BundleResource Include="Resources\fivestar.png" />
+    <BundleResource Include="Resources\fondoMenu.png" />
+    <BundleResource Include="Resources\fourstar.png" />
+    <BundleResource Include="Resources\GalleryButton-36x36%402x.png" />
+    <BundleResource Include="Resources\haztupedido_100x100.png" />
+    <BundleResource Include="Resources\haztupedido_500x500-01.png" />
+    <BundleResource Include="Resources\headerPerfil.png" />
+    <BundleResource Include="Resources\Heart Outline-24x24%402x.png" />
+    <BundleResource Include="Resources\home-24x24%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\iconCameraBlack%402x.png" />
+    <BundleResource Include="Resources\iconCameraBlack%403x.png" />
+    <BundleResource Include="Resources\iconCameraBlack.png" />
+    <BundleResource Include="Resources\iconCancel.png" />
+    <BundleResource Include="Resources\iconCancel2x.png" />
+    <BundleResource Include="Resources\iconCancel3x.png" />
+    <BundleResource Include="Resources\iconGalleryBlack%402x.png" />
+    <BundleResource Include="Resources\iconGalleryBlack%403x.png" />
+    <BundleResource Include="Resources\iconGalleryBlack.png" />
+    <BundleResource Include="Resources\iconoTelefono.png" />
+    <BundleResource Include="Resources\iconoUbicacion.png" />
+    <BundleResource Include="Resources\iconSearch.png" />
+    <BundleResource Include="Resources\Icons\FacebookIcon%402x.png" />
+    <BundleResource Include="Resources\Icons\GoogleIcon%402x.png" />
+    <BundleResource Include="Resources\Icons\MailIcon%402x.png" />
+    <BundleResource Include="Resources\Icons\Perfil%403x.png" />
+    <BundleResource Include="Resources\Icons\Perfil.png" />
+    <BundleResource Include="Resources\Icons\TwitterIcon%402x.png" />
+    <BundleResource Include="Resources\ic_barcode%402x.png" />
+    <BundleResource Include="Resources\ic_barcode%403x.png" />
+    <BundleResource Include="Resources\ic_barcode-24x24%402x.png" />
+    <BundleResource Include="Resources\ic_barcode.png" />
+    <BundleResource Include="Resources\ic_delete%402x.png" />
+    <BundleResource Include="Resources\ic_delete%403x.png" />
+    <BundleResource Include="Resources\ic_delete.png" />
+    <BundleResource Include="Resources\ic_emptyStar.png" />
+    <BundleResource Include="Resources\ic_marker.png" />
+    <BundleResource Include="Resources\ic_phone.png" />
+    <BundleResource Include="Resources\ic_puntos.png" />
+    <BundleResource Include="Resources\ic_qrcode%402x.png" />
+    <BundleResource Include="Resources\ic_qrcode%403x.png" />
+    <BundleResource Include="Resources\ic_qrcode.png" />
+    <BundleResource Include="Resources\ic_settings_white%402x.png" />
+    <BundleResource Include="Resources\ic_settings_white%403x.png" />
+    <BundleResource Include="Resources\ic_settings_white.png" />
+    <BundleResource Include="Resources\ic_share%402x.png" />
+    <BundleResource Include="Resources\ic_share%403x.png" />
+    <BundleResource Include="Resources\ic_share.png" />
+    <BundleResource Include="Resources\ic_star.png" />
+    <BundleResource Include="Resources\ic_wallet%402x.png" />
+    <BundleResource Include="Resources\ic_wallet%403x.png" />
+    <BundleResource Include="Resources\ic_wallet.png" />
+    <BundleResource Include="Resources\ic_wallet_white_24dp%402x.png" />
+    <BundleResource Include="Resources\ic_wallet_white_24dp%403x.png" />
+    <BundleResource Include="Resources\ic_wallet_white_24dp.png" />
+    <BundleResource Include="Resources\Images\gif.gif" />
+    <BundleResource Include="Resources\imgClienteFrecuente.png" />
+    <BundleResource Include="Resources\imgMenuCPCanjear.png" />
+    <BundleResource Include="Resources\imgMenuCPClienteFrec.png" />
+    <BundleResource Include="Resources\imgMenuCPPuntos.png" />
+    <BundleResource Include="Resources\imgMenuCPSaldo.png" />
+    <BundleResource Include="Resources\LoadingIndicator.png" />
+    <BundleResource Include="Resources\location-24x24%402x.png" />
+    <BundleResource Include="Resources\locationPin.png" />
+    <BundleResource Include="Resources\LogInLogo.png" />
+    <BundleResource Include="Resources\login_logo.png" />
+    <BundleResource Include="Resources\logoCS.png" />
+    <BundleResource Include="Resources\logoCS2.JPG" />
+    <BundleResource Include="Resources\logout-24x24%402x.png" />
+    <BundleResource Include="Resources\logo_FB.png" />
+    <BundleResource Include="Resources\markerMap.png" />
+    <BundleResource Include="Resources\member-24x24%402x.png" />
+    <BundleResource Include="Resources\membresia_100x100.png" />
+    <BundleResource Include="Resources\membresia_500x500.png" />
+    <BundleResource Include="Resources\menu-24x24%402x.png" />
+    <BundleResource Include="Resources\menu2-36x36%402x.png" />
+    <BundleResource Include="Resources\Menu\canjearpuntos_500x500.png" />
+    <BundleResource Include="Resources\Menu\capturarpuntos_500x500.png" />
+    <BundleResource Include="Resources\miperfil_100x100.png" />
+    <BundleResource Include="Resources\miperfil_500x50.png" />
+    <BundleResource Include="Resources\miscupones-24x24%402x.png" />
+    <BundleResource Include="Resources\miscupones_500x500.png" />
+    <BundleResource Include="Resources\notificaciones-24x24%402x.png" />
+    <BundleResource Include="Resources\Notificaciones.png" />
+    <BundleResource Include="Resources\Notification-24x24%402x.png" />
+    <BundleResource Include="Resources\Notification-48x48%402x.png" />
+    <BundleResource Include="Resources\onestar.png" />
+    <BundleResource Include="Resources\perfilMenu.png" />
+    <BundleResource Include="Resources\phone-24x24%402x.png" />
+    <BundleResource Include="Resources\PhoneIcon.png" />
+    <BundleResource Include="Resources\points-24x24%402x.png" />
+    <BundleResource Include="Resources\previous.png" />
+    <BundleResource Include="Resources\qr-ex.jpg" />
+    <BundleResource Include="Resources\QuierodeComer-24x24%402x.png" />
+    <BundleResource Include="Resources\QuierodeComer-30x30%402x.png" />
+    <BundleResource Include="Resources\recompensas_por_canjear2..png" />
+    <BundleResource Include="Resources\SaveIcon-24x24%402x.png" />
+    <BundleResource Include="Resources\sucursales.png" />
+    <BundleResource Include="Resources\TabbedMapa%402x.png" />
+    <BundleResource Include="Resources\TabbedMapa%403x.png" />
+    <BundleResource Include="Resources\TabbedMapa.png" />
+    <BundleResource Include="Resources\TabbedPatrocinadores%402x.png" />
+    <BundleResource Include="Resources\TabbedPatrocinadores%403x.png" />
+    <BundleResource Include="Resources\TabbedPatrocinadores.png" />
+    <BundleResource Include="Resources\TakePhoto-24x24%402x.png" />
+    <BundleResource Include="Resources\tarjetaDigital-568h%402x.png" />
+    <BundleResource Include="Resources\tarjetaDigital.png" />
+    <BundleResource Include="Resources\threestar.png" />
+    <BundleResource Include="Resources\twostar.png" />
+    <BundleResource Include="Resources\unchecked_checkbox%402x.png" />
+    <BundleResource Include="Resources\unchecked_checkbox.png" />
+    <BundleResource Include="Resources\up.png" />
+    <BundleResource Include="Resources\user-24x24%402x.png" />
+    <BundleResource Include="Resources\UserDefault.png" />
+    <BundleResource Include="Resources\User_Default.png" />
+    <BundleResource Include="Resources\WalletButon-100x100%401x.png" />
+    <BundleResource Include="Resources\walletImage.PNG" />
+    <BundleResource Include="Resources\walletImage2.png" />
+    <BundleResource Include="Resources\wallet_100x100.png" />
+    <BundleResource Include="Resources\zerostar.png" />
+    <Compile Include="Helpers\APRTextFieldSuggestions.cs" />
+    <Compile Include="Helpers\iOSUtils.cs" />
+    <Compile Include="NavigationController.cs" />
+    <Compile Include="NavigationController.designer.cs">
+      <DependentUpon>NavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StartViewController.cs" />
+    <Compile Include="StartViewController.designer.cs">
+      <DependentUpon>StartViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\ConfirmarDatosViewController.cs" />
+    <Compile Include="ViewControllers\Facturacion\ConfirmarDatosViewController.designer.cs">
+      <DependentUpon>ConfirmarDatosViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\DetalleFacturaController.cs" />
+    <Compile Include="ViewControllers\Facturacion\DetalleFacturaController.designer.cs">
+      <DependentUpon>DetalleFacturaController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\InformacionReceptorViewController.cs" />
+    <Compile Include="ViewControllers\Facturacion\InformacionReceptorViewController.designer.cs">
+      <DependentUpon>InformacionReceptorViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\DetalleFacturaViewController.cs" />
+    <Compile Include="ViewControllers\Facturacion\DetalleFacturaViewController.designer.cs">
+      <DependentUpon>DetalleFacturaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\EscanearTicketViewController.cs" />
+    <Compile Include="ViewControllers\Facturacion\EscanearTicketViewController.designer.cs">
+      <DependentUpon>EscanearTicketViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FacturaConsumoCell.cs" />
+    <Compile Include="View\FacturaConsumoCell.designer.cs">
+      <DependentUpon>FacturaConsumoCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\FacturarConsumoViewController.cs" />
+    <Compile Include="ViewControllers\Facturacion\FacturarConsumoViewController.designer.cs">
+      <DependentUpon>FacturarConsumoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Xamarin Essentials\Flashlight.cs" />
+    <Compile Include="Pruebas\LeftMenuViewController.cs" />
+    <Compile Include="Pruebas\LeftMenuViewController.designer.cs">
+      <DependentUpon>LeftMenuViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\MenuViewController.cs" />
+    <Compile Include="Pruebas\MenuViewController.designer.cs">
+      <DependentUpon>MenuViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MisFacturasCell.cs" />
+    <Compile Include="View\MisFacturasCell.designer.cs">
+      <DependentUpon>MisFacturasCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Facturacion\MisFacturasViewController.cs" />
+    <Compile Include="ViewControllers\Facturacion\MisFacturasViewController.designer.cs">
+      <DependentUpon>MisFacturasViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\TabBarInicioViewController.cs" />
+    <Compile Include="ViewControllers\Menu\TabBarInicioViewController.designer.cs">
+      <DependentUpon>TabBarInicioViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NavController.cs" />
+    <Compile Include="ViewControllers\Perfil\CompletarRegistroViewController.cs" />
+    <Compile Include="ViewControllers\Perfil\CompletarRegistroViewController.designer.cs">
+      <DependentUpon>CompletarRegistroViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ConnectivityDelegate.cs" />
+    <Compile Include="Helpers\GetTopViewController.cs" />
+    <Compile Include="Helpers\GoogleSignIn.cs" />
+    <Compile Include="Helpers\LocationManager.cs" />
+    <Compile Include="Helpers\LocationUpdateEventArgs.cs" />
+    <Compile Include="Helpers\ValidarVersiones.cs" />
+    <Compile Include="Pruebas\juas.cs" />
+    <Compile Include="Pruebas\juas.designer.cs">
+      <DependentUpon>juas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Inicio\LoginEmailViewController.cs" />
+    <Compile Include="ViewControllers\Inicio\LoginEmailViewController.designer.cs">
+      <DependentUpon>LoginEmailViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\MenuContentViewController.cs" />
+    <Compile Include="ViewControllers\Menu\MenuContentViewController.designer.cs">
+      <DependentUpon>MenuContentViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\MenuPrincipalViewController.cs" />
+    <Compile Include="ViewControllers\Menu\MenuPrincipalViewController.designer.cs">
+      <DependentUpon>MenuPrincipalViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\ListaRecompensaModal.cs" />
+    <Compile Include="ModalsView\ListaRecompensaModal.designer.cs">
+      <DependentUpon>ListaRecompensaModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Inicio\MultiLoginViewController.cs" />
+    <Compile Include="ViewControllers\Inicio\MultiLoginViewController.designer.cs">
+      <DependentUpon>MultiLoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Historial\PuntosCanjeadosCell.cs" />
+    <Compile Include="View\Historial\PuntosCanjeadosCell.designer.cs">
+      <DependentUpon>PuntosCanjeadosCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Historial Puntos\PuntosCanjeadosController.cs" />
+    <Compile Include="ViewControllers\Historial Puntos\PuntosCanjeadosController.designer.cs">
+      <DependentUpon>PuntosCanjeadosController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Historial\PuntosSumadosCell.cs" />
+    <Compile Include="View\Historial\PuntosSumadosCell.designer.cs">
+      <DependentUpon>PuntosSumadosCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Historial Puntos\PuntosSumadosController.cs" />
+    <Compile Include="ViewControllers\Historial Puntos\PuntosSumadosController.designer.cs">
+      <DependentUpon>PuntosSumadosController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Capturar Puntos\ScannerView.cs" />
+    <Compile Include="ViewControllers\Capturar Puntos\ScannerView.designer.cs">
+      <DependentUpon>ScannerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\SideMenuViewController.cs" />
+    <Compile Include="Pruebas\SideMenuViewController.designer.cs">
+      <DependentUpon>SideMenuViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Capturar Puntos\SumarPuntosViewController.cs" />
+    <Compile Include="ViewControllers\Capturar Puntos\SumarPuntosViewController.designer.cs">
+      <DependentUpon>SumarPuntosViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ColoniaModel.cs" />
+    <Compile Include="View\ListaRecompensasCell.cs" />
+    <Compile Include="View\ListaRecompensasCell.designer.cs">
+      <DependentUpon>ListaRecompensasCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Perfil\MiPerfilViewController.cs" />
+    <Compile Include="ViewControllers\Perfil\MiPerfilViewController.designer.cs">
+      <DependentUpon>MiPerfilViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MystiqueNative\iOS\RecompensasViewController.cs" />
+    <Compile Include="ViewControllers\Canjear Puntos\RecompensasTableViewController.cs" />
+    <Compile Include="ViewControllers\Canjear Puntos\RecompensasTableViewController.designer.cs">
+      <DependentUpon>RecompensasTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\RecompensasViewController.cs" />
+    <Compile Include="Pruebas\RecompensasViewController.designer.cs">
+      <DependentUpon>RecompensasViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PickerModel.cs" />
+    <Compile Include="View\TabBar.cs" />
+    <Compile Include="View\TabBar.designer.cs">
+      <DependentUpon>TabBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\PlaydoohViewController.cs" />
+    <Compile Include="ViewControllers\Menu\PlaydoohViewController.designer.cs">
+      <DependentUpon>PlaydoohViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Canjear Puntos\DetalleCanjearVC.cs" />
+    <Compile Include="ViewControllers\Canjear Puntos\DetalleCanjearVC.designer.cs">
+      <DependentUpon>DetalleCanjearVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CommentModel.cs" />
+    <Compile Include="View\MiSaldoCell.cs" />
+    <Compile Include="View\MiSaldoCell.designer.cs">
+      <DependentUpon>MiSaldoCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\ModalRecompensa.cs" />
+    <Compile Include="ModalsView\ModalRecompensa.designer.cs">
+      <DependentUpon>ModalRecompensa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\ModalWallet.cs" />
+    <Compile Include="ModalsView\ModalWallet.designer.cs">
+      <DependentUpon>ModalWallet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecompensasCell.cs" />
+    <Compile Include="View\RecompensasCell.designer.cs">
+      <DependentUpon>RecompensasCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Perfil\ActualizarPerfilViewController.cs" />
+    <Compile Include="ViewControllers\Perfil\ActualizarPerfilViewController.designer.cs">
+      <DependentUpon>ActualizarPerfilViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CellNotificaciones.cs" />
+    <Compile Include="View\CellNotificaciones.designer.cs">
+      <DependentUpon>CellNotificaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CollectionViewLayout.cs" />
+    <Compile Include="View\CollectionViewLayout.designer.cs">
+      <DependentUpon>CollectionViewLayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\PreferencesHelper.cs" />
+    <Compile Include="ModalsView\ModalMembresiaBAR.cs" />
+    <Compile Include="ModalsView\ModalMembresiaBAR.designer.cs">
+      <DependentUpon>ModalMembresiaBAR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Acerca De\SoporteViewController.cs" />
+    <Compile Include="ViewControllers\Acerca De\SoporteViewController.designer.cs">
+      <DependentUpon>SoporteViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Promociones y Descuentos\MiSaldoViewController.cs" />
+    <Compile Include="ViewControllers\Promociones y Descuentos\MiSaldoViewController.designer.cs">
+      <DependentUpon>MiSaldoViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Canjear Puntos\CanjearPuntosViewController.cs" />
+    <Compile Include="ViewControllers\Canjear Puntos\CanjearPuntosViewController.designer.cs">
+      <DependentUpon>CanjearPuntosViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WalletBeneficioCell.cs" />
+    <Compile Include="View\WalletBeneficioCell.designer.cs">
+      <DependentUpon>WalletBeneficioCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Promociones y Descuentos\WalletViewController.cs" />
+    <Compile Include="ViewControllers\Promociones y Descuentos\WalletViewController.designer.cs">
+      <DependentUpon>WalletViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Promociones y Descuentos\ZonaCityViewController.cs" />
+    <Compile Include="ViewControllers\Promociones y Descuentos\ZonaCityViewController.designer.cs">
+      <DependentUpon>ZonaCityViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\WalletNavController.cs" />
+    <Compile Include="Pruebas\WalletNavController.designer.cs">
+      <DependentUpon>WalletNavController.cs</DependentUpon>
+    </Compile>
+    <None Include="app.config" />
+    <BundleResource Include="GoogleService-Info.plist" />
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\down.imageset\Untitled-1.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\up.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\down.imageset\Untitled-1.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\up.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Entitlements.plist" />
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\iconSearch.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\FBLoginC.colorset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Storyboards\Menu.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\FBLoginC.colorset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\FBLoginC.colorset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <Compile Include="ModalsView\BeneficioAgregadoModal.cs" />
+    <Compile Include="ModalsView\BeneficioAgregadoModal.designer.cs">
+      <DependentUpon>BeneficioAgregadoModal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Membresia\MembresiaViewController.cs" />
+    <Compile Include="ViewControllers\Membresia\MembresiaViewController.designer.cs">
+      <DependentUpon>MembresiaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\CalificarBeneficio.cs" />
+    <Compile Include="ModalsView\CalificarBeneficio.designer.cs">
+      <DependentUpon>CalificarBeneficio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Camera.cs" />
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\FBLoginC.colorset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Storyboards\Notificaciones.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\Membresia.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\MiSaldo.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\Soporte.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\Canjear.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\ZonaCitySalads.storyboard" />
+    <InterfaceDefinition Include="Pruebas\Board.storyboard" />
+    <InterfaceDefinition Include="Pruebas\Playdooh.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\Recompensas.storyboard" />
+    <InterfaceDefinition Include="Storyboards\MiPerfil.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\Modales.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <BundleResource Include="Resources\fontawesome.otf" />
+    <BundleResource Include="Resources\fontawesome.ttf" />
+    <BundleResource Include="Resources\Mont-HeavyDEMO.otf" />
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-down.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-up.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\down.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\FBLoginC.colorset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_emptyStar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_star.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\logo_FB.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\markerMap.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\up.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\upchevron.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <InterfaceDefinition Include="Storyboards\SumarPuntos.storyboard">
+      <SubType>Designer</SubType>
+    </InterfaceDefinition>
+    <InterfaceDefinition Include="Storyboards\Facturacion.storyboard" />
+    <InterfaceDefinition Include="Storyboards\MiPedido.storyboard" />
+    <InterfaceDefinition Include="Storyboards\Start.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ImageExtension.cs" />
+    <Compile Include="View\Menu.cs" />
+    <Compile Include="View\Menu.designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Inicio\RecuperarViewController.cs" />
+    <Compile Include="ViewControllers\Inicio\RecuperarViewController.designer.cs">
+      <DependentUpon>RecuperarViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\NotificacionViewController.cs" />
+    <Compile Include="ViewControllers\Menu\NotificacionViewController.designer.cs">
+      <DependentUpon>NotificacionViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NotificationCell.cs" />
+    <Compile Include="View\NotificationCell.designer.cs">
+      <DependentUpon>NotificationCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SucursalesCell.cs" />
+    <Compile Include="View\SucursalesCell.designer.cs">
+      <DependentUpon>SucursalesCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Underline.cs" />
+    <Compile Include="View\Underline.designer.cs">
+      <DependentUpon>Underline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Comentarios\ComentarioViewController.cs" />
+    <Compile Include="ViewControllers\Comentarios\ComentarioViewController.designer.cs">
+      <DependentUpon>ComentarioViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\FontAwesome.cs" />
+    <Compile Include="View\BeneficioCell.cs" />
+    <Compile Include="View\BeneficioCell.designer.cs">
+      <DependentUpon>BeneficioCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Promociones y Descuentos\DetalleBeneficiosViewController.cs" />
+    <Compile Include="ViewControllers\Promociones y Descuentos\DetalleBeneficiosViewController.designer.cs">
+      <DependentUpon>DetalleBeneficiosViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\ModalImagenBeneficio.cs" />
+    <Compile Include="ModalsView\ModalImagenBeneficio.designer.cs">
+      <DependentUpon>ModalImagenBeneficio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\ModalQR.cs" />
+    <Compile Include="ModalsView\ModalQR.designer.cs">
+      <DependentUpon>ModalQR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ScanView.cs" />
+    <Compile Include="View\ScanView.designer.cs">
+      <DependentUpon>ScanView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Promociones y Descuentos\BeneficiosTableViewController.cs" />
+    <Compile Include="ViewControllers\Promociones y Descuentos\BeneficiosTableViewController.designer.cs">
+      <DependentUpon>BeneficiosTableViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Capturar Puntos\ScanPointsViewController.cs" />
+    <Compile Include="ViewControllers\Capturar Puntos\ScanPointsViewController.designer.cs">
+      <DependentUpon>ScanPointsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoadingOverlay.cs" />
+    <Compile Include="View\ShadowsView.cs" />
+    <Compile Include="View\ShadowsView.designer.cs">
+      <DependentUpon>ShadowsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Promociones y Descuentos\CityPointsViewController.cs" />
+    <Compile Include="ViewControllers\Promociones y Descuentos\CityPointsViewController.designer.cs">
+      <DependentUpon>CityPointsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BirthPicker.cs" />
+    <Compile Include="View\textfieldBuscar.cs" />
+    <Compile Include="View\textfieldBuscar.designer.cs">
+      <DependentUpon>textfieldBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ToCircleImage.cs" />
+    <Compile Include="Helpers\ToCircleImage.designer.cs">
+      <DependentUpon>ToCircleImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Perfil\DetallePerfil.cs" />
+    <Compile Include="ViewControllers\Perfil\DetallePerfil.designer.cs">
+      <DependentUpon>DetallePerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ToCircleTransformation.cs" />
+    <Compile Include="View\MenuIcons.cs" />
+    <Compile Include="View\MenuIcons.designer.cs">
+      <DependentUpon>MenuIcons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\MenuMas.cs" />
+    <Compile Include="ViewControllers\Menu\MenuMas.designer.cs">
+      <DependentUpon>MenuMas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModalsView\ModalTest.cs" />
+    <Compile Include="ModalsView\ModalTest.designer.cs">
+      <DependentUpon>ModalTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Sucursales\DetasheSucursalViewController.cs" />
+    <Compile Include="ViewControllers\Sucursales\DetasheSucursalViewController.designer.cs">
+      <DependentUpon>DetasheSucursalViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\sucursalTexto.cs" />
+    <Compile Include="View\sucursalTexto.designer.cs">
+      <DependentUpon>sucursalTexto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\HistorialCell.cs" />
+    <Compile Include="View\HistorialCell.designer.cs">
+      <DependentUpon>HistorialCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Sucursales\TableSucursales.cs" />
+    <Compile Include="ViewControllers\Sucursales\TableSucursales.designer.cs">
+      <DependentUpon>TableSucursales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Menu\TabBarMenuViewController.cs" />
+    <Compile Include="ViewControllers\Menu\TabBarMenuViewController.designer.cs">
+      <DependentUpon>TabBarMenuViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Sucursales\Mapa\MapViewController.cs" />
+    <Compile Include="ViewControllers\Sucursales\Mapa\MapViewController.designer.cs">
+      <DependentUpon>MapViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Sucursales\Mapa\SucursalesMap.cs" />
+    <Compile Include="ViewControllers\Sucursales\Mapa\SucursalesMap.designer.cs">
+      <DependentUpon>SucursalesMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Inicio\RegistroViewController.cs" />
+    <Compile Include="ViewControllers\Inicio\RegistroViewController.designer.cs">
+      <DependentUpon>RegistroViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnderlineUITextfield.cs" />
+    <Compile Include="View\UnderlineUITextfield.designer.cs">
+      <DependentUpon>UnderlineUITextfield.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Inicio\LoginViewController.cs" />
+    <Compile Include="ViewControllers\Inicio\LoginViewController.designer.cs">
+      <DependentUpon>LoginViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Pruebas\ViewController.cs" />
+    <Compile Include="Pruebas\ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MystiqueNative\MystiqueNative.csproj">
+      <Project>{68F053B5-90EE-4320-AF29-7EEC5A0B08E4}</Project>
+      <Name>MystiqueNative</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconoiOS_1024x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default-568h%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\iconSearch.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconoiOS_1024x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default-568h%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\iconSearch.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\iconSearch.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\fivestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\fivestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\fivestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\fourstar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\fourstar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\fourstar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\onestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\onestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\onestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\threestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\threestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\threestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\twostar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\twostar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\twostar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\User_Default%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\User_Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\User_Default%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\zerostar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\zerostar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\zerostar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconoiOS_1024x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default-568h%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Com.OneSignal">
+      <Version>3.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="GoogleApi">
+      <Version>3.4.2</Version>
+    </PackageReference>
+    <PackageReference Include="MaterialControls">
+      <Version>1.2.2</Version>
+    </PackageReference>
+    <PackageReference Include="MBAutoComplete">
+      <Version>0.8.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Platforms">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Win32.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="NETStandard.Library">
+      <Version>2.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Share">
+      <Version>7.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>106.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="SaturdayMP.XPlugins.iOS.BEMCheckBox">
+      <Version>1.4.3</Version>
+    </PackageReference>
+    <PackageReference Include="SidebarNavigation">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfAutoComplete.IOS">
+      <Version>16.1.0.37</Version>
+    </PackageReference>
+    <PackageReference Include="System.AppContext">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections.Concurrent">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Console">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Debug">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Tools">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Diagnostics.Tracing">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Globalization">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Globalization.Calendars">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.Compression">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.Compression.ZipFile">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.FileSystem">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.IO.FileSystem.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Expressions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Http">
+      <Version>4.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Net.Sockets">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ObjectModel">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Extensions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Resources.ResourceManager">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Extensions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Handles">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.Numerics">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Algorithms">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Encoding">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.Primitives">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Cryptography.X509Certificates">
+      <Version>4.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Encoding">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Encoding.Extensions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.RegularExpressions">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Timer">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Xml.ReaderWriter">
+      <Version>4.3.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Xml.XDocument">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Build.Download">
+      <Version>0.4.7</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Facebook.iOS">
+      <Version>4.33.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.3.840</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
+      <Version>4.0.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Crashlytics">
+      <Version>3.10.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.PerformanceMonitoring">
+      <Version>1.1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.iOS.Maps">
+      <Version>2.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.iOS.SignIn">
+      <Version>4.1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Google.Places.Api.iOS">
+      <Version>1.2.17</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.SideMenu">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="xamariniosviewShaker">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\citysalads_appmenu_031518_menu[18].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Coupon_18x18%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Coupon_24x24%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Heart-18x18%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Heart-24x24%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic-puntos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icono_miscupones-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\profilepic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProfileS.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\t1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tarjetaDigital%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\Back.imageset\background_login%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\buscar.imageset\iconSearch.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-down.imageset\chevron-down%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-down.imageset\chevron-down%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-down.imageset\chevron-down%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-up.imageset\chevron-up%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-up.imageset\chevron-up%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\chevron-up.imageset\chevron-up%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\down.imageset\down.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\down.imageset\down%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\down.imageset\down%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\down.imageset\down%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\fivestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\fivestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fivestar.imageset\fivestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\fourstar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\fourstar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\fourstar.imageset\fourstar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_emptyStar.imageset\ic_emptyStar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_emptyStar.imageset\ic_emptyStar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_emptyStar.imageset\ic_emptyStar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_star.imageset\ic_star%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_star.imageset\ic_star%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\ic_star.imageset\ic_star%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\icons8-búsqueda-48.imageset\icons8-búsqueda-48%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\logo_FB.imageset\logo_FB%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\logo_FB.imageset\logo_FB%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\logo_FB.imageset\logo_FB%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\markerMap.imageset\markerMap%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\markerMap.imageset\markerMap%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\markerMap.imageset\markerMap%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\onestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\onestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\onestar.imageset\onestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\threestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\threestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\threestar.imageset\threestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\twostar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\twostar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\twostar.imageset\twostar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\up.imageset\up%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\up.imageset\up%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\up.imageset\up%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\upchevron.imageset\upchevron%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\upchevron.imageset\upchevron%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\upchevron.imageset\upchevron%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\User_Default%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\User_Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\User_Default.imageset\User_Default%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\WalletButon-100x1001x.imageset\WalletButon-100x1001x%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\zerostar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\zerostar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Assets.xcassets\zerostar.imageset\zerostar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Icon-Small%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconoiOS_1024x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default-568h%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\iTunesArtwork%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\iTunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\iTunesArtwork%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\down.imageset\down.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\fivestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\fivestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\fivestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\fourstar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\fourstar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\fourstar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\onestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\onestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\onestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\threestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\threestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\threestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\twostar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\twostar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\twostar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\up.imageset\up%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\up.imageset\up%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\up.imageset\up%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Assets.xcassets\Images.imageset\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Menu\menu2_facturar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Menu\menu2_ordenayrecoge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Iconos cs app 072518\menu_inicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Iconos cs app 072518\menu_mipedido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Notification%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Add%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\scanOverlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\flashlight%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\flashlight-off%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\flashlight-off%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\flashlight%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Icons\Add_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Canjear%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Edit%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Forward%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Home%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\ic_barcode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\ic_qrcode%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\ic_share%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\LogOut%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Marker%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Notification%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\Phone%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\UserDefault.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\acercade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\canjea.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\capturar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\comentarios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\Logo_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\Logoblanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\LogoQDC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\membresia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\membresiaLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\misaldo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\misaldo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\misaldo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\misaldo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\Perfil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\promociones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\Splashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\iTunesArtwork%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\iTunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\iTunesArtwork%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\100.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\114.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\144.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\50.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\57.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\72.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-20x20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ItunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\down.imageset\down.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\fivestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\fivestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fivestar.imageset\fivestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\fourstar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\fourstar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\fourstar.imageset\fourstar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\onestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\onestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\onestar.imageset\onestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\threestar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\threestar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\threestar.imageset\threestar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\twostar%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\twostar%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\twostar.imageset\twostar%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\up.imageset\up%401x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\up.imageset\up%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\up.imageset\up%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Images\Logoblanco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\login_splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\fondo_limpio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\fondo_membresia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\splash_screen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Icons\caret.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Fresco\Images\bannerAndroid.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+  </Target>
+</Project>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:local="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/coordinator_layout"
+	android:background="@color/window_background"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+>
+	<include layout="@layout/toolbar_layout" />
+	<LinearLayout
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
+		android:orientation="vertical"
+		android:gravity="center_horizontal|top"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		>
+		<FFImageLoading.Views.ImageViewAsync
+			android:id="@+id/carrito_detalle_imagen"
+			android:layout_marginBottom="@dimen/m_md"
+			android:layout_width="match_parent"
+			android:layout_height="160dp"
+			android:gravity="center_horizontal"
+			android:scaleType="centerCrop"
+			android:src="@drawable/placeholder_ensalada"
+          />
+		<LinearLayout
+		android:orientation="vertical"
+		android:layout_margin="@dimen/m_md"
+		android:gravity="center_horizontal|top"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		>
+			<LinearLayout 
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				>
+				<TextView
+					android:id="@+id/carrito_detalle_label_title"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					style="@style/text_header_1"
+					tools:text="Baguette Alaska"
+				/>
+				<TextView
+					android:id="@+id/carrito_detalle_label_precio"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					style="@style/text_header_1"
+					android:textColor="@color/secondaryText"
+					tools:text="$120.00"
+				/>
+			</LinearLayout>
+			<TextView
+					android:id="@+id/carrito_detalle_label_content"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textColor="@color/secondaryText"
+					android:layout_gravity="start"
+					android:gravity="start"
+					style="@style/text_body"
+					android:maxLines="12"
+					android:ellipsize="end"
+					tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id sem metus. Morbi blandit luctus felis ut bibendum. Suspendisse ultrices eros augue, nec gravida arcu sagittis rutrum. Vestibulum ante ipsum."
+				/>
+		</LinearLayout>
+		<Button
+			android:id="@+id/button_remove"
+			android:layout_height="wrap_content"
+			android:layout_width="250dp"
+			android:padding="@dimen/small_margin"
+			android:layout_margin="@dimen/m_md"
+			android:text="Remover del carrito"
+			style="@style/button_secondary"
+			android:textColor="@color/red_background"
+			android:textAllCaps="true"
+			/>
+	</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

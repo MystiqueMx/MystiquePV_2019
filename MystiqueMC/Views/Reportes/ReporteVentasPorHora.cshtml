@@ -1,0 +1,237 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model string
+@{
+    ViewBag.Title = "Reporte Ventas por hora";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Reporte de Comportamiento de Ventas por Hora</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style="background-color:transparent;border-width:0px; margin-top:-15px">
+
+                    <div class="row">
+                        @using (Html.BeginForm("ReporteVentasPorHora", "Reportes", FormMethod.Post, new { enctype = "multipart/form-data", data_parsley_validate = true }))
+                        {
+                            <div class="form-group col-md-3" style="margin-left:-20pt">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
+
+                                    @Html.DropDownList("Sucursales", null, "SELECCIONE", new { @class = "form-control input-sm", data_parsley_required = "true", data_parsley_errors_container = "#error-Nombre" })
+                                </div>
+                                @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Nombre" })
+                            </div>
+                            <div class="form-group col-md-2" style="margin-left:-20pt">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Venta por:</b></span>
+
+                                    @Html.DropDownList("ventaPor", null, "SELECCIONE", new { @class = "form-control input-sm", data_parsley_required = "true", data_parsley_errors_container = "#error-Ventas" })
+                                </div>
+                                <div class="input-group">
+                                    @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Ventas" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-4" style="margin-left:-20pt">
+                                <div class="input-group input-daterange">
+                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Fecha:</b></span>
+                                    <input autocomplete="off" type="text" class="form-control input-sm datepicker" id="fecha" name="fecha1" value="@ViewBag.fechaInicio" data-date-orientation="bottom"
+                                           data-provide="datepicker" data-date-language="es" data-date-autoclose="true" data-date-format="dd/mm/yyyy" data-date-keep-empty-values="true">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                    <span class="input-group-addon" style="color:#6C6A67; background-color:transparent; border-color:transparent;"><b>A</b></span>
+                                    <input autocomplete="off" type="text" class="form-control input-sm datepicker" id="fecha2" name="fecha2" value="@ViewBag.fechaFin" data-date-orientation="bottom"
+                                           data-provide="datepicker" data-date-language="es" data-date-autoclose="true" data-date-format="dd/mm/yyyy" data-date-keep-empty-values="true">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                                @*<div class="input-group input-daterange">
+                                        <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Fecha:</b></span>
+                                        <input autocomplete="off" type="text" class="form-control input-sm" id="fecha" name="fecha1" value="@ViewBag.fechaInicio">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                        <span class="input-group-addon" style="color:#6C6A67; background-color:transparent; border-color:transparent;"><b>A</b></span>
+                                        <input autocomplete="off" type="text" class="form-control input-sm" id="fecha2" name="fecha2" value="@ViewBag.fechaFin">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>*@
+                            </div>
+                            <div class="col-md-1" style="margin-left:-13px">
+                                <span class="input-group-btn">
+                                    <button style="width:100%" class="btn btn-primary btn-sm" type="submit">Buscar</button>
+                                </span>
+                            </div>
+                        }
+                        <div class="col-md-1 pull-right">
+                            <button id="ButtonExcel" style="width:100%" class="btn btn-primary" onclick="$('#realExcel').click()">
+                                Excel &nbsp;
+
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ibox-content">
+                    <table id="table-output" class="table table-responsive">
+                        <thead></thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @Html.ActionLink("Regresar", "Index", "Reportes", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+
+    @*<script src="~/Scripts/bootstrap-datepicker.js"></script>*@
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+
+    <script type="text/javascript">
+        var table = @Html.Raw(Model);
+
+        function addCommas(decimal) {
+            decimal = `${decimal.toFixed(0)}`.replace(',', '');
+            const segments = decimal.split('.');
+            let integerRegion = segments[0];
+            const decimalRegion = segments.length > 1 ? '.' + segments[1] : '';
+            while (/(\d+)(\d{3})/.test(integerRegion))
+                integerRegion = integerRegion.replace(/(\d+)(\d{3})/, `$1,$2`);
+            return integerRegion + decimalRegion;
+        }
+
+        function stripFormat(text) {
+            text = text.replace(',', '').replace('$', '');
+            return parseFloat(text);
+        }
+
+        function format(amount, ignoreDollarSign) {
+            if (!Number.isFinite(amount)) {
+                amount = Number(amount);
+            }
+            if (Number.isNaN(Number(amount))) {
+                return amount;
+            }
+            const amountWithCommas = addCommas(amount);
+            if (ignoreDollarSign) return amountWithCommas;
+            return `$${amountWithCommas}`;
+        }
+        function obtenerEncaezado(tabla) {
+            var headers = Object.getOwnPropertyNames(tabla);
+            if (headers.some(c => c === 'Hora')) {
+                var index = headers.indexOf('Hora');
+                headers.splice(index, 1);
+                headers = ['Hora', ...headers];
+            }
+            return headers;
+        }
+
+        function buildTableHeader(item) {
+            let row = "<tr>";
+            for (let header of obtenerEncaezado(item)) {
+                switch (header) {
+                    case '1': row += `<th class="text-right">Domingo</th>`; break;
+                    case '2': row += `<th class="text-right">Lunes</th>`; break;
+                    case '3': row += `<th class="text-right">Martes</th>`; break;
+                    case '4': row += `<th class="text-right">Miércoles</th>`; break;
+                    case '5': row += `<th class="text-right">Jueves</th>`; break;
+                    case '6': row += `<th class="text-right">Viernes</th>`; break;
+                    case '7': row += `<th class="text-right">Sabado</th>`; break;
+                    default: row += `<th class="text-right">${header}</th>`; break;
+                }
+
+
+            }
+            row += "</tr>"
+            return row;
+        }
+        function buildTableRow(item) {
+            let row = "<tr>";
+            for (let header of obtenerEncaezado(item)) {
+                if (header === "Hora" || header === "Promedio") {
+                   row += `<td class="text-right">${item[header] != null ? item[header] : ''}</td>`
+                } else {
+                    //row += `<td class="text-right">${item[header] != null ? format(item[header], true) : ''}</td>`
+                    row += `<td class="text-right">${item[header] != null ? format(item[header],true ): ''}</td>`
+                }
+
+            }
+            row += "</tr>"
+            return row;
+        }
+        function OnScriptsLoad() {
+            if (table.some(c => c)) {
+                $("#table-output thead").append(buildTableHeader(table[0]));
+                $("#table-output tbody").append(table.map(c => buildTableRow(c)));
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#table-output').DataTable({
+                "dom": '<lB<t>i>',
+                "ordering": false,
+                "buttons": [
+                    {
+                        extend: 'excelHtml5',
+                        text: '<span id="realExcel" style="display:none" class="btn btn-primary btn-sm">Excel<span>',
+                        titleAttr: ''
+                    },
+                ],
+                "pageLength": 100,
+                "language": {
+                    "search": "Buscar   ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+        });
+    </script>
+}
+
+
+
+

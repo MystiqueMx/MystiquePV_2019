@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3c5d4e920a404437a3a7c6e34b9ba860" Name="Diagram1">
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.BitacoraPaxFacturacion" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.CatalogoFormaPago" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.CatalogoUsoCfdi" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.CatEstatusComprobante" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ComprobanteFiscal" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ConfiguracionEmisore" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ConsumoFactura" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ConsumoFacturaImpuesto" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ReceptorFactura" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ReceptorFactura_Legado" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_BitacoraPaxFacturacion_ComprobanteFiscal" ManuallyRouted="false" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_ComprobanteFiscal_CatEstatusComprobante" ManuallyRouted="false" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_ComprobanteFiscal_ComprobanteFiscal" ManuallyRouted="false" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_ComprobanteFiscal_ConfiguracionEmisores" ManuallyRouted="false" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_ComprobanteFiscal_ConsumoFactura" ManuallyRouted="false" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_ConsumoFacturaImpuestos_ConsumoFactura" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.ConsumoFacturaDetalle" Width="1.5" PointX="3" PointY="9.75" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_ConsumoFacturaDetalle_ConsumoFactura" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.BitacoraServicio" Width="1.5" PointX="9.625" PointY="4.875" />
+        <EntityTypeShape EntityType="FacturacionTDCDevModel.TipoServicio" Width="1.5" PointX="7.375" PointY="5.25" />
+        <AssociationConnector Association="FacturacionTDCDevModel.FK_BitacoraServicios_TipoServicio" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "396481438560",
+    "firebase_url": "https://fresco-app-bffc2.firebaseio.com",
+    "project_id": "fresco-app-bffc2",
+    "storage_bucket": "fresco-app-bffc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:396481438560:android:30e0120732c60bb2",
+        "android_client_info": {
+          "package_name": "com.GrupoRed.Fresco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "396481438560-1hnn747st8dqn8q4k2rls752hitfdplk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.GrupoRed.Fresco",
+            "certificate_hash": "6e28679f6a8232752c54fc516063dc9c89194836"
+          }
+        },
+        {
+          "client_id": "396481438560-t0k4smkpr70f1qa6vi94u09h4s2nf0b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtRlB2oCihuXxM566Yu0zWgY595PcejIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "396481438560-t0k4smkpr70f1qa6vi94u09h4s2nf0b9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
