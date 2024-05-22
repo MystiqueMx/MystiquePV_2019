@@ -1,0 +1,25 @@
+﻿
+<div class="modal fade" id="modal-estatus-inactivo-suc" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="@Url.Action("InactivarProductoSucursal")" method="post" id="form-estatus-inactivo" class="form-horizontal" data-parsley-validate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Inactivar Producto</h4>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <input type="hidden" name="idSucursalProducto" id="idSucursalProducto" />
+                        <input type="hidden" name="familiaRedirect" id="familiaRedirect" />
+                        <h3 style="text-align:center">¿Esta seguro que desea inactivar el producto?</h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-guardar-modal" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" id="guardar-estatus" class="btn btn-danger">Inactivar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

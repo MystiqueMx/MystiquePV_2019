@@ -1,0 +1,411 @@
+﻿
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.beneficios
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+
+    @using (Html.BeginForm("edit", "beneficios", FormMethod.Post, new { @id = "Forma", @enctype = "multipart/form-data" }))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-sm-4">
+                <br />
+                <h2 class="modal-title" style="font-weight:500">Editar Promociones y Descuentos</h2>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.idBeneficio)
+            @Html.HiddenFor(model => model.fechaRegistro)
+            @Html.HiddenFor(model => model.cadenaCodigo)
+            @Html.HiddenFor(model => model.catTipoMembresias)
+            @Html.HiddenFor(model => model.comercios)
+
+            <input type="hidden" name="comercioId" value="@ViewBag.Idcomercio" />
+            <input type="hidden" name="IndexEmpresa" id="IndexEmpresa" value="@ViewBag.IndexEmpresa"/>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label class="control-label ">Nombre de Beneficio</label>
+                            @Html.EditorFor(model => model.titulo, new { htmlAttributes = new { @class = "form-control", @data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-\\%]{0,100}", @data_inputmask_greedy = "false", @data_parsley_required = "", @data_parsley_maxlength = "50" } })
+                            @Html.ValidationMessageFor(model => model.titulo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label class="control-label "> Descripción </label>
+                            @Html.TextAreaFor(model => model.descripcion, new { @class = "form-control", @cols = 90, @rows = 2, data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-\\%]{0,100}", @data_parsley_maxlength = "100" })
+                            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+
+                            <input type="hidden" id="getProductos-url" value="@Url.Action("ObtenerPoductos")" />
+                            <input id="productoId" name="productoId" type="hidden" value='@(ViewBag.descuento.productoId != null ? ViewBag.descuento.productoId : "")'/>
+
+                            <div class="form-group col-md-6">
+                                <label for="Nombre">Familia producto</label>
+                                @Html.DropDownList("CategoriaProductoId", null, "Seleccionar", htmlAttributes: new
+                           { @class = "form-control",
+                               data_parsley_required = "true",
+                               data_parsley_errors_container = "#categoriaInsumoId-error"
+                           })
+                                <div class="row">
+                                    <span for="descripcion" id="categoriaInsumoId-error"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="Nombre">Producto</label>
+
+                                @Html.DropDownList("productoList", null, "Seleccionar", htmlAttributes: new
+                           { @class = "form-control",
+                               data_parsley_required = "true",
+                               data_parsley_errors_container = "#productoId-error"
+                           })
+
+                                @*<select id="ddl_Productos" class="form-control"
+                                        data_parsley_required="true" data-parsley-errors-container="productoId-error">
+                                    <option>Seleccionar</option>
+                                </select>*@
+                                <div class="row">
+                                    <span for="descripcion" id="productoId-error"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label class="control-label ">Monto Descuento</label>
+                            <input name="montoDescuento" id="montoDescuento" type="text" class="form-control" maxlength=9 value="@(ViewBag.descuento.isPorcentaje != null && ViewBag.descuento.isPorcentaje ? ViewBag.descuento.porcentaje :  ViewBag.descuento.montoporcentaje)"
+                                   data-inputmask-regex="[0-9]{0,6}([\.][0-9]{0,2})?" data-inputmask-greedy="false"
+                                   data-parsley-required data-parsley-maxlength="9" data-parsley-errors-container="#montoDescuento-error" />
+                            <span for="montoDescuento" id="montoDescuento-error"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label ">Tipo Descuento</label>
+                            <div>
+                                <label class="radio-inline">
+                                    <input type="radio" name="tipoDescuento" id="tipoDescuento1" value="1" class="m-r-md" @(ViewBag.descuento.isPorcentaje != null && ViewBag.descuento.isPorcentaje ? "" :  "checked=''")> Monto
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="tipoDescuento" id="tipoDescuento2" value="2" @(ViewBag.descuento.isPorcentaje != null && ViewBag.descuento.isPorcentaje ? "checked=''" : "")> Porcentaje
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="col-md-3">
+                                <label class="control-label "> Valido </label>
+                                <label style="font-weight:lighter; color:black">
+                                    @if (TempData["notice"] != null)
+                                    {
+                                        @TempData["notice"]
+                                    }
+                                </label>
+                                <label id="titulos"></label>
+                                <div class="checkbox  checkbox-primary  custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="lunes" name="valor" value="1" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 1))>
+                                    <label class="custom-control-label" for="lunes">Lunes</label>
+                                </div>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="martes" name="valor" value="2" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 2))>
+                                    <label class="custom-control-label" for="martes">Martes</label>
+                                </div>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="miercoles" name="valor" value="3" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 3))>
+                                    <label class="custom-control-label" for="miercoles">Miercoles</label>
+                                </div>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="jueves" name="valor" value="4" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 4))>
+                                    <label class="custom-control-label" for="jueves">Jueves</label>
+                                </div>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="viernes" name="valor" value="5" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 5))>
+                                    <label class="custom-control-label" for="viernes">Viernes</label>
+                                </div>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="sabado" name="valor" value="6" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 6))>
+                                    <label class="custom-control-label" for="sabado">Sabado</label>
+                                </div>
+                                <div class="checkbox checkbox-primary custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="domingo" name="valor" value="7" @Html.CheckBoxEditar(Model.beneficioHorarios.Any(c => c.diasNum == 7))>
+                                    <label class="custom-control-label" for="domingo">Domingo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="col-md-12">
+                                    <label class="control-label">Vigencia</label>
+                                    <div class="input-group">
+                                        @*@Html.EditorFor(model => model.fechaInicio, new { htmlAttributes = new { @class = " form-control date input-sm", @autocomplete = "off", @requerid = "requerid" } })*@
+                                        <input type="text" class="form-control date input-sm" data-provide="datepicker" id="fechaInicio" name="fechaInicio" autocomplete="off" value="@Model.fechaInicio.ToShortDateString()">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                        <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>a</b></span>
+                                        @*@Html.EditorFor(model => model.fechaFin, new { htmlAttributes = new { @class = " form-control date input-sm", @autocomplete = "off", @requerid = "requerid" } })*@
+                                        <input type="text" class="form-control input-sm" id="fechaFin" name="fechaFin" autocomplete="off" value="@Model.fechaFin.ToShortDateString()">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-calendar"></span>
+                                        </span>
+                                    </div>
+                                    <label style="font-weight:lighter; color:black">
+                                        @if (TempData["fecha1"] != null)
+                                        {@TempData["fecha1"]}
+                                    </label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="control-label">Horario </label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control input-sm" id="horaInicio" name="horaInicio" autocomplete="off" value="@Model.beneficioHorarios.Select(c=>c.horarioInicio).FirstOrDefault()">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-clock"></span>
+                                        </span>
+                                        <span class="input-group-addon" style="color:#000; background-color:transparent; IFilterProvider;"><b>a</b></span>
+                                        @*@Html.EditorFor(model => model.be, new { htmlAttributes = new { @class = " form-control date input-sm", @autocomplete = "off" } })*@
+                                        <input type="text" class="form-control input-sm" id="horaFin" name="horaFin" autocomplete="off" value="@Model.beneficioHorarios.Select(c=>c.horarioFin).FirstOrDefault()">
+                                        <span class="input-group-addon">
+                                            <span class="fa fa-clock"></span>
+                                        </span>
+                                    </div>
+                                    <label style="font-weight:lighter; color:black">
+                                        @if (TempData["hora1"] != null)
+                                        {@TempData["hora1"]}
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-md-12">
+
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                @Html.ListBox("Sucursal", ViewBag.sucursales as MultiSelectList, new { data_parsley_required = "true", @class = "form-control dual_select" })
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="control-label ">Membresia </label><br />
+                            @{
+                                var getlist = ViewBag.menbresia as IEnumerable<MystiqueMC.DAL.catTipoMembresias>;
+
+                                foreach (var item in getlist)
+                                {
+
+                                    <div class=" checkbox  checkbox-primary checkbox-inline">
+                                        <input type="checkbox" class="custom-control-input" id="@item.idcatTipoMembresia" name="tipoMembresiaId" value="@item.idcatTipoMembresia" @Html.CheckBoxEditar(Model.catTipoMembresias.idcatTipoMembresia == item.idcatTipoMembresia) required>
+                                        <label class="custom-control-label" for="@item.idcatTipoMembresia">@item.descripcion</label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5" style="height:300px;">
+                    <label>Imagen del producto</label>
+                    <img id="image" src="@ViewData["HOSTNAME_IMAGENES"]@Model.imagenTitulo">
+                    <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage","Productos",null)" />
+                    <input type="hidden" id="ImageUrl" name="imagenTitulo" value="@Model.imagenTitulo" />
+                </div>
+                <div class="col-lg-6 col-lg-offset-1">
+                    <label>Vista Previa</label>
+                    <div class="img-preview " style="height:200px;width:356px;"></div>
+                    <label class="btn btn-success m-md" for="inputImage">
+                        Cambiar imagen
+                    </label>
+                    <input type="file" accept="image/*" id="inputImage" class="hide">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <br /> &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-lg-12">
+
+                    <button type="button" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                    @if (Session.ObtenerRol() == "Empresa")
+                    {
+                        <a href="@Url.Action("Promociones", "comercios", new { idComercio = Model.comercioId, idEmpresa = Model.comercios.empresaId })" class="btn btn-white">Regresar</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Fidelizacion", "Home", new { tabID = "promociones_button", SearchComercio = @ViewBag.Idcomercio })" class="btn btn-white m-r-sm">Cancelar</a>
+                    }
+                        <div id="spinner" class="spiner-example" style="display:none;">
+                            <div class="sk-spinner sk-spinner-circle">
+                                <div class="sk-circle1 sk-circle"></div>
+                                <div class="sk-circle2 sk-circle"></div>
+                                <div class="sk-circle3 sk-circle"></div>
+                                <div class="sk-circle4 sk-circle"></div>
+                                <div class="sk-circle5 sk-circle"></div>
+                                <div class="sk-circle6 sk-circle"></div>
+                                <div class="sk-circle7 sk-circle"></div>
+                                <div class="sk-circle8 sk-circle"></div>
+                                <div class="sk-circle9 sk-circle"></div>
+                                <div class="sk-circle10 sk-circle"></div>
+                                <div class="sk-circle11 sk-circle"></div>
+                                <div class="sk-circle12 sk-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <br />
+            <br />
+        </div>
+    }
+    @section Scripts{
+        <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+        <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+        <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+        <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+        <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+        <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+        <script src="~/Scripts/app/beneficios/Edit.js"></script>
+
+
+        <script src="~/Scripts/bootstrap-datepicker.js"></script>
+
+
+        <script type="text/javascript">
+
+            jQuery(document).ready(function ($) {
+                $('#fechaInicio').datepicker({
+                    language: 'es',
+                    Format: "dd/mm/yyyy",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-60:+0",
+                    autoclose: true,
+                    horizontal: 'auto',
+                    orientation: 'bottom'
+                });
+            });
+            jQuery(document).ready(function ($) {
+                $('#fechaFin').datepicker({
+                    language: 'es',
+                    Format: "dd/mm/yyyy",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-60:+0",
+                    autoclose: true,
+                    horizontal: 'auto',
+                    vertical: 'bottom'
+                });
+            });
+        </script>
+        <script src="~/Scripts/jquery.timePicker.min.js"></script>
+        <script>
+            $('#horaFin').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 30,
+                step: 50,
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+
+            });
+            $('#horaInicio').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 30,
+                step: 50,
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
+            });
+
+            $("#CategoriaProductoId").change(function () {
+                var idSeccion = $(this).val();
+                var parametro = { id: idSeccion };
+
+                console.log(parametro);
+                $.ajax({
+                    type: "POST",
+                    url: $('#getProductos-url').val(),
+                    dataType: 'json',
+                    data: parametro
+                }).done(function (response) {
+                    if (response != null && response.exito) {
+                        $("#productoList").empty();
+                        var select = document.getElementById("productoList");
+
+                        var option = document.createElement("option");
+                        option.text = "Seleccionar";
+                        option.value = "";
+                        select.add(option);
+
+                        for (x = 0; x < response.data.length; x++) {
+                            var option = document.createElement("option");
+                            option.text = "" + response.data[x].nombre;
+                            option.value = response.data[x].idProducto;
+                            select.add(option);
+                        }
+                        $("#productoList").bootstrapDualListbox("refresh");
+                        var id = $('#productoList option:selected').val();
+                        $('#Configuracion').val(id);
+                        var nombreProducto = $('#productoList option:selected').text();
+                        $('#Nombre').val(nombreProducto);
+                    }
+                    else {
+                        alert("Ocurrio un error, contacte a su administrador.");
+                    }
+                });
+
+            });
+
+            $("#productoList").change(function () {
+                $('#productoId').val($(this).val());
+            });
+
+
+
+        </script>
+    }
+
+    @section Styles{
+        <link href="~/Content/timePicker.css" rel="stylesheet" />
+        <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+        <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    }
+
+</body>
+</html>

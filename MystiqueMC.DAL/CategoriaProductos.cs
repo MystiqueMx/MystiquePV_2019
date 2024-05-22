@@ -17,10 +17,8 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CategoriaProductos()
         {
-            this.recompensas = new HashSet<recompensas>();
-            this.SucursalCategoriaProducto = new HashSet<SucursalCategoriaProducto>();
-            this.ConfMenuPlatillosItemUno = new HashSet<ConfMenuPlatillosItemUno>();
             this.Productos = new HashSet<Productos>();
+            this.recompensas = new HashSet<recompensas>();
         }
     
         public int idCategoriaProducto { get; set; }
@@ -30,18 +28,12 @@ namespace MystiqueMC.DAL
         public int indice { get; set; }
         public int usuarioRegistroId { get; set; }
         public System.DateTime fechaRegistro { get; set; }
-        public string ImagenApp { get; set; }
-        public Nullable<bool> esEnsalada { get; set; }
     
         public virtual comercios comercios { get; set; }
         public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<recompensas> recompensas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SucursalCategoriaProducto> SucursalCategoriaProducto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConfMenuPlatillosItemUno> ConfMenuPlatillosItemUno { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Productos> Productos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<recompensas> recompensas { get; set; }
     }
 }

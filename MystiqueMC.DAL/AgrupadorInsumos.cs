@@ -30,10 +30,10 @@ namespace MystiqueMC.DAL
         public bool agregarExtra { get; set; }
     
         public virtual comercios comercios { get; set; }
+        public virtual Productos Productos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ConfiguracionArmadoProductos> ConfiguracionArmadoProductos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InsumoProductos> InsumoProductos { get; set; }
-        public virtual Productos Productos { get; set; }
     }
 }

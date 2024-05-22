@@ -26,13 +26,6 @@ namespace MystiqueMC.DAL
             this.membresias = new HashSet<membresias>();
             this.receptorCliente = new HashSet<receptorCliente>();
             this.wallet = new HashSet<wallet>();
-            this.ConsumidorConektaTarjetas = new HashSet<ConsumidorConektaTarjetas>();
-            this.ConsumidorDirecciones = new HashSet<ConsumidorDirecciones>();
-            this.ConsumidorOpenPay = new HashSet<ConsumidorOpenPay>();
-            this.OpenPayTransacciones = new HashSet<OpenPayTransacciones>();
-            this.ConsumidoresConekta = new HashSet<ConsumidoresConekta>();
-            this.ConsumidorNotificaciones = new HashSet<ConsumidorNotificaciones>();
-            this.Pedidos1 = new HashSet<Pedidos1>();
         }
     
         public int idCliente { get; set; }
@@ -61,7 +54,6 @@ namespace MystiqueMC.DAL
         public virtual ICollection<beneficioAplicados> beneficioAplicados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<beneficioCalificaciones> beneficioCalificaciones { get; set; }
-        public virtual CatAseguranzas CatAseguranzas { get; set; }
         public virtual catColonias catColonias { get; set; }
         public virtual catRangoEdad catRangoEdad { get; set; }
         public virtual catSexos catSexos { get; set; }
@@ -81,19 +73,5 @@ namespace MystiqueMC.DAL
         public virtual ICollection<receptorCliente> receptorCliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wallet> wallet { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConsumidorConektaTarjetas> ConsumidorConektaTarjetas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConsumidorDirecciones> ConsumidorDirecciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConsumidorOpenPay> ConsumidorOpenPay { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OpenPayTransacciones> OpenPayTransacciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConsumidoresConekta> ConsumidoresConekta { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConsumidorNotificaciones> ConsumidorNotificaciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pedidos1> Pedidos1 { get; set; }
     }
 }

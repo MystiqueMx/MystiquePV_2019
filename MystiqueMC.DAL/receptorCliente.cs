@@ -30,11 +30,11 @@ namespace MystiqueMC.DAL
         public string catUsoCFDId { get; set; }
     
         public virtual catUsoCFDI catUsoCFDI { get; set; }
+        public virtual clientes clientes { get; set; }
         public virtual datosReceptor datosReceptor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<facturaCliente> facturaCliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<facturaPendiente> facturaPendiente { get; set; }
-        public virtual clientes clientes { get; set; }
     }
 }

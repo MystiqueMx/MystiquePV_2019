@@ -1,0 +1,188 @@
+﻿@model IEnumerable<MystiqueMC.DAL.Insumos>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row wrapper border-bottom white-bg page-heading m-b-md">
+    <div class="col-md-12">
+        <h2>Insumos</h2>
+    </div>
+</div>
+<form id="form-filtros">
+
+        <input type="hidden" id="UrlPuedeEliminar" value="@Url.Action("PuedeEliminarse")">
+
+        <div class="form-group col-md-3">
+            <div  style="display:flex; align-items:center;">
+                <div class="col-md-4 " style="display:flex; align-items:center;">
+                    <span class="" style="display:inline-block; color: #6C6A67; background-color:transparent; border-color:transparent; font-size: 14px;"><b>Familia:</b></span>
+                    <a href="@Url.Action("Index", "CategoriaInsumos")" style="display:inline-block;" class=""><img src="~/Content/img/edit.png" style="height:22px" /></a>
+                </div>
+                <div class="col-md-8" style="">
+                    @Html.DropDownList("CategoriaInsumo", null, "Todos", htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-3" >
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Nombre:</b></span>
+                <input autocomplete="off" type="text" class="form-control input-sm" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,300}" id="Nombre" name="Nombre" value="@ViewBag.Nombre">
+            </div>
+        </div>
+        <div class="form-group col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Estatus:</b></span>
+                <select name="Estatus" id="Estatus" class="form-control">
+                    <option value="2">Todos</option>
+                    <option value="1" selected>Activo</option>
+                    <option value="0">Inactivo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md">
+            <button style="width:3%" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    
+</form>
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <a class="btn btn-link col-lg-7" href="@Url.Action("Create")" style="float:right;width:7.333333%;margin-top: -8px;">
+                            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                            <b>Agregar</b>
+                        </a>
+                        @if (Model.Count() > 0)
+                        {
+                            <table id="ContentTable" class="table table-striped tabla-catalogos">
+                                <thead>
+                                    <tr>
+                                        <th>Descripción</th>
+                                        <th>Familia</th>
+                                        <th>Ingrediente</th>
+                                        <th>Inventario</th>
+                                        <th>Conteo Fisico</th>
+                                        <th>Rubro</th>
+                                        <th>Unidad de compra </th>
+                                        <th class="text-center" colspan="2">Equivalente a</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.CategoriaInsumo.descripcion)</td>
+                                            @if (item.esIngrediente == true)
+                                            {
+                                                <td><img src="~/Content/img/check.png" style="height:24px" /></td>
+                                            }
+                                            else
+                                            {
+                                                <td><img src="~/Content/img/minus.png" style="height:24px" /></td>
+                                            }
+                                            @if (item.aplicaInventario == true)
+                                            {
+                                                <td><img src="~/Content/img/check.png" style="height:24px" /></td>
+                                            }
+                                            else
+                                            {
+                                                <td><img src="~/Content/img/minus.png" style="height:24px" /></td>
+                                            }
+                                            @if (item.conteoFisico == true)
+                                            {
+                                                <td><img src="~/Content/img/check.png" style="height:24px" /></td>
+                                            }
+                                            else
+                                            {
+                                                <td><img src="~/Content/img/minus.png" style="height:24px" /></td>
+                                            }
+                                            <td>@(item.CatRubros != null ? item.CatRubros.descripcion : "")</td>
+                                            <td>@item.UnidadMedida1.descripcion</td>
+                                            <td class="text-right">
+                                                @if (item.equivalencia.HasValue)
+                                                {
+                                                    @:   @item.equivalencia.Value.ToString("N")
+                                                }
+                                            </td>
+                                            <td class="text-left">@item.UnidadMedida.descripcion</td>
+                                            <td class="text-right">
+                                                <a href="@Url.Action("Edit","Insumos",new { id = item.idInsumo, CategoriaInsumo = ViewBag.categoria, Nombreb = ViewBag.Nombre , Estatus = ViewBag.Estatus})" class="href-gray m-r-sm">
+                                                    <img src="~/Content/img/editar.png" style="height:22px" />
+                                                </a>
+
+                                                <button class="EliminarButton btn-link btn-sm m-r-n-xs href-gray m-r-sm" onclick="OnClickEliminar(event);" style="vertical-align:central" data-idproyecto="@item.idInsumo" data-nombre="@item.nombre">
+                                                    <img src="~/Content/img/borrar.png" style="height:22px" />
+                                                </button>
+
+                                                @if (item.activo == true)
+                                                {
+                                                    <button class="btn-link btn-sm m-r-n-xs" style="vertical-align:central" data-toggle="modal" data-target="#modal-estatus-inactivo"
+                                                            data-idinsumo="@item.idInsumo" data-nombre="@item.nombre">
+                                                        <img class="href-gray m-r-sm" src="~/Content/img/on.png" style="height:24px" />
+                                                    </button>
+                                                }
+                                                else
+                                                {
+                                                    <button class="btn-link btn-sm m-r-n-xs" data-toggle="modal" data-target="#modal-estatus-activo" data-idinsumo="@item.idInsumo"
+                                                            data-nombre="@item.nombre">
+                                                        <img class="href-gray m-r-sm" src="~/Content/img/off.png" style="height:24px" />
+                                                    </button>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div><br />
+                    <div class="form-group">
+                        <div class="col-md-10" style="padding:0pt">
+                            @Html.ActionLink("Regresar", "Menu", "Insumos", null, new { @class = "btn btn-white" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("Modales/ModalActivo")
+    @Html.Partial("Modales/ModalInactivo")
+    @Html.Partial("Modales/ModalNoEliminar")
+    @Html.Partial("Modales/ModalEliminar")
+
+
+    @section Scripts{
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+        @Scripts.Render("~/plugins/dataTables")
+
+        <script src="~/Scripts/app/Insumos/Index.js"></script>
+    }
+    @section Styles {
+        @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+        <style>
+            div.dataTables_wrapper div.dataTables_filter label {
+                font-weight: normal;
+                white-space: nowrap;
+                text-align: left;
+                /* margin-left: 73px; */
+                margin-left: 9px;
+            }
+
+            div.dataTables_wrapper div.dataTables_filter {
+                text-align: left;
+            }
+
+            .table-responsive {
+                min-height: .01%;
+                overflow-x: initial;
+            }
+        </style>
+    }

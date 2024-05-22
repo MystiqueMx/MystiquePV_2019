@@ -24,5 +24,7 @@ namespace MystiqueMC.DAL
     
         public virtual Productos Productos { get; set; }
         public virtual Pedidos1 Pedidos1 { get; set; }
+        public virtual Pedidos11 Pedidos11 { get; set; }
+        public virtual Productos1 Productos1 { get; set; }
     }
 }

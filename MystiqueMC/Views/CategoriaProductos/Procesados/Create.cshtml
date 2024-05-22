@@ -1,0 +1,139 @@
+﻿@model MystiqueMC.DAL.Insumos
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Agregar Procesado</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Create", "Procesados", FormMethod.Post, new { id = "form-create", data_parsley_validate = "true" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <input type="hidden" name="comercioId" id="comercioId" value="@ViewBag.comercioId" />
+                        <div class="form-group">
+                            @*<div class="col-lg-12">*@
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.nombre, "Nombre", htmlAttributes: new { @class = "control-label" })
+                                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new
+                                 { @class = "form-control",
+                                 data_parsley_maxlength = "80",
+                                 data_parsley_required = "true",
+                                 data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,30}",
+                                 data_parsley_errors_container = "#nombre-error"
+                                 } })
+                                <div class="row">
+                                    <span style="color:red" for="descripcion" id="nombre-error"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.categoriaIngredienteId, "Sección insumo", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownList("categoriaIngredienteId", null, "Seleccionar", htmlAttributes: new
+                                { @class = "form-control"
+                                })
+                            </div>
+                            <div class="col-md-4">
+                                @Html.LabelFor(model => model.catRubroId, "Rubro", htmlAttributes: new { @class = "control-label" })
+                                @Html.DropDownList("catRubroId", null, htmlAttributes: new
+                                { @class = "form-control",
+                                data_parsley_required = "true",
+                                data_parsley_errors_container = "#catRubroId-error"
+                                })
+                                <div class="row">
+                                    <span style="color:red" for="descripcion" id="catRubroId-error"></span>
+                                </div>
+
+                            </div>
+                            @*</div>*@
+
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.unidadMedidaIdCompra, "Unidad de Medida Compra", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownList("unidadMedidaIdCompra", null, "Seleccionar", htmlAttributes: new
+                                    { @class = "form-control",
+                                    data_parsley_required = "true",
+                                    data_parsley_errors_container = "#unidadMedidaIdCompra-error"
+                                    })
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="unidadMedidaIdCompra-error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.unidadMedidaIdMinima, "Unidad de Medida Minima", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownList("unidadMedidaIdMinima", null, "Seleccionar", htmlAttributes: new
+                                    { @class = "form-control",
+                                    data_parsley_required = "true",
+                                    data_parsley_errors_container = "#unidadMedidaIdMinima-error"
+                                    })
+                                    <div class="row">
+                                        <span style="color:red" for="descripcion" id="unidadMedidaIdMinima-error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    @Html.LabelFor(model => model.equivalencia, "Equivalencia", htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.equivalencia, new { htmlAttributes = new
+                                    { @class = "form-control",
+                                   data_parsley_maxlength = "10",
+                                   data_inputmask_regex = "[0-9.]{0,10}"
+                                   } })
+                                </div>
+
+                            </div>
+
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-12" style="margin-top:-38px">
+                                <div class="col-md-4 funkyradio funkyradio-primary">
+                                    <input type="checkbox" name="esIngrediente" id="esIngrediente" />
+                                    <label for="esIngrediente">Es Ingrediente</label>
+                                    @Html.ValidationMessageFor(model => model.esIngrediente, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-4 funkyradio funkyradio-primary">
+                                    <input class="check-box" data-val="true" type="checkbox" name="aplicaInventario" value="true" id="aplicaInventario" />
+                                    <label for="aplicaInventario">Aplica Inventario</label>
+                                    @Html.ValidationMessageFor(model => model.aplicaInventario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="col-md-4 funkyradio funkyradio-primary">
+                                    <input type="checkbox" name="conteoFisico" id="conteoFisico" />
+                                    <label for="conteoFisico">Conteo Fisico</label>
+                                    @Html.ValidationMessageFor(model => model.conteoFisico, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset col-md-10">
+                                <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                            </div>
+                        </div>
+                    </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @section Styles {
+            <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+            <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+            <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+        }

@@ -1,0 +1,173 @@
+﻿@model MystiqueMC.Helpers.Pagination.PaginatedListImpl<MystiqueMC.DAL.comentarios>
+@{
+    ViewBag.Title = "Comentarios";
+    var Categorias = ViewBag.Categorias as List<MystiqueMC.DAL.catTipoComentario>;
+    var NoLeidos = ViewBag.NoLeidos as int?;
+    var Busqueda = string.IsNullOrEmpty(ViewBag.Busqueda as string) ? "" : ViewBag.Busqueda as string;
+}
+<br />
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-3">
+        <h3></h3>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <h5>Folders</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li>
+                                <a id="bandeja_entrada_button">
+                                    <i class="fa fa-inbox "> </i> Bandeja de entrada
+                                    <span class="label label-info pull-right">@NoLeidos</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <h5>Categorias</h5>
+                        <ul class="category-list" style="padding: 0">
+                            @foreach (var tipo in Categorias)
+                            {
+                                <li>
+                                    <a id="categoria_button_@tipo.descripcion" data-request-url="@Url.Action("Index", "Comentarios", new { filter = tipo.idCatTipoComentario })"><i class="fa fa-circle @Html.ClaseTipoComentario(tipo.idCatTipoComentario)"></i> @tipo.descripcion </a>
+                                </li>
+                            }
+
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 animated fadeInRight">
+            <div class="mail-box-header">
+
+                <form method="get" action="#" class="pull-right mail-search">
+                    <div class="input-group">
+                        <input id="comentarios_submit_value" type="text" class="form-control input-sm" name="search" placeholder="Buscar en correo" value="@Busqueda" />
+                        <div class="input-group-btn">
+                            <button id="comentarios_submit_button" data-request-url="@Url.Action("Index", "Comentarios")" type="button" class="btn btn-sm btn-primary">
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <h2>
+                    Bandeja de entrada (@NoLeidos)
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <input type="hidden" id="url-marcar-eliminados" value="@Url.Action("MarcarEliminados")" />
+                    <input type="hidden" id="url-marcar-leidos" value="@Url.Action("MarcarLeidos")" />
+                    <input type="hidden" id="url-marcar-importantes" value="@Url.Action("MarcarImportantes")" />
+                    <div class="btn-group pull-right">
+
+
+                        @if (Model.HasPreviousPage())
+                        {
+                            <a href="@Url.Action("Index",new { page = Model.PageIndex - 1 })" class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-white btn-sm disabled"><i class="fa fa-arrow-left"></i></button>
+                        }
+                        @if (Model.HasNextPage())
+                        {
+                            <a href="@Url.Action("Index",new { page = Model.PageIndex + 1 })" class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></a>
+                        }
+                        else
+                        {
+                            <button class="btn btn-white btn-sm disabled"><i class="fa fa-arrow-right"></i></button>
+                        }
+
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Actualizar comentarios" onclick="$('#comentarios_button').click();">
+                        <i class="fa fa-retweet" aria-hidden="true"></i>
+                        Actualizar
+                    </button>
+                    <button id="btn-marcar-leido" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Marcar como leidos"><i class="fa fa-eye"></i> </button>
+                    <button id="btn-marcar-importante" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Marcar como importantes"><i class="fa fa-exclamation"></i> </button>
+                    <button id="btn-marcar-eliminado" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar comentario"><i class="fa fa-trash"></i> </button>
+
+                </div>
+            </div>
+            <div class="mail-box">
+
+                <table class="table table-hover table-mail">
+                    <tbody>
+                        @foreach (var comentario in Model)
+                        {
+                            <tr class="@Html.ClaseComentarioLeido(comentario.leido)">
+                                <td class="check-mail email-row">
+                                    <input type="hidden" name="IdComentario" value="@comentario.idComentario" />
+                                    <div class="checkbox checkbox-primary custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="IsSelected" value="ok" />
+                                        <label class="custum-control-label" for="customCheck1"></label>
+
+                                    </div>
+                                </td>
+                                <td class="mail-ontact">
+                                    <a href="@Url.Action("Comentario", "Comentarios", new { id = comentario.idComentario })">
+                                        @comentario.clientes.nombre @comentario.clientes.paterno
+                                        <span class="label @Html.ClaseTipoComentario(comentario.catTipoComentario.idCatTipoComentario, false) pull-right">
+                                            @comentario.catTipoComentario.descripcion
+                                        </span>
+                                    </a>
+                                </td>
+                                <td class="mail-subject"><a href="@Url.Action("Comentario", "Comentarios", new { id = comentario.idComentario })">@comentario.mensaje</a></td>
+                                <td class="text-right mail-date">@comentario.fechaRegistro.GetValueOrDefault().ToShortDateString()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row hide">
+    <div class="col-md-12">
+        <a class="btn btn-default" href="@Url.Action("Index","Home" ,null)">Regresar</a>
+    </div>
+</div>
+<br />
+
+<script src="~/Scripts/app/Comentarios/Index.js"></script>
+<script>
+    $("#bandeja_entrada_button").on("click", function () {
+        $("#comentarios_button").click();
+    });
+
+    $("#comentarios_submit_button").on("click", function () {
+        $.ajax({
+            type: "GET",
+            url: $(this).data('request-url'),
+            data: {
+                search: $("#comentarios_submit_value").val()
+            },
+            success: function (result) {
+                 $("#comentarios_div").html(result);
+            }
+        });
+    });
+
+
+
+    @foreach (var item in Categorias)
+    {
+      @:$("#categoria_button_@item.descripcion").on("click", function () {
+      @:  $.ajax({
+      @:      type: "GET",
+      @:      url: $(this).data('request-url'),
+      @:      success: function (result) {
+      @:           $("#comentarios_div").html(result);
+      @:      }
+      @:  });
+      @:  });
+    }
+</script>
+
+@section Scripts {
+
+}

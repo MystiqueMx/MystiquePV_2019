@@ -37,6 +37,7 @@ namespace MystiqueMC.Controllers
 
         // GET: CatRubrosGastos/Create
         public ActionResult Create()
+      
         {
             try
             {
@@ -60,6 +61,7 @@ namespace MystiqueMC.Controllers
 
                 if (id == null)
                 {
+
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 CatRubrosGastos catRubrosGastos = Contexto.CatRubrosGastos.Find(id);

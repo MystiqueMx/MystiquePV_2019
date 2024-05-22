@@ -24,5 +24,7 @@ namespace MystiqueMC.DAL
         public string unidad { get; set; }
         public string descripcion { get; set; }
         public string claveUnidad { get; set; }
+    
+        public virtual ticketSucursal ticketSucursal { get; set; }
     }
 }

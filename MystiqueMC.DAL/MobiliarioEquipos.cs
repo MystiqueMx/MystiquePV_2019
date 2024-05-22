@@ -40,8 +40,8 @@ namespace MystiqueMC.DAL
         public virtual CatTipoEquipo CatTipoEquipo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MantenimientoMobiliarioEquipos> MantenimientoMobiliarioEquipos { get; set; }
+        public virtual sucursales sucursales { get; set; }
         public virtual usuarios usuarios { get; set; }
         public virtual usuarios usuarios1 { get; set; }
-        public virtual sucursales sucursales { get; set; }
     }
 }

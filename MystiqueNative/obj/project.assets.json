@@ -84,13 +84,6 @@
         "runtime": {
           "lib/netstandard2.0/RestSharp.Serializers.Newtonsoft.Json.dll": {}
         }
-      },
-      "Xamarin.Build.Download/0.4.11": {
-        "type": "package",
-        "build": {
-          "build/Xamarin.Build.Download.props": {},
-          "build/Xamarin.Build.Download.targets": {}
-        }
       }
     }
   },
@@ -144,6 +137,7 @@
       "path": "netstandard.library/2.0.3",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -321,24 +315,6 @@
         "restsharp.newtonsoft.json.1.5.0.nupkg.sha512",
         "restsharp.newtonsoft.json.nuspec"
       ]
-    },
-    "Xamarin.Build.Download/0.4.11": {
-      "sha512": "svGAoBnMVQwUbIv1+j7vDypY+2R7jruefJRmVsxhuvSFXMP8dV+yZK3UGuZa3zV5ThKimk9eqHuvRcl/JVipbA==",
-      "type": "package",
-      "path": "xamarin.build.download/0.4.11",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "THIRD-PARTY-NOTICES.txt",
-        "build/Mono.Cecil.dll",
-        "build/Newtonsoft.Json.dll",
-        "build/System.Net.Http.Formatting.dll",
-        "build/Xamarin.Build.Download.dll",
-        "build/Xamarin.Build.Download.props",
-        "build/Xamarin.Build.Download.targets",
-        "xamarin.build.download.0.4.11.nupkg.sha512",
-        "xamarin.build.download.nuspec"
-      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -347,28 +323,27 @@
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 11.0.2",
       "RestSharp >= 106.3.1",
-      "RestSharp.Newtonsoft.Json >= 1.5.0",
-      "Xamarin.Build.Download >= 0.4.11"
+      "RestSharp.Newtonsoft.Json >= 1.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {},
+    "C:\\Users\\moise\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj",
+      "projectUniqueName": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj",
       "projectName": "MystiqueNative",
-      "projectPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\obj\\",
+      "projectPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj",
+      "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -378,7 +353,6 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Users\\andre\\OneDrive\\Documents\\1. PROJECTS\\MYSTIQUE\\WEB\\Mystique2.0\\CodigoWeb\\MystiqueMC\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -423,10 +397,6 @@
           "RestSharp.Newtonsoft.Json": {
             "target": "Package",
             "version": "[1.5.0, )"
-          },
-          "Xamarin.Build.Download": {
-            "target": "Package",
-            "version": "[0.4.11, )"
           }
         },
         "imports": [
@@ -440,7 +410,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -449,7 +419,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Newtonsoft.Json\" 11.0.2 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
@@ -459,7 +429,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"RestSharp\" 106.3.1 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
+      "message": "Package 'RestSharp' 106.3.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
       "libraryId": "RestSharp",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"

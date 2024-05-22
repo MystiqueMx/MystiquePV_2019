@@ -1,0 +1,50 @@
+﻿<div class="modal fade" id="modal-seleccion-movimiento" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="@Url.Action("AjusteInventario","Inventarios")" method="post" id="form-seleccion-movimiento" class="form-horizontal" style="width:450px;" data-parsley-validate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-label="Close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Ajuste Inventario</h4>
+                </div>
+                <div class="modal-body" style="padding: 13px 30px 13px 30px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Insumo: </label>
+                                    <label name="Insumo" id="Insumo"></label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="control-label">Cantidad Actual: </label>
+                                    <label name="cantidadActualText" id="cantidadActualText"></label>
+                                    <input type="hidden" name="insumoId" id="insumoId" />
+                                    <input type="hidden" name="sucursal" id="sucursal" />
+                                    <input type="hidden" name="cantidadActual" id="cantidadActual" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Cantidad Nueva</label>
+                                    <input class="form-control" type="text" name="cantidadNueva" id="cantidadNueva" placeholder="0"
+                                           data-inputmask-regex="(\d{0,10})?([.]?\d{0,2})?" data-parsley-required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Observaciones</label>
+                                    
+                                    <textarea class="form-control" rows="4" id="observaciones" name="observaciones" placeholder="Observaciones"
+                                              data-parsley-required data-parsley-maxlength="300" maxlength="300" > </textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="modal-guardar-confirmacion">Guardar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

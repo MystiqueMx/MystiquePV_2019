@@ -1,0 +1,2762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MystiqueMeDevModelStoreContainer" CdmEntityContainer="MystiqueMeEntities">
+    <FunctionImportMapping FunctionImportName="SP_CanjearRecompensa" FunctionName="MystiqueMeDevModel.Store.SP_CanjearRecompensa" />
+    <FunctionImportMapping FunctionImportName="SP_CargarPuntosPorCompra" FunctionName="MystiqueMeDevModel.Store.SP_CargarPuntosPorCompra" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarRecompensa" FunctionName="MystiqueMeDevModel.Store.SP_EliminarRecompensa" />
+    <FunctionImportMapping FunctionImportName="SP_JOB_EliminarRecompensasNoCanjeadas" FunctionName="MystiqueMeDevModel.Store.SP_JOB_EliminarRecompensasNoCanjeadas" />
+    <FunctionImportMapping FunctionImportName="SP_Obtener_BeneficioCalificacion" FunctionName="MystiqueMeDevModel.Store.SP_Obtener_BeneficioCalificacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Obtener_BeneficioCalificacion_Result">
+          <ScalarProperty Name="cantidadCalificados" ColumnName="cantidadCalificados" />
+          <ScalarProperty Name="calificacionPromedio" ColumnName="calificacionPromedio" />
+          <ScalarProperty Name="calificadoPorCliente" ColumnName="calificadoPorCliente" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Obtener_Comercio_Giro" FunctionName="MystiqueMeDevModel.Store.SP_Obtener_Comercio_Giro">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Obtener_Comercio_Giro_Result">
+          <ScalarProperty Name="idComercio" ColumnName="idComercio" />
+          <ScalarProperty Name="NombreComercial" ColumnName="NombreComercial" />
+          <ScalarProperty Name="urlLogoComercio" ColumnName="urlLogoComercio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Obtener_DetalleBeneficio" FunctionName="MystiqueMeDevModel.Store.SP_Obtener_DetalleBeneficio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Obtener_DetalleBeneficio_Result">
+          <ScalarProperty Name="BeneficioDescripcion" ColumnName="BeneficioDescripcion" />
+          <ScalarProperty Name="UrlImagenCodigo" ColumnName="UrlImagenCodigo" />
+          <ScalarProperty Name="SucursalNombre" ColumnName="SucursalNombre" />
+          <ScalarProperty Name="hasCode" ColumnName="hasCode" />
+          <ScalarProperty Name="contentBarQRCode" ColumnName="contentBarQRCode" />
+          <ScalarProperty Name="typeCode" ColumnName="typeCode" />
+          <ScalarProperty Name="cantidadCalificados" ColumnName="cantidadCalificados" />
+          <ScalarProperty Name="calificacionPromedio" ColumnName="calificacionPromedio" />
+          <ScalarProperty Name="urlImgBeneficio" ColumnName="urlImgBeneficio" />
+          <ScalarProperty Name="calificadoPorCliente" ColumnName="calificadoPorCliente" />
+          <ScalarProperty Name="Dias" ColumnName="Dias" />
+          <ScalarProperty Name="savedInWallet" ColumnName="savedInWallet" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Obtener_ListaWallet_Cliente" FunctionName="MystiqueMeDevModel.Store.SP_Obtener_ListaWallet_Cliente">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Obtener_ListaWallet_Cliente_Result">
+          <ScalarProperty Name="idWallet" ColumnName="idWallet" />
+          <ScalarProperty Name="BeneficioId" ColumnName="BeneficioId" />
+          <ScalarProperty Name="BeneficioDescripcion" ColumnName="BeneficioDescripcion" />
+          <ScalarProperty Name="UrlImagenCodigo" ColumnName="UrlImagenCodigo" />
+          <ScalarProperty Name="DiasRestantes" ColumnName="DiasRestantes" />
+          <ScalarProperty Name="HorasRestantes" ColumnName="HorasRestantes" />
+          <ScalarProperty Name="MinutosRestantes" ColumnName="MinutosRestantes" />
+          <ScalarProperty Name="urlImgBeneficio" ColumnName="urlImgBeneficio" />
+          <ScalarProperty Name="contentBarQRCode" ColumnName="contentBarQRCode" />
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Obtener_Sucursal_Comercio" FunctionName="MystiqueMeDevModel.Store.SP_Obtener_Sucursal_Comercio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Obtener_Sucursal_Comercio_Result">
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+          <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerBeneficiosSucursal" FunctionName="MystiqueMeDevModel.Store.SP_ObtenerBeneficiosSucursal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_ObtenerBeneficiosSucursal_Result">
+          <ScalarProperty Name="idComercio" ColumnName="idComercio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="idBeneficio" ColumnName="idBeneficio" />
+          <ScalarProperty Name="HorarioActivo" ColumnName="HorarioActivo" />
+          <ScalarProperty Name="HorarioInicio" ColumnName="HorarioInicio" />
+          <ScalarProperty Name="HorarioFin" ColumnName="HorarioFin" />
+          <ScalarProperty Name="Dias" ColumnName="Dias" />
+          <ScalarProperty Name="DiasSucursal" ColumnName="DiasSucursal" />
+          <ScalarProperty Name="terminosCondiciones" ColumnName="terminosCondiciones" />
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="CadenaCodigo" ColumnName="CadenaCodigo" />
+          <ScalarProperty Name="urlImgBeneficio" ColumnName="urlImgBeneficio" />
+          <ScalarProperty Name="isDiaValido" ColumnName="isDiaValido" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerListadoMovimientosPuntos" FunctionName="MystiqueMeDevModel.Store.SP_ObtenerListadoMovimientosPuntos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_ObtenerListadoMovimientosPuntos_Result">
+          <ScalarProperty Name="idMovimientoPuntos" ColumnName="idMovimientoPuntos" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
+          <ScalarProperty Name="estatusAplicaPunto" ColumnName="estatusAplicaPunto" />
+          <ScalarProperty Name="descripcionAplicaPunto" ColumnName="descripcionAplicaPunto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerListadoRecompensas" FunctionName="MystiqueMeDevModel.Store.SP_ObtenerListadoRecompensas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_ObtenerListadoRecompensas_Result">
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idRecompesa" ColumnName="idRecompesa" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="diasCanje" ColumnName="diasCanje" />
+          <ScalarProperty Name="catTipoMembresiaId" ColumnName="catTipoMembresiaId" />
+          <ScalarProperty Name="catTipoRecompensaId" ColumnName="catTipoRecompensaId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="descripcionProducto" ColumnName="descripcionProducto" />
+          <ScalarProperty Name="idCatProducto" ColumnName="idCatProducto" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ObtenerListaMovimientosPuntos" FunctionName="MystiqueMeDevModel.Store.SP_ObtenerListaMovimientosPuntos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_ObtenerListaMovimientosPuntos_Result">
+          <ScalarProperty Name="idMovimientoPuntos" ColumnName="idMovimientoPuntos" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="fechaCompraTicket" ColumnName="fechaCompraTicket" />
+          <ScalarProperty Name="folioCompra" ColumnName="folioCompra" />
+          <ScalarProperty Name="montoCompra" ColumnName="montoCompra" />
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
+          <ScalarProperty Name="catEstatusAplicaPuntoId" ColumnName="catEstatusAplicaPuntoId" />
+          <ScalarProperty Name="producto" ColumnName="producto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_RegistrarCanjePuntos" FunctionName="MystiqueMeDevModel.Store.SP_RegistrarCanjePuntos" />
+    <FunctionImportMapping FunctionImportName="SP_PV_Cancelados" FunctionName="MystiqueMeDevModel.Store.SP_PV_Cancelados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Cancelados_Result">
+          <ScalarProperty Name="idTicketCancelado" ColumnName="idTicketCancelado" />
+          <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="usuarioAutorizo" ColumnName="usuarioAutorizo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Consumo_Agrupado_Detalle" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Consumo_Agrupado_Detalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Consumo_Agrupado_Detalle_Result">
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Ventas" ColumnName="Ventas" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="porcentajeVenta" ColumnName="porcentajeVenta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Consumo_Empleado" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Consumo_Empleado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Consumo_Empleado_Result">
+          <ScalarProperty Name="idConsumoEmpleado" ColumnName="idConsumoEmpleado" />
+          <ScalarProperty Name="pedidoId" ColumnName="pedidoId" />
+          <ScalarProperty Name="usuarioConsume" ColumnName="usuarioConsume" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Cortes_Detallado" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Cortes_Detallado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Cortes_Detallado_Result">
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+          <ScalarProperty Name="idApertura" ColumnName="idApertura" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="RangoHora" ColumnName="RangoHora" />
+          <ScalarProperty Name="Corte" ColumnName="Corte" />
+          <ScalarProperty Name="SaldoDolares" ColumnName="SaldoDolares" />
+          <ScalarProperty Name="ArqueoDolares" ColumnName="ArqueoDolares" />
+          <ScalarProperty Name="Venta" ColumnName="Venta" />
+          <ScalarProperty Name="CxC" ColumnName="CxC" />
+          <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+          <ScalarProperty Name="Gastos" ColumnName="Gastos" />
+          <ScalarProperty Name="Facturado" ColumnName="Facturado" />
+          <ScalarProperty Name="Total_Publico_General" ColumnName="Total Publico General" />
+          <ScalarProperty Name="Deposito_Bancario" ColumnName="Deposito Bancario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Cortes_Z" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Cortes_Z">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Cortes_Z_Result">
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="SaldoDolares" ColumnName="SaldoDolares" />
+          <ScalarProperty Name="ArqueoDolares" ColumnName="ArqueoDolares" />
+          <ScalarProperty Name="Venta" ColumnName="Venta" />
+          <ScalarProperty Name="CxC" ColumnName="CxC" />
+          <ScalarProperty Name="Tarjeta" ColumnName="Tarjeta" />
+          <ScalarProperty Name="Gastos" ColumnName="Gastos" />
+          <ScalarProperty Name="Facturado" ColumnName="Facturado" />
+          <ScalarProperty Name="TotalPublicoGeneral" ColumnName="TotalPublicoGeneral" />
+          <ScalarProperty Name="DepositoBancario" ColumnName="DepositoBancario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Gastos_Caja" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Gastos_Caja">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Gastos_Caja_Result">
+          <ScalarProperty Name="idGastoPv" ColumnName="idGastoPv" />
+          <ScalarProperty Name="gastoIdSucursal" ColumnName="gastoIdSucursal" />
+          <ScalarProperty Name="aperturaId" ColumnName="aperturaId" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="tipoGasto" ColumnName="tipoGasto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Ventas" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Ventas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Ventas_Result">
+          <ScalarProperty Name="cveVenta" ColumnName="cveVenta" />
+          <ScalarProperty Name="semana" ColumnName="semana" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="ventasTotales" ColumnName="ventasTotales" />
+          <ScalarProperty Name="comensales" ColumnName="comensales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Ventas_Por_Horas" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Ventas_Por_Horas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Ventas_Por_Horas_Result">
+          <ScalarProperty Name="diaSemana" ColumnName="diaSemana" />
+          <ScalarProperty Name="fechaHora" ColumnName="fechaHora" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="tickets" ColumnName="tickets" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Reporte_Canje_Beneficios" FunctionName="MystiqueMeDevModel.Store.SP_Reporte_Canje_Beneficios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Reporte_Canje_Beneficios_Result">
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="nombreBeneficio" ColumnName="nombreBeneficio" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="montoCompra" ColumnName="montoCompra" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Reporte_Canje_Productos" FunctionName="MystiqueMeDevModel.Store.SP_Reporte_Canje_Productos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Reporte_Canje_Productos_Result">
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ProductoCanjeado" ColumnName="ProductoCanjeado" />
+          <ScalarProperty Name="FechaCanje" ColumnName="FechaCanje" />
+          <ScalarProperty Name="ValorPuntos" ColumnName="ValorPuntos" />
+          <ScalarProperty Name="MontoCompra" ColumnName="MontoCompra" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Reporte_Clientes" FunctionName="MystiqueMeDevModel.Store.SP_Reporte_Clientes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Reporte_Clientes_Result">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Paterno" ColumnName="Paterno" />
+          <ScalarProperty Name="Materno" ColumnName="Materno" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Reporte_Registro_Compras" FunctionName="MystiqueMeDevModel.Store.SP_Reporte_Registro_Compras">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Reporte_Registro_Compras_Result">
+          <ScalarProperty Name="Sucursal" ColumnName="Sucursal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="FechaCompra" ColumnName="FechaCompra" />
+          <ScalarProperty Name="FolioCompra" ColumnName="FolioCompra" />
+          <ScalarProperty Name="MontoCompra" ColumnName="MontoCompra" />
+          <ScalarProperty Name="Puntos" ColumnName="Puntos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Copiar_Productos_Comercio_Sucursal" FunctionName="MystiqueMeDevModel.Store.SP_PV_Copiar_Productos_Comercio_Sucursal" />
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Ventas_promedioTicket" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Ventas_promedioTicket" />
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Receta_Producto_Conteo_Manual" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Receta_Producto_Conteo_Manual">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Receta_Producto_Conteo_Manual_Result">
+          <ScalarProperty Name="sucusalId" ColumnName="sucusalId" />
+          <ScalarProperty Name="fechaInicialSemana" ColumnName="fechaInicialSemana" />
+          <ScalarProperty Name="fechaFinalSemana" ColumnName="fechaFinalSemana" />
+          <ScalarProperty Name="unidadMedida" ColumnName="unidadMedida" />
+          <ScalarProperty Name="idInsumo" ColumnName="idInsumo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="totalProductosVenta" ColumnName="totalProductosVenta" />
+          <ScalarProperty Name="totalInventarioManual" ColumnName="totalInventarioManual" />
+          <ScalarProperty Name="diferencia" ColumnName="diferencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Receta_Producto_Conteo_Manual_Detalle" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Receta_Producto_Conteo_Manual_Detalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Receta_Producto_Conteo_Manual_Detalle_Result">
+          <ScalarProperty Name="diaSemana" ColumnName="diaSemana" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="unidadMedida" ColumnName="unidadMedida" />
+          <ScalarProperty Name="idInsumo" ColumnName="idInsumo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="totalProductosVenta" ColumnName="totalProductosVenta" />
+          <ScalarProperty Name="totalInventarioManual" ColumnName="totalInventarioManual" />
+          <ScalarProperty Name="diferencia" ColumnName="diferencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ReporteVentasGrafica" FunctionName="MystiqueMeDevModel.Store.SP_ReporteVentasGrafica">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_ReporteVentasGrafica_Result">
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="total_ventas" ColumnName="total_ventas" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_VentasG" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_VentasG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_VentasG_Result">
+          <ScalarProperty Name="cveSucursal" ColumnName="cveSucursal" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="semana" ColumnName="semana" />
+          <ScalarProperty Name="comensales" ColumnName="comensales" />
+          <ScalarProperty Name="ventasTotales" ColumnName="ventasTotales" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_VentasGD" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_VentasGD">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_VentasGD_Result">
+          <ScalarProperty Name="cveSucursal" ColumnName="cveSucursal" />
+          <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+          <ScalarProperty Name="semana" ColumnName="semana" />
+          <ScalarProperty Name="comensales" ColumnName="comensales" />
+          <ScalarProperty Name="ventasTotales" ColumnName="ventasTotales" />
+          <ScalarProperty Name="isemana" ColumnName="isemana" />
+          <ScalarProperty Name="fsemana" ColumnName="fsemana" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ActualizarInventarios_Ventas" FunctionName="MystiqueMeDevModel.Store.SP_ActualizarInventarios_Ventas" />
+    <FunctionImportMapping FunctionImportName="SP_Reporte_Citas" FunctionName="MystiqueMeDevModel.Store.SP_Reporte_Citas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Reporte_Citas_Result">
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombreDoc" ColumnName="NombreDoc" />
+          <ScalarProperty Name="FechaCita" ColumnName="FechaCita" />
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Reporte_Beneficios" FunctionName="MystiqueMeDevModel.Store.SP_Reporte_Beneficios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_Reporte_Beneficios_Result">
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombreDoc" ColumnName="NombreDoc" />
+          <ScalarProperty Name="Beneficio" ColumnName="Beneficio" />
+          <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PV_Reporte_Consumo_Agrupado" FunctionName="MystiqueMeDevModel.Store.SP_PV_Reporte_Consumo_Agrupado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MystiqueMeDevModel.SP_PV_Reporte_Consumo_Agrupado_Result">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="Ventas" ColumnName="Ventas" />
+          <ScalarProperty Name="Frecuencia" ColumnName="Frecuencia" />
+          <ScalarProperty Name="porcentajeVenta" ColumnName="porcentajeVenta" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="AgrupadorInsumos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AgrupadorInsumos">
+        <MappingFragment StoreEntitySet="AgrupadorInsumos">
+          <ScalarProperty Name="agregarExtra" ColumnName="agregarExtra" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="indice" ColumnName="indice" />
+          <ScalarProperty Name="confirmarPorSeparado" ColumnName="confirmarPorSeparado" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idAgrupadorInsumo" ColumnName="idAgrupadorInsumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AreaPreparacion">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AreaPreparacion">
+        <MappingFragment StoreEntitySet="AreaPreparacion">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idAreaPreparacion" ColumnName="idAreaPreparacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Arqueo">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Arqueo">
+        <MappingFragment StoreEntitySet="Arqueo">
+          <ScalarProperty Name="usuarioActualizo" ColumnName="usuarioActualizo" />
+          <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="diferencia" ColumnName="diferencia" />
+          <ScalarProperty Name="totalRecibido" ColumnName="totalRecibido" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="gasto" ColumnName="gasto" />
+          <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+          <ScalarProperty Name="cxc" ColumnName="cxc" />
+          <ScalarProperty Name="efectivo" ColumnName="efectivo" />
+          <ScalarProperty Name="arqueoDlls" ColumnName="arqueoDlls" />
+          <ScalarProperty Name="saldoDlls" ColumnName="saldoDlls" />
+          <ScalarProperty Name="concepto" ColumnName="concepto" />
+          <ScalarProperty Name="fechaRegistroVenta" ColumnName="fechaRegistroVenta" />
+          <ScalarProperty Name="aperturaId" ColumnName="aperturaId" />
+          <ScalarProperty Name="ventaId" ColumnName="ventaId" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idArqueo" ColumnName="idArqueo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatConceptosGastos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatConceptosGastos">
+        <MappingFragment StoreEntitySet="CatConceptosGastos">
+          <ScalarProperty Name="ponderacion" ColumnName="ponderacion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="catRubroId" ColumnName="catRubroId" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatConceptoGasto" ColumnName="idCatConceptoGasto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaIngrediente">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CategoriaIngrediente">
+        <MappingFragment StoreEntitySet="CategoriaIngrediente">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCategoriaIngrediente" ColumnName="idCategoriaIngrediente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaInsumo">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CategoriaInsumo">
+        <MappingFragment StoreEntitySet="CategoriaInsumo">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCategoriaInsumo" ColumnName="idCategoriaInsumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CategoriaProductos">
+        <MappingFragment StoreEntitySet="CategoriaProductos">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="indice" ColumnName="indice" />
+          <ScalarProperty Name="codigo" ColumnName="codigo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCategoriaProducto" ColumnName="idCategoriaProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstatusEquipo">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatEstatusEquipo">
+        <MappingFragment StoreEntitySet="CatEstatusEquipo">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatEstatusEquipo" ColumnName="idCatEstatusEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstatusOrden">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatEstatusOrden">
+        <MappingFragment StoreEntitySet="CatEstatusOrden">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatEstatusOrden" ColumnName="idCatEstatusOrden" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatGastos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatGastos">
+        <MappingFragment StoreEntitySet="CatGastos">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatGastos" ColumnName="idCatGastos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatMovimientoInventarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatMovimientoInventarios">
+        <MappingFragment StoreEntitySet="CatMovimientoInventarios">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatMovimientoInventario" ColumnName="idCatMovimientoInventario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatRubros">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatRubros">
+        <MappingFragment StoreEntitySet="CatRubros">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="esCosto" ColumnName="esCosto" />
+          <ScalarProperty Name="ponderacion" ColumnName="ponderacion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatRubro" ColumnName="idCatRubro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatRubrosGastos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatRubrosGastos">
+        <MappingFragment StoreEntitySet="CatRubrosGastos">
+          <ScalarProperty Name="decripcion" ColumnName="decripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatRubroGasto" ColumnName="idCatRubroGasto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoEquipo">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatTipoEquipo">
+        <MappingFragment StoreEntitySet="CatTipoEquipo">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatTipoEquipo" ColumnName="idCatTipoEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoMantenimiento">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatTipoMantenimiento">
+        <MappingFragment StoreEntitySet="CatTipoMantenimiento">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatTipoMantenimiento" ColumnName="idCatTipoMantenimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoPagos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatTipoPagos">
+        <MappingFragment StoreEntitySet="CatTipoPagos">
+          <ScalarProperty Name="aplicaCxc" ColumnName="aplicaCxc" />
+          <ScalarProperty Name="cajaBase" ColumnName="cajaBase" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatTipoPago" ColumnName="idCatTipoPago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Compras">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Compras">
+        <MappingFragment StoreEntitySet="Compras">
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="estatusCompraId" ColumnName="estatusCompraId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="noFactura" ColumnName="noFactura" />
+          <ScalarProperty Name="noRemision" ColumnName="noRemision" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="proveedorId" ColumnName="proveedorId" />
+          <ScalarProperty Name="idCompra" ColumnName="idCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionArmadoProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConfiguracionArmadoProductos">
+        <MappingFragment StoreEntitySet="ConfiguracionArmadoProductos">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="agrupadorInsumoId" ColumnName="agrupadorInsumoId" />
+          <ScalarProperty Name="idConfiguracionArmadoProducto" ColumnName="idConfiguracionArmadoProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConteoFisicoAgrupadorInsumos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConteoFisicoAgrupadorInsumos">
+        <MappingFragment StoreEntitySet="ConteoFisicoAgrupadorInsumos">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="diaConteo" ColumnName="diaConteo" />
+          <ScalarProperty Name="unidadMedidaIdConteo" ColumnName="unidadMedidaIdConteo" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="conteoFisicoPeriodoCapturaId" ColumnName="conteoFisicoPeriodoCapturaId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idConteoFisicoAgrupadorInsumos" ColumnName="idConteoFisicoAgrupadorInsumos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConteoFisicoInsumos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConteoFisicoInsumos">
+        <MappingFragment StoreEntitySet="ConteoFisicoInsumos">
+          <ScalarProperty Name="conteoFisicoAgrupadorInsumosId" ColumnName="conteoFisicoAgrupadorInsumosId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idConteoFisicoInsumo" ColumnName="idConteoFisicoInsumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConteoFisicoPeriodoCaptura">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConteoFisicoPeriodoCaptura">
+        <MappingFragment StoreEntitySet="ConteoFisicoPeriodoCaptura">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idConteoFisicoPeriodoCaptura" ColumnName="idConteoFisicoPeriodoCaptura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConteoFisicoTipoRegistro">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConteoFisicoTipoRegistro">
+        <MappingFragment StoreEntitySet="ConteoFisicoTipoRegistro">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idConteoFisicoTipoRegistro" ColumnName="idConteoFisicoTipoRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Descuentos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Descuentos">
+        <MappingFragment StoreEntitySet="Descuentos">
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+          <ScalarProperty Name="isPorcentaje" ColumnName="isPorcentaje" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="domingo" ColumnName="domingo" />
+          <ScalarProperty Name="sabado" ColumnName="sabado" />
+          <ScalarProperty Name="viernes" ColumnName="viernes" />
+          <ScalarProperty Name="jueves" ColumnName="jueves" />
+          <ScalarProperty Name="miercoles" ColumnName="miercoles" />
+          <ScalarProperty Name="martes" ColumnName="martes" />
+          <ScalarProperty Name="lunes" ColumnName="lunes" />
+          <ScalarProperty Name="horaFin" ColumnName="horaFin" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+          <ScalarProperty Name="montoporcentaje" ColumnName="montoporcentaje" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idDescuento" ColumnName="idDescuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleCompra">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.DetalleCompra">
+        <MappingFragment StoreEntitySet="DetalleCompra">
+          <ScalarProperty Name="unidadCompraId" ColumnName="unidadCompraId" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="compraId" ColumnName="compraId" />
+          <ScalarProperty Name="idDetalleCompra" ColumnName="idDetalleCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleCompraReapertura">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.DetalleCompraReapertura">
+        <MappingFragment StoreEntitySet="DetalleCompraReapertura">
+          <ScalarProperty Name="procesado" ColumnName="procesado" />
+          <ScalarProperty Name="unidadCompraId" ColumnName="unidadCompraId" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="compraId" ColumnName="compraId" />
+          <ScalarProperty Name="idDetalleCompraReapertura" ColumnName="idDetalleCompraReapertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleRecetaProcesados">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.DetalleRecetaProcesados">
+        <MappingFragment StoreEntitySet="DetalleRecetaProcesados">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="unidadMedidaId" ColumnName="unidadMedidaId" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="recetasProcesadoId" ColumnName="recetasProcesadoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleRecetaProducto">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.DetalleRecetaProducto">
+        <MappingFragment StoreEntitySet="DetalleRecetaProducto">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="unidadMedidaId" ColumnName="unidadMedidaId" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="recetaId" ColumnName="recetaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equivalencias">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Equivalencias">
+        <MappingFragment StoreEntitySet="Equivalencias">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="unidadMedidaId" ColumnName="unidadMedidaId" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="idEquivalencia" ColumnName="idEquivalencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gastos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Gastos">
+        <MappingFragment StoreEntitySet="Gastos">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="fechaGasto" ColumnName="fechaGasto" />
+          <ScalarProperty Name="obervacion" ColumnName="obervacion" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="noFactura" ColumnName="noFactura" />
+          <ScalarProperty Name="noRemision" ColumnName="noRemision" />
+          <ScalarProperty Name="GastoPvId" ColumnName="GastoPvId" />
+          <ScalarProperty Name="proveedorId" ColumnName="proveedorId" />
+          <ScalarProperty Name="catConceptoGastoId" ColumnName="catConceptoGastoId" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idGasto" ColumnName="idGasto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsumoProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.InsumoProductos">
+        <MappingFragment StoreEntitySet="InsumoProductos">
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="agrupadorInsumoId" ColumnName="agrupadorInsumoId" />
+          <ScalarProperty Name="idInsumoProducto" ColumnName="idInsumoProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Insumos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Insumos">
+        <MappingFragment StoreEntitySet="Insumos">
+          <ScalarProperty Name="esAgrupador" ColumnName="esAgrupador" />
+          <ScalarProperty Name="equivalencia" ColumnName="equivalencia" />
+          <ScalarProperty Name="conteoFisico" ColumnName="conteoFisico" />
+          <ScalarProperty Name="catRubroId" ColumnName="catRubroId" />
+          <ScalarProperty Name="aplicaInventario" ColumnName="aplicaInventario" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="mermaPermitida" ColumnName="mermaPermitida" />
+          <ScalarProperty Name="esIngrediente" ColumnName="esIngrediente" />
+          <ScalarProperty Name="categoriaIngredienteId" ColumnName="categoriaIngredienteId" />
+          <ScalarProperty Name="unidadMedidaIdCompra" ColumnName="unidadMedidaIdCompra" />
+          <ScalarProperty Name="unidadMedidaIdMinima" ColumnName="unidadMedidaIdMinima" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="esProcesado" ColumnName="esProcesado" />
+          <ScalarProperty Name="categoriaInsumoId" ColumnName="categoriaInsumoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idInsumo" ColumnName="idInsumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Inventarios">
+        <MappingFragment StoreEntitySet="Inventarios">
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="minimo" ColumnName="minimo" />
+          <ScalarProperty Name="maximo" ColumnName="maximo" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MantenimientoMobiliarioEquipos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.MantenimientoMobiliarioEquipos">
+        <MappingFragment StoreEntitySet="MantenimientoMobiliarioEquipos">
+          <ScalarProperty Name="urlDocumento" ColumnName="urlDocumento" />
+          <ScalarProperty Name="proximaFechaMantenimiento" ColumnName="proximaFechaMantenimiento" />
+          <ScalarProperty Name="fechaMantenimiento" ColumnName="fechaMantenimiento" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="isDlls" ColumnName="isDlls" />
+          <ScalarProperty Name="catTipoMantenimientoId" ColumnName="catTipoMantenimientoId" />
+          <ScalarProperty Name="mobiliarioEquipoId" ColumnName="mobiliarioEquipoId" />
+          <ScalarProperty Name="idMantenimientoMobiliarioEquipo" ColumnName="idMantenimientoMobiliarioEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MobiliarioEquipos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.MobiliarioEquipos">
+        <MappingFragment StoreEntitySet="MobiliarioEquipos">
+          <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+          <ScalarProperty Name="usuarioActualizoId" ColumnName="usuarioActualizoId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="catEstatusEquipoId" ColumnName="catEstatusEquipoId" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="catTipoEquipoId" ColumnName="catTipoEquipoId" />
+          <ScalarProperty Name="claveEquipo" ColumnName="claveEquipo" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idMobiliarioEquipo" ColumnName="idMobiliarioEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MovimientoInventarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.MovimientoInventarios">
+        <MappingFragment StoreEntitySet="MovimientoInventarios">
+          <ScalarProperty Name="cantidadConsumo" ColumnName="cantidadConsumo" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="unidadMedidaConsumoaDesc" ColumnName="unidadMedidaConsumoaDesc" />
+          <ScalarProperty Name="unidadMedidaConsumoId" ColumnName="unidadMedidaConsumoId" />
+          <ScalarProperty Name="unidadMedidaCompraDesc" ColumnName="unidadMedidaCompraDesc" />
+          <ScalarProperty Name="unidadMedidaCompraId" ColumnName="unidadMedidaCompraId" />
+          <ScalarProperty Name="aperturaId" ColumnName="aperturaId" />
+          <ScalarProperty Name="tipoMovimiento" ColumnName="tipoMovimiento" />
+          <ScalarProperty Name="detalleCompraId" ColumnName="detalleCompraId" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="catMovimientoId" ColumnName="catMovimientoId" />
+          <ScalarProperty Name="idMovimientoInventario" ColumnName="idMovimientoInventario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Productos">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="principal" ColumnName="principal" />
+          <ScalarProperty Name="areaPreparacionId" ColumnName="areaPreparacionId" />
+          <ScalarProperty Name="indice" ColumnName="indice" />
+          <ScalarProperty Name="urlImagen" ColumnName="urlImagen" />
+          <ScalarProperty Name="categoriaProductoId" ColumnName="categoriaProductoId" />
+          <ScalarProperty Name="armarCobroMostrador" ColumnName="armarCobroMostrador" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="esGeneral" ColumnName="esGeneral" />
+          <ScalarProperty Name="esCombo" ColumnName="esCombo" />
+          <ScalarProperty Name="mermaPermitida" ColumnName="mermaPermitida" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proveedores">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Proveedores">
+        <MappingFragment StoreEntitySet="Proveedores">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idProveedor" ColumnName="idProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recetas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Recetas">
+        <MappingFragment StoreEntitySet="Recetas">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="mermaPermitida" ColumnName="mermaPermitida" />
+          <ScalarProperty Name="diasCaducidad" ColumnName="diasCaducidad" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="idReceta" ColumnName="idReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecetasProcesados">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.RecetasProcesados">
+        <MappingFragment StoreEntitySet="RecetasProcesados">
+          <ScalarProperty Name="cantidadProcesado" ColumnName="cantidadProcesado" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="mermaPermitida" ColumnName="mermaPermitida" />
+          <ScalarProperty Name="diasCaducidad" ColumnName="diasCaducidad" />
+          <ScalarProperty Name="tipoRecetaId" ColumnName="tipoRecetaId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="idRecetasProcesado" ColumnName="idRecetasProcesado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroConteoFisicoInsumos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.RegistroConteoFisicoInsumos">
+        <MappingFragment StoreEntitySet="RegistroConteoFisicoInsumos">
+          <ScalarProperty Name="conteoFisicoTipoRegistroId" ColumnName="conteoFisicoTipoRegistroId" />
+          <ScalarProperty Name="descripcionUnidadMedida" ColumnName="descripcionUnidadMedida" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="usuarioActualizaId" ColumnName="usuarioActualizaId" />
+          <ScalarProperty Name="conteoFisicoAgrupadorInsumosId" ColumnName="conteoFisicoAgrupadorInsumosId" />
+          <ScalarProperty Name="conteoFisicoInsumoId" ColumnName="conteoFisicoInsumoId" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="ultimaActualizacion" ColumnName="ultimaActualizacion" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="idRegistroConteoFisicoInsumo" ColumnName="idRegistroConteoFisicoInsumo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SucursalDescuentos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.SucursalDescuentos">
+        <MappingFragment StoreEntitySet="SucursalDescuentos">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="descuentoId" ColumnName="descuentoId" />
+          <ScalarProperty Name="idSucursalDescuento" ColumnName="idSucursalDescuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SucursalProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.SucursalProductos">
+        <MappingFragment StoreEntitySet="SucursalProductos">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="idSucursalProducto" ColumnName="idSucursalProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SucursalProveedores">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.SucursalProveedores">
+        <MappingFragment StoreEntitySet="SucursalProveedores">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="proveedorId" ColumnName="proveedorId" />
+          <ScalarProperty Name="idSucursalProveedor" ColumnName="idSucursalProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoRecetas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.TipoRecetas">
+        <MappingFragment StoreEntitySet="TipoRecetas">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idTipoReceta" ColumnName="idTipoReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnidadMedida">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.UnidadMedida">
+        <MappingFragment StoreEntitySet="UnidadMedida">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idUnidadMedida" ColumnName="idUnidadMedida" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VariedadProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VariedadProductos">
+        <MappingFragment StoreEntitySet="VariedadProductos">
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="idVariedadProducto" ColumnName="idVariedadProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aperturas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Aperturas">
+        <MappingFragment StoreEntitySet="Aperturas">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioAutorizo" ColumnName="usuarioAutorizo" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="ventaId" ColumnName="ventaId" />
+          <ScalarProperty Name="uuidApertura" ColumnName="uuidApertura" />
+          <ScalarProperty Name="fondo" ColumnName="fondo" />
+          <ScalarProperty Name="tipoCambio" ColumnName="tipoCambio" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaRegistroApertura" ColumnName="fechaRegistroApertura" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="aperturaIdSucursal" ColumnName="aperturaIdSucursal" />
+          <ScalarProperty Name="idApertura" ColumnName="idApertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientespv">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Clientespv">
+        <MappingFragment StoreEntitySet="Clientespv">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="otraColonia" ColumnName="otraColonia" />
+          <ScalarProperty Name="coloniaid" ColumnName="coloniaid" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccionEntrega" ColumnName="direccionEntrega" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idClientespv" ColumnName="idClientespv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumoEmpleados">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConsumoEmpleados">
+        <MappingFragment StoreEntitySet="ConsumoEmpleados">
+          <ScalarProperty Name="usuarioConsume" ColumnName="usuarioConsume" />
+          <ScalarProperty Name="pedidoId" ColumnName="pedidoId" />
+          <ScalarProperty Name="idConsumoEmpleado" ColumnName="idConsumoEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GastosPv">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.GastosPv">
+        <MappingFragment StoreEntitySet="GastosPv">
+          <ScalarProperty Name="aplicado" ColumnName="aplicado" />
+          <ScalarProperty Name="tipoGasto" ColumnName="tipoGasto" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="aperturaId" ColumnName="aperturaId" />
+          <ScalarProperty Name="gastoIdSucursal" ColumnName="gastoIdSucursal" />
+          <ScalarProperty Name="idGastoPv" ColumnName="idGastoPv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GastosPvDetalle">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.GastosPvDetalle">
+        <MappingFragment StoreEntitySet="GastosPvDetalle">
+          <ScalarProperty Name="detalleCompraId" ColumnName="detalleCompraId" />
+          <ScalarProperty Name="gastosId" ColumnName="gastosId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="catConceptoGastoId" ColumnName="catConceptoGastoId" />
+          <ScalarProperty Name="proveedorId" ColumnName="proveedorId" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="gastoPvId" ColumnName="gastoPvId" />
+          <ScalarProperty Name="idGastoPvDetalle" ColumnName="idGastoPvDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InsumoProducto">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.InsumoProducto">
+        <MappingFragment StoreEntitySet="InsumoProducto">
+          <ScalarProperty Name="insumoId" ColumnName="insumoId" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="pedidoProductoId" ColumnName="pedidoProductoId" />
+          <ScalarProperty Name="pedidoProductoDetalleId" ColumnName="pedidoProductoDetalleId" />
+          <ScalarProperty Name="idInsumoProducto" ColumnName="idInsumoProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidoProductoDetalle">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.PedidoProductoDetalle">
+        <MappingFragment StoreEntitySet="PedidoProductoDetalle">
+          <ScalarProperty Name="descripcionVariedad" ColumnName="descripcionVariedad" />
+          <ScalarProperty Name="insumoProductoId" ColumnName="insumoProductoId" />
+          <ScalarProperty Name="pedidoProductoId" ColumnName="pedidoProductoId" />
+          <ScalarProperty Name="idPedidoProductoDetalle" ColumnName="idPedidoProductoDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PedidoProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.PedidoProductos">
+        <MappingFragment StoreEntitySet="PedidoProductos">
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="aplicaMerma" ColumnName="aplicaMerma" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="pedidoId" ColumnName="pedidoId" />
+          <ScalarProperty Name="idPedidoProducto" ColumnName="idPedidoProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedidos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Pedidos">
+        <MappingFragment StoreEntitySet="Pedidos">
+          <ScalarProperty Name="catComensales" ColumnName="catComensales" />
+          <ScalarProperty Name="mesa_nombre" ColumnName="mesa_nombre" />
+          <ScalarProperty Name="mesero_nombre" ColumnName="mesero_nombre" />
+          <ScalarProperty Name="mesero_numero" ColumnName="mesero_numero" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="uuidPedido" ColumnName="uuidPedido" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="fechaRegistroPedido" ColumnName="fechaRegistroPedido" />
+          <ScalarProperty Name="tipoPedido" ColumnName="tipoPedido" />
+          <ScalarProperty Name="estatusPedido" ColumnName="estatusPedido" />
+          <ScalarProperty Name="pedidoIdSucursal" ColumnName="pedidoIdSucursal" />
+          <ScalarProperty Name="aperturaId" ColumnName="aperturaId" />
+          <ScalarProperty Name="idPedido" ColumnName="idPedido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retiros">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Retiros">
+        <MappingFragment StoreEntitySet="Retiros">
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="aperturaId" ColumnName="aperturaId" />
+          <ScalarProperty Name="retiroIdSucursal" ColumnName="retiroIdSucursal" />
+          <ScalarProperty Name="idRetiro" ColumnName="idRetiro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketCancelados">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.TicketCancelados">
+        <MappingFragment StoreEntitySet="TicketCancelados">
+          <ScalarProperty Name="usuarioAutorizo" ColumnName="usuarioAutorizo" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+          <ScalarProperty Name="idTicketCancelado" ColumnName="idTicketCancelado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketDescuentos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.TicketDescuentos">
+        <MappingFragment StoreEntitySet="TicketDescuentos">
+          <ScalarProperty Name="descuentoId" ColumnName="descuentoId" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+          <ScalarProperty Name="idTicketDescuento" ColumnName="idTicketDescuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketPagos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.TicketPagos">
+        <MappingFragment StoreEntitySet="TicketPagos">
+          <ScalarProperty Name="importeOriginal" ColumnName="importeOriginal" />
+          <ScalarProperty Name="tipoPagoId" ColumnName="tipoPagoId" />
+          <ScalarProperty Name="banco" ColumnName="banco" />
+          <ScalarProperty Name="confirmacion" ColumnName="confirmacion" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+          <ScalarProperty Name="tipoPago" ColumnName="tipoPago" />
+          <ScalarProperty Name="idTicketPago" ColumnName="idTicketPago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketReimpresos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.TicketReimpresos">
+        <MappingFragment StoreEntitySet="TicketReimpresos">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="fechaRegistroTicketImpreso" ColumnName="fechaRegistroTicketImpreso" />
+          <ScalarProperty Name="usuarioAutorizo" ColumnName="usuarioAutorizo" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="ticketId" ColumnName="ticketId" />
+          <ScalarProperty Name="idTicketReimpreso" ColumnName="idTicketReimpreso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Tickets">
+        <MappingFragment StoreEntitySet="Tickets">
+          <ScalarProperty Name="tasaIva" ColumnName="tasaIva" />
+          <ScalarProperty Name="estaCancelado" ColumnName="estaCancelado" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="uuidTicket" ColumnName="uuidTicket" />
+          <ScalarProperty Name="fechaCancelacion" ColumnName="fechaCancelacion" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="folioTicket" ColumnName="folioTicket" />
+          <ScalarProperty Name="numeroTicket" ColumnName="numeroTicket" />
+          <ScalarProperty Name="fechaCobro" ColumnName="fechaCobro" />
+          <ScalarProperty Name="ticketIdSucursal" ColumnName="ticketIdSucursal" />
+          <ScalarProperty Name="pedidoId" ColumnName="pedidoId" />
+          <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ventas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Ventas">
+        <MappingFragment StoreEntitySet="Ventas">
+          <ScalarProperty Name="afectoInventario" ColumnName="afectoInventario" />
+          <ScalarProperty Name="folio" ColumnName="folio" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="uuidVenta" ColumnName="uuidVenta" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaRegistroVenta" ColumnName="fechaRegistroVenta" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="ventaIdSucursal" ColumnName="ventaIdSucursal" />
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AnexoDoctor">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AnexoDoctor">
+        <MappingFragment StoreEntitySet="AnexoDoctor">
+          <ScalarProperty Name="precioConsulta" ColumnName="precioConsulta" />
+          <ScalarProperty Name="playerId" ColumnName="playerId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="doctorEspecialidadId" ColumnName="doctorEspecialidadId" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="descripcionIngles" ColumnName="descripcionIngles" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idAnexoDoctor" ColumnName="idAnexoDoctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetController">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetController">
+        <MappingFragment StoreEntitySet="AspNetController">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdController" ColumnName="IdController" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetControllerActivity">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetControllerActivity">
+        <MappingFragment StoreEntitySet="AspNetControllerActivity">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdControllerActivity" ColumnName="IdControllerActivity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRolePermissions">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetRolePermissions">
+        <MappingFragment StoreEntitySet="AspNetRolePermissions">
+          <ScalarProperty Name="ControllerActivityId" ColumnName="ControllerActivityId" />
+          <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficioAplicados">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.beneficioAplicados">
+        <MappingFragment StoreEntitySet="beneficioAplicados">
+          <ScalarProperty Name="montoCompra" ColumnName="montoCompra" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="folioCompra" ColumnName="folioCompra" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="idBeneficioAplicado" ColumnName="idBeneficioAplicado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficioCalificaciones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.beneficioCalificaciones">
+        <MappingFragment StoreEntitySet="beneficioCalificaciones">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="idBeneficioCalificacion" ColumnName="idBeneficioCalificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficioHorarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.beneficioHorarios">
+        <MappingFragment StoreEntitySet="beneficioHorarios">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="horarioFin" ColumnName="horarioFin" />
+          <ScalarProperty Name="horarioInicio" ColumnName="horarioInicio" />
+          <ScalarProperty Name="diasNum" ColumnName="diasNum" />
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="beneficioHorarioId" ColumnName="beneficioHorarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="beneficios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.beneficios">
+        <MappingFragment StoreEntitySet="beneficios">
+          <ScalarProperty Name="descripcionIngles" ColumnName="descripcionIngles" />
+          <ScalarProperty Name="urlImagenCodigo" ColumnName="urlImagenCodigo" />
+          <ScalarProperty Name="nivelMembresia" ColumnName="nivelMembresia" />
+          <ScalarProperty Name="cadenaCodigo" ColumnName="cadenaCodigo" />
+          <ScalarProperty Name="tipoMembresiaId" ColumnName="tipoMembresiaId" />
+          <ScalarProperty Name="tipoCodigo" ColumnName="tipoCodigo" />
+          <ScalarProperty Name="isPromocion" ColumnName="isPromocion" />
+          <ScalarProperty Name="isCupon" ColumnName="isCupon" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="terminosCondiciones" ColumnName="terminosCondiciones" />
+          <ScalarProperty Name="fondoColor" ColumnName="fondoColor" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="imagenTitulo" ColumnName="imagenTitulo" />
+          <ScalarProperty Name="imagenExt" ColumnName="imagenExt" />
+          <ScalarProperty Name="imagenDescuento" ColumnName="imagenDescuento" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idBeneficio" ColumnName="idBeneficio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bitacoraFacturacion">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.bitacoraFacturacion">
+        <MappingFragment StoreEntitySet="bitacoraFacturacion">
+          <ScalarProperty Name="mensajeRespuesta" ColumnName="mensajeRespuesta" />
+          <ScalarProperty Name="codigoRespuesta" ColumnName="codigoRespuesta" />
+          <ScalarProperty Name="facturaClienteId" ColumnName="facturaClienteId" />
+          <ScalarProperty Name="idBitacoraFacturacion" ColumnName="idBitacoraFacturacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="canjePuntos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.canjePuntos">
+        <MappingFragment StoreEntitySet="canjePuntos">
+          <ScalarProperty Name="montoCompra" ColumnName="montoCompra" />
+          <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+          <ScalarProperty Name="folioCompraCanje" ColumnName="folioCompraCanje" />
+          <ScalarProperty Name="fechaCanje" ColumnName="fechaCanje" />
+          <ScalarProperty Name="folioCanje" ColumnName="folioCanje" />
+          <ScalarProperty Name="fechaFinCanje" ColumnName="fechaFinCanje" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="valorPuntos" ColumnName="valorPuntos" />
+          <ScalarProperty Name="catEstatusCanjePuntoId" ColumnName="catEstatusCanjePuntoId" />
+          <ScalarProperty Name="recompensaId" ColumnName="recompensaId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="idCanjePunto" ColumnName="idCanjePunto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargaCompras">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.cargaCompras">
+        <MappingFragment StoreEntitySet="cargaCompras">
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
+          <ScalarProperty Name="codigoCompra" ColumnName="codigoCompra" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="catEstatusCargaCompraId" ColumnName="catEstatusCargaCompraId" />
+          <ScalarProperty Name="montoCompra" ColumnName="montoCompra" />
+          <ScalarProperty Name="folioCompra" ColumnName="folioCompra" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="idCargaCompra" ColumnName="idCargaCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatAseguranzas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatAseguranzas">
+        <MappingFragment StoreEntitySet="CatAseguranzas">
+          <ScalarProperty Name="imagenAseguranza" ColumnName="imagenAseguranza" />
+          <ScalarProperty Name="descripcionIngles" ColumnName="descripcionIngles" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatAseguranzas" ColumnName="idCatAseguranzas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catCiudades">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catCiudades">
+        <MappingFragment StoreEntitySet="catCiudades">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="ciudadDescr" ColumnName="ciudadDescr" />
+          <ScalarProperty Name="catEstadoId" ColumnName="catEstadoId" />
+          <ScalarProperty Name="idCatCiudad" ColumnName="idCatCiudad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catColonias">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catColonias">
+        <MappingFragment StoreEntitySet="catColonias">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="catCiudadId" ColumnName="catCiudadId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatColonia" ColumnName="idCatColonia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catComercioGiros">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catComercioGiros">
+        <MappingFragment StoreEntitySet="catComercioGiros">
+          <ScalarProperty Name="cctivo" ColumnName="cctivo" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatComercioGiro" ColumnName="idCatComercioGiro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catCompraAplicadoEstatus">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catCompraAplicadoEstatus">
+        <MappingFragment StoreEntitySet="catCompraAplicadoEstatus">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatCompraAplicadoEstatus" ColumnName="idCatCompraAplicadoEstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatDoctorEspecialidad">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatDoctorEspecialidad">
+        <MappingFragment StoreEntitySet="CatDoctorEspecialidad">
+          <ScalarProperty Name="descripcionIngles" ColumnName="descripcionIngles" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatDoctorEspecialidad" ColumnName="idCatDoctorEspecialidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catEstados">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catEstados">
+        <MappingFragment StoreEntitySet="catEstados">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="catPaisId" ColumnName="catPaisId" />
+          <ScalarProperty Name="estadoDescr" ColumnName="estadoDescr" />
+          <ScalarProperty Name="idCatEstado" ColumnName="idCatEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catEstatusAplicaPuntos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catEstatusAplicaPuntos">
+        <MappingFragment StoreEntitySet="catEstatusAplicaPuntos">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatEstatusAplicaPuntos" ColumnName="idCatEstatusAplicaPuntos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catEstatusCanjePuntos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catEstatusCanjePuntos">
+        <MappingFragment StoreEntitySet="catEstatusCanjePuntos">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatEstatusCanjePunto" ColumnName="idCatEstatusCanjePunto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catEstatusCargaCompras">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catEstatusCargaCompras">
+        <MappingFragment StoreEntitySet="catEstatusCargaCompras">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idEstatusCargaCompra" ColumnName="idEstatusCargaCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstatusCita">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatEstatusCita">
+        <MappingFragment StoreEntitySet="CatEstatusCita">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatEstatusCita" ColumnName="idCatEstatusCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstatusCompras">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatEstatusCompras">
+        <MappingFragment StoreEntitySet="CatEstatusCompras">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatEstatusCompras" ColumnName="idCatEstatusCompras" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catEstatusFactura">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catEstatusFactura">
+        <MappingFragment StoreEntitySet="catEstatusFactura">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="IdCatEstatusFactura" ColumnName="IdCatEstatusFactura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catEstatusTicket">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catEstatusTicket">
+        <MappingFragment StoreEntitySet="catEstatusTicket">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="IdcatEstatusTicket" ColumnName="IdcatEstatusTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catPaises">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catPaises">
+        <MappingFragment StoreEntitySet="catPaises">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="paisDescr" ColumnName="paisDescr" />
+          <ScalarProperty Name="idCatPais" ColumnName="idCatPais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catProductos">
+        <MappingFragment StoreEntitySet="catProductos">
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatProducto" ColumnName="idCatProducto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catRangoEdad">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catRangoEdad">
+        <MappingFragment StoreEntitySet="catRangoEdad">
+          <ScalarProperty Name="etiqueta" ColumnName="etiqueta" />
+          <ScalarProperty Name="indice" ColumnName="indice" />
+          <ScalarProperty Name="edadSuperior" ColumnName="edadSuperior" />
+          <ScalarProperty Name="edadInferior" ColumnName="edadInferior" />
+          <ScalarProperty Name="idCatRangoEdad" ColumnName="idCatRangoEdad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catRegimenFiscal">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catRegimenFiscal">
+        <MappingFragment StoreEntitySet="catRegimenFiscal">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatRegimenFiscal" ColumnName="idCatRegimenFiscal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catSexos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catSexos">
+        <MappingFragment StoreEntitySet="catSexos">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatSexo" ColumnName="idCatSexo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catTipoAutentificacion">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catTipoAutentificacion">
+        <MappingFragment StoreEntitySet="catTipoAutentificacion">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idTipoAutentificacion" ColumnName="idTipoAutentificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catTipoComentario">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catTipoComentario">
+        <MappingFragment StoreEntitySet="catTipoComentario">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatTipoComentario" ColumnName="idCatTipoComentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catTipoComercios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catTipoComercios">
+        <MappingFragment StoreEntitySet="catTipoComercios">
+          <ScalarProperty Name="descripcionIngles" ColumnName="descripcionIngles" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCatTipoComercio" ColumnName="idCatTipoComercio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catTipoMembresias">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catTipoMembresias">
+        <MappingFragment StoreEntitySet="catTipoMembresias">
+          <ScalarProperty Name="vigencia" ColumnName="vigencia" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="idcatTipoMembresia" ColumnName="idcatTipoMembresia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatTipoNotificaciones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatTipoNotificaciones">
+        <MappingFragment StoreEntitySet="CatTipoNotificaciones">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatTipoNotificacion" ColumnName="idCatTipoNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catTipoRecompensas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catTipoRecompensas">
+        <MappingFragment StoreEntitySet="catTipoRecompensas">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatTipoRecompensa" ColumnName="idCatTipoRecompensa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="catUsoCFDI">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.catUsoCFDI">
+        <MappingFragment StoreEntitySet="catUsoCFDI">
+          <ScalarProperty Name="idCatalogosSat" ColumnName="idCatalogosSat" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatUsoCFDI" ColumnName="idCatUsoCFDI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatZonas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatZonas">
+        <MappingFragment StoreEntitySet="CatZonas">
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="placeId" ColumnName="placeId" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idCatZona" ColumnName="idCatZona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Citas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Citas">
+        <MappingFragment StoreEntitySet="Citas">
+          <ScalarProperty Name="cadenaCodigo" ColumnName="cadenaCodigo" />
+          <ScalarProperty Name="IsBeneficioEscaneado" ColumnName="IsBeneficioEscaneado" />
+          <ScalarProperty Name="playerIdCliente" ColumnName="playerIdCliente" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+          <ScalarProperty Name="fechaUltimaActualizacion" ColumnName="fechaUltimaActualizacion" />
+          <ScalarProperty Name="telefonoContacto" ColumnName="telefonoContacto" />
+          <ScalarProperty Name="fechaCita" ColumnName="fechaCita" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idCita" ColumnName="idCita" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clienteNotificaciones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.clienteNotificaciones">
+        <MappingFragment StoreEntitySet="clienteNotificaciones">
+          <ScalarProperty Name="rechaRevisado" ColumnName="rechaRevisado" />
+          <ScalarProperty Name="revisado" ColumnName="revisado" />
+          <ScalarProperty Name="fechaEnviado" ColumnName="fechaEnviado" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="notificacionId" ColumnName="notificacionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientes">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.clientes">
+        <MappingFragment StoreEntitySet="clientes">
+          <ScalarProperty Name="catAseguranzaId" ColumnName="catAseguranzaId" />
+          <ScalarProperty Name="catRangoEdadId" ColumnName="catRangoEdadId" />
+          <ScalarProperty Name="catTipoAutenficacionId" ColumnName="catTipoAutenficacionId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="facebookId" ColumnName="facebookId" />
+          <ScalarProperty Name="catColoniaId" ColumnName="catColoniaId" />
+          <ScalarProperty Name="catSexoId" ColumnName="catSexoId" />
+          <ScalarProperty Name="fechaCargaFoto" ColumnName="fechaCargaFoto" />
+          <ScalarProperty Name="urlFotoPerfil" ColumnName="urlFotoPerfil" />
+          <ScalarProperty Name="zonaMystique" ColumnName="zonaMystique" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="materno" ColumnName="materno" />
+          <ScalarProperty Name="paterno" ColumnName="paterno" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comentarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.comentarios">
+        <MappingFragment StoreEntitySet="comentarios">
+          <ScalarProperty Name="leido" ColumnName="leido" />
+          <ScalarProperty Name="importante" ColumnName="importante" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="catTipoComentarioId" ColumnName="catTipoComentarioId" />
+          <ScalarProperty Name="fromCliente" ColumnName="fromCliente" />
+          <ScalarProperty Name="fromComercio" ColumnName="fromComercio" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+          <ScalarProperty Name="idComentario" ColumnName="idComentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comercios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.comercios">
+        <MappingFragment StoreEntitySet="comercios">
+          <ScalarProperty Name="puntoVenta" ColumnName="puntoVenta" />
+          <ScalarProperty Name="anexoDoctorId" ColumnName="anexoDoctorId" />
+          <ScalarProperty Name="catTipoComercioId" ColumnName="catTipoComercioId" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="logoUrl" ColumnName="logoUrl" />
+          <ScalarProperty Name="paginaWeb" ColumnName="paginaWeb" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="catComercioGiroId" ColumnName="catComercioGiroId" />
+          <ScalarProperty Name="nombreComercial" ColumnName="nombreComercial" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="idComercio" ColumnName="idComercio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="confBeneficioSucursal">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.confBeneficioSucursal">
+        <MappingFragment StoreEntitySet="confBeneficioSucursal">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="idconfBeneficioSucursal" ColumnName="idconfBeneficioSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="confDatosFiscalesSucursal">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.confDatosFiscalesSucursal">
+        <MappingFragment StoreEntitySet="confDatosFiscalesSucursal">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="datoFiscalId" ColumnName="datoFiscalId" />
+          <ScalarProperty Name="idConfDatosFiscalesSucursal" ColumnName="idConfDatosFiscalesSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionCompras">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConfiguracionCompras">
+        <MappingFragment StoreEntitySet="ConfiguracionCompras">
+          <ScalarProperty Name="porcentajeDiferenciaEntreCompras" ColumnName="porcentajeDiferenciaEntreCompras" />
+          <ScalarProperty Name="idConfiguracionCompras" ColumnName="idConfiguracionCompras" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="configuracionSistema">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.configuracionSistema">
+        <MappingFragment StoreEntitySet="configuracionSistema">
+          <ScalarProperty Name="soporteLinea2Ingles" ColumnName="soporteLinea2Ingles" />
+          <ScalarProperty Name="soporteLinea1Ingles" ColumnName="soporteLinea1Ingles" />
+          <ScalarProperty Name="mostrarSucursales" ColumnName="mostrarSucursales" />
+          <ScalarProperty Name="mostrarComercios" ColumnName="mostrarComercios" />
+          <ScalarProperty Name="idQDC" ColumnName="idQDC" />
+          <ScalarProperty Name="contenidoCompartir" ColumnName="contenidoCompartir" />
+          <ScalarProperty Name="tituloCompartir" ColumnName="tituloCompartir" />
+          <ScalarProperty Name="intervaloZonaCS" ColumnName="intervaloZonaCS" />
+          <ScalarProperty Name="tiempoIntervalo" ColumnName="tiempoIntervalo" />
+          <ScalarProperty Name="tiempoProgramado" ColumnName="tiempoProgramado" />
+          <ScalarProperty Name="modoTiempo" ColumnName="modoTiempo" />
+          <ScalarProperty Name="tienePaginaPuntos" ColumnName="tienePaginaPuntos" />
+          <ScalarProperty Name="tienePaginaConekta" ColumnName="tienePaginaConekta" />
+          <ScalarProperty Name="tienePaginaVinculacion" ColumnName="tienePaginaVinculacion" />
+          <ScalarProperty Name="dedicadoAComercio" ColumnName="dedicadoAComercio" />
+          <ScalarProperty Name="vrlPublicacion" ColumnName="vrlPublicacion" />
+          <ScalarProperty Name="versioniOSTest" ColumnName="versioniOSTest" />
+          <ScalarProperty Name="versioniOS" ColumnName="versioniOS" />
+          <ScalarProperty Name="versionAndroidTest" ColumnName="versionAndroidTest" />
+          <ScalarProperty Name="versionAndroid" ColumnName="versionAndroid" />
+          <ScalarProperty Name="ftpPassword" ColumnName="ftpPassword" />
+          <ScalarProperty Name="ftpUser" ColumnName="ftpUser" />
+          <ScalarProperty Name="ftpPerfil" ColumnName="ftpPerfil" />
+          <ScalarProperty Name="fechaFinMembresia" ColumnName="fechaFinMembresia" />
+          <ScalarProperty Name="fechaInicioMembresia" ColumnName="fechaInicioMembresia" />
+          <ScalarProperty Name="conektaApiVersion" ColumnName="conektaApiVersion" />
+          <ScalarProperty Name="conektaPrivateKey" ColumnName="conektaPrivateKey" />
+          <ScalarProperty Name="conektaPublicKey" ColumnName="conektaPublicKey" />
+          <ScalarProperty Name="costoMembresia" ColumnName="costoMembresia" />
+          <ScalarProperty Name="txtSoporte" ColumnName="txtSoporte" />
+          <ScalarProperty Name="txtTerminosCondiciones" ColumnName="txtTerminosCondiciones" />
+          <ScalarProperty Name="txtSolicitarBeneficioAbajo" ColumnName="txtSolicitarBeneficioAbajo" />
+          <ScalarProperty Name="correoContacto" ColumnName="correoContacto" />
+          <ScalarProperty Name="telefonoContacto" ColumnName="telefonoContacto" />
+          <ScalarProperty Name="urlTerminosCondiciones" ColumnName="urlTerminosCondiciones" />
+          <ScalarProperty Name="txtVincularMembresiaApp" ColumnName="txtVincularMembresiaApp" />
+          <ScalarProperty Name="diasFechasFiltros" ColumnName="diasFechasFiltros" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="configuracionSistemaId" ColumnName="configuracionSistemaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="confProductoPVEquivalencia">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.confProductoPVEquivalencia">
+        <MappingFragment StoreEntitySet="confProductoPVEquivalencia">
+          <ScalarProperty Name="productoPuntoVentaId" ColumnName="productoPuntoVentaId" />
+          <ScalarProperty Name="catProductoId" ColumnName="catProductoId" />
+          <ScalarProperty Name="idConfProductoPVEquivalencia" ColumnName="idConfProductoPVEquivalencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="confSumaPuntos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.confSumaPuntos">
+        <MappingFragment StoreEntitySet="confSumaPuntos">
+          <ScalarProperty Name="porcentajeDescuento" ColumnName="porcentajeDescuento" />
+          <ScalarProperty Name="catTipoMembresiaId" ColumnName="catTipoMembresiaId" />
+          <ScalarProperty Name="equivalentePuntoPorDinero" ColumnName="equivalentePuntoPorDinero" />
+          <ScalarProperty Name="cantidadPunto" ColumnName="cantidadPunto" />
+          <ScalarProperty Name="diasValides" ColumnName="diasValides" />
+          <ScalarProperty Name="horaValides" ColumnName="horaValides" />
+          <ScalarProperty Name="montoCompraMinima" ColumnName="montoCompraMinima" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idConfSumaPunto" ColumnName="idConfSumaPunto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="confUsuarioComercio">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.confUsuarioComercio">
+        <MappingFragment StoreEntitySet="confUsuarioComercio">
+          <ScalarProperty Name="verCatalogos" ColumnName="verCatalogos" />
+          <ScalarProperty Name="verUsuarios" ColumnName="verUsuarios" />
+          <ScalarProperty Name="verFacturas" ColumnName="verFacturas" />
+          <ScalarProperty Name="verArqueo" ColumnName="verArqueo" />
+          <ScalarProperty Name="verComercioAfiliado" ColumnName="verComercioAfiliado" />
+          <ScalarProperty Name="verNotificaciones" ColumnName="verNotificaciones" />
+          <ScalarProperty Name="verComentarios" ColumnName="verComentarios" />
+          <ScalarProperty Name="verSoporte" ColumnName="verSoporte" />
+          <ScalarProperty Name="verReportes" ColumnName="verReportes" />
+          <ScalarProperty Name="permiso" ColumnName="permiso" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfUsuarioSucursales">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ConfUsuarioSucursales">
+        <MappingFragment StoreEntitySet="ConfUsuarioSucursales">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="idConfUsuarioSucursal" ColumnName="idConfUsuarioSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datosFiscales">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.datosFiscales">
+        <MappingFragment StoreEntitySet="datosFiscales">
+          <ScalarProperty Name="catRegimenFiscalId" ColumnName="catRegimenFiscalId" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="serieFactura" ColumnName="serieFactura" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="nombreFiscal" ColumnName="nombreFiscal" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idDatoFiscal" ColumnName="idDatoFiscal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datosReceptor">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.datosReceptor">
+        <MappingFragment StoreEntitySet="datosReceptor">
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="companiaNombreLegal" ColumnName="companiaNombreLegal" />
+          <ScalarProperty Name="idDatoReceptor" ColumnName="idDatoReceptor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalleTicketSucursal">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.detalleTicketSucursal">
+        <MappingFragment StoreEntitySet="detalleTicketSucursal">
+          <ScalarProperty Name="claveUnidad" ColumnName="claveUnidad" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+          <ScalarProperty Name="importeDetalle" ColumnName="importeDetalle" />
+          <ScalarProperty Name="ivaDetalle" ColumnName="ivaDetalle" />
+          <ScalarProperty Name="claveProdServ" ColumnName="claveProdServ" />
+          <ScalarProperty Name="idTicketSucursal" ColumnName="idTicketSucursal" />
+          <ScalarProperty Name="idDetalleTicketSucursal" ColumnName="idDetalleTicketSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="direccion">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.direccion">
+        <MappingFragment StoreEntitySet="direccion">
+          <ScalarProperty Name="entreCalles" ColumnName="entreCalles" />
+          <ScalarProperty Name="catEstadoId" ColumnName="catEstadoId" />
+          <ScalarProperty Name="catCiudadId" ColumnName="catCiudadId" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="numInterior" ColumnName="numInterior" />
+          <ScalarProperty Name="numExterior" ColumnName="numExterior" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="idDireccion" ColumnName="idDireccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorAseguranzas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.DoctorAseguranzas">
+        <MappingFragment StoreEntitySet="DoctorAseguranzas">
+          <ScalarProperty Name="catAseguranzaId" ColumnName="catAseguranzaId" />
+          <ScalarProperty Name="anexoDoctorId" ColumnName="anexoDoctorId" />
+          <ScalarProperty Name="idDoctorAseguranzas" ColumnName="idDoctorAseguranzas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresaBrandy">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.empresaBrandy">
+        <MappingFragment StoreEntitySet="empresaBrandy">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="logoUrl" ColumnName="logoUrl" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="idBrandy" ColumnName="idBrandy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresaContactos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.empresaContactos">
+        <MappingFragment StoreEntitySet="empresaContactos">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="puesto" ColumnName="puesto" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="idEmpresaContactos" ColumnName="idEmpresaContactos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresaKardex">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.empresaKardex">
+        <MappingFragment StoreEntitySet="empresaKardex">
+          <ScalarProperty Name="representanteLegalId" ColumnName="representanteLegalId" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="brandyId" ColumnName="brandyId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empresas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.empresas">
+        <MappingFragment StoreEntitySet="empresas">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="acronimo" ColumnName="acronimo" />
+          <ScalarProperty Name="guidEmpresa" ColumnName="guidEmpresa" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturaCliente">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.facturaCliente">
+        <MappingFragment StoreEntitySet="facturaCliente">
+          <ScalarProperty Name="originalFacturacion" ColumnName="originalFacturacion" />
+          <ScalarProperty Name="documentoTimbrado" ColumnName="documentoTimbrado" />
+          <ScalarProperty Name="cadenaOriginal" ColumnName="cadenaOriginal" />
+          <ScalarProperty Name="observacion" ColumnName="observacion" />
+          <ScalarProperty Name="archivoXmlRuta" ColumnName="archivoXmlRuta" />
+          <ScalarProperty Name="archivoPdfRuta" ColumnName="archivoPdfRuta" />
+          <ScalarProperty Name="catEstatusFacturaId" ColumnName="catEstatusFacturaId" />
+          <ScalarProperty Name="numeroFactura" ColumnName="numeroFactura" />
+          <ScalarProperty Name="datoFiscalId" ColumnName="datoFiscalId" />
+          <ScalarProperty Name="receptorClienteId" ColumnName="receptorClienteId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="ticketSucursalId" ColumnName="ticketSucursalId" />
+          <ScalarProperty Name="idFacturaClienteId" ColumnName="idFacturaClienteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facturaPendiente">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.facturaPendiente">
+        <MappingFragment StoreEntitySet="facturaPendiente">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="pendiente" ColumnName="pendiente" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="datoFiscalId" ColumnName="datoFiscalId" />
+          <ScalarProperty Name="receptorClienteId" ColumnName="receptorClienteId" />
+          <ScalarProperty Name="ticket" ColumnName="ticket" />
+          <ScalarProperty Name="idFacturaPendiente" ColumnName="idFacturaPendiente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historicoCancelacionRecompensas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.historicoCancelacionRecompensas">
+        <MappingFragment StoreEntitySet="historicoCancelacionRecompensas">
+          <ScalarProperty Name="fechaCancela" ColumnName="fechaCancela" />
+          <ScalarProperty Name="canjeId" ColumnName="canjeId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ImagenDoctor">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ImagenDoctor">
+        <MappingFragment StoreEntitySet="ImagenDoctor">
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="ruta" ColumnName="ruta" />
+          <ScalarProperty Name="idImagenDoctor" ColumnName="idImagenDoctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="login">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+          <ScalarProperty Name="playerId" ColumnName="playerId" />
+          <ScalarProperty Name="isCliente" ColumnName="isCliente" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="deviceConnectionType" ColumnName="deviceConnectionType" />
+          <ScalarProperty Name="deviceVersion" ColumnName="deviceVersion" />
+          <ScalarProperty Name="devicePlatform" ColumnName="devicePlatform" />
+          <ScalarProperty Name="deviceModel" ColumnName="deviceModel" />
+          <ScalarProperty Name="deviceId" ColumnName="deviceId" />
+          <ScalarProperty Name="sesionToken" ColumnName="sesionToken" />
+          <ScalarProperty Name="sesionActiva" ColumnName="sesionActiva" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="idLogin" ColumnName="idLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="membresias">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.membresias">
+        <MappingFragment StoreEntitySet="membresias">
+          <ScalarProperty Name="codigoBarra" ColumnName="codigoBarra" />
+          <ScalarProperty Name="codigoQR" ColumnName="codigoQR" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="isCompraDigital" ColumnName="isCompraDigital" />
+          <ScalarProperty Name="fechaVinculo" ColumnName="fechaVinculo" />
+          <ScalarProperty Name="guid" ColumnName="guid" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="folio" ColumnName="folio" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="catTipoMembresiaId" ColumnName="catTipoMembresiaId" />
+          <ScalarProperty Name="idMembresia" ColumnName="idMembresia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="movimientoPuntos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.movimientoPuntos">
+        <MappingFragment StoreEntitySet="movimientoPuntos">
+          <ScalarProperty Name="catEstatusAplicaPuntoId" ColumnName="catEstatusAplicaPuntoId" />
+          <ScalarProperty Name="codigoCompra" ColumnName="codigoCompra" />
+          <ScalarProperty Name="puntos" ColumnName="puntos" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="folioCompra" ColumnName="folioCompra" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="idMovimientoPuntos" ColumnName="idMovimientoPuntos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notificaciones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.notificaciones">
+        <MappingFragment StoreEntitySet="notificaciones">
+          <ScalarProperty Name="notificacionAutomatica" ColumnName="notificacionAutomatica" />
+          <ScalarProperty Name="tituloIngles" ColumnName="tituloIngles" />
+          <ScalarProperty Name="linea2ingles" ColumnName="linea2ingles" />
+          <ScalarProperty Name="linea2" ColumnName="linea2" />
+          <ScalarProperty Name="linea1ingles" ColumnName="linea1ingles" />
+          <ScalarProperty Name="linea1" ColumnName="linea1" />
+          <ScalarProperty Name="descripcionIngles" ColumnName="descripcionIngles" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="tipoNotificacion" ColumnName="tipoNotificacion" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="isBeneficio" ColumnName="isBeneficio" />
+          <ScalarProperty Name="usuarioRegistro" ColumnName="usuarioRegistro" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idNotificacion" ColumnName="idNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductoEstaConfigurado">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ProductoEstaConfigurado">
+        <MappingFragment StoreEntitySet="ProductoEstaConfigurado">
+          <ScalarProperty Name="estaConfigurado" ColumnName="estaConfigurado" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="idProductoEstaConfigurado" ColumnName="idProductoEstaConfigurado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductoTieneReceta">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ProductoTieneReceta">
+        <MappingFragment StoreEntitySet="ProductoTieneReceta">
+          <ScalarProperty Name="tieneReceta" ColumnName="tieneReceta" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="idProductoTieneReceta" ColumnName="idProductoTieneReceta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="receptorCliente">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.receptorCliente">
+        <MappingFragment StoreEntitySet="receptorCliente">
+          <ScalarProperty Name="catUsoCFDId" ColumnName="catUsoCFDId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="prederteminada" ColumnName="prederteminada" />
+          <ScalarProperty Name="datoReceptorId" ColumnName="datoReceptorId" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="idReceptorCliente" ColumnName="idReceptorCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="recompensas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.recompensas">
+        <MappingFragment StoreEntitySet="recompensas">
+          <ScalarProperty Name="consumirCanje" ColumnName="consumirCanje" />
+          <ScalarProperty Name="categoriaProductoId" ColumnName="categoriaProductoId" />
+          <ScalarProperty Name="catTipoMembresiaId" ColumnName="catTipoMembresiaId" />
+          <ScalarProperty Name="diasCanje" ColumnName="diasCanje" />
+          <ScalarProperty Name="horasCanje" ColumnName="horasCanje" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="catTipoRecompensaId" ColumnName="catTipoRecompensaId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="idRecompesa" ColumnName="idRecompesa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="representateLegal">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.representateLegal">
+        <MappingFragment StoreEntitySet="representateLegal">
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idRepresentante" ColumnName="idRepresentante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="saldoPuntos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.saldoPuntos">
+        <MappingFragment StoreEntitySet="saldoPuntos">
+          <ScalarProperty Name="visitasAnteriores" ColumnName="visitasAnteriores" />
+          <ScalarProperty Name="visitasActuales" ColumnName="visitasActuales" />
+          <ScalarProperty Name="puntosAnteriores" ColumnName="puntosAnteriores" />
+          <ScalarProperty Name="puntosActuales" ColumnName="puntosActuales" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SectoresNotificaciones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.SectoresNotificaciones">
+        <MappingFragment StoreEntitySet="SectoresNotificaciones">
+          <ScalarProperty Name="sectores" ColumnName="sectores" />
+          <ScalarProperty Name="notificacionId" ColumnName="notificacionId" />
+          <ScalarProperty Name="idSectorNotificaciones" ColumnName="idSectorNotificaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursales">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.sucursales">
+        <MappingFragment StoreEntitySet="sucursales">
+          <ScalarProperty Name="colorIndicador" ColumnName="colorIndicador" />
+          <ScalarProperty Name="instagram" ColumnName="instagram" />
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="catZonaId" ColumnName="catZonaId" />
+          <ScalarProperty Name="logoTickets" ColumnName="logoTickets" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="mensajeTicket" ColumnName="mensajeTicket" />
+          <ScalarProperty Name="sitioWeb" ColumnName="sitioWeb" />
+          <ScalarProperty Name="faceBook" ColumnName="faceBook" />
+          <ScalarProperty Name="costoEnvio" ColumnName="costoEnvio" />
+          <ScalarProperty Name="maxEfectivo" ColumnName="maxEfectivo" />
+          <ScalarProperty Name="datosFiscalesId" ColumnName="datosFiscalesId" />
+          <ScalarProperty Name="fechaActualizacion" ColumnName="fechaActualizacion" />
+          <ScalarProperty Name="usuarioActualizoId" ColumnName="usuarioActualizoId" />
+          <ScalarProperty Name="sucursalPuntoVenta" ColumnName="sucursalPuntoVenta" />
+          <ScalarProperty Name="radioZonaMystique" ColumnName="radioZonaMystique" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="placeId" ColumnName="placeId" />
+          <ScalarProperty Name="longitud" ColumnName="longitud" />
+          <ScalarProperty Name="latitud" ColumnName="latitud" />
+          <ScalarProperty Name="direccionId" ColumnName="direccionId" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sucursalHorarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.sucursalHorarios">
+        <MappingFragment StoreEntitySet="sucursalHorarios">
+          <ScalarProperty Name="dayOfWeek" ColumnName="dayOfWeek" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="horarioFin" ColumnName="horarioFin" />
+          <ScalarProperty Name="horarioInicio" ColumnName="horarioInicio" />
+          <ScalarProperty Name="diasNum" ColumnName="diasNum" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idSucursalHorario" ColumnName="idSucursalHorario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SucursalNotificaciones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.SucursalNotificaciones">
+        <MappingFragment StoreEntitySet="SucursalNotificaciones">
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="notificacionId" ColumnName="notificacionId" />
+          <ScalarProperty Name="idSucursalNotificacion" ColumnName="idSucursalNotificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ticketSucursal">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.ticketSucursal">
+        <MappingFragment StoreEntitySet="ticketSucursal">
+          <ScalarProperty Name="tipoCambio" ColumnName="tipoCambio" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="condicionesPago" ColumnName="condicionesPago" />
+          <ScalarProperty Name="folioFactura" ColumnName="folioFactura" />
+          <ScalarProperty Name="serieFactura" ColumnName="serieFactura" />
+          <ScalarProperty Name="lugarExpedicionFactura" ColumnName="lugarExpedicionFactura" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+          <ScalarProperty Name="catEstatusTicketId" ColumnName="catEstatusTicketId" />
+          <ScalarProperty Name="claveTipoComprobante" ColumnName="claveTipoComprobante" />
+          <ScalarProperty Name="claveFormaPago" ColumnName="claveFormaPago" />
+          <ScalarProperty Name="claveMetodoPago" ColumnName="claveMetodoPago" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="folio" ColumnName="folio" />
+          <ScalarProperty Name="idTicketSucursal" ColumnName="idTicketSucursal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trasladosImpuestosTicket">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.trasladosImpuestosTicket">
+        <MappingFragment StoreEntitySet="trasladosImpuestosTicket">
+          <ScalarProperty Name="claveImpuesto" ColumnName="claveImpuesto" />
+          <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+          <ScalarProperty Name="tasaImpuestos" ColumnName="tasaImpuestos" />
+          <ScalarProperty Name="idTicketSucursal" ColumnName="idTicketSucursal" />
+          <ScalarProperty Name="idTrasladosImpuestosTicket" ColumnName="idTrasladosImpuestosTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="usuarioRegistroId" ColumnName="usuarioRegistroId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="materno" ColumnName="materno" />
+          <ScalarProperty Name="paterno" ColumnName="paterno" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="aspNetUsersId" ColumnName="aspNetUsersId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wallet">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.wallet">
+        <MappingFragment StoreEntitySet="wallet">
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="beneficioId" ColumnName="beneficioId" />
+          <ScalarProperty Name="idWallet" ColumnName="idWallet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AggregatedCounter">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.AggregatedCounter">
+        <MappingFragment StoreEntitySet="AggregatedCounter">
+          <ScalarProperty Name="ExpireAt" ColumnName="ExpireAt" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Counter">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Counter">
+        <MappingFragment StoreEntitySet="Counter">
+          <ScalarProperty Name="ExpireAt" ColumnName="ExpireAt" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hash">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Hash">
+        <MappingFragment StoreEntitySet="Hash">
+          <ScalarProperty Name="ExpireAt" ColumnName="ExpireAt" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Job">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Job">
+        <MappingFragment StoreEntitySet="Job">
+          <ScalarProperty Name="ExpireAt" ColumnName="ExpireAt" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Arguments" ColumnName="Arguments" />
+          <ScalarProperty Name="InvocationData" ColumnName="InvocationData" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobParameter">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.JobParameter">
+        <MappingFragment StoreEntitySet="JobParameter">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobQueue">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.JobQueue">
+        <MappingFragment StoreEntitySet="JobQueue">
+          <ScalarProperty Name="FetchedAt" ColumnName="FetchedAt" />
+          <ScalarProperty Name="Queue" ColumnName="Queue" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="List">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.List">
+        <MappingFragment StoreEntitySet="List">
+          <ScalarProperty Name="ExpireAt" ColumnName="ExpireAt" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schema">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Schema">
+        <MappingFragment StoreEntitySet="Schema">
+          <ScalarProperty Name="Version" ColumnName="Version" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Server">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Server">
+        <MappingFragment StoreEntitySet="Server">
+          <ScalarProperty Name="LastHeartbeat" ColumnName="LastHeartbeat" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Set">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Set">
+        <MappingFragment StoreEntitySet="Set">
+          <ScalarProperty Name="ExpireAt" ColumnName="ExpireAt" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="State">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articulos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.Articulos">
+        <MappingFragment StoreEntitySet="Articulos">
+          <ScalarProperty Name="estatusId" ColumnName="estatusId" />
+          <ScalarProperty Name="ieps" ColumnName="ieps" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="margenUtilidad" ColumnName="margenUtilidad" />
+          <ScalarProperty Name="precioConImpuesto" ColumnName="precioConImpuesto" />
+          <ScalarProperty Name="precioSinImpuesto" ColumnName="precioSinImpuesto" />
+          <ScalarProperty Name="costoConImpuesto" ColumnName="costoConImpuesto" />
+          <ScalarProperty Name="costoSinImpuesto" ColumnName="costoSinImpuesto" />
+          <ScalarProperty Name="claveSat" ColumnName="claveSat" />
+          <ScalarProperty Name="hasReceta" ColumnName="hasReceta" />
+          <ScalarProperty Name="isAlmacenable" ColumnName="isAlmacenable" />
+          <ScalarProperty Name="contenidoUnidadCompra" ColumnName="contenidoUnidadCompra" />
+          <ScalarProperty Name="unidadCompraId" ColumnName="unidadCompraId" />
+          <ScalarProperty Name="unidadMedidaId" ColumnName="unidadMedidaId" />
+          <ScalarProperty Name="proveedorId" ColumnName="proveedorId" />
+          <ScalarProperty Name="catSubcategoriaId" ColumnName="catSubcategoriaId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="sku" ColumnName="sku" />
+          <ScalarProperty Name="codigoBarra" ColumnName="codigoBarra" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idArticulo" ColumnName="idArticulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatCategoriaArticulos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatCategoriaArticulos">
+        <MappingFragment StoreEntitySet="CatCategoriaArticulos">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatCategoriaArticulos" ColumnName="idCatCategoriaArticulos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatSubCategoriaArticulos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.CatSubCategoriaArticulos">
+        <MappingFragment StoreEntitySet="CatSubCategoriaArticulos">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="catCategoriaArticulosId" ColumnName="catCategoriaArticulosId" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idCatSubCategoriaArticulos" ColumnName="idCatSubCategoriaArticulos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraDoctor">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.BitacoraDoctor">
+        <MappingFragment StoreEntitySet="BitacoraDoctor">
+          <ScalarProperty Name="anexoDoctorId" ColumnName="anexoDoctorId" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="idBitacoraDoctor" ColumnName="idBitacoraDoctor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_PV_Listado_Ventas">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_PV_Listado_Ventas">
+        <MappingFragment StoreEntitySet="VW_PV_Listado_Ventas">
+          <ScalarProperty Name="importeOriginal" ColumnName="importeOriginal" />
+          <ScalarProperty Name="estaCancelado" ColumnName="estaCancelado" />
+          <ScalarProperty Name="aplicaCxc" ColumnName="aplicaCxc" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tipoPagoId" ColumnName="tipoPagoId" />
+          <ScalarProperty Name="fechaCobro" ColumnName="fechaCobro" />
+          <ScalarProperty Name="idVenta" ColumnName="idVenta" />
+          <ScalarProperty Name="usuarioConsume" ColumnName="usuarioConsume" />
+          <ScalarProperty Name="banco" ColumnName="banco" />
+          <ScalarProperty Name="ImporteTipoPago" ColumnName="ImporteTipoPago" />
+          <ScalarProperty Name="tipoPago" ColumnName="tipoPago" />
+          <ScalarProperty Name="fechaCancelacion" ColumnName="fechaCancelacion" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="facturado" ColumnName="facturado" />
+          <ScalarProperty Name="ticketIdSucursal" ColumnName="ticketIdSucursal" />
+          <ScalarProperty Name="pedidoId" ColumnName="pedidoId" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+          <ScalarProperty Name="fechaInicial" ColumnName="fechaInicial" />
+          <ScalarProperty Name="fechaRegistroApertura" ColumnName="fechaRegistroApertura" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="aperturaIdSucursal" ColumnName="aperturaIdSucursal" />
+          <ScalarProperty Name="idApertura" ColumnName="idApertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_PV_Ticket_Pedido_Productos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_PV_Ticket_Pedido_Productos">
+        <MappingFragment StoreEntitySet="VW_PV_Ticket_Pedido_Productos">
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="estaCancelado" ColumnName="estaCancelado" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idCategoriaProducto" ColumnName="idCategoriaProducto" />
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechaCobro" ColumnName="fechaCobro" />
+          <ScalarProperty Name="folioTicket" ColumnName="folioTicket" />
+          <ScalarProperty Name="numeroTicket" ColumnName="numeroTicket" />
+          <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_PV_Ticket_Pedido_Productos_Combos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_PV_Ticket_Pedido_Productos_Combos">
+        <MappingFragment StoreEntitySet="VW_PV_Ticket_Pedido_Productos_Combos">
+          <ScalarProperty Name="estaCancelado" ColumnName="estaCancelado" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="sucursalId" ColumnName="sucursalId" />
+          <ScalarProperty Name="idCategoriaProducto" ColumnName="idCategoriaProducto" />
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="fechaCobro" ColumnName="fechaCobro" />
+          <ScalarProperty Name="folioTicket" ColumnName="folioTicket" />
+          <ScalarProperty Name="numeroTicket" ColumnName="numeroTicket" />
+          <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ClientesEdadesPorRango">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_ClientesEdadesPorRango">
+        <MappingFragment StoreEntitySet="VW_ClientesEdadesPorRango">
+          <ScalarProperty Name="Indice" ColumnName="Indice" />
+          <ScalarProperty Name="RangoEdad" ColumnName="RangoEdad" />
+          <ScalarProperty Name="EmpresaId" ColumnName="EmpresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ObtenerClientesConMembresia">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_ObtenerClientesConMembresia">
+        <MappingFragment StoreEntitySet="VW_ObtenerClientesConMembresia">
+          <ScalarProperty Name="BeneficiosAplicados" ColumnName="BeneficiosAplicados" />
+          <ScalarProperty Name="SumaCanjeados" ColumnName="SumaCanjeados" />
+          <ScalarProperty Name="SumaCompras" ColumnName="SumaCompras" />
+          <ScalarProperty Name="PuntosActuales" ColumnName="PuntosActuales" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="IdMembresia" ColumnName="IdMembresia" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ObtenerConfiguracionPuntosComercio">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_ObtenerConfiguracionPuntosComercio">
+        <MappingFragment StoreEntitySet="VW_ObtenerConfiguracionPuntosComercio">
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+          <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+          <ScalarProperty Name="cantidadPunto" ColumnName="cantidadPunto" />
+          <ScalarProperty Name="equivalentePuntoPorDinero" ColumnName="equivalentePuntoPorDinero" />
+          <ScalarProperty Name="catTipoMembresiaId" ColumnName="catTipoMembresiaId" />
+          <ScalarProperty Name="diasValides" ColumnName="diasValides" />
+          <ScalarProperty Name="horaValides" ColumnName="horaValides" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="montoCompraMinima" ColumnName="montoCompraMinima" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ObtenerListadoCupones">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_ObtenerListadoCupones">
+        <MappingFragment StoreEntitySet="VW_ObtenerListadoCupones">
+          <ScalarProperty Name="minutosRestantes" ColumnName="minutosRestantes" />
+          <ScalarProperty Name="horasRestantes" ColumnName="horasRestantes" />
+          <ScalarProperty Name="diasRestantes" ColumnName="diasRestantes" />
+          <ScalarProperty Name="fechaFinCanje" ColumnName="fechaFinCanje" />
+          <ScalarProperty Name="folioCanje" ColumnName="folioCanje" />
+          <ScalarProperty Name="productoPuntoVentaId" ColumnName="productoPuntoVentaId" />
+          <ScalarProperty Name="estatusCanje" ColumnName="estatusCanje" />
+          <ScalarProperty Name="catEstatusCanjePuntoId" ColumnName="catEstatusCanjePuntoId" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="productoId" ColumnName="productoId" />
+          <ScalarProperty Name="recompensaId" ColumnName="recompensaId" />
+          <ScalarProperty Name="membresiaId" ColumnName="membresiaId" />
+          <ScalarProperty Name="idCanjePunto" ColumnName="idCanjePunto" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ObtenerRecompensasPorProductos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_ObtenerRecompensasPorProductos">
+        <MappingFragment StoreEntitySet="VW_ObtenerRecompensasPorProductos">
+          <ScalarProperty Name="fechaFin" ColumnName="fechaFin" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idCatProducto" ColumnName="idCatProducto" />
+          <ScalarProperty Name="descripcionProducto" ColumnName="descripcionProducto" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="catTipoRecompensaId" ColumnName="catTipoRecompensaId" />
+          <ScalarProperty Name="catTipoMembresiaId" ColumnName="catTipoMembresiaId" />
+          <ScalarProperty Name="diasCanje" ColumnName="diasCanje" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idRecompesa" ColumnName="idRecompesa" />
+          <ScalarProperty Name="comercioId" ColumnName="comercioId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_ObtenerUsuarios">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_ObtenerUsuarios">
+        <MappingFragment StoreEntitySet="VW_ObtenerUsuarios">
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="materno" ColumnName="materno" />
+          <ScalarProperty Name="paterno" ColumnName="paterno" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_Permisos">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_Permisos">
+        <MappingFragment StoreEntitySet="VW_Permisos">
+          <ScalarProperty Name="aspNetRoleId" ColumnName="aspNetRoleId" />
+          <ScalarProperty Name="aspNetUserId" ColumnName="aspNetUserId" />
+          <ScalarProperty Name="nombreRol" ColumnName="nombreRol" />
+          <ScalarProperty Name="accion" ColumnName="accion" />
+          <ScalarProperty Name="controlador" ColumnName="controlador" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_REPORTE_MACHOTE">
+      <EntityTypeMapping TypeName="MystiqueMeDevModel.VW_REPORTE_MACHOTE">
+        <MappingFragment StoreEntitySet="VW_REPORTE_MACHOTE">
+          <ScalarProperty Name="ImporteTotalProducto" ColumnName="ImporteTotalProducto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+          <ScalarProperty Name="Producto" ColumnName="Producto" />
+          <ScalarProperty Name="Familia" ColumnName="Familia" />
+          <ScalarProperty Name="ImporteTotalTicket" ColumnName="ImporteTotalTicket" />
+          <ScalarProperty Name="TipoPagoImporte" ColumnName="TipoPagoImporte" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="TipoPedido" ColumnName="TipoPedido" />
+          <ScalarProperty Name="UsuarioRegistro" ColumnName="UsuarioRegistro" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Folio" ColumnName="Folio" />
+          <ScalarProperty Name="idTicket" ColumnName="idTicket" />
+          <ScalarProperty Name="idApertura" ColumnName="idApertura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="MystiqueMeDevModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

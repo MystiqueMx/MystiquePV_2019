@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MystiqueMC</RootNamespace>
     <AssemblyName>MystiqueMC</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -30,6 +30,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,9 +57,8 @@
     <Reference Include="HtmlSanitizer, Version=3.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlSanitizer.4.0.185\lib\net45\HtmlSanitizer.dll</HintPath>
     </Reference>
-    <Reference Include="Humanizer, Version=2.5.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Humanizer.Core.2.5.16\lib\netstandard2.0\Humanizer.dll</HintPath>
+    <Reference Include="Humanizer, Version=2.14.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.Core.2.14.1\lib\netstandard2.0\Humanizer.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
@@ -94,24 +94,25 @@
     <Reference Include="Microsoft.Diagnostics.Tracing.EventSource, Version=1.1.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Diagnostics.Tracing.EventSource.Redist.1.1.28\lib\net46\Microsoft.Diagnostics.Tracing.EventSource.dll</HintPath>
     </Reference>
+    <Reference Include="netstandard" />
     <Reference Include="RabbitMQ.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
       <HintPath>..\packages\RabbitMQ.Client.5.1.0\lib\net451\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -153,6 +154,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -213,12 +215,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\1IdentityConfig.cs" />
+    <Compile Include="App_Start\2IdentityConfig.cs" />
+    <Compile Include="App_Start\3IdentityConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Agrupador.cs" />
     <Compile Include="Controllers\AnexoDoctorController.cs" />
     <Compile Include="Controllers\AreaPreparacionController.cs" />
     <Compile Include="Controllers\ArqueosController.cs" />
@@ -251,11 +256,14 @@
     <Compile Include="Controllers\GastosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsumosController.cs" />
+    <Compile Include="Controllers\InsumosVisibles.cs" />
     <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\InventariosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\NotificacionesController.cs" />
+    <Compile Include="Controllers\OpcionAgrupador.cs" />
+    <Compile Include="Controllers\PreciosSucursalesViewModel.cs" />
     <Compile Include="Controllers\ProcesadosController.cs" />
     <Compile Include="Controllers\ProductosController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
@@ -270,6 +278,7 @@
     <Compile Include="Controllers\TipoPagosController.cs" />
     <Compile Include="Controllers\UnidadMedidaController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
+    <Compile Include="Controllers\VariedadesViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -278,6 +287,7 @@
     <Compile Include="Helpers\ControlInventario.cs" />
     <Compile Include="Helpers\DataAnnotation\RequiredIfAttribute.cs" />
     <Compile Include="Helpers\DataAnnotation\RequiredIfEmptyAttribute.cs" />
+    <Compile Include="Helpers\DataAnnotation\RequiredIfIntEqualsAttribute.cs" />
     <Compile Include="Helpers\Dates\DateTimeExtensions.cs" />
     <Compile Include="Helpers\Emails\SendEmailDelegate.cs" />
     <Compile Include="Helpers\Files\FilesHelper.cs" />
@@ -296,6 +306,7 @@
     <Compile Include="Helpers\OneSignal\SendNotificationDelegate.cs" />
     <Compile Include="Helpers\Pagination\IPaginatedLIst.cs" />
     <Compile Include="Helpers\Pagination\PaginatedListImpl.cs" />
+    <Compile Include="Helpers\Permissions\AlertStyles.cs" />
     <Compile Include="Helpers\Permissions\ValidatePermissionsAttribute.cs" />
     <Compile Include="Helpers\Permissions\PermissionsDelegate.cs" />
     <Compile Include="Helpers\Permissions\RolesConfiguration.cs" />
@@ -303,18 +314,50 @@
     <Compile Include="Helpers\SessionExtensions.cs" />
     <Compile Include="Helpers\SMS\Modelos\Sms.cs" />
     <Compile Include="Helpers\SMS\SendSmsDelegate.cs" />
+    <Compile Include="Models\1AccountViewModels.cs" />
+    <Compile Include="Models\1IdentityModels.cs" />
+    <Compile Include="Models\1ManageViewModels.cs" />
+    <Compile Include="Models\2AccountViewModels.cs" />
+    <Compile Include="Models\2ManageViewModels.cs" />
+    <Compile Include="Models\3AccountViewModels.cs" />
+    <Compile Include="Models\3ManageViewModels.cs" />
+    <Compile Include="Models\4AccountViewModels.cs" />
+    <Compile Include="Models\4ManageViewModels.cs" />
+    <Compile Include="Models\5AccountViewModels.cs" />
+    <Compile Include="Models\5ManageViewModels.cs" />
+    <Compile Include="Models\6AccountViewModels.cs" />
+    <Compile Include="Models\6ManageViewModels.cs" />
+    <Compile Include="Models\7AccountViewModels.cs" />
+    <Compile Include="Models\7ManageViewModels.cs" />
+    <Compile Include="Models\8AccountViewModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Compras\ComprasIndexViewModel.cs" />
+    <Compile Include="Models\Compras\EstatusCompras.cs" />
+    <Compile Include="Models\Compras\JSON\DetalleCompraJson.cs" />
     <Compile Include="Models\Compras\JSON\DetalleCompraViewModel.cs" />
+    <Compile Include="Models\Compras\JSON\DetalleRegistroCompra.cs" />
     <Compile Include="Models\Compras\JSON\RegistroCompraViewModel.cs" />
     <Compile Include="Models\ControlInventariosResponse.cs" />
+    <Compile Include="Models\Gastos\1GastosVMs.cs" />
+    <Compile Include="Models\Gastos\2GastosVMs.cs" />
+    <Compile Include="Models\Gastos\3GastosVMs.cs" />
+    <Compile Include="Models\Gastos\4GastosVMs.cs" />
+    <Compile Include="Models\Gastos\5GastosVMs.cs" />
+    <Compile Include="Models\Gastos\6GastosVMs.cs" />
     <Compile Include="Models\Gastos\GastosVMs.cs" />
+    <Compile Include="Models\Graficas\Dataset.cs" />
+    <Compile Include="Models\Graficas\DatasetLines.cs" />
+    <Compile Include="Models\Graficas\GraficaLines.cs" />
+    <Compile Include="Models\Graficas\GraficaVentas.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\EstatusCanjePuntos.cs" />
     <Compile Include="Models\ClientesViewModel.cs" />
     <Compile Include="Models\EstatusCargaCompras.cs" />
     <Compile Include="Models\Graficas\Grafica.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Json\BaseJsonResult.cs" />
+    <Compile Include="Models\Json\ItemListadoInsumos.cs" />
+    <Compile Include="Models\Json\ItemNotificaciones.cs" />
     <Compile Include="Models\Json\ListadoInsumos.cs" />
     <Compile Include="Models\Json\Notificaciones.cs" />
     <Compile Include="Models\Json\Ordenamiento.cs" />
@@ -323,19 +366,34 @@
     <Compile Include="Models\NotificacionesViewModel.cs" />
     <Compile Include="Models\Ordenamiento.cs" />
     <Compile Include="Models\Productos\Requests\AgrupadorNuevo.cs" />
+    <Compile Include="Models\Productos\ViewModels\Agrupador.cs" />
     <Compile Include="Models\Productos\ViewModels\ConfigurarProductoViewModel.cs" />
     <Compile Include="Models\Productos\ViewModels\KardexProductoViewModel.cs" />
+    <Compile Include="Models\Productos\ViewModels\OpcionAgrupador.cs" />
     <Compile Include="Models\Productos\ViewModels\ProductosViewModel.cs" />
+    <Compile Include="Models\Productos\ViewModels\VariedadesViewModel.cs" />
     <Compile Include="Models\RangoFechas.cs" />
+    <Compile Include="Models\Recetas\ViewModels\Procesado.cs" />
+    <Compile Include="Models\Recetas\ViewModels\Receta.cs" />
     <Compile Include="Models\Recetas\ViewModels\RecetasViewModel.cs" />
     <Compile Include="Models\ReporteRecetaConteoManual.cs" />
+    <Compile Include="Models\ReporteRecetaConteoManualDetalle.cs" />
     <Compile Include="Models\ReporteVentascs.cs" />
     <Compile Include="Models\ReporteVentasViewModel.cs" />
+    <Compile Include="Models\ReporteVentasxHoraViewModel.cs" />
+    <Compile Include="Models\ReporteVentasxHoraViewModel2.cs" />
     <Compile Include="Models\Responses\ErrorCodeResponseBase.cs" />
+    <Compile Include="Models\Responses\ErrorObjCodeResponseBase.cs" />
+    <Compile Include="Models\Responses\ResponseTypes.cs" />
+    <Compile Include="Models\Resumen.cs" />
+    <Compile Include="Models\Rubros\1RubrosVM.cs" />
+    <Compile Include="Models\Rubros\2RubrosVM.cs" />
     <Compile Include="Models\Rubros\RubrosVM.cs" />
     <Compile Include="Models\Sucursal\DatosFacturacionViewModel.cs" />
+    <Compile Include="Models\Sucursal\EstatusDatosFiscales.cs" />
+    <Compile Include="Models\Sucursal\EstatusModel.cs" />
     <Compile Include="Models\Sucursal\SucursalViewModel.cs" />
-    <Compile Include="Models\Sucursal\Views\EstatusDatosFiscales.cs" />
+    <Compile Include="Models\TiposMovimientosInventario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -929,21 +987,13 @@
     <Content Include="Views\CatConceptosGastos\Delete.cshtml" />
     <Content Include="Views\CatConceptosGastos\Edit.cshtml" />
     <Content Include="Views\CatConceptosGastos\Index.cshtml" />
-    <Content Include="Views\Gastos\Create.cshtml" />
-    <Content Include="Views\Gastos\Delete.cshtml" />
-    <Content Include="Views\Gastos\Edit.cshtml" />
-    <Content Include="Views\Gastos\Index.cshtml" />
-    <Content Include="Views\Gastos\IndexValidar.cshtml" />
-    <Content Include="Views\Gastos\IndexValidarDetalle.cshtml" />
     <Content Include="Views\Shared\_GenericModal.cshtml" />
     <Content Include="Views\Shared\_GenericModal_lg.cshtml" />
     <Content Include="Views\Shared\_GenericModal_sm.cshtml" />
-    <Content Include="Views\Gastos\_ModalValidarDetalle.cshtml" />
     <Content Include="Views\CatRubros\ModalActivarRubro.cshtml" />
     <Content Include="Views\CatRubros\ModalInactivarRubro.cshtml" />
     <Content Include="Views\CatRubros\_Egresos.cshtml" />
     <Content Include="Views\CatRubros\_ModalCreateConcepto.cshtml" />
-    <Content Include="Views\Gastos\ValidarDetalle.cshtml" />
     <Content Include="Views\CatRubros\_Conceptos.cshtml" />
     <Content Include="Views\CatRubros\_ModalEditConcepto.cshtml" />
     <Content Include="Views\ReportesMed\ReporteCitas.cshtml" />
@@ -959,6 +1009,10 @@
     <Content Include="Views\Menu\Modales\ModalActivoSucursal.cshtml" />
     <Content Include="Views\Menu\Modales\ModalInactivoSucursal.cshtml" />
     <Content Include="Views\Inventarios\SeleccionSucursal.cshtml" />
+    <Content Include="Views\Gastos\Create.cshtml" />
+    <Content Include="Views\Gastos\Delete.cshtml" />
+    <Content Include="Views\Gastos\Edit.cshtml" />
+    <Content Include="Views\Gastos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

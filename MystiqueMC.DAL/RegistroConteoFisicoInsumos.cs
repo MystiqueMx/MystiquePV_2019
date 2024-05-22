@@ -28,7 +28,7 @@ namespace MystiqueMC.DAL
         public virtual ConteoFisicoAgrupadorInsumos ConteoFisicoAgrupadorInsumos { get; set; }
         public virtual ConteoFisicoInsumos ConteoFisicoInsumos { get; set; }
         public virtual ConteoFisicoTipoRegistro ConteoFisicoTipoRegistro { get; set; }
-        public virtual usuarios usuarios { get; set; }
         public virtual sucursales sucursales { get; set; }
+        public virtual usuarios usuarios { get; set; }
     }
 }

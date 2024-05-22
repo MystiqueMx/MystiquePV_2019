@@ -21,8 +21,8 @@ namespace MystiqueMC.DAL
         public bool revisado { get; set; }
         public Nullable<System.DateTime> rechaRevisado { get; set; }
     
+        public virtual clientes clientes { get; set; }
         public virtual empresas empresas { get; set; }
         public virtual notificaciones notificaciones { get; set; }
-        public virtual clientes clientes { get; set; }
     }
 }

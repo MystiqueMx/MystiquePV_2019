@@ -1,4 +1,15 @@
-﻿using System;
+﻿
+
+
+
+
+
+
+
+
+
+
+using System;
 using System.Configuration;
 using System.Data.Entity;
 using System.Globalization;
@@ -17,17 +28,31 @@ using MystiqueMC.Helpers;
 using MystiqueMC.Helpers.Emails;
 using MystiqueMC.Helpers.Permissions;
 using MystiqueMC.Models;
-
 namespace MystiqueMC.Controllers
 {
-    public class AutentificacionController : BaseController
+    public class AutentificacionController : BaseController  											   
     {
         #region GET
-        public ActionResult Login(string returnUrl)
+        public ActionResult Login(string returnUrl)																																																																			   
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
         public ActionResult ValidarEmail(string Email)
         {
             ApplicationUserManager userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -37,15 +62,19 @@ namespace MystiqueMC.Controllers
 
             return new HttpNotFoundResult();
         }
+	    
         public ActionResult ForgotPassword() => View();
         [AllowAnonymous]
         public ActionResult ResetPassword(string code) => code == null ? View("Error") : View();
-        #endregion
+       
+	   #endregion
+		
         #region POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel model, string returnUrl)
-        {
+        
+		{
             try
             {
                 if (!ModelState.IsValid)
@@ -55,7 +84,6 @@ namespace MystiqueMC.Controllers
 
                 var userManager = Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signInManager = Request.GetOwinContext().Get<ApplicationSignInManager>();
-
                 var result = signInManager.PasswordSignIn(model.Email, model.Password, model.RememberMe, shouldLockout: false);
                 switch (result)
                 {
@@ -68,7 +96,6 @@ namespace MystiqueMC.Controllers
                             GuardarUsuarioEnSesion(usuarioFirmado, userManager);
                             //if (usuarioFirmado.empresaId)
                             //{
-
                             //}
                             return RedirectToLocal(returnUrl);
                         }
@@ -79,20 +106,25 @@ namespace MystiqueMC.Controllers
                             return View(model);
                         }
                     case SignInStatus.LockedOut:
-                        return View("Lockout");
+                        return View("Lockout");		 
                     case SignInStatus.RequiresVerification:
                         return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, model.RememberMe });
                     default:
-                        ModelState.AddModelError("", "Intento de inicio de sesión inválido.");
+                        ModelState.AddModelError("", "Intento de inicio de sesión inválido.");			 																	   
                         return View(model);
                 }
             }
-            catch (Exception e)
+			
+			
+			
+			
+			
+            catch (Exception e)																				
             {
                 Logger.Error(e);
                 ShowAlertException("");
                 return RedirectToLocal(returnUrl);
-            }
+            }															
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -101,7 +133,6 @@ namespace MystiqueMC.Controllers
             try
             {
                 if (!ModelState.IsValid) return View("ForgotPassword");
-
                 var _userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var user = _userManager.FindByEmail(model.Email);
                 if (user == null)
@@ -176,7 +207,9 @@ namespace MystiqueMC.Controllers
             ShowAlertDanger(result.Errors.First());
             return View();
         }
+		
         #endregion
+		
         #region HELPERS
         private ActionResult RedirectToLocal(string returnUrl)
         {
@@ -239,6 +272,6 @@ namespace MystiqueMC.Controllers
             Session.GuardarRol(Rol);
             Session.GuardarPermisos(PermisosDefault);
         }
-        #endregion
-    }
+        #endregion									 
+    }   
 }

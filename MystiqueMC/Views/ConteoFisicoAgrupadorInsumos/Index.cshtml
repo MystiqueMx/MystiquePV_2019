@@ -1,0 +1,167 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model IEnumerable<MystiqueMC.DAL.ConteoFisicoAgrupadorInsumos>
+
+@{
+    ViewBag.Title = "Index";
+    string order = ViewBag.SearchOrden as string;
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Agrupador Insumos</h2>
+    </div>
+</div><br />
+<div>
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent"><b>Estatus</b></span>
+                <select class="form-control input-sm" id="sel1" aria-describedby="basic-addon1" name="SearchOrden">
+                    <option @(order == "true" ? "selected=\"selected\"" : "") value="true">Activo</option>
+                    <option @(order == "false" ? "selected=\"selected\"" : "") value="false">Inactivo</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md">
+            <button style="width:3%" class="btn btn-primary" type="submit" id="btnBuscar"><i class="fa fa-search"></i></button>
+        </div>
+    }
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <input id="url-eliminar-insumo" type="hidden" value="@Url.Action("EliminarAgrupador")"/>
+
+                    <a class="btn btn-link col-lg-7" href="@Url.Action("Create")" style="float:right;width:7.333333%">
+                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                        <b>Agregar</b>
+                    </a>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Agrupador</th>
+                                <th>Período de Captura</th>
+                                <th class="text-left">Día de Conteo</th>
+                                <th class="text-center">Unidad de conteo</th>
+                                <th colspan="2" class="text-center">Equivale a</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row-@item.idConteoFisicoAgrupadorInsumos">
+                                    <td><a class="btn-detalle" href="@Url.Action("Details", new {id = item.idConteoFisicoAgrupadorInsumos})">@item.descripcion</a></td>
+                                    <td class="text-left">@item.ConteoFisicoPeriodoCaptura.descripcion</td>
+                                    <td class="text-left">
+                                        @{
+                                            var dia = new DateTime(2018, 07, item.diaConteo).ToString("dddd");
+                                            @dia
+                                        }
+                                    </td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.Insumos.UnidadMedida1.descripcion)</td>
+                                    <td class="text-right">
+                                        @if (item.Insumos.equivalencia.HasValue)
+                                        {
+                                            @:   @item.Insumos.equivalencia.Value.ToString("N2")
+                                        }
+                                    </td>
+                                    <td class="text-left">@item.Insumos.UnidadMedida.descripcion</td>
+                                    <td class="text-right">
+                                        <a href="@Url.Action("Edit", new {id = item.idConteoFisicoAgrupadorInsumos})" style="margin-right:15pt" class="href-gray m-r-sm" data-tippy="Editar"><img src="~/Content/img/editar.png" /></a>
+                                        @if (item.activo)
+                                        {
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-inactivar-agrupador" data-id="@item.idConteoFisicoAgrupadorInsumos" data-descripcion="@item.descripcion">
+                                                <img src="~/Content/Images/on.png" style="width: 30px;">
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <a id="eliminarInsumo" data-id="@item.idConteoFisicoAgrupadorInsumos" style="margin-right:15pt" class="href-gray m-r-sm delete-insumo-agrupador" data-tippy="Eliminar">
+                                                <img src="~/Content/img/borrar.png" />
+                                            </a>
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modal-activar-agrupador" data-id="@item.idConteoFisicoAgrupadorInsumos" data-descripcion="@item.descripcion">
+                                                <img src="~/Content/Images/off.png" style="width: 30px;">
+                                            </button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10" style="padding:0pt">
+                    @Html.ActionLink("Regresar", "Menu", "Insumos", null, new { @class = "btn btn-white" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/ConteoFisicoAgrupadorInsumos/ModalActivarAgrupador.cshtml")
+@Html.Partial("~/Views/ConteoFisicoAgrupadorInsumos/ModalInactivarAgrupador.cshtml")
+@section Scripts{
+    @Scripts.Render("~/plugins/dataTables")
+    <script src="~/Scripts/app/AgrupadorInsumo/Agrupador.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.table').dataTable({
+                "dom": 'T<"clear">lrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "pageLength": 100,
+                "language": {
+                    "search": "Buscar ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    <style>
+        .btn-detalle {
+            text-decoration-line: underline;
+            color: #676a6c;
+        }
+    </style>
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: initial;
+        }
+    </style>
+}
+

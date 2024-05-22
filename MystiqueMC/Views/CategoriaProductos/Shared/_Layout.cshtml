@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script defer src="~/Content/js/fontawesome-all.js"></script>
+    <title>Plataforma | @ViewBag.Title</title>
+    <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Content/plugins/PivotTable/pivot.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+    <link href="~/Content/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="~/Content/build.css" rel="stylesheet" />
+    <link href="~/Content/timePicker.css" rel="stylesheet" />
+    <link href="~/Content/plugins/waitMe/waitMe.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-toggle.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-toggle.min.css" rel="stylesheet" />
+    @*@Styles.Render("~/plugins/jasnyBootstrapStyles")*@
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    <!-- Wrapper-->
+    <div id="wrapper">
+        @*<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>*@
+        <!-- Navigation -->
+        @Html.Partial("_Navigation")
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg">
+
+            <!-- Top Navbar -->
+            @Html.Partial("_TopNavbar")
+
+            <!-- Alert view  -->
+            @Html.Partial("_Alerts")
+
+            <!-- Main view  -->
+            @RenderBody()
+
+            <!--Start GenericModals-->
+            @Html.Partial("_GenericModal_sm")
+            @Html.Partial("_GenericModal")
+            @Html.Partial("_GenericModal_lg")
+            <!--End GenericModals-->
+
+        </div>
+        <!-- End page wrapper-->
+
+    </div>
+    <!-- End wrapper-->
+
+    @Scripts.Render("~/bundles/inspinia")
+    @Scripts.Render("~/plugins/inputMask")
+
+    @Scripts.Render("~/plugins/metsiMenu")
+    @Scripts.Render("~/plugins/pace")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/dropzonejs")
+    <script src="~/Scripts/app/MystiqueMC.js"></script>
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/plugins/datepicker/bootstrap-datepicker.es.min.js"></script>
+    <script src="~/Scripts/jquery.timePicker.min.js"></script>
+    <script src="~/Scripts/plugins/waitMe/waitMe.min.js"></script>
+    <script src="~/Scripts/bootstrap-toggle.js"></script>
+    <script src="~/Scripts/bootstrap-toggle.min.js"></script>
+
+    <script src="~/Scripts/Plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

@@ -20,13 +20,13 @@ namespace MystiqueMC.DAL
             this.PedidoProductos = new HashSet<PedidoProductos>();
             this.TicketCancelados = new HashSet<TicketCancelados>();
             this.TicketDescuentos = new HashSet<TicketDescuentos>();
-            this.TicketReimpresos = new HashSet<TicketReimpresos>();
             this.TicketPagos = new HashSet<TicketPagos>();
+            this.TicketReimpresos = new HashSet<TicketReimpresos>();
         }
     
         public int idTicket { get; set; }
         public int pedidoId { get; set; }
-        public int ticketIdSucursal { get; set; }
+        public Nullable<int> ticketIdSucursal { get; set; }
         public System.DateTime fechaCobro { get; set; }
         public int numeroTicket { get; set; }
         public string folioTicket { get; set; }
@@ -43,14 +43,14 @@ namespace MystiqueMC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PedidoProductos> PedidoProductos { get; set; }
+        public virtual Pedidos Pedidos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketCancelados> TicketCancelados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketDescuentos> TicketDescuentos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TicketReimpresos> TicketReimpresos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketPagos> TicketPagos { get; set; }
-        public virtual Pedidos Pedidos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TicketReimpresos> TicketReimpresos { get; set; }
     }
 }

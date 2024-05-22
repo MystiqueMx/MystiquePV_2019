@@ -9,12 +9,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MystiqueMC.DAL</RootNamespace>
     <AssemblyName>MystiqueMC.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AggregatedCounter.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AgrupadorInsumos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -66,6 +70,9 @@
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Arqueo.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Articulos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AspNetController.cs">
@@ -101,10 +108,10 @@
     <Compile Include="beneficios.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="bitacoraFacturacion.cs">
+    <Compile Include="BitacoraDoctor.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="BitacoraSucursalesActivas.cs">
+    <Compile Include="bitacoraFacturacion.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="canjePuntos.cs">
@@ -179,19 +186,10 @@
     <Compile Include="CatGastos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CatIngredienteEnsaladaPrecios.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CatMetodoPago.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="CatMovimientoInventarios.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="catPaises.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CatPedidoEstatus.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="catProductos.cs">
@@ -233,6 +231,9 @@
     <Compile Include="catTipoMembresias.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CatTipoNotificaciones.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CatTipoPagos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -254,9 +255,6 @@
     <Compile Include="clientes.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClientesCallCenter.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Clientespv.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -275,9 +273,6 @@
     <Compile Include="confDatosFiscalesSucursal.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConfEnsaladaPlatillos.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ConfiguracionArmadoProductos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -287,22 +282,7 @@
     <Compile Include="configuracionSistema.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConfMenuPlatillos.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConfMenuPlatillosItemDos.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConfMenuPlatillosItemTres.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConfMenuPlatillosItemUno.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="confProductoPVEquivalencia.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConfSucursales.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="confSumaPuntos.cs">
@@ -311,25 +291,7 @@
     <Compile Include="confUsuarioComercio.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ConfUsuariosComercioSucursal.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ConfUsuarioSucursales.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConsumidorConektaTarjetas.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConsumidorDirecciones.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConsumidoresConekta.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConsumidorNotificaciones.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ConsumidorOpenPay.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ConsumoEmpleados.cs">
@@ -347,6 +309,10 @@
     <Compile Include="ConteoFisicoTipoRegistro.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Counter.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomContext.cs" />
     <Compile Include="datosFiscales.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -360,9 +326,6 @@
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DetalleCompraReapertura.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DetallePedidos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DetalleRecetaProcesados.cs">
@@ -410,6 +373,9 @@
     <Compile Include="GastosPvDetalle.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Hash.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="historicoCancelacionRecompensas.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -428,13 +394,16 @@
     <Compile Include="Inventarios.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemDos.cs">
+    <Compile Include="Job.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemTres.cs">
+    <Compile Include="JobParameter.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ItemUno.cs">
+    <Compile Include="JobQueue.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="List.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
@@ -446,9 +415,6 @@
     <Compile Include="membresias.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Menus.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MobiliarioEquipos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -458,7 +424,6 @@
     <Compile Include="movimientoPuntos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomContext.cs" />
     <Compile Include="MystiqueMCModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -477,12 +442,6 @@
     <Compile Include="notificaciones.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="NotificacionesHazPedido.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="OpenPayTransacciones.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="PedidoProductoDetalle.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -490,15 +449,6 @@
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pedidos.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Pedidos1.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PedidosConekta.cs">
-      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Platillos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductoEstaConfigurado.cs">
@@ -538,13 +488,16 @@
     <Compile Include="saldoPuntos.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Schema.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="SectoresNotificaciones.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SeguimientoBitacoraPedidos.cs">
+    <Compile Include="Server.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SeguimientoPedidos.cs">
+    <Compile Include="Set.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
@@ -652,7 +605,7 @@
     <Compile Include="SP_Verificar_Datos_Entrega_Pedido_Result.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SucursalCategoriaProducto.cs">
+    <Compile Include="State.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SucursalDescuentos.cs">
@@ -673,6 +626,9 @@
     <Compile Include="SucursalProveedores.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TicketCancelados.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
@@ -688,10 +644,13 @@
     <Compile Include="Tickets.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ticketSucursal.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoRecetas.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransaccionesConekta.cs">
+    <Compile Include="trasladosImpuestosTicket.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="UnidadMedida.cs">
@@ -731,6 +690,12 @@
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VW_PV_Ticket_Pedido_Productos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_PV_Ticket_Pedido_Productos_Combos.cs">
+      <DependentUpon>MystiqueMCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VW_REPORTE_MACHOTE.cs">
       <DependentUpon>MystiqueMCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="wallet.cs">

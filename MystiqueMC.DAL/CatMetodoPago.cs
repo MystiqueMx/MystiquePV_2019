@@ -18,6 +18,7 @@ namespace MystiqueMC.DAL
         public CatMetodoPago()
         {
             this.Pedidos1 = new HashSet<Pedidos1>();
+            this.Pedidos11 = new HashSet<Pedidos11>();
         }
     
         public int idCatMetodoPago { get; set; }
@@ -26,5 +27,7 @@ namespace MystiqueMC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedidos1> Pedidos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pedidos11> Pedidos11 { get; set; }
     }
 }

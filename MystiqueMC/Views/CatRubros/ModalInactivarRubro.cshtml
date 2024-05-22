@@ -1,0 +1,22 @@
+﻿<div class="modal fade" id="modal-inactivar-rubro" tabindex="-1" role="dialog">
+	<div class="modal-dialog modal-sm" role="document">
+		@using (Html.BeginForm("InactivarRubro", "CatRubros", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+		{
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:red; background-color:white"></i>&nbsp;Inactivar Rubro</h4>
+				</div>
+				<div class="modal-body">
+					<h3 id="confirm-title">¿Esta seguro que desea inactivar el Rubro?</h3>
+					<b><span id="descripcion" style="font-size:15px" class="text-center"></span></b>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" id="id" name="id" />
+					<input type="reset" value="Cancelar" class="btn btn-defaut" data-dismiss="modal">
+					<input id="modal_inactivar_button" data-backdrop="false" type="submit" value="Inactivar" class="btn btn-danger">
+				</div>
+			</div>
+		}
+	</div>
+</div>

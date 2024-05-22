@@ -27,8 +27,8 @@ namespace MystiqueMC.DAL
         public int conteoFisicoAgrupadorInsumosId { get; set; }
     
         public virtual ConteoFisicoAgrupadorInsumos ConteoFisicoAgrupadorInsumos { get; set; }
+        public virtual Insumos Insumos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RegistroConteoFisicoInsumos> RegistroConteoFisicoInsumos { get; set; }
-        public virtual Insumos Insumos { get; set; }
     }
 }

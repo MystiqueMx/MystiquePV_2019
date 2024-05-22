@@ -112,12 +112,12 @@
         "type": "package",
         "compile": {
           "lib/MonoAndroid/Crashlytics.Droid.dll": {
-            "related": ".pdb"
+            "related": ".dll.mdb;.pdb"
           }
         },
         "runtime": {
           "lib/MonoAndroid/Crashlytics.Droid.dll": {
-            "related": ".pdb"
+            "related": ".dll.mdb;.pdb"
           }
         }
       },
@@ -1049,8 +1049,7 @@
           "Humanizer.Core.es": "2.5.1",
           "Newtonsoft.Json": "11.0.2",
           "RestSharp": "106.3.1",
-          "RestSharp.Newtonsoft.Json": "1.5.0",
-          "Xamarin.Build.Download": "0.4.11"
+          "RestSharp.Newtonsoft.Json": "1.5.0"
         },
         "compile": {
           "bin/placeholder/MystiqueNative.dll": {}
@@ -1196,6 +1195,7 @@
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/MonoAndroid/Crashlytics.Droid.dll",
+        "lib/MonoAndroid/Crashlytics.Droid.dll.mdb",
         "lib/MonoAndroid/Crashlytics.Droid.pdb",
         "nventive.crashlytics.droid.binding.1.4.0.nupkg.sha512",
         "nventive.crashlytics.droid.binding.nuspec"
@@ -2191,24 +2191,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {},
+    "C:\\Users\\moise\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative.Android\\MystiqueNative.Android.csproj",
+      "projectUniqueName": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.Android\\MystiqueNative.Android.csproj",
       "projectName": "Fresco",
-      "projectPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative.Android\\MystiqueNative.Android.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative.Android\\obj\\",
+      "projectPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.Android\\MystiqueNative.Android.csproj",
+      "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2217,14 +2217,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\andre\\OneDrive\\Documents\\1. PROJECTS\\MYSTIQUE\\WEB\\Mystique2.0\\CodigoWeb\\MystiqueMC\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj": {
-              "projectPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj"
+            "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj": {
+              "projectPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj"
             }
           }
         }
@@ -2427,7 +2426,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Newtonsoft.Json\" 11.0.2 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "MonoAndroid,Version=v8.1"
@@ -2437,7 +2436,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"RestSharp\" 106.3.1 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
+      "message": "Package 'RestSharp' 106.3.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
       "libraryId": "RestSharp",
       "targetGraphs": [
         "MonoAndroid,Version=v8.1"

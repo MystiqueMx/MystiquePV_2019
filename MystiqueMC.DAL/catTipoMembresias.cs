@@ -18,8 +18,8 @@ namespace MystiqueMC.DAL
         public catTipoMembresias()
         {
             this.beneficios = new HashSet<beneficios>();
-            this.membresias = new HashSet<membresias>();
             this.confSumaPuntos = new HashSet<confSumaPuntos>();
+            this.membresias = new HashSet<membresias>();
             this.recompensas = new HashSet<recompensas>();
         }
     
@@ -39,9 +39,9 @@ namespace MystiqueMC.DAL
         public virtual empresas empresas { get; set; }
         public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<membresias> membresias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<confSumaPuntos> confSumaPuntos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<membresias> membresias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<recompensas> recompensas { get; set; }
     }

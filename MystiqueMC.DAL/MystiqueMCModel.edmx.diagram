@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="84f77c521c2e40d497915048c72f1ff6" Name="Diagram1" ZoomLevel="15">
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetController" Width="1.5" PointX="1.5" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetControllerActivity" Width="1.5" PointX="1.5" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetRolePermissions" Width="1.5" PointX="3.75" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetRoles" Width="1.5" PointX="1.5" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetUserClaims" Width="1.5" PointX="6" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetUserLogins" Width="1.5" PointX="6" PointY="55.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.beneficioAplicados" Width="1.5" PointX="24.5" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.beneficioCalificaciones" Width="1.5" PointX="21.75" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.beneficioHorarios" Width="1.5" PointX="18.75" PointY="84.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.beneficios" Width="1.5" PointX="16.5" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.canjePuntos" Width="1.5" PointX="19.5" PointY="66.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.cargaCompras" Width="1.5" PointX="22.5" PointY="66.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catCiudades" Width="1.5" PointX="15.75" PointY="72.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catComercioGiros" Width="1.5" PointX="8.25" PointY="54.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catCompraAplicadoEstatus" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catEstados" Width="1.5" PointX="13.5" PointY="74.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catEstatusAplicaPuntos" Width="1.5" PointX="17.25" PointY="87.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catEstatusCanjePuntos" Width="1.5" PointX="17.25" PointY="52.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catEstatusCargaCompras" Width="1.5" PointX="20.25" PointY="79.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catSexos" Width="1.5" PointX="8.25" PointY="79.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catTipoComentario" Width="1.5" PointX="9" PointY="51.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catTipoComercios" Width="1.5" PointX="8.25" PointY="82.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catTipoMembresias" Width="1.5" PointX="8.25" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catTipoRecompensas" Width="1.5" PointX="11.25" PointY="79.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.clienteNotificaciones" Width="1.5" PointX="27" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.comentarios" Width="1.5" PointX="11.25" PointY="59.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.comercios" Width="1.5" PointX="3" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.confBeneficioSucursal" Width="1.5" PointX="21.75" PointY="71.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.configuracionSistema" Width="1.5" PointX="3" PointY="97.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.datosFiscales" Width="1.5" PointX="27.25" PointY="70.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.direccion" Width="1.5" PointX="22" PointY="75.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.empresaBrandy" Width="1.5" PointX="0.75" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.empresaContactos" Width="1.5" PointX="3" PointY="106.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.empresaKardex" Width="1.5" PointX="3" PointY="61.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.empresas" Width="1.5" PointX="0.75" PointY="66.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.historicoCancelacionRecompensas" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.login" Width="1.5" PointX="11.25" PointY="67.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.membresias" Width="1.5" PointX="17.25" PointY="58.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.movimientoPuntos" Width="1.5" PointX="19.5" PointY="71.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.representateLegal" Width="1.5" PointX="24.25" PointY="80.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.saldoPuntos" Width="1.5" PointX="22.5" PointY="62.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.sucursalHorarios" Width="1.5" PointX="13.5" PointY="78.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.usuarios" Width="1.5" PointX="6" PointY="65.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.wallet" Width="1.5" PointX="24.75" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_ClientesEdadesPorRango" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_ObtenerClientesConMembresia" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_ObtenerConfiguracionPuntosComercio" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_ObtenerListadoCupones" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_ObtenerRecompensasPorProductos" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_ObtenerUsuarios" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_Permisos" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AspNetRolePermissions_AspNetController" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AspNetRolePermissions_AspNetControllerActivity" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AspNetRolePermissions_AspNetRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioAplicados_beneficios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioAplicados_membresias" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioCalificaciones_beneficios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioHorarios_beneficios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficios_catTipoMembresias" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficios_comercios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficios_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confBeneficioSucursal_beneficios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_wallet_beneficios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_canjePuntos_catEstatusCanjePuntos" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_canjePuntos_comercios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_canjePuntos_membresias" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_cargaCompras_catEstatusCargaCompras" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_cargaCompras_comercios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_cargaCompras_membresias" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catCiudades_catEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catCiudades_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_direccion_catCiudades" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catComercioGiros_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comercios_catComercioGiros" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catEstados_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_direccion_catEstados" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_movimientoPuntos_catEstatusAplicaPuntos" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catSexos_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comentarios_catTipoComentario" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catTipoComercios_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comercios_catTipoComercios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catTipoMembresias_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catTipoMembresias_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_membresias_catTipoMembresias" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clienteNotificaciones_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comercios_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comercios_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_movimientoPuntos_comercios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_saldoPuntos_comercios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_configuracionSistema_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_datosFiscales_direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_datosFiscales_usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_empresaKardex_direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_representateLegal_direccion" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_empresaKardex_empresaBrandy" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_empresaContactos_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_empresaKardex_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_empresaKardex_representateLegal" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_usuarios_empresas" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_movimientoPuntos_membresias" ManuallyRouted="false" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_saldoPuntos_membresias" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AgrupadorInsumos" Width="1.5" PointX="8.25" PointY="85.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AreaPreparacion" Width="1.5" PointX="5.25" PointY="99.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Arqueo" Width="1.5" PointX="27.5" PointY="56.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CategoriaIngrediente" Width="1.5" PointX="5.25" PointY="48.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CategoriaInsumo" Width="1.5" PointX="5.25" PointY="45.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatEstatusEquipo" Width="1.5" PointX="20.25" PointY="53.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatEstatusOrden" Width="1.5" PointX="5.25" PointY="94" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatMovimientoInventarios" Width="1.5" PointX="14.25" PointY="56.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatTipoEquipo" Width="1.5" PointX="14.25" PointY="65.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatTipoMantenimiento" Width="1.5" PointX="16.25" PointY="84.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatTipoPagos" Width="1.5" PointX="5.25" PointY="79.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConfiguracionArmadoProductos" Width="1.5" PointX="28.75" PointY="93.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConteoFisicoAgrupadorInsumos" Width="1.5" PointX="29.5" PointY="78.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConteoFisicoInsumos" Width="1.5" PointX="34.75" PointY="84" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConteoFisicoPeriodoCaptura" Width="1.5" PointX="27.25" PointY="76.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConteoFisicoTipoRegistro" Width="1.5" PointX="22.25" PointY="50" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.DetalleCompra" Width="1.5" PointX="31.75" PointY="84.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.DetalleRecetaProcesados" Width="1.5" PointX="29.5" PointY="84.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.DetalleRecetaProducto" Width="1.5" PointX="37" PointY="83" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Equivalencias" Width="1.5" PointX="26.5" PointY="88.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.InsumoProductos" Width="1.5" PointX="25.75" PointY="92.625" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Inventarios" Width="1.5" PointX="26.5" PointY="79.625" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.MantenimientoMobiliarioEquipos" Width="1.5" PointX="31.75" PointY="74.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.MobiliarioEquipos" Width="1.5" PointX="29.5" PointY="72.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Proveedores" Width="1.5" PointX="5.25" PointY="76.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Recetas" Width="1.5" PointX="31.75" PointY="78.625" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.RegistroConteoFisicoInsumos" Width="1.5" PointX="24.5" PointY="57.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.SucursalDescuentos" Width="1.5" PointX="19.5" PointY="62.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.SucursalProductos" Width="1.5" PointX="26.5" PointY="84.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.SucursalProveedores" Width="1.5" PointX="19.5" PointY="58.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.TipoRecetas" Width="1.5" PointX="5.25" PointY="101.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.UnidadMedida" Width="1.5" PointX="5.25" PointY="82.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VariedadProductos" Width="1.5" PointX="25.75" PointY="101.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_PV_Listado_Ventas" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_PV_Ticket_Pedido_Productos" Width="1.5" PointX="9.375" PointY="7.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AgrupadorInsumos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConfiguracionArmadoProductos_AgrupadorInsumo" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_InsumoProductos_AgrupadorInsumo" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AreaPreparacion_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Arqueo_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CategoriaIngrediente_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CategoriaInsumo_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatEstatusEquipo_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatEstatusEquipo_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MobiliarioEquipos_CatEstatusEquipo" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatEstatusOrden_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatMovimientoInventarios_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatMovimientoInventarios_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatTipoEquipo_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatTipoEquipo_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MobiliarioEquipos_CatTipoEquipo" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatTipoMantenimiento_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatTipoMantenimiento_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MantenimientoMobiliarioEquipos_CatTipoMantenimiento" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatTipoPagos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConteoFisicoInsumos_ConteoFisicoAgrupadorInsumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConteoFisicoVariedadInsumos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConteoFisicoVariedadInsumos_ConteoFisicoPeriodoCaptura" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConteoFisicoVariedadInsumos_UnidadMedida" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RegistroConteoFisicoInsumos_ConteoFisicoAgrupadorInsumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RegistroConteoFisicoInsumos_ConteoFisicoInsumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RegistroConteoFisicoInsumos_ConteoFisicoTipoRegistro" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleCompra_UnidadMedida" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleRecetaProcesados_UnidadMedida" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleRecetaProducto_Recetas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleRecetaProducto_UnidadMedida" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Equivalencias_UnidadMedida" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MantenimientoMobiliarioEquipos_MobiliarioEquipos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MantenimientoMobiliarioEquipos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MobiliarioEquipos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MobiliarioEquipos_Usuarios2" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Proveedores_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalProveedores_Proveedores" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Recetas_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RegistroConteoFisicoInsumos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalDescuentos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalProductos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalProveedores_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TipoRecetas_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_UnidadMedida_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_datosFiscales_comercios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Aperturas" Width="1.5" PointX="15.75" PointY="103.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Clientespv" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConsumoEmpleados" Width="1.5" PointX="20.25" PointY="105" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.GastosPv" Width="1.5" PointX="18" PointY="98.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.PedidoProductoDetalle" Width="1.5" PointX="24.75" PointY="111.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.PedidoProductos" Width="1.5" PointX="22.5" PointY="110.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Retiros" Width="1.5" PointX="18" PointY="101.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.TicketCancelados" Width="1.5" PointX="22.5" PointY="118.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.TicketDescuentos" Width="1.5" PointX="37" PointY="96.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.TicketReimpresos" Width="1.5" PointX="22.5" PointY="121.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Tickets" Width="1.5" PointX="20.25" PointY="111.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Arqueo_Ventas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Gastos_Aperturas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Retiros_Aperturas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_PedidoProductoDetalle_PedidoProductos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_PedidoProductos_Tickets" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TicketCancelados_Tickets" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TicketDescuentos_Tickets" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TicketReimpresos_Tickets" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConfUsuarioSucursales" Width="1.5" PointX="13.5" PointY="88" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConfUsuarioSucursales_usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AspNetUsers" Width="1.5" PointX="3.75" PointY="40.25" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_usuarios_AspNetUsers" />
+        <AssociationConnector Association="MystiqueMeDevModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catRegimenFiscal" Width="1.5" PointX="9.375" PointY="4.875" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_datosFiscales_catRegimenFiscal" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catTipoAutentificacion" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catRangoEdad" Width="1.5" PointX="11.375" PointY="4.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.confDatosFiscalesSucursal" Width="1.5" PointX="37.75" PointY="66.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confdatosFiscalesSucursal_datosFiscales" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatRubrosGastos" Width="1.5" PointX="5.25" PointY="87.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatRubrosGastos_comercios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ProductoTieneReceta" Width="1.5" PointX="25.75" PointY="96.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.bitacoraFacturacion" Width="1.5" PointX="31.75" PointY="67.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catEstatusFactura" Width="1.5" PointX="27.25" PointY="67.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catEstatusTicket" Width="1.5" PointX="11.375" PointY="7.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catUsoCFDI" Width="1.5" PointX="27.25" PointY="40.625" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.datosReceptor" Width="1.5" PointX="27.25" PointY="52.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.detalleTicketSucursal" Width="1.5" PointX="11.375" PointY="10.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.facturaCliente" Width="1.5" PointX="29.5" PointY="66.375" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.facturaPendiente" Width="1.5" PointX="37.75" PointY="69.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.receptorCliente" Width="1.5" PointX="29.5" PointY="45.375" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_bitacoraFacturacion_bitacoraFacturacion" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaCliente_catEstatusFactura" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_receptorCliente_catUsoCFDI" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaCliente_datosFiscales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaPendiente_datosFiscales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_receptorCliente_datosReceptor" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaCliente_receptorCliente" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaPendiente_receptorCliente" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Insumos" Width="1.5" PointX="21.25" PointY="82.125" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_CategoriaIngrediente" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_CategoriaInsumo" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConteoFisicoVariedadInsumos_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConteoFisicoInsumos_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleCompra_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleRecetaProcesados_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleRecetaProducto_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Equivalencias_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_InsumoProductos_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_UnidadMedida" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_UnidadMedida2" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_Usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.TicketPagos" Width="1.5" PointX="22.5" PointY="96.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TicketPagos_CatTipoPagos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TicketPagos_Tickets" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.confUsuarioComercio" Width="1.5" PointX="11.25" PointY="72.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confUsuarioComercio_comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confUsuarioComercio_usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatEstatusCompras" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ConfiguracionCompras" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ProductoEstaConfigurado" Width="1.5" PointX="25.75" PointY="104.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.SucursalNotificaciones" Width="1.5" PointX="27" PointY="37.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.SectoresNotificaciones" Width="1.5" PointX="27" PointY="34.625" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.RecetasProcesados" Width="1.5" PointX="29.5" PointY="88.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleRecetaProcesados_RecetasProcesados" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RecetasProcesados_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RecetasProcesados_TipoRecetas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RecetasProcesados_Usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatZonas" Width="1.5" PointX="8.25" PointY="62" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatZonas_empresas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatZonas_Usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.confSumaPuntos" Width="1.5" PointX="10.5" PointY="54.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confSumaPuntos_catTipoMembresias" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.confProductoPVEquivalencia" Width="1.5" PointX="31.75" PointY="88.5" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catProductos" Width="1.5" PointX="31.75" PointY="70.375" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catProductos_comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confProductoPVEquivalencia_catProductos" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AnexoDoctor" Width="1.5" PointX="13.375" PointY="4" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comercios_AnexoDoctor" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatDoctorEspecialidad" Width="1.5" PointX="11.125" PointY="14.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AnexoDoctor_CatDoctorEspecialidad" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ImagenDoctor" Width="1.5" PointX="5.25" PointY="57.875" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ImagenDoctor_comercios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.recompensas" Width="1.5" PointX="37" PointY="74.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_canjePuntos_recompensas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_recompensas_catProductos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_recompensas_catTipoMembresias" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_recompensas_catTipoRecompensas" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Ventas" Width="1.5" PointX="37.75" PointY="61.875" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Arqueo2_Ventas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Aperturas_Ventas" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Pedidos" Width="1.5" PointX="18" PointY="105.5" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Pedidos_Aperturas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConsumoEmpleados_Pedidos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_PedidoProductos_Pedidos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Tickets_Pedidos" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.sucursales" Width="1.5" PointX="34.5" PointY="65" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Arqueo_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Inventarios_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MobiliarioEquipos_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_RegistroConteoFisicoInsumos_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalDescuentos_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalProductos_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalProveedores_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Ventas_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioAplicados_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_canjePuntos_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_cargaCompras_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Sucursales_CatZonas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_sucursales_comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confBeneficioSucursal_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confdatosFiscalesSucursal_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConfUsuarioSucursales_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Sucursales_DatosFiscales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_sucursales_direccion" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaPendiente_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_movimientoPuntos_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_sucursales_usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Sucursales_Usuarios1" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_sucursalHorarios_sucursales" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.MovimientoInventarios" Width="1.5" PointX="39.75" PointY="73.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MovimientoInventarios_CatMovimientoInventarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MovimientoInventarios_DetalleCompra" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MovimientoInventarios_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MovimientoInventarios_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_MovimientoInventarios_Usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Compras" Width="1.5" PointX="36.75" PointY="43.375" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Compras_CatEstatusCompras" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Compras_Proveedores" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Compras_Sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Compras_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleCompra_Compras" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.InsumoProducto" Width="1.5" PointX="28" PointY="101.25" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_InsumoProducto_PedidoProducto" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_InsumoProducto_PedidoProductoDetalle" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatAseguranzas" Width="1.5" PointX="13.375" PointY="14.625" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.DoctorAseguranzas" Width="1.5" PointX="15.625" PointY="4.625" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DoctorAseguranzas_AnexoDoctor" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DoctorAseguranzas_CatAseguranzas" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatGastos" Width="1.5" PointX="5.25" PointY="91" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatGastos_comercios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatCategoriaArticulos" Width="1.5" PointX="5.25" PointY="37.125" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatCategoriaArticulos_comercios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatSubCategoriaArticulos" Width="1.5" PointX="7.5" PointY="37.125" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatSubCategoriaArticulos_CatCategoriaArticulos" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.DetalleCompraReapertura" Width="1.5" PointX="39" PointY="44.375" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_DetalleCompraReapertura_Compras" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatConceptosGastos" Width="1.5" PointX="10.5" PointY="83" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatConceptosGastos_comercios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Descuentos" Width="1.5" PointX="34.75" PointY="87.5" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Descuentos_beneficios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Descuentos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Descuentos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalDescuentos_Descuentos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_TicketDescuentos_Descuentos" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatRubros" Width="1.5" PointX="5.25" PointY="104.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatConceptosGastos_CatRubros" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CatRubros_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Insumos_CatRubros" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Gastos" Width="1.5" PointX="39.75" PointY="81.125" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Gastos_CatConceptosGastos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Gastos_GastosPv" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Gastos_Proveedores" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Gastos_sucursales" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.GastosPvDetalle" Width="1.5" PointX="37.75" PointY="86.5" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_GastosPvDetalle_CatConceptosGastos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_GastosPvDetalle_Insumos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_GastosPvDetalle_Proveedores" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_GastosPvDetalle_GastosPvDetalle" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_GastosPvDetalle_sucursales" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatEstatusCita" Width="1.5" PointX="34.5" PointY="58.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Citas" Width="1.5" PointX="36.75" PointY="57" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Citas_CatEstatusCita" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Citas_sucursales" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.clientes" Width="1.5" PointX="30.25" PointY="36.375" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioAplicados_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_beneficioCalificaciones_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clientes_CatAseguranzas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clientes_catRangoEdad" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clientes_catSexos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clientes_catTipoAutentificacion" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Citas_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clienteNotificaciones_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_cliente_empresas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_comentarios_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_login_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_membresias_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_receptorCliente_clientes" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_wallet_clientes" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CategoriaProductos" Width="1.5" PointX="8.25" PointY="75.5" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CategoriaProductos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_CategoriaProductos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_recompensas_CategoriaProductos" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Productos" Width="1.5" PointX="10.5" PointY="87.5" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_AgrupadorInsumos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Productos_AreaPreparacion" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Productos_CategoriaProductos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ConfiguracionArmadoProductos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Descuentos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_InsumoProductos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catProductos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_confProductoPVEquivalencia_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_InsumoProducto_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ProductoEstaConfigurado_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Productos_Comercios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Productos_Usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ProductoTieneReceta_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Recetas_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalProductos_Productos" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_VariedadProductos_Productos" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catColonias" Width="1.5" PointX="18" PointY="76.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catColonias_catCiudades" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catColonias_usuarios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clientes_catColonias" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.notificaciones" Width="1.5" PointX="29.75" PointY="59.875" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_notificaciones_beneficios" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_clienteNotificaciones_notificaciones" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_notificaciones_empresas" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SectoresNotificaciones_notificaciones" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_SucursalNotificaciones_notificaciones" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.catPaises" Width="1.5" PointX="8.25" PointY="71.875" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catEstados_catPaises" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_catPaises_usuarios" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.CatTipoNotificaciones" Width="1.5" PointX="27.5" PointY="31.875" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.sysdiagrams" Width="1.5" PointX="13.375" PointY="8.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.ticketSucursal" Width="1.5" PointX="41.75" PointY="34.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.trasladosImpuestosTicket" Width="1.5" PointX="44" PointY="36" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.BitacoraDoctor" Width="1.5" PointX="15.375" PointY="7.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ticketSucursal_catEstatusTicket" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_notificaciones_notificaciones" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_detalleTicketSucursal_ticketSucursal" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_facturaCliente_ticketSucursal" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_ticketSucursal_sucursales" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_trasladosImpuestosTicket_ticketSucursal" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.AggregatedCounter" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Counter" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Hash" Width="1.5" PointX="7.75" PointY="15.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Job" Width="1.5" PointX="15.75" PointY="12.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.JobParameter" Width="1.5" PointX="18" PointY="14.25" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.JobQueue" Width="1.5" PointX="4.75" PointY="16.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.List" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Schema" Width="1.5" PointX="17.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Server" Width="1.5" PointX="9.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Set" Width="1.5" PointX="11.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.State" Width="1.5" PointX="18" PointY="11.125" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.Articulos" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_PV_Ticket_Pedido_Productos_Combos" Width="1.5" PointX="13.75" PointY="17.75" />
+        <EntityTypeShape EntityType="MystiqueMeDevModel.VW_REPORTE_MACHOTE" Width="1.5" PointX="15.75" PointY="17.75" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_HangFire_JobParameter_Job" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_HangFire_State_Job" />
+        <AssociationConnector Association="MystiqueMeDevModel.FK_Articulos_Articulos" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

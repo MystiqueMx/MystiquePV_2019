@@ -1,0 +1,25 @@
+﻿<div class="modal fade" id="modal-inactivar-receta" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="@Url.Action("InactivarReceta")" method="post" id="form-estatus-inactivar" class="form-horizontal" data-parsley-validate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Inactivar Receta</h4>
+                </div>
+                <div class="modal-body" style="padding: 10px 10px 0px 10px;">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <input type="hidden" name="idReceta" id="idReceta" />
+                            <h3 style="text-align:center">¿Esta seguro que desea inactivar la receta?</h3>
+                            <h3 style="text-align:center">&nbsp;<strong id="receta"></strong></h3>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="btn-guardar-modal" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" id="guardar-estatus" class="btn btn-danger">Inactivar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div><!-- /.modal -->

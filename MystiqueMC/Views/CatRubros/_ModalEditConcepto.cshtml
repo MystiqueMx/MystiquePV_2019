@@ -1,0 +1,167 @@
+﻿
+@model MystiqueMC.DAL.CatConceptosGastos
+@{
+	ViewBag.Title = "Agregar";
+	var rubros = ViewBag.Rubros as IEnumerable<SelectListItem>;
+}
+@using (Html.BeginForm("ModalEditConcepto", "CatRubros", FormMethod.Post, new { id = "form_EditConcepto", @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+{
+	@Html.AntiForgeryToken()
+	@Html.ValidationSummary(true)
+	@Html.HiddenFor(model => model.idCatConceptoGasto)
+    @Html.HiddenFor(model => model.comercioId)   
+	<div class="form-horizontal">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label for="catRubroId">Rubro</label>
+					<select id="ddl_Rubros" name="@Html.NameFor(m => m.catRubroId)" class="form-control" data-live-search="true"
+							data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-rubro">
+						<option value="">Seleccionar</option>
+						@foreach (var item in rubros)
+						{
+							<option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+						}
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<span style="color:red" for="@Html.NameFor(m => m.catRubroId)" id="#error-rubro"></span>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					@Html.Label("Descripción", htmlAttributes: new { @class = "control-label" })
+					@Html.EditorFor(model => model.descripcion, new
+					{
+						htmlAttributes = new
+						{
+							@class = "form-control",
+							data_parsley_maxlength = "300",
+							data_parsley_required = "true",
+							data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,300}",
+							data_parsley_pattern = "[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,300}",
+							maxlength = "300",
+							data_parsley_errors_container = "#descripcion-error"
+						}
+					})
+					@Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger parsley-required" })
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<span style="color:red" for="descripcion" id="descripcion-error"></span>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					@Html.Label("Ponderación (%)", htmlAttributes: new { @class = "control-label" })
+					@Html.EditorFor(model => model.ponderacion, new { htmlAttributes = new { @class = "form-control",
+						data_parsley_maxlength = "5",
+						data_parsley_required = "true",
+						data_inputmask_regex = "^\\d{0,2}(\\.\\d{1,2})?$",
+						data_parsley_pattern = "^\\d{0,2}(\\.\\d{1,2})?$",
+						maxlength = "5",
+						data_parsley_errors_container = "#ponderacion-error"
+					} })
+					@Html.ValidationMessageFor(model => model.ponderacion, "", new { @class = "text-danger parsley-required" })
+				</div>
+            </div>
+		</div>
+        <div class="row">
+            <span style="color:red" for="ponderacion" id="ponderacion-error"></span>
+        </div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<label class="control-label">
+						@Html.CheckBoxFor(model => model.activo, new { @checked = true })
+						¿Activo?
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form-group">
+					<input id="btn_submit" type="submit" value="Agregar" class="btn btn-primary" />
+					@Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+	<script src="~/Scripts/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+	<script>
+		$(function () {
+			//$('.selectpicker').selectpicker();
+
+			var parsley_valiation_options = {
+				errorTemplate: '<li><span class="error-msg"></span></li>',
+				errorClass: 'data-parsley-error',
+			}
+
+			if ($('#modal_generic_lg').length > 0) {
+
+				$('#modal_generic input').parsley(parsley_valiation_options);
+
+				$('#btn_submit').click(function (event) {
+
+					event.preventDefault();
+
+					var isValid = true;
+
+					//Todos los inputs
+					$('#modal_generic input').each(function () {
+						if ($(this).parsley().validate() !== true)
+							isValid = false;
+					})
+
+					//ddls
+					if ($('#ddl_Rubros').parsley().validate() !== true)
+						isValid = false;
+
+					if (isValid)
+						$("#form_EditConcepto").submit();
+				});
+			}
+		});
+
+
+		$('#form_EditConcepto').submit(function () {
+            $.ajax({
+                url: '@Url.Action("ModalEditConcepto", "CatRubros")',
+                type: "Post",
+				data: $('#form_EditConcepto').serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        $('#modal_generic').modal('toggle');
+                        SendAlert('success', 'Aviso', result.message, "Aceptar");
+						cargarEgresos(false, true);
+                    } else {
+                        if (result.hasException != null) {
+                            $('#modal_generic').modal('toggle');
+                            if (result.message != null) {
+								SendAlert('danger', 'Error', result.message, 'Aceptar');
+                            } else {
+								SendAlert('warning', 'Aviso', 'Mensaje no encontrado','Aceptar');
+                            }
+                        } else {
+                            //Show the errors in the next modal_body_preview div
+                            $('#modal_body_preview').html(result);
+                        }
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+					SendAlert('danger', 'Error', 'Ocurrio un error, favor de contactar al administrador', 'Aceptar');
+                }
+            });
+            return false;
+        });
+	</script>
+

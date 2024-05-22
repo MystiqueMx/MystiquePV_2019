@@ -1,0 +1,264 @@
+﻿@using Humanizer;
+@using System.Linq;
+
+@model IEnumerable<MystiqueMC.DAL.Arqueo>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12 col-md-6">
+        <h2>Arqueo</h2>
+    </div>
+</div>
+<br />
+@using (Html.BeginForm("Index", "Arqueos", FormMethod.Post, new { enctype = "multipart/form-data", data_parsley_validate = true, autocomplete = "off" }))
+{
+    <input id="ActualizarTotal" value="@Url.Action("ActualizarTotal", "Arqueos", null)" type="hidden" />
+    <input id="ActualizarObservacion" value="@Url.Action("ActualizarObservacion", "Arqueos", null)" type="hidden" />
+    <div class="row">
+        <div class="form-group col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
+                @Html.DropDownList("sucursaId", null, "Seleccione", htmlAttributes: new { @class = "form-control", data_parsley_required = "true", data_parsley_errors_container = "#error-Nombre" })
+            </div>
+            @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Nombre" })
+        </div>
+        <div class="form-group col-md-2">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Año:</b></span>
+                <input autocomplete="off" type="text" class="form-control input-sm" value="@ViewBag.YearSelected" data-inputmask-regex="[0-9]{0,16}" id="año" name="año">
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Mes:</b></span>
+                @{
+                    var monthList = new List<SelectListItem>();
+                    for (int i = 1; i <= 12; i++)
+                    {
+                        monthList.Add(new SelectListItem { Text = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(i), Value = i.ToString(), Selected = (ViewBag.mes as int? == i) });
+                    }
+                }
+
+                @Html.DropDownList("mes", monthList, htmlAttributes: new { @class = "form-control" })
+
+
+            </div>
+        </div>
+        <div class="form-group col-md-1">
+            <button style="padding:1.5pt;" class="btn btn-primary" type="submit">
+                <img src="~/Content/Icons/search.png" height="24" />
+            </button>
+        </div>
+    </div>
+
+}
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="sk-spinner sk-spinner-rotating-plane"></div>
+                    <div class="table-responsive">
+                        <table class="table table-striped tabla-catalogos">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Fecha Registro Venta
+                                    </th>
+                                    <th>
+                                        Concepto
+                                    </th>
+                                    <th class="text-right">
+                                        Saldo DLLS
+                                    </th>
+                                    <th class="text-right">
+                                        Arqueo DLLS
+                                    </th>
+                                    <th class="text-right">
+                                        Efectivo
+                                    </th>
+                                    <th class="text-right">
+                                        CxC
+                                    </th>
+                                    <th class="text-right">
+                                        Tarjeta
+                                    </th>
+                                    <th class="text-right">
+                                        Gasto
+                                    </th>
+                                    <th class="text-right">
+                                        Total
+                                    </th>
+                                    <th>
+                                        Total Recibido
+                                    </th>
+                                    <th class="text-right">
+                                        Diferencia
+                                    </th>
+                                    <th class="text-center">
+                                        Fecha Actualización
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.fechaRegistroVenta.ToShortDateString()
+                                        </td>
+                                        <td>
+                                            @item.concepto.ToString()
+                                        </td>
+                                        <td class="text-right">
+                                            @item.saldoDlls.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.arqueoDlls.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.efectivo.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.cxc.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.tarjeta.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.gasto.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @item.total.ToString("N2")
+                                        </td>
+                                        <td class="text-right">
+                                            @(item.totalRecibido.HasValue ? item.totalRecibido.Value.ToString("N2") : "-")
+                                        </td>
+                                        <td class="text-right">
+                                            @(item.diferencia.HasValue ? item.totalRecibido.Value.ToString("N2") : "-")
+                                        </td>
+                                        <td class="text-center">
+                                            @(item.fechaActualizacion.HasValue ? item.fechaActualizacion.Value.ToShortDateString() : "")
+                                        </td>
+                                        <td class="align-middle" style="vertical-align:middle">
+                                            @if (item.totalRecibido == null)
+                                            {
+                                                <center>
+                                                    <button role="button" id="btn-editar-1" class="btn btn-link" style="margin: 0;" data-toggle="modal" data-id="@item.idArqueo"
+                                                            data-fecha="@item.fechaRegistroVenta" data-concepto="@item.concepto" data-total="@(item.totalRecibido.ToString())" data-observacion="@item.observacion"
+                                                            data-mode="edit" data-target="#modal-cerrar-arqueo">
+                                                        <img class="text-center" src="~/Content/Images/Open.png" height="20" />
+                                                    </button>
+                                                </center>
+                                            }
+                                            else
+                                            {
+                                                <center>
+                                                    <img class="text-center" src="~/Content/Images/Closed.png" height="20" />
+                                                </center>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-right" colspan="2">
+                                        Totales:
+                                    </th>
+                                    <td class="text-right">@Model.Sum(i => i.saldoDlls).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.arqueoDlls).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.efectivo).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.cxc).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.tarjeta).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.gasto).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.total).ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.totalRecibido).Value.ToString("N2")</td>
+                                    <td class="text-right">@Model.Sum(i => i.diferencia).Value.ToString("N2")</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @Html.ActionLink("Regresar", "Index", "Reportes", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("CerrarArqueoModal")
+@section Styles{
+    <link rel="stylesheet" href="@Url.Content("~/Content/Plugins/dataTables/dataTables.min.css")" />
+}
+@section Scripts{
+    <script>
+     $("#mes").val(@DateTime.Now.Month);
+    </script>
+    <script src="@Url.Content("~/Scripts/Plugins/dataTables/dataTables.min.js")"></script>
+    <script src="~/Scripts/App/Arqueo/Arqueo.js"></script>
+    <script>
+        function OnScriptsLoad() {
+
+            SetUpDataTable();
+        }
+    </script>
+    <script>
+        function SetUpDataTable(selector) {
+            //var buttonCommon = {
+            //    exportOptions: {
+            //        format: {
+            //            body: function (data, row, column, node) {
+            //                return $(data).is("input") ?
+            //                    $(data).find('input').val() :
+            //                    data;
+            //            }
+            //        }
+            //    }
+            //}
+
+
+            if (!selector) selector = ".tabla-catalogos";
+            if ($(selector).length > 0) {
+                //StartSpinner();
+                $(selector).dataTable({
+                    "dom": '<"html5buttons"B>lTgtip',
+                    "ordering": false,
+                    "pageLength": 100,
+                    "buttons": [
+                        {
+                            extend: "excelHtml5",
+                            text: "Exportar a Excel"
+                        },
+                    ],
+                    "language": {
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                        "infoEmpty": "Mostrando 0 elementos ",
+                        "infoFiltered": "- filtrado de _MAX_ registros)",
+                        "lengthMenu": "Elementos por página:  _MENU_ ",
+                        "loadingRecords": "Cargando ... ",
+                        "paginate": {
+                            "first": "Primera",
+                            "last": "Ultima",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                        "processing": "Procesando ... ",
+                        "search": "Buscar",
+                    },
+                    "fixedHeader": true
+                });
+                $(selector).DataTable()
+                    .on("preDraw", StartSpinner)
+                    .on("draw", StopSpinner);
+                setTimeout(StopSpinner, 100);
+
+            }
+        }
+    </script>
+}

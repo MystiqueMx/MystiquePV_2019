@@ -24,8 +24,8 @@ namespace MystiqueMC.DAL
         public int comercioId { get; set; }
         public string descripcion { get; set; }
     
-        public virtual comercios comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RecetasProcesados> RecetasProcesados { get; set; }
+        public virtual comercios comercios { get; set; }
     }
 }

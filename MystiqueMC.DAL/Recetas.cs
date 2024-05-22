@@ -31,7 +31,7 @@ namespace MystiqueMC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleRecetaProducto> DetalleRecetaProducto { get; set; }
-        public virtual usuarios usuarios { get; set; }
         public virtual Productos Productos { get; set; }
+        public virtual usuarios usuarios { get; set; }
     }
 }

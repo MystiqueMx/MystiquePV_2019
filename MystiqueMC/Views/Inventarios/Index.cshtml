@@ -1,0 +1,138 @@
+﻿@model IEnumerable<MystiqueMC.DAL.Inventarios>
+
+<input id="CambiarValor" value="@Url.Action("ActualizarValor", "Inventarios", null)" type="hidden" />
+<div class="row wrapper border-bottom white-bg page-heading" style="padding: 0 10px 1px 10px;">
+    <div class="col-sm-6">
+        <div class="form-group col-md-2" style="display:inline-block;">
+            <h2>Inventario</h2>
+        </div>
+        @using (Html.BeginForm("Index", "Inventarios", FormMethod.Post, new { enctype = "multipart/form-data", data_parsley_validate = true }))
+        {
+            <div class="form-group col-md-4" style="display:inline-block;">
+                <div class="input-group" style="width:100%;">
+                    <h2>
+                        @Html.DropDownList("sucursaId", null, "Seleccione", htmlAttributes: new { onchange = "this.form.submit();", @class = "form-control", data_parsley_required = "true", data_parsley_errors_container = "#error-Nombre" })
+                    </h2>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+<br />
+@if (ViewBag.sucursaId.SelectedValue != null)
+{
+    <div id="divBodyContainer" class="wrapper wrapper-content animated fadeInRight" style="padding: 0px 20px 40px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <div class="sk-spinner sk-spinner-rotating-plane"></div>
+                        <table class="table table-striped tabla-catalogos display responsive no-wrap">
+                            <thead>
+                                <tr>
+                                    <th style="width:15%">Insumo</th>
+                                    <th style="width:15%" class="text-center">U. Compra</th>
+                                    <th style="width:10%" class="text-center">Máximo</th>
+                                    <th style="width:10%" class="text-center">Mínimo</th>
+                                    <th class="text-center hide">Precio</th>
+                                    <th style="width:15%" class="text-right">Existencia</th>
+                                    <th style="width:15%" class="text-right">U. Consumo</th>
+                                    <th style="width:5%" class="text-left"></th>
+                                    <th style="width:5%" class="text-right " data-orderable="false"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="form-inline">
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Insumos.nombre</td>
+                                        <td class="text-center">@item.Insumos.UnidadMedida1.descripcion</td>
+                                        <td class="control-orden text-center">
+                                            <input id="txtMaximo" type="text" class="form-control text-right" data-parsley-required rows="1" data-inputmask-regex="[0-9]{0,9}" name="indice" style="width:80%" value="@item.maximo.ToString("N0")" />
+                                            <img class="botton-aa" src="~/Content/Images/Guardar.png" height="20" style="cursor:pointer;" title="Guardar Maximo" />
+                                            <input hidden name="id" value="@item.idInventario" />
+                                        </td>
+                                        <td class="control-orden-b text-center">
+                                            <input id="txtMinimo" type="text" class="form-control text-right" data-parsley-required data-inputmask-regex="[0-9]{0,9}" rows="1" name="indice" style="width:80%" value="@item.minimo.ToString("N0")" />
+                                            <img class="botton-ab" src="~/Content/Images/Guardar.png" height="20" style="cursor:pointer;" title="Guardar Minimo" />
+                                            <input hidden name="id" value="@item.idInventario" />
+                                        </td>
+                                        <td class="control-orden-c text-center hide">
+                                            <input type="text" class="form-control text-right value" data-parsley-required data-inputmask-regex="[0-9]{0,10}" rows="1" name="indice" style="width:80%" value="@item.precio.ToString("N0")" />
+                                            <img class="botton-ac" src="~/Content/Icons/Actualizar.png" height="20" style="cursor:pointer;" />
+                                            <input hidden name="id" value="@item.idInventario" />
+                                        </td>
+                                        @if (item.cantidad < item.minimo)
+                                        {
+                                            <td class="text-right" style="color:red">@item.cantidad</td>
+                                        }
+                                        else
+                                        {
+                                            <td class="text-right">@item.cantidad</td>
+                                        }
+                                        <td class="text-right" style="padding-right:10px">@((item.cantidad * (item.Insumos.equivalencia ?? 0)).ToString("N2"))</td>
+                                        <td class="text-left" style="padding-right:10px">@(item.Insumos.UnidadMedida.descripcion)</td>
+                                        <td>
+                                            <a class="btn btn-link black-icon" href="#modal-seleccion-movimiento" data-toggle="modal" data-id="@item.insumoId" data-cantidad="@item.cantidad" data-sucursal="@item.sucursalId"
+                                               data-insumo="@item.Insumos.nombre" data-unidadcompra="@item.Insumos.UnidadMedida1.descripcion"
+                                               title="Realizar ajuste de inventario">
+                                                <img src="~/Content/Images/Historial de movimientos.png" height="20" style="cursor:pointer;" alt="Ajustar Inventario" />
+                                            </a>
+                                            <a href="@Url.Action("MovimientoInventario", "Inventarios", new { id = item.insumoId, sucursaId = item.sucursalId, nombre = item.sucursales.nombre, nombreInsumo = item.Insumos.nombre, NombreSearch = ViewBag.Nombre })" class="btn-link" title="Ver los movimientos de inventario">
+                                                <img src="~/Content/Images/Actualizar inventario.png" height="20" style="cursor:pointer;" alt="Historial de Movimientos " />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@Html.Partial("SeleccionMovimientoInventario")
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/App/Inventarios/Inventarios.js"></script>
+    <script>
+        function OnScriptsLoad() {
+            SetUpDataTable();
+            $("#modal-seleccion-movimiento").on("show.bs.modal",
+                function (event) {
+                    var $button = $(event.relatedTarget);
+                    var id = $button.data("id");
+                    var cantidad = $button.data("cantidad");
+                    var sucursal = $button.data("sucursal");
+                    var insumo = $button.data("insumo");
+
+                    var unidadCompra = $button.data("unidadcompra");
+
+                    $("#insumoId").val(id);
+                    $("#cantidadActualText").text(cantidad + " " + unidadCompra);
+                    $("#cantidadActual").val(cantidad);
+                    $("#sucursal").val(sucursal);
+                    $("#Insumo").text(insumo);
+                });
+
+        }
+    </script>
+    <script>
+        function SetUpDataTable(selector) {
+            var buttonCommon = {
+                exportOptions: {
+                    format: {
+                        body: function (data, row, column, node) {
+                            return $(data).is("input") ?
+                                $(data).val() :
+                                data;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+}

@@ -1,0 +1,187 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.ConteoFisicoAgrupadorInsumos
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Agregar Agrupador Insumos</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Create", "ConteoFisicoAgrupadorInsumos", FormMethod.Post, new { @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            <input type="hidden" id="urlInsumo" value="@Url.Action("obtenerUnidadMedida")" />
+                            <input type="hidden" id="comercioId" name="comercioId" value="@ViewBag.IdComercio" />
+                            <input type="hidden" name="Medida" value="@ViewBag.unidadMedida" />
+                            <div class="form-group">
+                                @Html.Label("Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control",
+                                   data_parsley_maxlength = "30",
+                                   data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,30}",
+                                   data_parsley_required = "true",
+
+                                   maxlength = "30"
+                               } })
+                                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Familia", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownList("categoriaInsumoId", null, "Seleccionar", htmlAttributes: new
+                                    { @class = "form-control",
+                                     data_parsley_required = "true",
+                                     data_parsley_errors_container = "#categoriaInsumoId-error"
+                                    })
+                                    <div class="row">
+                                        <span for="descripcion" id="categoriaInsumoId-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Período Captura", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    <select name="conteoFisicoPeriodoCapturaId" class="form-control" data-parsley-required>
+                                        <option>Seleccionar</option>
+                                        <option value="1">Diario</option>
+                                        <option value="2">Semanal</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Dia de conteo", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownList("diaConteo", new SelectList(
+                                   Enumerable.Range(1, 7)
+                                        .Select(s => new {
+                                            //Text = new DateTime(2018,07,s).ToString("dddd").Humanize(LetterCasing.Sentence),
+                                            Text = new DateTime(2018,07,s).ToString("dddd"),
+                                            Value = s
+                                        }),"Value","Text"), "Seleccionar", htmlAttributes: new { @class = "form-control", data_parsley_required = "true" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.Label("Unidad medida de conteo", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-2">
+                                    @Html.DropDownList("unidadCompraIdConteo", null, "Seleccionar", htmlAttributes: new { @class = "form-control", id = "unidad", data_parsley_required = "true" })
+                                    @Html.ValidationMessageFor(model => model.unidadMedidaIdConteo, "", new { @class = "text-danger" })
+                                </div>
+
+                                @Html.Label("equivale a", htmlAttributes: new { @class = "control-label col-md-1 text-left", @style = "margin-left: -33px;" })
+                                <div class="col-md-2" style="margin-left: -20px;">
+                                    <input type="text" class="form-control" id="equivalencia" name="equivalencia" data-inputmask-regex="[0-9,]{0,10}([.][0-9]{0,2})?"
+                                           data-parsley-required="true" data-parsley-errors-container="#equivalencia-error" placeholder="0"
+                                           data-parsley-gt="0" data-parsley-gt-message="No se permiten ceros" />
+                                    <div class="row">
+                                        <span for="descripcion" id="equivalencia-error"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2" style="margin-left: -20px;">
+                                    @Html.DropDownList("unidadMedidaIdConteo", null, "Seleccionar", htmlAttributes: new
+                                  { @class = "form-control",
+                                   data_parsley_required = "true",
+                                   data_parsley_errors_container = "#unidadMedidaIdMinima-error",
+                                  })
+                                    <div class="row">
+                                        <span for="descripcion" id="unidadMedidaIdMinima-error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Agregar" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles{
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Scripts/Plugins/bootstrap-datepicker/bootstrap.datepicker.min.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#fechaInicio').datepicker({
+                language: 'es',
+                Format: "mm/dd/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0",
+                orientation: "bottom"
+            });
+        });
+    </script>
+    <script>
+
+        function OnScriptsLoad() {
+            $('#IdInsumo').on('change', onObtenerUnidadMedida);
+        }
+        function onObtenerUnidadMedida(event) {
+            var idinsumo = $(IdInsumo).val();
+            obtenerIdInidadMedida(idinsumo);
+        }
+
+        function obtenerIdInidadMedida(idinsumo) {
+            $.ajax({
+                type: "POST",
+                url: $('#urlInsumo').val(),
+                dataType: 'json',
+                data: { insumo: idinsumo },
+            }).done(function (response) {
+                if (response !== null && response.exito) {
+                    try {
+                        for (insumo of response.resultado) {
+                            $('#unidad').val(insumo.IdUnidadMedida);
+                        }
+                    }
+                    catch (err) {
+                        alert("Ocurrio un error al obtener los datos, contacte a su administrador.");
+                    }
+                }
+                else {
+                    alert("Ocurrio un error al obtener los datos, contacte a su administrador.");
+                }
+            });
+        }
+    </script>
+
+}
+

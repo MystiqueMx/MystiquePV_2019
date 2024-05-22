@@ -1,0 +1,120 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Reportes"))
+{
+    <br />
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-6">
+            <h3></h3>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteClientes", "ReportesFidelizacion")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Usuarios registrados</a>
+                        <div>
+                            Usuarios que se registraron por medio de la APP.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteCanjeados", "ReportesFidelizacion")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Canjeados</a>
+                        <div>
+                            Productos canjeados.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteCompras", "ReportesFidelizacion")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Compras</a>
+                        <div>
+                            Puntos sumados en base a compras.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("ReporteBeneficios", "ReportesFidelizacion")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Beneficios</a>
+                        <div>
+                            Beneficios aplicados en caja.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "clientes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Clientes con membresía.</a>
+                        <div>
+                            Clientes con membresía.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        @*<div class="row">
+                <div class="col-md-12">
+                    <a href="@Url.Action("Fidelizacion", "Home")" class="btn btn-white">Regresar</a>
+                </div>
+            </div>*@
+        @*<div class="row">
+                <div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("Index", "facturaClientes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Factura</a>
+                            <div>
+                                Factura.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <div class="row hide">
+            <div class="col-md-12">
+                <a class="btn btn-default" href="@Url.Action("Index","Home" ,null)">Regresar</a>
+            </div>
+        </div>
+    </div>
+}
+@section Styles{
+
+}
+
+

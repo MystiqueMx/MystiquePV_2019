@@ -1,0 +1,43 @@
+﻿<!-- MODAL INACTIVAR BENEFICIO-->
+
+<div class="modal fade" id="modal-eliminar" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:red; background-color:white"></i></h4>
+            </div>
+            <div class="modal-body">
+                <h3 id="confirm-title">¿Esta seguro que desea inactivar el siguiente beneficio? </h3>
+                <label>&nbsp;<strong id="confirm-item"></strong></label>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "beneficios", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" id="IdItemInactivar" name="id" />
+                    <input type="reset" value="Cancelar" class="btn btn-defaut" data-dismiss="modal" id="form-beneficio-reset_inactivar">
+                    <input id="modal_inactivar_promociones_button" data-request-url="@Url.Action("Delete", "beneficios")" data-backdrop="false" type="button" value="Inactivar" class="btn btn-danger">
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#modal_inactivar_promociones_button").click(function () {
+        $("#modal-eliminar").modal('hide');
+
+        $.ajax({
+            type: "POST",
+            url: $(this).data('request-url'),
+            data: {
+                id: $("#IdItemInactivar").val()
+            },
+            success: function (result) {
+                $('#modal-eliminar').modal('hide');
+                $("#form-beneficio-reset_inactivar").click();
+                $("#promociones_button").click();
+            }
+        });
+    });
+</script>

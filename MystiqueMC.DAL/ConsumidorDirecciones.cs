@@ -18,6 +18,7 @@ namespace MystiqueMC.DAL
         public ConsumidorDirecciones()
         {
             this.Pedidos1 = new HashSet<Pedidos1>();
+            this.Pedidos11 = new HashSet<Pedidos11>();
         }
     
         public int idConsumidorDireccion { get; set; }
@@ -37,6 +38,7 @@ namespace MystiqueMC.DAL
         public System.DateTime fechaRegistro { get; set; }
         public Nullable<System.DateTime> fechaModificacion { get; set; }
         public string codigoPostal { get; set; }
+        public int caMystiqueServeradoId { get; set; }
     
         public virtual catCiudades catCiudades { get; set; }
         public virtual catColonias catColonias { get; set; }
@@ -44,5 +46,8 @@ namespace MystiqueMC.DAL
         public virtual clientes clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedidos1> Pedidos1 { get; set; }
+        public virtual caMystiqueServerados caMystiqueServerados { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Pedidos11> Pedidos11 { get; set; }
     }
 }

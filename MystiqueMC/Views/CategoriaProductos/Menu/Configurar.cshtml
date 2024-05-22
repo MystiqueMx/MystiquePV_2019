@@ -1,0 +1,319 @@
+﻿@model  WebApp.Web.Models.Productos.ViewModels.ConfigurarProductoViewModel
+@{
+    ViewBag.Title = "Configurar ";
+}
+<div class="row wrapper border-bottom white-bg page-heading" style="margin-bottom:7px">
+    <div class="col-sm-6">
+        <h2>Configuración @Model.Nombre</h2>
+    </div>
+    <div class="col-sm-6 text-right">
+        <div class="title-action">
+            @if (Model.Tipo == 3)
+            {
+                <a href="#" id="button-add-agrupador" class="btn btn-link m-sm"> <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i> Agregar sección</a>
+            }
+            else
+            {
+                <a href="#" id="button-add-agrupador" class="btn btn-link m-sm"> <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i> Agregar agrupador</a>
+            }
+            <input type="hidden" value="@Url.Action("ObtenerAgrupador")" id="url-get-agrupador" />
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="ibox">
+            <div class="ibox-content">
+                <table class="table table-striped tabla-catalogos display responsive no-wrap" width="100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                Sección
+                            </th>
+
+
+                            <th>
+                                Extras
+                            </th>
+
+                            <th>
+                                Por separado
+                            </th>
+                            <th>
+                                Cantidad a seleccionar
+                            </th>
+
+                            <th>
+                                Cantidad de opciones
+                            </th>
+                            <th class="text-right " data-orderable="false"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Agrupadores)
+                        {
+                            <tr>
+
+                                <td>
+                                    @item.Descripcion
+                                </td>
+
+
+                                @if (item.PuedeAgregarExtra == true)
+                                {
+                                    <td><img src="~/Content/Icons/check.png" style="height:24px" /></td>
+                                }
+                                else
+                                {
+                                    <td><img src="~/Content/Icons/minus.png" style="height:24px" /></td>
+                                }
+                                @if (item.DebeConfirmarPorSeparado == true)
+                                {
+                                    <td><img src="~/Content/Icons/check.png" style="height:24px" /></td>
+                                }
+                                else
+                                {
+                                    <td><img src="~/Content/Icons/minus.png" style="height:24px" /></td>
+                                }
+
+                                <td>
+                                    @item.Cantidad
+                                </td>
+
+                                <td>
+                                    @(item.Opciones.Count())
+                                </td>
+
+                                <td class="text-right">
+                                    <a href="#" class="btn-link m-r-md">
+                                        <img src="~/Content/img/editar.png" class="trigger-edit-agrupador" data-id="@item.Id" data-desc="@item.Descripcion" style="height:18px" alt="" />
+                                    </a>
+                                    <a href="#" class="btn-link">
+                                        <img src="~/Content/img/borrar.png" class="trigger-delete-agrupador" data-id="@item.Id" data-desc="@item.Descripcion" style="height:18px" alt="" />
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <a href="@Url.Action("Index", "Menu")" class="btn btn-white">Regresar</a>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-add-agrupador">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form class="col-12" method="post" id="form-agregar-agrupador" action="@Url.Action("ConfigurarAgrupador")" data-parsley-validate
+                  data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    @if (Model.Tipo == 3)
+                    {
+                        <h4 class="modal-title">Agregar sección</h4>
+                    }
+                    else
+                    {
+                        <h4 class="modal-title">Agregar agrupador</h4>
+                    }
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    @if (Model.Tipo == 3)
+                                    {
+                                        <label class="control-label col-md-4">Sección</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="control-label col-md-4">Nombre</label>
+                                    }
+                                        <div class="col-md-8">
+                                            @Html.HiddenFor(c => c.IdProducto)
+                                            @Html.HiddenFor(c => c.Tipo)
+                                            <input type="hidden" name="Indice" value="0" />
+                                            @if (Model.Tipo == 3)
+                                            {
+                                                @Html.DropDownList("categoriaIngredienteId", null, "Seleccionar", htmlAttributes: new { @class = "form-control", data_parsley_required = "true", data_parsley_errors_container = "#error-Descripcion" })
+                                                <span class="text-danger" id="error-Descripcion" style="color:black"></span>
+                                                <input type="text" name="Descripcion" id="Descripcion" class="form-control m-b-sm hidden" />
+                                                <input type="hidden" value="" name="Id" id="Id" />
+                                            }
+                                            else
+                                            {
+                                                <input type="hidden" value="" name="Id" id="Id" />
+                                                <input type="text" name="Descripcion" id="Descripcion" class="form-control m-b-sm"
+                                                       data-inputmask-greedy="false" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ\.\-,'0-9 ]{0,50}"
+                                                       data-parsley-required="true" data-parsley-errors-container="error-Descripcion" />
+                                                <span class="text-danger" id="error-Descripcion"></span>
+                                            }
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Cantidad</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="Cantidad" id="Cantidad" class="form-control m-b-sm"
+                                               data-inputmask-greedy="false" data-inputmask-regex="[0-9]{0,50}"
+                                               data-parsley-required="true" data-parsley-errors-container="error-Cantidad" />
+                                        <span class="text-danger" id="error-Cantidad"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">¿Puede agregar extras?</label>
+                                    <div class="col-md-8">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="PuedeAgregarExtra" id="PuedeAgregarExtra1" value="1" class="m-r-md"> Si
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="PuedeAgregarExtra" id="PuedeAgregarExtra0" value="0" checked=""> No
+                                        </label>
+                                        <span class="text-danger" id="error-PuedeAgregarExtra"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group hide" id="row-precio">
+                                    <label class="control-label col-md-4">Costo del extra</label>
+                                    <div class="col-md-8 ">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">$</div>
+                                            <input type="text" name="CostoExtra" id="CostoExtra" class="form-control"
+                                                   data-inputmask-greedy="false" data-inputmask-regex="[0-9]{0,6}([\.][0-9]{0,2})?"
+                                                   data-parsley-required="true" data-parsley-errors-container="error-CostoExtra" />
+                                        </div>
+                                        <span class="text-danger" id="error-CostoExtra"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">¿Puede solicitar por separado?</label>
+                                    <div class="col-md-8 ">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="DebeConfirmarPorSeparado" id="DebeConfirmarPorSeparado1" value="1" class="m-r-md"> Si
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="DebeConfirmarPorSeparado" id="DebeConfirmarPorSeparado0" value="0" checked=""> No
+                                        </label>
+                                        <span class="text-danger" id="error-DebeConfirmarPorSeparado"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-12">Opciones</label>
+                                    <div class="col-md-12 p-lg">
+                                        <select id="Opciones" class="form-control dual_select" name="Opciones" multiple
+                                                data-parsley-required data-parsley-errors-container="#error-Opciones"
+                                                data-parsley-mincheck="1" data-parsley-required-message="Debes seleccionar por lo menos uno">
+                                                @foreach (var item in (SelectListItem[])ViewBag.OpcionesInsumosProductos)
+                                                {
+                                                    <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                                }
+                                             
+                                        </select>
+                                        <span id="error-Opciones"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="datos-url" value="@Url.Action("ObtenerDatosSeccion2")" />
+                    </div>
+                </div> <!-- /.modal-body -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" onclick="EnableDesc()" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal" id="modal-eliminar">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar agrupador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> ¿Estás seguro que deseas eliminar el agrupador: <span id="desc"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="form-eliminar" method="post" action="@Url.Action("EliminarAgrupador")">
+                    @Html.HiddenFor(c => c.IdProducto)
+                    @Html.HiddenFor(c => c.Tipo)
+                    <input name="id" id="id-eliminar" type="hidden" />
+                    <button type="submit" class="btn btn-danger" id="btn-eliminar">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar-actualizar">Cerrar</button>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+@section Styles{
+    <link rel="stylesheet" href="~/Content/Plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" />
+}
+@section Scripts{
+    <script src="~/Scripts/Plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Scripts/app/Productos2/Configurar.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+
+    <script>
+
+        $("#categoriaIngredienteId").change(function () {
+            var idSeccion = $(this).val();
+            var texto = $('#categoriaIngredienteId option:selected').text();
+            $('#Descripcion').val(texto);
+            
+            var parametro = { id: idSeccion };
+            console.log(parametro);
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ObtenerDatosSeccion", "Menu")',
+                dataType: 'json',
+                data: parametro
+            }).done(function (response) {
+                if (response != null && response.exito) {
+                    $("#Opciones").empty();
+                    var select = document.getElementById("Opciones");
+                    for (x = 0; x < response.data.length; x++)
+                    {
+                        var option = document.createElement("option");
+                        option.text = "" + response.data[x].nombre;
+                        option.value = response.data[x].idInsumo;
+                        select.add(option);
+                    }
+                    $("#Opciones").bootstrapDualListbox("refresh");
+                }
+                else {
+                    alert("Ocurrio un error, contacte a su administrador.");
+                }
+            });
+            
+        });
+
+        function EnableDesc() {
+            document.getElementById("Descripcion").disabled = false;
+        }
+    </script>
+}

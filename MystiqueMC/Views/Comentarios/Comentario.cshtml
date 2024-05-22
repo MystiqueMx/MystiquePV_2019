@@ -1,0 +1,84 @@
+﻿@model MystiqueMC.DAL.comentarios
+@{
+    ViewBag.Title = "Comentario - " + Model.fechaRegistro.GetValueOrDefault().ToShortDateString();
+    var Categorias = ViewBag.Categorias as List<MystiqueMC.DAL.catTipoComentario>;
+    var NoLeidos = ViewBag.NoLeidos as int?;
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-2 no-print">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <h5>Folders</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="@Url.Action("Index", "Comentarios")"> <i class="fa fa-inbox "></i> Bandeja de entrada <span class="label label-info pull-right">@NoLeidos</span> </a></li>
+                        </ul>
+                        <h5>Categorias</h5>
+                        <ul class="category-list" style="padding: 0">
+                            @foreach (var tipo in Categorias)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Index", "Comentarios", new { filter = tipo.idCatTipoComentario })"><i class="fa fa-circle @Html.ClaseTipoComentario(tipo.idCatTipoComentario)"></i> @tipo.descripcion </a>
+                                </li>
+                            }
+
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 animated fadeInRight vista-impresion">
+            <div class="mail-box-header">
+                <div class="pull-right tooltip-demo no-print">
+                    @if (!string.IsNullOrEmpty(Model.clientes.email))
+                    {
+                        <a href="@Url.Action("Responder", "Comentarios", new { id = Model.idComentario })" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Responder"><i class="fa fa-reply"></i> Responder</a>
+                    }
+                    <a href="#" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Imprimir" onclick="window.print()"><i class="fa fa-print"></i> </a>
+                    <form method="post" action="@Url.Action("Eliminar")">
+                        <input type="hidden" name="IdComentario" value="@Model.idComentario" />
+                        <button type="submit" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash"></i> </button>
+                    </form>
+
+                </div>
+                <h2 class="no-print">
+                    Ver Mensaje
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+
+
+                    <h3>
+                        <span class="font-normal">Asunto: </span>@Model.catTipoComentario.descripcion
+                    </h3>
+                    <h3>
+                        <span class="pull-right font-normal">@Model.fechaRegistro.GetValueOrDefault().ToLongDateString(), @Model.fechaRegistro.GetValueOrDefault().ToShortTimeString()</span>
+                        <span class="font-normal">Usuario: </span>@Model.clientes.nombre @Model.clientes.paterno
+                    </h3>
+                </div>
+            </div>
+            <div class="mail-box">
+
+
+                <div class="mail-body">
+                    <p>
+                        @Model.mensaje
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10" style="padding:0pt">
+                <a href="@Url.Action("Fidelizacion","Home", new { tabID="comentarios_button"})" class="btn btn-white m-r-sm">Regresar</a>
+                @*@Html.ActionLink("Regresar", "Index", "ReportesFidelizacion", null, new { @class = "btn btn-white" })*@
+            </div>
+        </div>
+    </div>
+</div>
+

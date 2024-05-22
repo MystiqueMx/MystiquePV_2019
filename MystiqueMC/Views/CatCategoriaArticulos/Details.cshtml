@@ -1,0 +1,118 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.CatCategoriaArticulos
+
+
+@{
+    ViewBag.Title = "Detalles";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Detalles</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Listado", "Index")
+            </li>
+            <li class="active">
+                <strong>Detalles</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Detalles CatCategoriaArticulos</h5>
+                </div>
+                <div class="ibox-content">
+
+
+				    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comercios.nombreComercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comercios.nombreComercial)
+        </dd>
+
+
+    </dl>
+
+
+	
+    @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Edit"))
+        {  
+			@Html.ActionLink("Editar", "Edit", new { id = Model.idCatCategoriaArticulos }, new { @class = "btn btn-primary"})
+	    }
+    @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white"})
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,24 +17,24 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proveedores()
         {
-            this.SucursalProveedores = new HashSet<SucursalProveedores>();
             this.Compras = new HashSet<Compras>();
             this.Gastos = new HashSet<Gastos>();
             this.GastosPvDetalle = new HashSet<GastosPvDetalle>();
+            this.SucursalProveedores = new HashSet<SucursalProveedores>();
         }
     
         public int idProveedor { get; set; }
         public int comercioId { get; set; }
         public string descripcion { get; set; }
     
-        public virtual comercios comercios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SucursalProveedores> SucursalProveedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Compras> Compras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gastos> Gastos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GastosPvDetalle> GastosPvDetalle { get; set; }
+        public virtual comercios comercios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SucursalProveedores> SucursalProveedores { get; set; }
     }
 }

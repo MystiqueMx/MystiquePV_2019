@@ -1,0 +1,85 @@
+﻿@model MystiqueMC.DAL.CatRubros
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Agregar Rubro</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Create", "CatRubros", FormMethod.Post, new { @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <div class="col-md-4">
+                                        @Html.Label("Descripción", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control",
+                                       data_parsley_maxlength = "300",
+                                       data_parsley_required = "true",
+                                       data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,300}",
+                                       maxlength = "300",
+                                       data_parsley_errors_container = "#descripcion-error"
+                                   } })
+                                        @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger parsley-required" })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="descripcion-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.Label("Ponderación (%)", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.ponderacion, new { htmlAttributes = new { @class = "form-control",
+                                       data_parsley_maxlength = "5",
+                                       data_parsley_required = "true",
+                                       data_inputmask_regex = "^\\d{0,2}(\\.\\d{1,2})?$",
+                                       maxlength = "5",
+                                       data_parsley_errors_container = "#ponderacion-error"
+                                   } })
+                                        @Html.ValidationMessageFor(model => model.ponderacion, "", new { @class = "text-danger" })
+                                        <div class="row">
+                                            <span style="color:red" for="ponderacion" id="ponderacion-error"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        @Html.Label("¿Es costo?", htmlAttributes: new { @class = "control-label" })
+                                        <div style="text-align:center;">
+                                            @Html.CheckBoxFor(model => model.esCosto, new { @class = "checkbox checkbox-primary custom-checkbox" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <input type="submit" value="Agregar" class="btn btn-primary" />
+                                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+}

@@ -18,7 +18,7 @@ namespace MystiqueMC.DAL
         public int catProductoId { get; set; }
         public int productoPuntoVentaId { get; set; }
     
-        public virtual catProductos catProductos { get; set; }
         public virtual Productos Productos { get; set; }
+        public virtual catProductos catProductos { get; set; }
     }
 }

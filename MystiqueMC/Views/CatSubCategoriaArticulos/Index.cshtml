@@ -1,0 +1,140 @@
+﻿@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model IEnumerable<MystiqueMC.DAL.CatSubCategoriaArticulos>
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>SubCategorias de Articulos</h2>
+    </div>
+</div>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+
+
+                    <a class="btn btn-link col-lg-7" href="@Url.Action("Create")" style="float:right; width:7.333333%">
+                        <i class="fas fa-plus-square m-r-xs " style=" color:#616161; font-size:12pt"></i>
+                        <b>Agregar</b>
+                    </a>
+
+                    <a class="btn-link col-lg-7" href="@Url.Action("Create","CatCategoriaArticulos",new {bandera=1})" style="left:790px; position:fixed; top:43px; width:14%">
+                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                        <b>Agregar Categoria</b>
+                    </a>
+
+                    <table id="ContentTable" class="table table-striped tabla-catalogos display responsive no-wrap">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Subcategoria
+                                </th>
+
+                                <th>
+                                    Categoria principal
+                                </th>
+
+                                <th class="text-right " data-orderable="false"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td style="text-transform: uppercase;">
+                                        @Html.DisplayFor(modelItem => item.descripcion)
+                                    </td>
+
+                                    <td style="text-transform: uppercase;">
+                                        @Html.DisplayFor(modelItem => item.CatCategoriaArticulos.descripcion)
+                                    </td>
+
+                                    <td class="text-right">
+                                        <a href="@Url.Action("Edit", new {id = item.idCatSubCategoriaArticulos})" class="href-gray m-r-sm" data-tippy="Editar"><img src="~/Content/img/editar.png" /></a>
+                                        <a href="@Url.Action("Delete", new {id = item.idCatSubCategoriaArticulos})" class="href-gray m-r-sm" data-tippy="Desactivar"><img src="~/Content/img/borrar.png" /></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @Html.ActionLink("Regresar", "Index", "Catalogos", null, new { @class = "btn btn-white" })
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+@section Scripts{
+    @Scripts.Render("~/plugins/dataTables")
+    <script>
+        $(document).ready(function () {
+
+            $('.table').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "pageLength":100,
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "language": {
+                    "search": "Buscar ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+    </style>
+
+}
+
+
+

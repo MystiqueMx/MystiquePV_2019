@@ -17,46 +17,42 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public usuarios()
         {
+            this.Arqueo = new HashSet<Arqueo>();
+            this.CategoriaProductos = new HashSet<CategoriaProductos>();
+            this.CatEstatusEquipo = new HashSet<CatEstatusEquipo>();
+            this.CatMovimientoInventarios = new HashSet<CatMovimientoInventarios>();
+            this.CatTipoEquipo = new HashSet<CatTipoEquipo>();
+            this.CatTipoMantenimiento = new HashSet<CatTipoMantenimiento>();
+            this.Compras = new HashSet<Compras>();
+            this.Descuentos = new HashSet<Descuentos>();
+            this.Insumos = new HashSet<Insumos>();
+            this.MantenimientoMobiliarioEquipos = new HashSet<MantenimientoMobiliarioEquipos>();
+            this.MobiliarioEquipos = new HashSet<MobiliarioEquipos>();
+            this.MobiliarioEquipos1 = new HashSet<MobiliarioEquipos>();
+            this.MovimientoInventarios = new HashSet<MovimientoInventarios>();
+            this.Productos = new HashSet<Productos>();
+            this.Recetas = new HashSet<Recetas>();
+            this.RecetasProcesados = new HashSet<RecetasProcesados>();
+            this.RegistroConteoFisicoInsumos = new HashSet<RegistroConteoFisicoInsumos>();
+            this.SucursalDescuentos = new HashSet<SucursalDescuentos>();
+            this.SucursalProductos = new HashSet<SucursalProductos>();
+            this.SucursalProveedores = new HashSet<SucursalProveedores>();
             this.beneficios = new HashSet<beneficios>();
             this.catCiudades = new HashSet<catCiudades>();
             this.catColonias = new HashSet<catColonias>();
             this.catComercioGiros = new HashSet<catComercioGiros>();
             this.catEstados = new HashSet<catEstados>();
+            this.catPaises = new HashSet<catPaises>();
             this.catSexos = new HashSet<catSexos>();
             this.catTipoComercios = new HashSet<catTipoComercios>();
             this.catTipoMembresias = new HashSet<catTipoMembresias>();
-            this.comercios = new HashSet<comercios>();
-            this.datosFiscales = new HashSet<datosFiscales>();
-            this.Arqueo = new HashSet<Arqueo>();
-            this.CatEstatusEquipo = new HashSet<CatEstatusEquipo>();
-            this.CatMovimientoInventarios = new HashSet<CatMovimientoInventarios>();
-            this.CatTipoEquipo = new HashSet<CatTipoEquipo>();
-            this.CatTipoMantenimiento = new HashSet<CatTipoMantenimiento>();
-            this.MantenimientoMobiliarioEquipos = new HashSet<MantenimientoMobiliarioEquipos>();
-            this.MobiliarioEquipos = new HashSet<MobiliarioEquipos>();
-            this.MobiliarioEquipos1 = new HashSet<MobiliarioEquipos>();
-            this.Recetas = new HashSet<Recetas>();
-            this.RegistroConteoFisicoInsumos = new HashSet<RegistroConteoFisicoInsumos>();
-            this.SucursalDescuentos = new HashSet<SucursalDescuentos>();
-            this.SucursalProductos = new HashSet<SucursalProductos>();
-            this.SucursalProveedores = new HashSet<SucursalProveedores>();
-            this.ConfUsuarioSucursales = new HashSet<ConfUsuarioSucursales>();
-            this.Insumos = new HashSet<Insumos>();
-            this.confUsuarioComercio = new HashSet<confUsuarioComercio>();
-            this.RecetasProcesados = new HashSet<RecetasProcesados>();
             this.CatZonas = new HashSet<CatZonas>();
+            this.comercios = new HashSet<comercios>();
+            this.confUsuarioComercio = new HashSet<confUsuarioComercio>();
+            this.ConfUsuarioSucursales = new HashSet<ConfUsuarioSucursales>();
+            this.datosFiscales = new HashSet<datosFiscales>();
             this.sucursales = new HashSet<sucursales>();
             this.sucursales1 = new HashSet<sucursales>();
-            this.MovimientoInventarios = new HashSet<MovimientoInventarios>();
-            this.Compras = new HashSet<Compras>();
-            this.Descuentos = new HashSet<Descuentos>();
-            this.Menus = new HashSet<Menus>();
-            this.Platillos = new HashSet<Platillos>();
-            this.catPaises = new HashSet<catPaises>();
-            this.SeguimientoBitacoraPedidos = new HashSet<SeguimientoBitacoraPedidos>();
-            this.CategoriaProductos = new HashSet<CategoriaProductos>();
-            this.Productos = new HashSet<Productos>();
-            this.ConfUsuariosComercioSucursal = new HashSet<ConfUsuariosComercioSucursal>();
         }
     
         public int idUsuario { get; set; }
@@ -75,6 +71,47 @@ namespace MystiqueMC.DAL
         public Nullable<System.DateTime> FechaRegistro { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Arqueo> Arqueo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CategoriaProductos> CategoriaProductos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatEstatusEquipo> CatEstatusEquipo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatMovimientoInventarios> CatMovimientoInventarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatTipoEquipo> CatTipoEquipo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatTipoMantenimiento> CatTipoMantenimiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Compras> Compras { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Descuentos> Descuentos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Insumos> Insumos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MantenimientoMobiliarioEquipos> MantenimientoMobiliarioEquipos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MobiliarioEquipos> MobiliarioEquipos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MobiliarioEquipos> MobiliarioEquipos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MovimientoInventarios> MovimientoInventarios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Productos> Productos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Recetas> Recetas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RecetasProcesados> RecetasProcesados { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RegistroConteoFisicoInsumos> RegistroConteoFisicoInsumos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SucursalDescuentos> SucursalDescuentos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SucursalProductos> SucursalProductos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SucursalProveedores> SucursalProveedores { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<beneficios> beneficios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catCiudades> catCiudades { get; set; }
@@ -85,76 +122,27 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catEstados> catEstados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<catPaises> catPaises { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catSexos> catSexos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catTipoComercios> catTipoComercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catTipoMembresias> catTipoMembresias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatZonas> CatZonas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comercios> comercios { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<confUsuarioComercio> confUsuarioComercio { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ConfUsuarioSucursales> ConfUsuarioSucursales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<datosFiscales> datosFiscales { get; set; }
         public virtual empresas empresas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Arqueo> Arqueo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatEstatusEquipo> CatEstatusEquipo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatMovimientoInventarios> CatMovimientoInventarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatTipoEquipo> CatTipoEquipo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatTipoMantenimiento> CatTipoMantenimiento { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MantenimientoMobiliarioEquipos> MantenimientoMobiliarioEquipos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MobiliarioEquipos> MobiliarioEquipos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MobiliarioEquipos> MobiliarioEquipos1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Recetas> Recetas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RegistroConteoFisicoInsumos> RegistroConteoFisicoInsumos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SucursalDescuentos> SucursalDescuentos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SucursalProductos> SucursalProductos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SucursalProveedores> SucursalProveedores { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConfUsuarioSucursales> ConfUsuarioSucursales { get; set; }
-        public virtual AspNetUsers AspNetUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Insumos> Insumos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<confUsuarioComercio> confUsuarioComercio { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecetasProcesados> RecetasProcesados { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatZonas> CatZonas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sucursales> sucursales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sucursales> sucursales1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MovimientoInventarios> MovimientoInventarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compras> Compras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Descuentos> Descuentos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menus> Menus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Platillos> Platillos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<catPaises> catPaises { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SeguimientoBitacoraPedidos> SeguimientoBitacoraPedidos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CategoriaProductos> CategoriaProductos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Productos> Productos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConfUsuariosComercioSucursal> ConfUsuariosComercioSucursal { get; set; }
     }
 }

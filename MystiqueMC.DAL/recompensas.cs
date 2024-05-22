@@ -33,11 +33,11 @@ namespace MystiqueMC.DAL
         public int categoriaProductoId { get; set; }
         public Nullable<decimal> consumirCanje { get; set; }
     
+        public virtual CategoriaProductos CategoriaProductos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<canjePuntos> canjePuntos { get; set; }
         public virtual catProductos catProductos { get; set; }
         public virtual catTipoMembresias catTipoMembresias { get; set; }
         public virtual catTipoRecompensas catTipoRecompensas { get; set; }
-        public virtual CategoriaProductos CategoriaProductos { get; set; }
     }
 }

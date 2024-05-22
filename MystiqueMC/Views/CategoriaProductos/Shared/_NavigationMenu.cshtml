@@ -1,0 +1,103 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+<link href="~/Content/Icons/material-icons.css" rel="stylesheet">
+<link href="~/Content/style.css" rel="stylesheet">
+
+@if (permissionsDelegate.HasPermissionForController(rol, "comercios"))
+{
+    <li class="@Html.IsSelected(action: "Index", controller: "Home")
+            @Html.IsSelected(action: "Index", controller: "Productos")
+            @Html.IsSelected(action: "Index", controller: "comercios")
+            @Html.IsSelected(action: "Index", controller: "Sucursales")
+            @Html.IsSelected(action: "Index", controller: "beneficios")">
+        <a href="@Url.Action(actionName: "Index", controllerName: "Home")">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Comercio Afiliado</span>
+        </a>
+    </li>
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Reportes"))
+{
+    <li class="@Html.IsSelected(controller: "Reportes")">
+        <a href="@Url.Action("Index", "Reportes")">
+            <i class="fa fa-chart-pie" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Reportes</span>
+        </a>
+    </li>
+}
+@if (permissionsDelegate.HasPermissionForController(rol, "ReportesMed"))
+{
+    <li class="@Html.IsSelected(controller: "ReportesMed")">
+        <a href="@Url.Action("Index", "ReportesMed")">
+            <i class="fa fa-chart-pie" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Reportes</span>
+        </a>
+    </li>
+}
+
+@*@if (permissionsDelegate.HasPermissionForController(rol, "Insumos"))
+    {
+        <li class="@Html.IsSelected(action: "Menu", controller: "Insumos")">
+            <a href="@Url.Action("Menu", "Insumos")">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <span class="nav-label">&nbsp;&nbsp;Insumos</span>
+            </a>
+        </li>
+    }*@
+
+@if (permissionsDelegate.HasPermissionForController(rol, "FacturacionComercio"))
+{
+    <li class="@Html.IsSelected(action: "Reenviar", controller: "FacturacionComercio")">
+        <a href="@Url.Action("Reenviar", "FacturacionComercio")">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Facturas</span>
+        </a>
+    </li>
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Catalogos"))
+{
+    <li class="@Html.IsSelected(controller: "Catalogos")">
+        <a href="@Url.Action(actionName: "Index", controllerName: "Catalogos")" data-tippy="Catalogos">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Catálogos</span>
+        </a>
+    </li>
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "CatalogosMed"))
+{
+    <li class="@Html.IsSelected(controller: "CatalogosMed")">
+        <a href="@Url.Action(actionName: "Index", controllerName: "CatalogosMed")" data-tippy="Catalogos">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Catálogos</span>
+        </a>
+    </li>
+}
+@if (permissionsDelegate.HasPermissionForController(rol, "Inventarios"))
+{
+    <li class="@Html.IsSelected(controller: "Inventarios")">
+        <a href="@Url.Action(actionName: "IndexSeleccionSucursal", controllerName: "Inventarios")" data-tippy="Inventario">
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Inventarios</span>
+        </a>
+    </li>
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Egresos"))
+{
+    <li class="@Html.IsSelected(controller: "Egresos")">
+        <a href="@Url.Action(actionName: "Menu", controllerName: "Egresos")" data-tippy="Egresos">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Egresos</span>
+        </a>
+    </li>
+}
+

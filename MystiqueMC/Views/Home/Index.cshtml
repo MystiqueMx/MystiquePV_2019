@@ -1,0 +1,187 @@
+﻿@model MystiqueMC.Models.HomeViewModel
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@using MystiqueMC.DAL
+@{
+    /**/
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+
+    /* Variables */
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+
+    IEnumerable<MystiqueMC.DAL.recompensas> recompensas = ViewBag.Recompensas;
+    IEnumerable<MystiqueMC.DAL.catTipoMembresias> membresias = ViewBag.Membresias;
+
+    empresas objEmpresa = null;
+    comercios objComercio = null;
+
+    switch (rol.ToLower())
+    {
+        case "empresa":
+            objEmpresa = Model.Empresa;
+            ViewBag.Title = "Inicio - " + objEmpresa.nombre;
+            break;
+        case "comercio":
+            objComercio = Model.Comercios.FirstOrDefault();
+            ViewBag.Title = "Inicio - " + objComercio.nombreComercial;
+            break;
+
+    }
+    string search = ViewBag.SearchPalabra;
+    string etiquetaFiltroGrafica = ViewBag.FiltroGrafica ?? "Última semana";
+    string claseGraphs = ViewBag.VerDetalle ?? false ? "" : "active";
+    string claseTable = ViewBag.VerDetalle ?? false ? "active" : "";
+}
+
+@switch (rol.ToLower())
+{
+    case "comercio":
+        if (permissionsDelegate.HasPermissionForController(rol, "comercios"))
+        {
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-md-3">
+                    <h2>Comercio Afiliado</h2>
+                </div>
+            </div>
+            <div class="row">
+                @using (Html.BeginForm())
+                {
+                    <div class="row">
+
+                    </div>
+                }
+            </div>
+
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <h4 style="margin-bottom:0">
+                                                <a href="@Url.Action("Edit", "comercios", new { id = (objComercio != null ? objComercio.idComercio : 0) })" class="btn btn-link m-xs ">
+                                                    <svg style="width:24px;height:24px;" viewBox="0 0 24 24">
+
+                                                    </svg>
+                                                    <img class="img-thumbnail img-md m-r-sm" src="@HOSTNAME_IMAGENES@objComercio.logoUrl">
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label> Dirección </label><br />
+                                            <span>@objComercio.direccion</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label> Giro comercio </label><br />
+                                            <span>@objComercio.catComercioGiros.descripcion</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label> Tipo comercio </label><br />
+                                            <span>@objComercio.catTipoComercios.descripcion</span>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <label> Teléfono </label><br />
+                                            <span>@objComercio.telefono</span>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <label> Correo </label><br />
+                                            <span>@objComercio.correo</span>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <label> Medios digitales </label><br />
+                                            <span>@objComercio.paginaWeb</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <a href="@Url.Action("Index","Sucursales", new { IdComercio = objComercio.idComercio })" class="btn btn-primary btn-lg m-t-md" style="width:100%">
+                                                <img src="~/Content/img/sucursales.png" height="20" class="m-t-sm m-b-sm" />
+                                                <span class="m-t-md m-b-lg">Sucursales</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-2 hide">
+                                            <a href="@Url.Action("Index","beneficios", new { SearchComercio = objComercio.idComercio })" class="btn btn-primary btn-lg m-t-md" style="width:100%">
+                                                <img src="~/Content/img/promociones.png" height="20" />
+                                                Promociones y <br /> descuentos
+                                            </a>
+                                        </div>
+                                        @*<div class="col-lg-2">
+                                            <a href="@Url.Action("Fidelizacion", "Home")" class="btn btn-primary btn-lg m-t-md" style="width:100%">
+                                                <img src="~/Content/img/membresia.png" height="20" class="m-t-sm m-b-sm" />
+                                                <span class="m-t-md m-b-md">Fidelización</span>
+
+                                            </a>
+                                        </div>
+                                        *@
+                                        <div class="col-lg-2 hide">
+                                            <a href="@Url.Action("Index", "Productos")" class="btn btn-primary btn-lg m-t-md" style="width:100%">
+                                                <img src="~/Content/img/canjes.png" height="20" class="m-t-sm m-b-sm" />
+                                                <span class="m-t-md m-b-md">Canjes</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <a href="@Url.Action("Home", "Menu", new { c = objComercio.idComercio })" class="btn btn-primary btn-lg m-t-md" style="width:100%">
+                                                <img src="~/Content/img/canjes.png" height="20" class="m-t-sm m-b-sm" />
+                                                <span class="m-t-md m-b-md">Menú</span>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        break;
+    case "empresa":
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-md-3">
+                <h2>Comunidad @objEmpresa.nombre</h2>
+            </div>
+        </div>
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                <div class="row">
+
+                </div>
+            }
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <a href="@Url.Action("IndexEmpresa", "comercios", new { idEmpresa = objEmpresa.idEmpresa })" class="btn btn-primary btn-lg m-t-md" style="width:100%">
+                                            <img src="~/Content/img/sucursales.png" height="20" class="m-t-sm m-b-sm" />
+                                            <span class="m-t-md m-b-lg">Comercios</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        break;
+
+}
+
+@Html.Partial("Modal/ModalSeleccionRango")
+@section Scripts{
+    <script src="~/Scripts/plugins/chart/Chart.bundle.min.js"></script>
+    <script src="~/Scripts/app/Home/Charts.js"></script>
+}
+

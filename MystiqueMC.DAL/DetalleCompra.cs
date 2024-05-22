@@ -28,10 +28,10 @@ namespace MystiqueMC.DAL
         public decimal importe { get; set; }
         public Nullable<int> unidadCompraId { get; set; }
     
-        public virtual UnidadMedida UnidadMedida { get; set; }
+        public virtual Compras Compras { get; set; }
         public virtual Insumos Insumos { get; set; }
+        public virtual UnidadMedida UnidadMedida { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovimientoInventarios> MovimientoInventarios { get; set; }
-        public virtual Compras Compras { get; set; }
     }
 }

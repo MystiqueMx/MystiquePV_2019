@@ -1,0 +1,125 @@
+﻿@model MystiqueMC.DAL.confSumaPuntos
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    string nombreMembresia = Model.catTipoMembresias == null ? "" : Model.catTipoMembresias.nombre;
+
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    ViewBag.Title = "Configuración de puntos";
+}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Configuración de puntos para membresía : @nombreMembresia-@ViewBag.NombreComercio</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="col-lg-12" id="container-alerts"></div>
+    @using (Html.BeginForm("Puntos", "Productos", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+    {
+
+        <div class="row">
+
+            <div class="col-lg-12"><h3>Compras</h3></div>
+            <div class="form-group col-lg-4">
+                <label for="Monto">Monto de la compra mínima</label>
+                <input type="hidden" name="IdConfSumaPunto" value="@Model.idConfSumaPunto" />
+                <input type="hidden" name="ComercioId" value="@Model.comercioId" />
+                <input type="hidden" name="CatMembresiaId" value="@Model.catTipoMembresiaId" />
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input name="Monto" type="text" class="form-control" maxlength=20 value="@Model.montoCompraMinima"
+                           data-inputmask-regex="[0-9\.]{0,10}" data-inputmask-greedy="false" data-parsley-gt="0"
+                           data-parsley-required data-parsley-maxlength="20" data-parsley-errors-container="#Monto-error" />
+                </div>
+                <span for="Monto" id="Monto-error"></span>
+            </div>
+            <div class="form-group col-lg-4">
+                <label for="Dias">Tiempo de validez de la compra</label>
+                <div class="input-group">
+                    <input name="Dias" type="text" class="form-control" maxlength=20 value="@Model.diasValides"
+                           data-inputmask-regex="[0-9]{0,10}" data-inputmask-greedy="false" data-parsley-gt="0"
+                           data-parsley-required data-parsley-maxlength="20" data-parsley-errors-container="#Dias-error" />
+                    <div class="input-group-addon"> días</div>
+                </div>
+                <span for="Dias" id="Dias-error"></span>
+            </div>
+            <div class="form-group col-lg-4">
+                <label for="Horas">&nbsp;</label>
+                <div class="input-group">
+                    <input name="Horas" type="text" class="form-control" maxlength=20 value="@Model.horaValides"
+                           data-inputmask-regex="[0-9]{0,2}" data-inputmask-greedy="false" data-parsley-lt="24"
+                           data-parsley-required data-parsley-maxlength="20" data-parsley-errors-container="#Horas-error" />
+                    <div class="input-group-addon"> horas</div>
+                </div>
+                <span for="Horas" id="Horas-error"></span>
+            </div>
+
+
+            <div class="col-lg-12"><h3>Valor de puntos</h3></div>
+            <div class="form-group col-lg-2">
+                <label for="Cantidad">Por cada compra de</label>
+                <div class="input-group">
+                    <label name="Equivalente" style="font-weight: normal;">$100</label>
+                </div>
+                @*<span for="Equivalente" id="Equivalente-error"></span>*@
+
+            </div>
+            <div class="form-group col-lg-2">
+                <label for="Equivalente">Se otorgan</label>
+                <div class="input-group">
+                    <input name="Cantidad" type="text" class="form-control" maxlength=20 value="@Model.cantidadPunto"
+                           data-inputmask-regex="[0-9]{0,10}" data-inputmask-greedy="false" data-parsley-gt="0"
+                           data-parsley-required data-parsley-maxlength="20" data-parsley-errors-container="#Cantidad-error" />
+                    <div class="input-group-addon"> pts</div>
+                </div>
+                <span for="Cantidad" id="Cantidad-error"></span>
+            </div>
+            <div class="form-group col-lg-2">
+                <label>Con un descuento de</label>
+                <div class="input-group">
+                    <input name="porcentajeDescuento" type="number" class="form-control hideSpinner" maxlength=6 value="@Model.porcentajeDescuento" 
+                           data-inputmask-regex="[0-9]{0,3}" data-inputmask-greedy="false" data-parsley-gt="0" data-parsley-lte="100" 
+                           
+                           data-parsley-required data-parsley-maxlength="4" data-parsley-errors-container="#Descuento-error" />
+                    <div class="input-group-addon">%</div>
+                </div>
+                <span for="porcentajeDescuento" id="Descuento-error"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <a href="@Url.Action("Fidelizacion","Home", new { tabID="canjes_button"})" class="btn btn-white m-r-sm">Regresar</a>
+                @*<a href="@Url.Action("Index")" class="btn btn-white m-r-sm">Regresar</a>*@
+                <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                <div id="spinner" class="spiner-example" style="display:none;">
+                    <div class="sk-spinner sk-spinner-circle">
+                        <div class="sk-circle1 sk-circle"></div>
+                        <div class="sk-circle2 sk-circle"></div>
+                        <div class="sk-circle3 sk-circle"></div>
+                        <div class="sk-circle4 sk-circle"></div>
+                        <div class="sk-circle5 sk-circle"></div>
+                        <div class="sk-circle6 sk-circle"></div>
+                        <div class="sk-circle7 sk-circle"></div>
+                        <div class="sk-circle8 sk-circle"></div>
+                        <div class="sk-circle9 sk-circle"></div>
+                        <div class="sk-circle10 sk-circle"></div>
+                        <div class="sk-circle11 sk-circle"></div>
+                        <div class="sk-circle12 sk-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/plugins/bigInteger/bigInteger.min.js"></script>
+    <script src="~/Scripts/app/Productos/Puntos.js"></script>
+}

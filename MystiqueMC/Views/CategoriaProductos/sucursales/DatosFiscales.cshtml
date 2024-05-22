@@ -1,0 +1,271 @@
+﻿@using MystiqueMC.Models.Sucursal
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@model MystiqueMC.Models.Sucursal.DatosFacturacionViewModel
+
+@{
+    ViewBag.Title = "Actualizar datos fiscales";
+    var delegatePermisos = new PermissionsDelegate(Session.ObtenerPermisos());
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Actualizar Datos Fiscales <b>@Model.Nombre</b></h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content sk-loading">
+                    <div class="sk-spinner sk-spinner-rotating-plane"></div>
+                    <form action="@Url.Action("DatosFiscales", new { id = Model.IdSucursal })" method="post" data-parsley-validate autocomplete="off" data-parsley-excluded="input[type=button], input[type=submit], input[type=reset], input[type=hidden], [disabled], :hidden">
+                        @Html.AntiForgeryToken()
+                        @Html.Hidden("Url-Ciudades", Url.Action("CiudadesPorEstado"))
+                        @Html.Hidden("IdCiudadAnterior", Model.FacturacionIdCiudad)
+                        @Html.HiddenFor(c => c.IdSucursal)
+                        @Html.HiddenFor(c => c.ComercioId)
+                        @Html.HiddenFor(c => c.LabelEmpresa)
+                        @Html.HiddenFor(c => c.LabelComercio)
+                        @Html.HiddenFor(c => c.EmpresaId)
+                        @Html.HiddenFor(c => c.datosFiscalesId)
+                        @Html.HiddenFor(c => c.direccionId)
+
+                        <div class="row">
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <h5> Información de facturación </h5>
+                                <input type="hidden" id="EstatusDatosFiscalesId" name="EstatusDatosFiscalesId" value="2">
+                                <input type="hidden" name="IdDatosFiscales" id="IdDatosFiscales" value="2">
+                                <div id="row-nuevos-datos-fiscales">
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="col-md-12">
+                                                @Html.LabelFor(model => model.FacturacionNombre, htmlAttributes: new { @class = "control-label" })
+                                                @Html.EditorFor(model => model.FacturacionNombre, new
+                                                {
+                                                    htmlAttributes = new
+                                                    {
+                                                        @class = "form-control",
+                                                        data_parsley_maxlength = "300",
+                                                        data_parsley_required = "true",
+                                                        data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ\\.\\-,'0-9 ]{0,300}",
+                                                        data_parsley_errors_container = "#error-FacturacionNombre"
+
+                                                    }
+                                                })
+                                                @Html.ValidationMessageFor(model => model.FacturacionNombre, "", new { @class = "text-danger", id = "error-FacturacionNombre" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionRfc, htmlAttributes: new { @class = "control-label" })
+                                                @Html.EditorFor(model => model.FacturacionRfc, new
+                                           {
+                                               htmlAttributes = new
+                                               {
+                                                   @class = "form-control",
+                                                   data_parsley_minlenght = "13",
+                                                   data_parsley_required = "true",
+                                                   data_inputmask_regex = "[a-zA-ZñÑ0-9\x26]{0,14}",
+                                                   data_parsley_pattern="^([A-Za-zÑñ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z]|[0-9]){2}([A]|[0-9]){1})?$",
+                                                   data_parsley_pattern_message = "El formato no coincide con un R.F.C. válido",
+                                                   data_parsley_errors_container = "#error-FacturacionRfc",
+                                                   //data_parsley_remote = Url.Action("RfcUnicos") + "?rfc={value}",
+                                                   //data_parsley_remote_message = "Este R.F.C. ya cuenta con datos fiscales, si no puedes visualizarlos por favor contacta a tu administrador",
+
+                                               }
+                                           })
+                                                @Html.ValidationMessageFor(model => model.FacturacionRfc, "", new { @class = "text-danger", id = "error-FacturacionRfc" })
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionCodigoPostal, htmlAttributes: new { @class = "control-label" })
+                                                @Html.EditorFor(model => model.FacturacionCodigoPostal, new
+                                                {
+                                                    htmlAttributes = new
+                                                    {
+                                                        @class = "form-control",
+                                                        data_parsley_minlength = "5",
+                                                        data_parsley_required = "true",
+                                                        data_inputmask_regex = "[0-9]{0,5}",
+                                                        data_parsley_errors_container = "#error-FacturacionCodigoPostal",
+                                                        data_parsley_remote = Url.Action("CodigosPostalesSat") + "?cp={value}",
+                                                        data_parsley_remote_message = "Este codigo postal no se encuentra registrado por el SAT",
+                                                    }
+                                                })
+                                                @Html.ValidationMessageFor(model => model.FacturacionCodigoPostal, "", new { @class = "text-danger", id = "error-FacturacionCodigoPostal" })
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                @Html.LabelFor(model => model.FacturacionRegimenFiscal, htmlAttributes: new { @class = "control-label" })
+                                                @if (ViewBag.regimenFiscal != null)
+                                                {
+                                                    @Html.DropDownList("FacturacionRegimenFiscal", null, htmlAttributes: new { @class = "form-control", @data_parsley_required = "true", data_parsley_errors_container = "#error-FacturacionRegimenFiscal" })
+                                                }
+                                                else
+                                                {
+                                                    @Html.ValidationMessageFor(model => model.FacturacionRegimenFiscal, "", new { @class = "text-danger", id = "error-FacturacionRegimenFiscal" })
+                                                    if (ViewBag.FacturacionRegimenFiscal is IEnumerable<SelectListItem> regimenFiscales)
+                                                    {
+                                                        if (regimenFiscales.Count() > 6)
+                                                        {
+                                                            <select id="FacturacionRegimenFiscal" name="FacturacionRegimenFiscal" class="form-control" data-live-search="true"
+                                                                    data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-IdDatosFiscales">
+                                                                <option value="">Seleccione...</option>
+                                                                @foreach (var item in regimenFiscales)
+                                                                {
+                                                                    <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                                                }
+                                                            </select>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">No regimenes fiscales cargados, por favor contacte a su administrador</span>
+
+                                                    }
+                                                }
+                                                @Html.ValidationMessageFor(model => model.FacturacionRegimenFiscal, "", new { @class = "text-danger", id = "error-FacturacionRegimenFiscal" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+
+                                    <h5> Información adicional de facturación</h5>
+                                    <div class="form-group">
+                                        <div class="col-lg-12">
+
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionIdEstado, htmlAttributes: new { @class = "control-label" })
+                                                @if (ViewBag.estado != null)
+                                                {
+                                                    @Html.DropDownList("FacturacionIdEstado", null, htmlAttributes: new { @class = "form-control", @data_parsley_required = "true", data_parsley_errors_cointainer = "#error-FacturacionIdEstado" })
+                                                }
+                                                else
+                                                {
+                                                    if (ViewBag.FacturacionIdEstado is IEnumerable<SelectListItem> estadosFac)
+                                                    {
+                                                        if (estadosFac.Any())
+                                                        {
+                                                            <select id="FacturacionIdEstado" name="FacturacionIdEstado" class="form-control" data-live-search="true" data-parsley-required="true"
+                                                                    data-parsley-errors-cointainer="#error-FacturacionIdEstado">
+                                                                <option value="">Seleccione...</option>
+                                                                @foreach (var item in estadosFac)
+                                                                {
+                                                                    <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                                                }
+                                                            </select>
+                                                        }
+
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="text-danger">No existen estados cargados, por favor agregue datos nuevos</span>
+
+                                                    }
+                                                }
+                                                @Html.ValidationMessageFor(model => model.FacturacionIdEstado, "", new { @class = "text-danger", id = "error-FacturacionIdEstado" })
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionIdCiudad, htmlAttributes: new { @class = "control-label" })
+                                                @if (ViewBag.ciudad != null)
+                                                {
+                                                    @Html.DropDownList("FacturacionIdCiudad", null, htmlAttributes: new { @class = "form-control", @data_parsley_required = "true", data_parsley_errors_cointainer = "#error-FacturacionIdEstado" })
+                                                }
+                                                else
+                                                {
+                                                    <select id="FacturacionIdCiudad" name="FacturacionIdCiudad" class="form-control" data-live-search="true" disabled="disabled" data-parsley-required="true"
+                                                            data-size="6" data-parsley-errors-cointainer="#error-FacturacionIdCiudad">
+                                                        <option value="">Seleccione...</option>
+                                                    </select>
+                                                }
+                                                @Html.ValidationMessageFor(model => model.FacturacionIdCiudad, "", new { @class = "text-danger", id = "error-FacturacionIdCiudad" })
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionColonia, htmlAttributes: new { @class = "control-label" })
+                                                @Html.EditorFor(model => model.FacturacionColonia, new
+                                           {
+                                               htmlAttributes = new
+                                               {
+                                                   @class = "form-control",
+                                                   data_parsley_maxlength = "100",
+                                                   data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ\\.\\-,'0-9 ]{0,100}",
+                                                   data_parsley_errors_container = "#error-FacturacionColonia",
+                                                   data_parsley_required = "true"
+
+                                               }
+                                           })
+                                                @Html.ValidationMessageFor(model => model.FacturacionColonia, "", new { @class = "text-danger", id = "error-FacturacionColonia" })
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionCalle, htmlAttributes: new { @class = "control-label" })
+                                                @Html.EditorFor(model => model.FacturacionCalle, new
+                                           {
+                                               htmlAttributes = new
+                                               {
+                                                   @class = "form-control",
+                                                   data_parsley_maxlength = "100",
+                                                   data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ\\.\\-,'0-9 ]{0,100}",
+                                                   data_parsley_errors_container = "#error-FacturacionCalle",
+                                                   @data_parsley_required = "true"
+                                               }
+                                           })
+                                                @Html.ValidationMessageFor(model => model.FacturacionCalle, "", new { @class = "text-danger", id = "error-FacturacionCalle" })
+                                            </div>
+
+
+                                            <div class="col-md-3">
+                                                @Html.LabelFor(model => model.FacturacionNumero, htmlAttributes: new { @class = "control-label" })
+                                                @Html.EditorFor(model => model.FacturacionNumero, new
+                                           {
+                                               htmlAttributes = new
+                                               {
+                                                   @class = "form-control",
+                                                   data_parsley_maxlength = "10",
+                                                   data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ\\.\\-,'0-9 ]{0,10}",
+                                                   data_parsley_errors_container = "#error-FacturacionNumero",
+                                               }
+                                           })
+                                                @Html.ValidationMessageFor(model => model.FacturacionNumero, "", new { @class = "text-danger", id = "error-FacturacionNumero" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset col-md-10">
+                                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                                        <a href="@Url.Action("Index","sucursales", new {IdComercio = Model.ComercioId})" class="btn btn-white">Cancelar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">&nbsp;</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/App/Sucursales/DatosFiscales.js"></script>
+}
+@section Styles{
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+}
+

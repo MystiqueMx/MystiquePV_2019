@@ -1,41 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿// Decompiled with JetBrains decompiler
+// Type: MystiqueMC.Models.ReporteVentasViewModel
+// Assembly: MystiqueMC, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: 24F62E2F-C73B-47A1-AC91-0F22AE9440BB
+// Assembly location: C:\Users\moise\OneDrive\Documents\mystique_web\bin\MystiqueMC.dll
+
+using System;
+
 
 namespace MystiqueMC.Models
 {
-    public class ReporteVentasViewModel
-    {
-        public int cveVenta { get; set; }
-        public Nullable<int> semana { get; set; }
-        public Nullable<int> numero { get; set; }
-        public string dia { get; set; }
-        public Nullable<int> comensales { get; set; }
-        public Nullable<decimal> ventasTotales { get; set; }
-        public System.DateTime fechaInicial { get; set; }
-        public Nullable<System.DateTime> fechaFinal { get; set; }
-    }
+  public class ReporteVentasViewModel
+  {
+    public int cveVenta { get; set; }
 
-    public class ReporteVentasxHoraViewModel
-    {
-        public int Hora { get; set; }
-        public int Domingo { get; set; }
-        public int Lunes { get; set; }
-        public int Martes { get; set; }
-        public int Miercoles { get; set; }
-        public int Jueves { get; set; }
-        public int Viernes { get; set; }
-        public int Sabado { get; set; }
-        public decimal Promedio { get; set; }
-    }
+    public int? semana { get; set; }
 
-    public class ReporteVentasxHoraViewModel2
-    {
-        public string diaSemana { get; set; }
-        public string fechaHora { get; set; }
-        public Nullable<decimal> importe { get; set; }
-        public Nullable<decimal> tickets { get; set; }
-    }
+    public int? numero { get; set; }
 
+    public string dia { get; set; }
+
+    public int? comensales { get; set; }
+
+    public Decimal? ventasTotales { get; set; }
+
+    public DateTime fechaInicial { get; set; }
+
+    public DateTime? fechaFinal { get; set; }
+  }
 }

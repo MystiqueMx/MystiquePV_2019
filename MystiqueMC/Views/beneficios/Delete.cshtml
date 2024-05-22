@@ -1,0 +1,279 @@
+﻿
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.beneficios
+
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Eliminar</title>
+</head>
+<body>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>beneficios</h5>
+                </div>
+                <div class="ibox-content">
+				<h4 class="text-danger">¿Estás seguro que deseas removerlo?</h4>
+				 <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaInicio)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaFin)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaRegistro)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenDescuento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenDescuento)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenExt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenExt)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenTitulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenTitulo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fondoColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fondoColor)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.terminosCondiciones)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.terminosCondiciones)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isCupon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isCupon)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isPromocion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isPromocion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipoCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipoCodigo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cadenaCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cadenaCodigo)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivelMembresia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivelMembresia)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urlImagenCodigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urlImagenCodigo)
+        </dd>
+
+
+
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.beneficioHorarios.horarioInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.beneficioHorarios.horarioInicio)
+        </dd>*@
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.catTipoMembresias.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.catTipoMembresias.nombre)
+        </dd>
+
+
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comercios.nombreComercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comercios.nombreComercial)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarios.aspNetUsersId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarios.aspNetUsersId)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+		    @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Delete"))
+                { 
+             <input type="submit" value="Eliminar" class="btn btn-danger" />
+			}
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white"})
+        </div>
+    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+</body>
+</html>
+

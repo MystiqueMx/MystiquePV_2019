@@ -20,8 +20,8 @@ namespace MystiqueMC.DAL
         public Nullable<int> productoId { get; set; }
         public Nullable<int> insumoId { get; set; }
     
+        public virtual Productos Productos { get; set; }
         public virtual PedidoProductos PedidoProductos { get; set; }
         public virtual PedidoProductoDetalle PedidoProductoDetalle { get; set; }
-        public virtual Productos Productos { get; set; }
     }
 }

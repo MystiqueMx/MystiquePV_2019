@@ -1,10 +1,19 @@
-﻿using System;
+﻿									   
+										  
+																			  
+											 
+																					   
+
+			  
+					 
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+							  
 using System.Reflection;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -21,6 +30,11 @@ using MystiqueMC.Models;
 namespace MystiqueMC.Helpers
 {
     public abstract class BaseController : Controller
+   
+										
+																									  
+
+									  
     {
         #region CONTEXT
         private MystiqueMeEntities _context;
@@ -29,11 +43,18 @@ namespace MystiqueMC.Helpers
             get
             {
                 if (_context != null) return _context;
+	   
+	 
+
+																	   
 
                  _context = new MystiqueMeEntities();
                 
                 //var objCx = (new MystiqueMeEntities() as IObjectContextAdapter).ObjectContext;
                 //objCx.SavingChanges += (s, e) => { Logger.Debug("override"); };
+																																			 
+	   
+	 
 
                 _context.Database.Log = sql => Logger.Debug(sql);   
                                                           
@@ -69,7 +90,14 @@ namespace MystiqueMC.Helpers
             }
         }
         
+	 
+
         public IQueryable<sucursales> SucursalesFirmadas
+	 
+		 
+	   
+					  
+								
         {
             get
             {
@@ -91,7 +119,15 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<catProductos> ProductosVisibles
+	 
+		 
+	   
+					  
+								
         {
             get
             {
@@ -113,7 +149,15 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<Productos> ProductosVisibles2 // Idk es media noche y no me interesa porque hay dos tablas de productos
+	 
+		 
+	   
+					  
+								
         {
             get
             {
@@ -135,7 +179,15 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<Insumos> InsumosVisibles
+	 
+		 
+	   
+					  
+								
         {
             get
             {
@@ -157,7 +209,15 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<recompensas> RecompensasVisibles
+	 
+		 
+	   
+					  
+								
         {
             get
             {
@@ -179,7 +239,15 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<beneficios> PromocionesVisibles
+	 
+		 
+	   
+					  
+								
         {
             get
             {
@@ -201,14 +269,21 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<AspNetRoles> RolesAsignables
+	 
+		 
+	   
+								
         {
             get
             {
                 switch (RolUsuario)
                 {
-                    case "WebMaster":// Rol webMaster puede crear usuarios con el rol de Empresa
-                        return Contexto.AspNetRoles.Where(c => c.Name == "Empresa").AsQueryable();
+                    case "WebMaster":// Rol webMaster puede crear usuarios con el rol de Empresa y comercio
+                        return Contexto.AspNetRoles.AsQueryable();
                     case "Empresa":// Rol de empresa puede crear usuarios con el rol de Comercio
                         return Contexto.AspNetRoles.Where(c => c.Name == "Comercio").AsQueryable();
                     case "Comercio": // Rol de comercio puede crear usuarios con el rol de Comercio o WebService
@@ -220,7 +295,14 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<empresas> EmpresasAsignables
+	 
+		 
+	   
+								
         {
             get
             {
@@ -239,7 +321,14 @@ namespace MystiqueMC.Helpers
                 }
             }
         }
+	   
+	 
+
         public IQueryable<clientes> ClientesVisibles
+	 
+		 
+	   
+								
         {
             get
             {
@@ -259,7 +348,26 @@ namespace MystiqueMC.Helpers
             }
             
         }
+		
+		
+		
         public IQueryable<catTipoMembresias> MembresiasVisibles
+	 
+
+																   
+
+							  
+	 
+																								  
+	 
+
+																
+
+													
+	 
+		 
+	   
+									  
         {
             get
             {
@@ -269,10 +377,13 @@ namespace MystiqueMC.Helpers
                         return Contexto.catTipoMembresias.AsQueryable();
                     case "Empresa":
                         return Contexto.catTipoMembresias.Where(c => c.empresaId == EmpresaUsuario).AsQueryable();
+																																												   
                     case "Comercio":
                         return Contexto.catTipoMembresias.Where(c => c.empresaId == EmpresaUsuario).AsQueryable();
                     case "Analista":
                         return Contexto.catTipoMembresias.Where(c => c.empresaId == EmpresaUsuario).AsQueryable();
+																
+																																											
                     default:
                         return Enumerable.Empty<catTipoMembresias>().AsQueryable();
                 }
@@ -284,6 +395,67 @@ namespace MystiqueMC.Helpers
         public int IdUsuarioActual => Session.ObtenerUsuario() == null ? -1 : Session.ObtenerUsuario().idUsuario;
         public string RolUsuarioActual => Session.ObtenerRol();
         public IQueryable<sucursales> SucursalesActuales
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+									   
+
+
+
+
+						  
         {
             get
             {
@@ -320,6 +492,8 @@ namespace MystiqueMC.Helpers
                         return Contexto.sucursales.Where(c => c.comercios.empresaId == UsuarioActual.empresaId).AsQueryable();
                     default:
                         return Enumerable.Empty<sucursales>().AsQueryable();
+											   
+																												   
                 }
             }
         }
@@ -515,6 +689,16 @@ namespace MystiqueMC.Helpers
         }
 
         public SelectListItem[] ObtenerProveedores(int? selected = null)
+	 
+								 
+											  
+												 
+														  
+												   
+						 
+	   
+																																								
+						   
         {
             var lista = ComerciosFirmados
                 .Include(c => c.Proveedores)
@@ -527,6 +711,11 @@ namespace MystiqueMC.Helpers
                 }).ToArray();
             return lista;
         }
+	   
+																																																																										  
+										  
+					 
+	 
 
         public SelectListItem[] ObtenerSucursales(int? selected = null)
         {
@@ -537,16 +726,56 @@ namespace MystiqueMC.Helpers
                     Value = c.idSucursal.ToString(),
                     Selected = c.idSucursal == selected,
                 }).ToArray();
+								
+								
+								
+								
+							   
+																																																																																																																																																				
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public bool EntidadTieneRelacion(Exception ex)
         {
             while (ex.InnerException != null)
                 ex = ex.InnerException;
+																															 
+													   
+										   
+											  
+								
+								
+								
+								
+								
+							   
+																																																																																								   
+	 
 
+												  
+	 
+									   
+							   
             return ex.Message.Contains("The DELETE statement conflicted with the REFERENCE constraint");
         }
         
         #endregion
     }
+   
 }

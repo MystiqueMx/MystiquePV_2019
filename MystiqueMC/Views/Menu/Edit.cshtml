@@ -126,8 +126,6 @@
                                                 <label>Imagen</label> <br />
                                                 <img id="images" height="200" src="@Model.Imagen" alt="">
                                                 @Html.HiddenFor(c => c.Imagen)
-                                                <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage", "Menu", null)" />
-                                                <input type="hidden" id="ImageUrl" name="imagenApp" value="@Model.imagenApp" />
                                             </div>
                                             <div class="col-lg-6" style="margin-top:6px">
                                                 <label class="btn btn-primary" for="inputImages">
@@ -139,7 +137,6 @@
                                         </div><br />
                                         <input id="bases" name="bases" type="hidden" />
                                     </div>
-                                    <!-- INSUMOS -->
                                     <div class="col-lg-6">
                                         <div id="row-recetas" class="hide">
                                             <div class="col-lg-12">
@@ -249,23 +246,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach (var item in Model.Variedades)
-                                                {
-                                                    <tr>
-                                                        <td class="col-lg-2"><img src="@item.Imagen" alt="" class="img-md"></td>
-                                                        <td class="vcenter">@Html.DisplayFor(modelItem => item.Nombre)</td>
-                                                        <td class="text-right">
-                                                            <button class="" name="editarVariedad" style="background: transparent; border: none" type="button"
-                                                                    data-button='{"Id": "@item.Id", "Nombre": "@item.Nombre", "Imagen": "@item.Imagen" }'>
-                                                                <img src="~/Content/img/editar.png" />
-                                                            </button>
-                                                            <button class="href-gray m-r-sm" name="eliminarVariedad" type="button" style="background: transparent; border: none"
-                                                                    data-button='{"Id": "@item.Id"}'>
-                                                                <img src="~/Content/img/borrar.png" />
-                                                            </button>
-                                                        </td>
-                                                    </tr>
-                                                }
+                                               
                                             </tbody>
                                         </table>
                                     </div>
@@ -334,56 +315,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- PRECIO POR SUCURSALES -->
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <div id="row-PrecioSucursales">
-                                        <div class="col-md-8" style="margin-bottom: 18px;">
-                                            <label class="control-label">Precio por Sucursales</label>
-                                        </div>
-                                        <input id="guardarPrecio" value="@Url.Action("GuardarNuevoPrecio", "Sucursales", null)" type="hidden" />
-                                        <table class="table col-md-12">
-                                            <thead>
-                                                <tr>
-                                                    <th>Fecha</th>
-                                                    <th>Nombre</th>
-                                                    <th>Precio</th>
-                                                    <th class="text-right" data-orderable="false"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach (var item in Model.PreciosSucursales.OrderBy(c => c.NombreSucursal))
-                                                {
-                                                    <tr>
-                                                        <td class="col-sm-2">@item.fechaRegistro.ToShortDateString()</td>
-                                                        <td class="col-sm-4">@Html.DisplayFor(modelItem => item.NombreSucursal)</td>
-                                                        <td class="control-orden" style="display:flex">
-                                                            <input hidden name="id" value="@item.idSucursalProducto" />
-                                                            <input class="form-control" rows="1" name="precio" style="width:22%" value="@item.Precio" />
-                                                            <img class="botton-precio-suc" src="~/Content/Icons/Actualizar.png" height="20" style="margin-top: 6px;" />
-                                                        </td>
-                                                        <td style="text-align: right;">
-                                                            @if (item.activo == true)
-                                                            {
-                                                                <button class="btn-link btn-sm m-r-n-xs" type="button" style="vertical-align:central" data-toggle="modal" data-target="#modal-estatus-inactivo-suc" data-id="@item.idSucursalProducto">
-                                                                    <img class="m-t-n-md" src="~/Content/img/on.png" style="height:24px;margin-top: 6px;" />
-                                                                </button>
-                                                            }
-                                                            else
-                                                            {
-                                                                <button class="btn-link btn-sm m-r-n-xs" type="button" data-toggle="modal" data-target="#modal-estatus-activo-suc" data-id="@item.idSucursalProducto">
-                                                                    <img class="m-t-n-md" src="~/Content/img/off.png" style="height:24px;margin-top: 6px;" />
-                                                                </button>
-                                                            }
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- BOTONES GUARDAR/CANCELAR-->
                             <div class="form-group">
                                 <div class="col-md-offset col-md-10">
                                     <button type="button" class="btn btn-primary" id="btn-guardar">Guardar</button>
@@ -559,7 +490,7 @@
                                 <label for="insumoDetalle">Insumo</label>
                                 <input type="hidden" name="idReceta" value="@Model.IdReceta" />
                                 <input type="hidden" name="productoId" value="@Model.IdProducto" />
-
+                                
 
                                 <select id="insumoDetalle" name="insumoDetalle" class="form-control" data-live-search="true" data-size="6"
                                         data-noneSelectedText="Seleccione..." data-parsley-required data-parsley-errors-container="#error-insumoDetalle">
@@ -588,7 +519,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="btn-guardar-insumo-producto">Guardar</button>
+                <button type="button" class="btn btn-primary" id="btn-guardar-insumo-producto" >Guardar</button>
                 <button type="button" class="btn btn-default" id="btn-cancelar-insumo-producto" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
@@ -771,8 +702,6 @@
 </div>
 @Html.Partial("Modales/ModalAgregarVariedad")
 @Html.Partial("KardexProducto/VariedadesProducto/EliminarVariedadProducto")
-@Html.Partial("Modales/ModalActivoSucursal")
-@Html.Partial("Modales/ModalInactivoSucursal")
 @*@Html.Partial("KardexProducto/VariedadesProducto/ModalEditarVariedad")*@
 
 @section Scripts{
@@ -783,53 +712,9 @@
     <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
     <script src="~/Scripts/Plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <script>
-
-        $(document).ready(function () {
-            // Clic en actualizar precio de por sucursal
-            $('.botton-precio-suc').on('click', function (evento) {
-                var $contenedor = $(evento.target).parent('.control-orden');
-                var id = $contenedor.find('input[name = "id"]').val();
-                var precios = $contenedor.find('input[name = "precio"]').val();
-                var parametro = { id: id, precio: precios };
-                console.log(parametro);
-                $.ajax({
-                    type: "POST",
-                    url: $('#guardarPrecio').val(),
-                    dataType: 'json',
-                    data: parametro
-                }).done(function (response) {
-                    if (response != null && response.exito) {
-                        try {
-                            window.location.reload();
-                        }
-                        catch (err) {
-                            console.error(err);
-                        }
-                    }
-                    else {
-                        alert("Ocurrio un error, contacte a su administrador.");
-                    }
-                });
-            });
-            // Al seleccionar el boton de Activar producto
-            $("#modal-estatus-activo-suc").on("show.bs.modal",
-                function (event) {
-                    var $button = $(event.relatedTarget);
-                    var id = $button.data("id");
-                    $("#modal-estatus-activo-suc #idSucursalProducto").val(id);
-                    $("#modal-estatus-activo-suc #familiaRedirect").val(@ViewBag.familia);
-                });
-            // Al al seleccionar el boton de inactivar producto
-            $("#modal-estatus-inactivo-suc").on("show.bs.modal",
-                function (event) {
-                    var $button = $(event.relatedTarget);
-                    var id = $button.data("id");
-                    $("#modal-estatus-inactivo-suc #idSucursalProducto").val(id);
-                    $("#modal-estatus-inactivo-suc #familiaRedirect").val(@ViewBag.familia);
-                });
-        });
-
         $("#form-insumo-detalle").on("submit", function () {
+
+            debugger;
             return true;
         });
 

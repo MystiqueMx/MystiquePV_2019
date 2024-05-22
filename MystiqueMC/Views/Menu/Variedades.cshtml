@@ -1,0 +1,54 @@
+﻿@model  WebApp.Web.Models.Productos.ViewModels.KardexProductoViewModel
+@{
+    ViewBag.Title = "Variedades";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-8">
+        <h2>Variedades de @Model.Descripción </h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Productos", "Index")
+            </li>
+            <li class="active">
+                <strong>@Model.Descripción</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-4 text-right">
+        <a href="#modal-agregar-variedad" class="btn btn-link m-sm" data-toggle="modal" data-id="@Model.ProductoId">
+            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+            <b> Agregar nuevo </b>
+        </a>
+    </div>
+</div>
+<div class="tab-base">
+    <div id="variedades" role="tabpanel" class="tab-pane active in fade">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        @Html.Partial("KardexProducto/TapVariedadesProducto", Model)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("KardexProducto/VariedadesProducto/ModalAgregarVariedad")
+@Html.Partial("KardexProducto/VariedadesProducto/ModalEditarVariedad")
+@Html.Partial("KardexProducto/VariedadesProducto/EliminarVariedadProducto")
+@section Styles{
+    <link rel="stylesheet" href="@Url.Content("~/Content/Plugins/dataTables/dataTables.min.css")" />
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts{
+    <script src="@Url.Content("~/Scripts/Plugins/dataTables/dataTables.min.js")"></script>
+    <script src="~/Scripts/app/Productos2/Variedades.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.min.js"></script>
+    <script src="~/Scripts/plugins/cropper/cropper.jquery.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+}

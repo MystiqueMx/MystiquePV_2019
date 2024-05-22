@@ -14,7 +14,16 @@ namespace MystiqueMC.DAL
     
     public partial class catEstatusTicket
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public catEstatusTicket()
+        {
+            this.ticketSucursal = new HashSet<ticketSucursal>();
+        }
+    
         public int IdcatEstatusTicket { get; set; }
         public string descripcion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ticketSucursal> ticketSucursal { get; set; }
     }
 }

@@ -18,15 +18,15 @@ namespace MystiqueMC.DAL
         public empresas()
         {
             this.catTipoMembresias = new HashSet<catTipoMembresias>();
+            this.CatZonas = new HashSet<CatZonas>();
             this.clienteNotificaciones = new HashSet<clienteNotificaciones>();
+            this.clientes = new HashSet<clientes>();
             this.comercios = new HashSet<comercios>();
             this.configuracionSistema = new HashSet<configuracionSistema>();
             this.empresaContactos = new HashSet<empresaContactos>();
             this.empresaKardex = new HashSet<empresaKardex>();
             this.notificaciones = new HashSet<notificaciones>();
             this.usuarios = new HashSet<usuarios>();
-            this.CatZonas = new HashSet<CatZonas>();
-            this.clientes = new HashSet<clientes>();
         }
     
         public int idEmpresa { get; set; }
@@ -39,7 +39,11 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catTipoMembresias> catTipoMembresias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatZonas> CatZonas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<clienteNotificaciones> clienteNotificaciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<clientes> clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comercios> comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -52,9 +56,5 @@ namespace MystiqueMC.DAL
         public virtual ICollection<notificaciones> notificaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<usuarios> usuarios { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CatZonas> CatZonas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<clientes> clientes { get; set; }
     }
 }

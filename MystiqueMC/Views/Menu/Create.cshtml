@@ -138,8 +138,6 @@
                                             <label>Imagen</label> <br />
                                             <img id="images" height="200" src="~/Content/img/default_food.png">
                                             @Html.HiddenFor(c => c.Imagen)
-                                            <input type="hidden" id="image-upload-url" value="@Url.Action("UploadProductoImage", "Menu", null)" />
-                                            <input type="hidden" id="ImageUrl" name="imagenApp" value="@Model.imagenApp" />
                                         </div>
                                         <div class="col-lg-6" style="margin-top:6px">
                                             @*<label>Vista Previa</label>

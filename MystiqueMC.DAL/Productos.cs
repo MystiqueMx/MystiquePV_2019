@@ -22,10 +22,7 @@ namespace MystiqueMC.DAL
             this.Descuentos = new HashSet<Descuentos>();
             this.InsumoProductos = new HashSet<InsumoProductos>();
             this.catProductos = new HashSet<catProductos>();
-            this.ConfEnsaladaPlatillos = new HashSet<ConfEnsaladaPlatillos>();
-            this.ConfMenuPlatillosItemUno = new HashSet<ConfMenuPlatillosItemUno>();
             this.confProductoPVEquivalencia = new HashSet<confProductoPVEquivalencia>();
-            this.DetallePedidos = new HashSet<DetallePedidos>();
             this.InsumoProducto = new HashSet<InsumoProducto>();
             this.ProductoEstaConfigurado = new HashSet<ProductoEstaConfigurado>();
             this.ProductoTieneReceta = new HashSet<ProductoTieneReceta>();
@@ -51,9 +48,6 @@ namespace MystiqueMC.DAL
         public int indice { get; set; }
         public Nullable<int> areaPreparacionId { get; set; }
         public bool principal { get; set; }
-        public string urlImagenApp { get; set; }
-        public string descripcion { get; set; }
-        public string sku { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AgrupadorInsumos> AgrupadorInsumos { get; set; }
@@ -68,13 +62,7 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catProductos> catProductos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConfEnsaladaPlatillos> ConfEnsaladaPlatillos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConfMenuPlatillosItemUno> ConfMenuPlatillosItemUno { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<confProductoPVEquivalencia> confProductoPVEquivalencia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetallePedidos> DetallePedidos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InsumoProducto> InsumoProducto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -1,0 +1,185 @@
+﻿@model MystiqueMC.DAL.Insumos
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Editar Insumos Procesado <b>@Model.nombre</b></h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Edit", "Procesados", FormMethod.Post, new { id = "form-create", data_parsley_validate = "true" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="comercioId" id="comercioId" value="@ViewBag.comercioId" />
+                        @Html.HiddenFor(model => model.idInsumo)
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.nombre, "Nombre", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.nombre, new { htmlAttributes = new
+                                        { @class = "form-control",
+                                        data_parsley_maxlength = "80",
+                                        data_parsley_required = "true",
+                                        data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,30}",
+                                        data_parsley_errors_container = "#nombre-error"
+                                        } })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="nombre-error"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.categoriaIngredienteId, "Sección insumo", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("categoriaIngredienteId", null, htmlAttributes: new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.categoriaIngredienteId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.catRubroId, "Rubro", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("catRubroId", null, htmlAttributes: new
+                                        { @class = "form-control",
+                                        data_parsley_required = "true",
+                                        data_parsley_errors_container = "#catRubroId-error"
+                                        })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="catRubroId-error"></span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.unidadMedidaIdCompra, "Unidad de Medida Compra", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("unidadMedidaIdCompra", null, htmlAttributes: new
+                                        { @class = "form-control",
+                                        data_parsley_required = "true",
+                                        data_parsley_errors_container = "#unidadMedidaIdCompra-error"
+                                        })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="unidadMedidaIdCompra-error"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.unidadMedidaIdMinima, "Unidad de Medida Minima", htmlAttributes: new { @class = "control-label" })
+                                        @Html.DropDownList("unidadMedidaIdMinima", null, htmlAttributes: new
+                                        { @class = "form-control",
+                                        data_parsley_required = "true",
+                                        data_parsley_errors_container = "#unidadMedidaIdMinima-error"
+                                        })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="unidadMedidaIdMinima-error"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.equivalencia, "Equivalencia", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.equivalencia, new { htmlAttributes = new
+                                          { @class = "form-control",
+                                       data_parsley_maxlength = "10",
+                                       data_inputmask_regex = "[0-9.]{0,10}"
+                                        } })
+                                        @Html.ValidationMessageFor(model => model.equivalencia, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-12 " style="margin-top:-18px">
+
+                                    <div class="col-md-4 funkyradio funkyradio-primary">
+                                        @Html.EditorFor(model => model.esIngrediente)
+                                        @*<input type="checkbox" name="esIngrediente" id="esIngrediente" value="@Model.esIngrediente" />*@
+                                        <label for="esIngrediente">Es Ingrediente</label>
+                                        @Html.ValidationMessageFor(model => model.esIngrediente, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-4 funkyradio funkyradio-primary">
+                                        @if (Model.aplicaInventario.HasValue)
+                                        {
+                                            <input class="check-box" data-val="true" @(Model.aplicaInventario.Value ? "checked" : "") type="checkbox" name="aplicaInventario" value="true" id="aplicaInventario" />
+
+                                        }
+                                        else
+                                        {
+                                            <input class="check-box" data-val="true" type="checkbox" name="aplicaInventario" value="true" id="aplicaInventario" />
+                                        }
+                                        <label for="aplicaInventario">Aplica Inventario</label>
+                                        @Html.ValidationMessageFor(model => model.aplicaInventario, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-4 funkyradio funkyradio-primary">
+                                        <input type="checkbox" name="conteoFisico" @(Model.conteoFisico ? "checked" : "") id="conteoFisico" />
+                                        <label for="conteoFisico">Conteo Fisico</label>
+                                        @Html.ValidationMessageFor(model => model.conteoFisico, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    @*<div class="funkyradio">*@
+
+                                    @*</div>*@
+
+                                    @Html.HiddenFor(model => model.activo)
+                                    @*<div class="col-md-4 funkyradio-primary">
+            @Html.EditorFor(model => model.activo)
+            <label class="check-box" for="activo">Estatus</label>
+            @Html.ValidationMessageFor(model => model.activo, "", new { @class = "text-danger" })
+        </div>*@
+                                </div>
+                            </div>
+                          
+
+                            @*<div class="form-group">
+                                    <div class="col-lg-12">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-10">
+                                                    <label>Imagen</label> <br />
+                                                    <img id="images" height="200" src="@Model.imagen" alt="">
+                                                    <input id="Imagen" name="Imagen" type="hidden" />
+                                                </div>
+                                                <div class="col-lg-6" style="margin-top:6px">
+                                                    <label class="btn btn-primary" for="inputImages">
+                                                        Cambiar imagen
+                                                    </label>
+                                                    <input type="file" accept="image/*" id="inputImages" class="hide">
+                                                    <span id="mensaje"></span>
+                                                </div>
+                                            </div><br />
+                                        </div>
+                                        <input id="bases" name="bases" type="hidden" />
+                                    </div>
+                                </div>*@
+                            <div class="form-group">
+                                <div class="col-md-offset col-md-10">
+                                    <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+}

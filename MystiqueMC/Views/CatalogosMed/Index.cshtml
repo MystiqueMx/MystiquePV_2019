@@ -1,0 +1,63 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "CatalogosMed"))
+{
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-6">
+            <h2>Catálogos</h2>
+        </div>
+    </div>
+    <br />
+    <div class="wrapper wrapper-content animated">
+        <!-- CATALOGO Aseguranza -->
+        <div class="col-lg-3" style="margin-bottom:10pt">
+            <div class="row">
+                <div class="col-md-2 col-xs-3" style="float:left">
+                    <img src="~/Content/img/Catalog.png" style="margin-top:5pt;float:left" />
+                </div>
+                <div class="col-md-10 col-xs-9">
+                    <a href="@Url.Action("Index", "CatAseguranzas")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Aseguranza</a>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated">
+        <!-- CATALOGO ZONAS -->
+        <div class="col-lg-3" style="margin-bottom:10pt">
+            <div class="row">
+                <div class="col-md-2 col-xs-3" style="float:left">
+                    <img src="~/Content/img/Catalog.png" style="margin-top:5pt;float:left" />
+                </div>
+                <div class="col-md-10 col-xs-9">
+                    <a href="@Url.Action("Index", "CatZonas")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Zonas</a>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    
+}
+@section Styles{
+    <style>
+        .btn-catalogos {
+            color: black;
+            font-size: small;
+            font-weight: bold;
+        }
+
+            .btn-catalogos:hover {
+                color: #20B193;
+                font-size: small;
+                font-weight: bold;
+            }
+    </style>
+}

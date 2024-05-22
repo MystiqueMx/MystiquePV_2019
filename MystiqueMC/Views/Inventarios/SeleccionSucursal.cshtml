@@ -1,0 +1,13 @@
+﻿@model IEnumerable<MystiqueMC.DAL.sucursales>
+
+<div class="row wrapper page-heading" style="padding: 0 10px 1px 10px;">
+    <div class="col-sm-12">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2">
+                @Html.ActionLink(item.nombre, "Index", new { sucursaId = item.idSucursal }, new { @class = "btn btn-sm btn-primary" })
+            </div>
+        }
+    </div>
+</div>
+

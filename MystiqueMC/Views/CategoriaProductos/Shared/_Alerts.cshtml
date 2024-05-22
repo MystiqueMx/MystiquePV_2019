@@ -1,0 +1,26 @@
+﻿@using MystiqueMC.Helpers;
+@using MystiqueMC.Controllers;
+
+@{
+    var alerts = TempData.ContainsKey(Alert.TempDataKey) ? (List<Alert>)TempData[Alert.TempDataKey] : new List<Alert>();
+    foreach (var alert in alerts)
+    {
+        if (alert.Visible)
+        {
+            <div class="alert alert-@alert.AlertStyle" role="alert" id="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                @alert.Message
+            </div>
+        }
+    }
+}
+@section Scripts{
+    <script type="text/javascript">
+        $("#alert").fadeTo(5000, 500).slideUp(500, function () {
+            $("#alert").slideUp(500)
+        });
+    </script>
+}
+
+
+

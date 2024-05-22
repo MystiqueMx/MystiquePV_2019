@@ -1,0 +1,24 @@
+﻿<div class="modal fade" id="modal-eliminar-imagen" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        @using (Html.BeginForm("EliminarImagen", "AnexoDoctor", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+        {
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:red; background-color:white"></i>&nbsp;Eliminar Imagen</h4>
+                </div>
+                <div class="modal-body">
+                    <h3 id="confirm-title">¿Esta seguro que desea eliminar la imagen?</h3>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="id" name="id" />
+                    <input type="hidden" id="idComercios" name="idComercios" />
+                    <input type="hidden" id="idEmpresa" name="idEmpresa" />
+                    <input type="hidden" id="idAnexo" name="idAnexo" />
+                    <input type="reset" value="Cancelar" class="btn btn-defaut" data-dismiss="modal" id="form-imagen-reset_eliminar">
+                    <input id="modal_eliminar_button" data-backdrop="false" type="submit" value="Eliminar" class="btn btn-warning">
+                </div>
+            </div>
+        }
+    </div>
+</div>

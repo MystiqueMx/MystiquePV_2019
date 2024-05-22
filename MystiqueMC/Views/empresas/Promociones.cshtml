@@ -1,0 +1,146 @@
+﻿
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    string order = ViewBag.SearchOrden as string;
+}
+@model IEnumerable<MystiqueMC.DAL.beneficios>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row wrapper white-bg page-heading">
+    <div class="col-md-6">
+        <h2>
+            Promociones - <b>@ViewBag.nombreComercio</b>
+        </h2>
+    </div>
+    <div class="col-md-6 text-right" style="margin-top: 20px;">
+        <a class="btn btn-link no-padding" href="@Url.Action("Create","beneficios", new { ss= ViewBag.Idcomercio, IndexEmpresa = 1, idEmpresa = ViewBag.idEmpresa})">
+            <i class="fas fa-plus-square" style="color:#616161; font-size:12pt"></i><b> Agregar </b>
+        </a>
+    </div>
+</div>
+<br />
+<div class="row">
+    @using (Html.BeginForm("Promociones", "comercios", FormMethod.Post, new { id = "buscador", data_parsley_validate = "true", autocomplete = "off" }))
+    {
+        <input type="hidden" name="SearchComercio" value="@ViewBag.Idcomercio" />
+        <input type="hidden" name="idComercio" value="@ViewBag.Idcomercio" />
+        <div class="row">
+            <div class="col-md-3" style="margin-left:10pt">
+                <div class="input-group">
+                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent"><b>Estatus</b></span>
+                    <select class="form-control input-sm" id="sel1" aria-describedby="basic-addon1" name="SearchOrden">
+                        <option @(order == "true" ? "selected=\"selected\"" : "") value="true">Activo</option>
+                        <option @(order == "false" ? "selected=\"selected\"" : "") value="false">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <span class="input-group-btn">
+                    <button style="width:100%" class="btn btn-primary btn-sm" type="submit">Buscar</button>
+                </span>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col-md-6">
+                <div class="iboxs float-e-margins">
+                    <div class="ibox-title">
+                        <h5>  @item.titulo</h5>
+                        <div class="ibox-tools m-b-n-md">
+                            <a href="@Url.Action("Edit","beneficios", new { id = item.idBeneficio, ss= item.comercioId, IndexEmpresa = 1 })" class="btn btn-link btn-sm" style="vertical-align:central">
+                                <img class="m-t-n-md" src="~/Content/img/edit.png" style="height:24px" />
+                            </a>
+                            @if (item.estatus == true)
+                            {
+                                <button class="btn btn-link btn-sm m-r-n-xs" style="vertical-align:central" data-toggle="modal" data-target="#modal-inactiva" data-id="@item.idBeneficio" data-nombre="@item.titulo">
+                                    <img class="m-t-n-md" src="~/Content/img/on.png" style="height:42px" />
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-link btn-sm m-r-n-xs" data-toggle="modal" data-target="#modal-activa" data-id="@item.idBeneficio" data-nombre="@item.titulo">
+                                    <img class="m-t-n-md" src="~/Content/img/off.png" style="height:42px" />
+                                </button>
+                            }
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <br />
+                                <div class="col-md-12"><label><i aria-hidden="true"></i> Vigencia: &nbsp; </label><span><br />@String.Format("{0:dd/MM/yy }", Convert.ToDateTime(item.fechaInicio)) a @String.Format("{0:dd/MM/yy }", Convert.ToDateTime(item.fechaFin))</span></div>
+                                <div class="col-sm-12"><label><i aria-hidden="true"></i><br /> Membresia: &nbsp;</label><span>@item.catTipoMembresias.descripcion</span></div>
+
+                                <div class="col-sm-12">
+                                    <label><i aria-hidden="true"></i><br /> Valido: &nbsp;</label><br />
+                                    @foreach (var item1 in item.beneficioHorarios)
+                                    {
+                                        <span>
+                                            @item1.descripcion <span>:</span> @item1.horarioInicio - @item1.horarioFin
+                                        </span>
+                                        <br />
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <br />
+                                <div class="col-sm-12"><label><i aria-hidden="true"></i> Descripción: &nbsp; </label><span><br /> @item.descripcion</span></div>
+                                <div class="col-sm-12">
+                                    <label><i aria-hidden="true"></i><br />Imagen de Beneficio: &nbsp;</label><span><br /><img src="@ViewData["HOSTNAME_IMAGENES"]@item.imagenTitulo" class="rounded float-left" alt="Responsive image" style="width: 70%; height: 70%;"></span>
+                                </div><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("IndexEmpresa", "comercios", new { idEmpresa = ViewBag.idEmpresa })" class="btn btn-white">Regresar</a>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/comercios/ModalPromocionActiva.cshtml")
+@Html.Partial("~/Views/comercios/ModalPromocionInactiva.cshtml")
+@section Scripts{
+    <script>
+        $("#modal-activa").on("show.bs.modal",
+            function (event) {
+                debugger;
+                var $button = $(event.relatedTarget);
+                var nombre = $button.data("nombre");
+                var id = $button.data("id");
+
+                $("#modal-activa #confirm-item").text(nombre);
+                $("#modal-activa #IdItemEliminar").val(id);
+            });
+
+        $("#modal-inactiva").on("show.bs.modal",
+            function (event) {
+                var $button = $(event.relatedTarget);
+                var nombre = $button.data("nombre");
+                var id = $button.data("id");
+
+
+                $("#modal-inactiva #confirm-item").text(nombre);
+                $("#modal-inactiva #IdItemInactivar").val(id);
+            });
+    </script>
+}
+

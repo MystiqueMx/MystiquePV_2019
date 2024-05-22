@@ -35,9 +35,9 @@ namespace MystiqueMC.DAL
         public virtual ICollection<ConteoFisicoInsumos> ConteoFisicoInsumos { get; set; }
         public virtual comercios comercios { get; set; }
         public virtual ConteoFisicoPeriodoCaptura ConteoFisicoPeriodoCaptura { get; set; }
+        public virtual Insumos Insumos { get; set; }
         public virtual UnidadMedida UnidadMedida { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RegistroConteoFisicoInsumos> RegistroConteoFisicoInsumos { get; set; }
-        public virtual Insumos Insumos { get; set; }
     }
 }

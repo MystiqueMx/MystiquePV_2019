@@ -1,0 +1,175 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model IEnumerable<MystiqueMC.DAL.ConteoFisicoInsumos>
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>ConteoFisicoInsumos</h2>
+    </div>
+</div>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Listado</h5>
+					<div class="ibox-tools">
+					@if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Create"))
+                       { 
+						@Html.ActionLink("Agregar nuevo", "Create", null, new { @class = "btn btn-primary btn-xs"})
+				       }
+					</div>
+                </div>
+                <div class="ibox-content">
+
+<table class="table table-striped">
+<thead>
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.activo)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.ConteoFisicoAgrupadorInsumos.descripcion)
+        </th>
+
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Insumos.nombre)
+        </th>
+
+        <th></th>
+    </tr>
+	</thead>
+	<tbody>
+@foreach (var item in Model) {
+    <tr>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.activo)
+        </td>
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.ConteoFisicoAgrupadorInsumos.descripcion)
+        </td>
+
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Insumos.nombre)
+        </td>
+
+        <td>
+		<div class="btn-group">
+			@if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Details"))
+            {     
+			@Html.ActionLink("Detalles", "Details", new { id=item.idConteoFisicoInsumo }, new { @class = "btn btn-primary btn-outline btn-sm"})
+			}
+			@if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Edit"))
+            { 
+            @Html.ActionLink("Editar", "Edit", new { id=item.idConteoFisicoInsumo }, new { @class = "btn btn-info btn-outline btn-sm"})
+			}
+			@if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Delete"))
+            { 
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idConteoFisicoInsumo }, new { @class = "btn btn-danger btn-outline btn-sm"})
+			}
+			</div>
+        </td>
+
+    </tr>
+}
+</tbody>
+</table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+ 
+@section Scripts{
+    @Scripts.Render("~/plugins/dataTables")
+    <script>
+        $(document).ready(function () {
+
+            $('.table').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "language": {
+                    "search": "Buscar ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+        });
+    </script>
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+
+

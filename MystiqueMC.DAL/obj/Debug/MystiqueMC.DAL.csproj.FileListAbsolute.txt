@@ -1,0 +1,12 @@
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\MystiqueMC.DAL.dll.config
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\MystiqueMC.DAL.dll
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\MystiqueMC.DAL.pdb
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.dll
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.xml
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.csproj.AssemblyReference.cache
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.csproj.CoreCompileInputs.cache
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\Mystique.EA34CBB8.Up2Date
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.dll
+C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.pdb

@@ -1,0 +1,75 @@
+﻿@model MystiqueMC.DAL.CatRubros
+
+@{
+    ViewBag.Title = "Eliminar";
+
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Eliminar Rubro</h2>        
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">              
+                <div class="ibox-content">
+                    <h4 class="text-danger">¿Estás seguro que deseas removerlo?</h4>
+                    <dl class="dl-horizontal">
+
+                        <dt>
+                            @Html.Label("Descripción")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.descripcion)
+                        </dd>
+
+                        <dt>
+                            @Html.Label("Comercio")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.comercios.nombreComercial)
+                        </dd>
+
+                        <dt>
+                            @Html.Label("Ponderación")
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ponderacion) %
+                        </dd>
+
+                        <dt>
+                            @Html.Label("Es costo")
+                        </dt>
+                        <dd>
+                            @if (Model.esCosto == true)
+                            {
+                                <img src="~/Content/img/check.png" style="height:24px" />
+                            }
+                            else
+                            {
+                                <img src="~/Content/img/minus.png" style="height:24px" />
+                            }
+                        </dd>
+
+                    </dl>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" />
+                            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white" })
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

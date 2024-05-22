@@ -1,0 +1,124 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.CatAseguranzas
+
+
+@{
+    ViewBag.Title = "Eliminar";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Eliminar</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Listado", "Index")
+            </li>
+            <li class="active">
+                <strong>Eliminar</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>CatAseguranzas</h5>
+                </div>
+                <div class="ibox-content">
+				<h4 class="text-danger">¿Estás seguro que deseas removerlo?</h4>
+				 <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcionIngles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcionIngles)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagenAseguranza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imagenAseguranza)
+        </dd>
+
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+		    @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Delete"))
+            { 
+             <input type="submit" value="Eliminar" class="btn btn-danger" />
+			}
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white"})
+        </div>
+    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+

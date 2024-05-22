@@ -17,8 +17,8 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PedidoProductos()
         {
-            this.PedidoProductoDetalle = new HashSet<PedidoProductoDetalle>();
             this.InsumoProducto = new HashSet<InsumoProducto>();
+            this.PedidoProductoDetalle = new HashSet<PedidoProductoDetalle>();
         }
     
         public int idPedidoProducto { get; set; }
@@ -32,10 +32,10 @@ namespace MystiqueMC.DAL
         public decimal precioUnitario { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PedidoProductoDetalle> PedidoProductoDetalle { get; set; }
-        public virtual Tickets Tickets { get; set; }
-        public virtual Pedidos Pedidos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InsumoProducto> InsumoProducto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PedidoProductoDetalle> PedidoProductoDetalle { get; set; }
+        public virtual Pedidos Pedidos { get; set; }
+        public virtual Tickets Tickets { get; set; }
     }
 }

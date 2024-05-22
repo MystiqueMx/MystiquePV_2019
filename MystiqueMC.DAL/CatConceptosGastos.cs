@@ -28,8 +28,8 @@ namespace MystiqueMC.DAL
         public bool activo { get; set; }
         public decimal ponderacion { get; set; }
     
-        public virtual comercios comercios { get; set; }
         public virtual CatRubros CatRubros { get; set; }
+        public virtual comercios comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gastos> Gastos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -19,7 +19,6 @@ namespace MystiqueMC.DAL
         {
             this.catCiudades = new HashSet<catCiudades>();
             this.direccion = new HashSet<direccion>();
-            this.ConsumidorDirecciones = new HashSet<ConsumidorDirecciones>();
         }
     
         public int idCatEstado { get; set; }
@@ -30,11 +29,9 @@ namespace MystiqueMC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catCiudades> catCiudades { get; set; }
+        public virtual catPaises catPaises { get; set; }
         public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<direccion> direccion { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ConsumidorDirecciones> ConsumidorDirecciones { get; set; }
-        public virtual catPaises catPaises { get; set; }
     }
 }

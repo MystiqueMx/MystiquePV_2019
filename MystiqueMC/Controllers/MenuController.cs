@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
@@ -14,6 +16,9 @@ using MystiqueMC.Helpers.Files;
 using WebApp.Web.Models.Productos;
 using WebApp.Web.Models.Productos.Requests;
 using WebApp.Web.Models.Productos.ViewModels;
+
+
+
 
 namespace MystiqueMC.Controllers
 {
@@ -47,14 +52,14 @@ namespace MystiqueMC.Controllers
                 .SelectMany(c => c.CategoriaProductos)
                 .ToArray();
 
-            ViewBag.CategoriaProductoId = new SelectList(categoriaProducto.OrderBy(c=>c.descripcion), "idCategoriaProducto", "descripcion", CategoriaProductoId);
+            ViewBag.CategoriaProductoId = new SelectList(categoriaProducto.OrderBy(c => c.descripcion), "idCategoriaProducto", "descripcion", CategoriaProductoId);
             ViewBag.UnidadMedida = ObtenerUnidadesMedida();
             ViewBag.Productos = ObtenerProductos();
             ViewBag.Insumos = ObtenerInsumos();
             ViewBag.Procesados = ObtenerProcesados();
             ViewBag.TipoProcesados = ObtenerTiposProcesados();
 
-            var viewmodel = productos.ToArray().OrderBy(c=>c.clave).OrderBy(c => c.CategoriaProductos.descripcion).ToArray();
+            var viewmodel = productos.ToArray().OrderBy(c => c.clave).OrderBy(c => c.CategoriaProductos.descripcion).ToArray();
             return View(viewmodel);
         }
 
@@ -73,7 +78,7 @@ namespace MystiqueMC.Controllers
                 .Include("AgrupadorInsumos.ConfiguracionArmadoProductos")
                 .Include("Recetas.DetalleRecetaProducto.Insumos")
                 .Include("Recetas.DetalleRecetaProducto.UnidadMedida")
-                .Where(w => w.CategoriaProductos != null 
+                .Where(w => w.CategoriaProductos != null
                     && ComerciosFirmados.Contains(w.comercios));
 
             productos = productos.Where(w => true).OrderBy(w => w.CategoriaProductos.descripcion);
@@ -92,7 +97,7 @@ namespace MystiqueMC.Controllers
                     default:
                         break;
                 }
-                
+
             }
             else
             {
@@ -133,14 +138,14 @@ namespace MystiqueMC.Controllers
                 .ToArray();
             var areaPreparacion = catalogos.SelectMany(c => c.AreaPreparacion).ToArray();
             var categoriaProducto = catalogos.SelectMany(c => c.CategoriaProductos).ToArray();
-            ViewBag.AreaPreparacionId = new SelectList(areaPreparacion.OrderBy(c=>c.descripcion), "idAreaPreparacion", "descripcion");
+            ViewBag.AreaPreparacionId = new SelectList(areaPreparacion.OrderBy(c => c.descripcion), "idAreaPreparacion", "descripcion");
             ViewBag.CategoriaProductoId = new SelectList(categoriaProducto.OrderBy(c => c.descripcion), "idCategoriaProducto", "descripcion");
             return View(new ProductosViewModel());
             #endregion
         }
 
         // GET: Productos/Edit/5
-        public ActionResult Edit(int? id, int familia)
+        public ActionResult Edit(int? id, int familia, List<WebApp.Web.Models.Productos.VariedadesViewModel> variedades)
         {
             #region Edit
             if (id == null)
@@ -153,7 +158,7 @@ namespace MystiqueMC.Controllers
                 .Include(c => c.ProductoTieneReceta)
                 .Include(c => c.VariedadProductos)
                 .Include(c => c.Recetas)
-                .Include(c=>c.Recetas.Select(d=>d.DetalleRecetaProducto))
+                .Include(c => c.Recetas.Select(d => d.DetalleRecetaProducto))
                 .Include("Recetas.DetalleRecetaProducto.UnidadMedida")
                 .Include("Recetas.DetalleRecetaProducto.Insumos")
                 .Include(c => c.ConfiguracionArmadoProductos)
@@ -181,11 +186,11 @@ namespace MystiqueMC.Controllers
             viewModel.CategoriaProductoId = productos.categoriaProductoId ?? 0;
             viewModel.indice = productos.indice;
             viewModel.Imagen = productos.urlImagen;
-            viewModel.imagenApp = productos.urlImagenApp;
+           
             viewModel.IdReceta = productos.Recetas.FirstOrDefault()?.idReceta;
             viewModel.DetalleRecetas = productos.Recetas.FirstOrDefault()?.DetalleRecetaProducto.ToList() ?? new List<DetalleRecetaProducto>();
             viewModel.TieneReceta = productos.ProductoTieneReceta?.Any(c => c.tieneReceta) ?? false;
-            if(productos.esCombo && productos.esGeneral.GetValueOrDefault(false))
+            if (productos.esCombo && productos.esGeneral.GetValueOrDefault(false))
             {
                 viewModel.Tipo = 2;
             }
@@ -208,7 +213,7 @@ namespace MystiqueMC.Controllers
                 variedad.Imagen = varAux.imagen;
                 Variedades.Add(variedad);
             }
-            viewModel.Variedades = Variedades;
+            viewModel.Variedades = variedades;
 
             if (productos.esCombo)
             {
@@ -234,39 +239,42 @@ namespace MystiqueMC.Controllers
 
             ViewBag.ProductoId = id;
             SelectListItem[] opcionesInsumosProductos;
-                opcionesInsumosProductos = Contexto.Productos
-                    .Where(c => c.categoriaProductoId.HasValue && ComerciosFirmados.Contains(c.comercios))
-                    .Select(c => new SelectListItem
-                    {
-                        Value = c.idProducto.ToString(),
-                        Text = c.nombre,
-                    }).ToArray();
+            opcionesInsumosProductos = Contexto.Productos
+                .Where(c => c.categoriaProductoId.HasValue && ComerciosFirmados.Contains(c.comercios))
+                .Select(c => new SelectListItem
+                {
+                    Value = c.idProducto.ToString(),
+                    Text = c.nombre,
+                }).ToArray();
             if (productos.esCombo)
             {
                 var config = new ConfigurarProductoViewModel
                 {
                     IdProducto = productos.idProducto,
                     Nombre = productos.nombre,
-                    Tipo = productos.esGeneral ?? true ? 2 : 3,
-                    Agrupadores = productos.ConfiguracionArmadoProductos.Select(c => new Agrupador
+                    Tipo = productos.esGeneral ?? true ? 2 : 3, // Assigns 2 if esGeneral is true or null, otherwise 3
+                    Agrupadores = productos.ConfiguracionArmadoProductos.Select(c => new WebApp.Web.Models.Productos.ViewModels.Agrupador
                     {
                         Id = c.idConfiguracionArmadoProducto,
                         Descripcion = c.AgrupadorInsumos.descripcion,
                         Cantidad = c.cantidad,
-                        CostoExtra = c.AgrupadorInsumos?.Productos?.precio,
+                        CostoExtra = c.AgrupadorInsumos.Productos != null ? (Decimal?)c.AgrupadorInsumos.Productos.precio : null,
                         DebeConfirmarPorSeparado = c.AgrupadorInsumos.confirmarPorSeparado,
                         PuedeAgregarExtra = c.AgrupadorInsumos.agregarExtra,
                         Indice = c.AgrupadorInsumos.indice,
-                        Opciones = c.AgrupadorInsumos.InsumoProductos.Select(d => new OpcionAgrupador
+                        Opciones = c.AgrupadorInsumos.InsumoProductos.Select(d => new WebApp.Web.Models.Productos.ViewModels.OpcionAgrupador
                         {
                             Id = d.idInsumoProducto,
                             Insumo = d.Insumos,
-                            Producto = d.Productos,
-
+                            Producto = d.Productos
                         }).ToArray()
                     }).ToArray()
+
                 };
+
                 viewModel.Configuracion = config;
+
+
             }
             else
             {
@@ -360,20 +368,20 @@ namespace MystiqueMC.Controllers
                     IdProducto = producto.idProducto,
                     Nombre = producto.nombre,
                     Tipo = type,
-                    Agrupadores = producto.ConfiguracionArmadoProductos.Select(c => new Agrupador
+                    Agrupadores = producto.ConfiguracionArmadoProductos.Select(c => new WebApp.Web.Models.Productos.ViewModels.Agrupador
                     {
                         Id = c.idConfiguracionArmadoProducto,
                         Descripcion = c.AgrupadorInsumos.descripcion,
                         Cantidad = c.cantidad,
-                        CostoExtra = c.AgrupadorInsumos?.Productos?.precio,
+                        CostoExtra = c.AgrupadorInsumos.Productos != null ? (Decimal?)c.AgrupadorInsumos.Productos.precio : null,
                         DebeConfirmarPorSeparado = c.AgrupadorInsumos.confirmarPorSeparado,
                         PuedeAgregarExtra = c.AgrupadorInsumos.agregarExtra,
                         Indice = c.AgrupadorInsumos.indice,
-                        Opciones = c.AgrupadorInsumos.InsumoProductos.Select(d => new OpcionAgrupador
+                        Opciones = c.AgrupadorInsumos.InsumoProductos.Select(d => new WebApp.Web.Models.Productos.ViewModels.OpcionAgrupador
                         {
                             Id = d.idInsumoProducto,
                             Insumo = d.Insumos,
-                            Producto = d.Productos,
+                            Producto = d.Productos
 
                         }).ToArray()
                     }).ToArray()
@@ -388,7 +396,7 @@ namespace MystiqueMC.Controllers
                     var categoriaIngrediente = Contexto.CategoriaIngrediente.Where(c => c.comercioId == comercioId).ToList();
 
                     var agrupadorInsumo = Contexto.AgrupadorInsumos.Where(w => w.productoId == id && w.comercioId == comercioId);
-                    if(agrupadorInsumo != null && agrupadorInsumo.Count() >= 1)
+                    if (agrupadorInsumo != null && agrupadorInsumo.Count() >= 1)
                     {
                         foreach (var item in agrupadorInsumo)
                         {
@@ -396,10 +404,10 @@ namespace MystiqueMC.Controllers
                         }
                     }
 
-                    
+
                     ViewBag.CategoriaIngredienteId = new SelectList(categoriaIngrediente, "idCategoriaIngrediente", "descripcion");
                 }
-           
+
 
                 return View(viewmodel);
             }
@@ -458,7 +466,7 @@ namespace MystiqueMC.Controllers
                         categoriaProductoId = viewModel.CategoriaProductoId,
                         indice = 0,
                         urlImagen = viewModel.Imagen,
-                        urlImagenApp = viewModel.imagenApp,
+                       
                         principal = viewModel.Principal,
                     });
 
@@ -468,10 +476,10 @@ namespace MystiqueMC.Controllers
                         tieneReceta = true,
                     });
 
-                   /* var sucursales = SucursalesActuales
-                        .Select(c => c.idSucursal)
-                        .ToArray();*/
-                    
+                    /* var sucursales = SucursalesActuales
+                         .Select(c => c.idSucursal)
+                         .ToArray();*/
+
                     var sucursales = ComercioSucursales
                         .Select(c => c.idSucursal)
                         .ToArray();
@@ -493,7 +501,7 @@ namespace MystiqueMC.Controllers
 
 
                     return RedirectToAction("Edit", new { id = producto.idProducto, familia = producto.categoriaProductoId });
-                    
+
                 }
                 else
                 {
@@ -529,7 +537,7 @@ namespace MystiqueMC.Controllers
                         .Include(c => c.ProductoTieneReceta)
                         .First(c => c.idProducto == viewModel.IdProducto);
 
-                   
+
                     bool esCombo = false;
                     bool esGeneral = true;
                     if (viewModel.TipoProducto == 1)
@@ -558,7 +566,7 @@ namespace MystiqueMC.Controllers
                     producto.categoriaProductoId = viewModel.CategoriaProductoId;
                     producto.indice = 0;
                     producto.urlImagen = viewModel.Imagen;
-                    producto.urlImagenApp = viewModel.imagenApp;
+                   
                     producto.principal = false;
 
                     if (producto.esCombo != esCombo)
@@ -567,7 +575,7 @@ namespace MystiqueMC.Controllers
                         if (esCombo)
                         {
                             var variedades = Contexto.VariedadProductos.Where(c => c.productoId == viewModel.IdProducto);
-                            if(variedades?.Any() ?? false)
+                            if (variedades?.Any() ?? false)
                             {
                                 Contexto.VariedadProductos.RemoveRange(variedades);
                             }
@@ -604,8 +612,8 @@ namespace MystiqueMC.Controllers
 
                     Contexto.Entry(producto).State = EntityState.Modified;
                     Contexto.SaveChanges();
-                    return viewModel.ForceRefresh 
-                        ? RedirectToAction("Edit", "Menu", new { id = viewModel.IdProducto, familia = familiaId }) 
+                    return viewModel.ForceRefresh
+                        ? RedirectToAction("Edit", "Menu", new { id = viewModel.IdProducto, familia = familiaId })
                         : RedirectToAction("Index", "Menu", new { CategoriaProductoId = familiaId });
                 }
                 else
@@ -836,7 +844,7 @@ namespace MystiqueMC.Controllers
                             }
                             else
                             {
-                               // agrupadorBd.AgrupadorInsumos.productoId = null;
+                                // agrupadorBd.AgrupadorInsumos.productoId = null;
                             }
                         }
                         else if (agrupadorBd.AgrupadorInsumos.agregarExtra)
@@ -844,8 +852,8 @@ namespace MystiqueMC.Controllers
                             var producto = Contexto.Productos.Add(new Productos
                             {
                                 comercioId = ComerciosFirmados.First().idComercio,
-                                nombre = $"Extra de { agrupador.Descripcion }",
-                                clave = $"Ex. { agrupador.Descripcion }",
+                                nombre = $"Extra de {agrupador.Descripcion}",
+                                clave = $"Ex. {agrupador.Descripcion}",
                                 precio = agrupador.CostoExtra.GetValueOrDefault(0),
                                 activo = true,
                                 mermaPermitida = 0,
@@ -954,8 +962,8 @@ namespace MystiqueMC.Controllers
                             var producto = Contexto.Productos.Add(new Productos
                             {
                                 comercioId = ComerciosFirmados.First().idComercio,
-                                nombre = $"Extra de { agrupador.Descripcion }",
-                                clave = $"Ex. { agrupador.Descripcion }",
+                                nombre = $"Extra de {agrupador.Descripcion}",
+                                clave = $"Ex. {agrupador.Descripcion}",
                                 precio = agrupador.CostoExtra.GetValueOrDefault(0),
                                 activo = true,
                                 mermaPermitida = 0,
@@ -1018,7 +1026,7 @@ namespace MystiqueMC.Controllers
                         //        return RedirectToAction("Configurar", new { id = agrupador.IdProducto, type = agrupador.Tipo });
                         //    } 
                         //}
-                     
+
 
                         Contexto.AgrupadorInsumos.Add(agrupadorInsumos);
                         Contexto.ConfiguracionArmadoProductos.Add(configuracion);
@@ -1034,7 +1042,7 @@ namespace MystiqueMC.Controllers
             {
                 ShowAlertException(e);
             }
-            
+
             return RedirectToAction("Configurar", new { id = agrupador.IdProducto, type = agrupador.Tipo });
         }
 
@@ -1115,8 +1123,8 @@ namespace MystiqueMC.Controllers
                             var producto = Contexto.Productos.Add(new Productos
                             {
                                 comercioId = ComerciosFirmados.First().idComercio,
-                                nombre = $"Extra de { agrupador.Descripcion }",
-                                clave = $"Ex. { agrupador.Descripcion }",
+                                nombre = $"Extra de {agrupador.Descripcion}",
+                                clave = $"Ex. {agrupador.Descripcion}",
                                 precio = agrupador.CostoExtra.GetValueOrDefault(0),
                                 activo = true,
                                 mermaPermitida = 0,
@@ -1163,12 +1171,12 @@ namespace MystiqueMC.Controllers
 
                         if (opcionesPorAgregar?.Any() ?? false)
                         {
-                            
+
                             var insumosProductos = opcionesPorAgregar.Select(c => new InsumoProductos
-                                {
-                                    agrupadorInsumoId = agrupadorBd.agrupadorInsumoId,
-                                    productoId = c,
-                                }).ToArray();
+                            {
+                                agrupadorInsumoId = agrupadorBd.agrupadorInsumoId,
+                                productoId = c,
+                            }).ToArray();
 
                             Contexto.InsumoProductos.AddRange(insumosProductos);
                         }
@@ -1203,8 +1211,8 @@ namespace MystiqueMC.Controllers
                             var producto = Contexto.Productos.Add(new Productos
                             {
                                 comercioId = ComerciosFirmados.First().idComercio,
-                                nombre = $"Extra de { agrupador.Descripcion }",
-                                clave = $"Ex. { agrupador.Descripcion }",
+                                nombre = $"Extra de {agrupador.Descripcion}",
+                                clave = $"Ex. {agrupador.Descripcion}",
                                 precio = agrupador.CostoExtra.GetValueOrDefault(0),
                                 activo = true,
                                 mermaPermitida = 0,
@@ -1237,13 +1245,13 @@ namespace MystiqueMC.Controllers
                         }
 
                         InsumoProductos[] insumosProductos;
-                        
+
                         insumosProductos = agrupador.Opciones.Select(c => new InsumoProductos
                         {
                             AgrupadorInsumos = agrupadorInsumos,
                             productoId = c,
                         }).ToArray();
-                       
+
                         // validacion para que no se repita la seccion
                         //if(agrupador.Tipo == 3)
                         //{
@@ -1340,7 +1348,7 @@ namespace MystiqueMC.Controllers
             {
 
                 var secciones = Contexto.Insumos.Where(c => c.categoriaIngredienteId == id);
-               
+
                 List<Insumos> seccionesList = new List<Insumos>();
 
                 foreach (var seccion in secciones)
@@ -1368,7 +1376,7 @@ namespace MystiqueMC.Controllers
                 int comercioId = Contexto.comercios.Where(c => c.empresaId == usuarioFirmado.empresas.idEmpresa).Select(c => c.idComercio).First();
 
                 var secciones = Contexto.Insumos.Where(w => w.CategoriaIngrediente.descripcion == nombre && w.comercioId == comercioId);
-                
+
                 List<Insumos> seccionesList = new List<Insumos>();
 
                 foreach (var seccion in secciones)
@@ -1392,7 +1400,7 @@ namespace MystiqueMC.Controllers
         {
             try
             {
-                var unidad = Contexto.Insumos.Include(c=>c.UnidadMedida).First(c => c.idInsumo == insumo);
+                var unidad = Contexto.Insumos.Include(c => c.UnidadMedida).First(c => c.idInsumo == insumo);
                 return Json(new { exito = true, data = unidad.unidadMedidaIdMinima, nombre = unidad.UnidadMedida?.descripcion, JsonRequestBehavior.AllowGet });
             }
             catch (Exception e)
@@ -1402,24 +1410,7 @@ namespace MystiqueMC.Controllers
             }
         }
 
-        public async Task<ActionResult> UploadProductoImage()
-        {
-            if (Request.Files.Count == 0) return Json(new { success = false, message = "No se encontro la imagen" });
-            if (Request.Files[0].ContentLength == 0) return Json(new { success = false, message = "No se encontro la imagen" });
-            if (!FilesHelper.IsPng(Request.Files[0])) return Json(new { success = false, message = "La imagen debe tener formato PNG" });
-            try
-            {
-                FilesUploadDelegate @delegate = new FilesUploadDelegate();
-                var FileName = await @delegate.UploadFileAsync2(Request.Files[0], ServerPath, FilesHelper.FilesPath, IMAGE_EXTENSION);
-                if (string.IsNullOrEmpty(FileName)) return Json(new { success = false, message = "Ocurrió un error al cargar la imagen" });
-                return Json(new { success = true, fileUrl = FileName });
-            }
-            catch (Exception e)
-            {
-                Logger.Error(e);
-                return Json(new { success = false, message = "Ocurrió un error al cargar la imagen" });
-            }
-        }
+       
         #endregion
 
         protected override void Dispose(bool disposing)

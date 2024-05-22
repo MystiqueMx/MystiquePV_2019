@@ -31,9 +31,9 @@ namespace MystiqueMC.DAL
         public string tipoGasto { get; set; }
         public bool aplicado { get; set; }
     
-        public virtual Aperturas Aperturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gastos> Gastos { get; set; }
+        public virtual Aperturas Aperturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GastosPvDetalle> GastosPvDetalle { get; set; }
     }

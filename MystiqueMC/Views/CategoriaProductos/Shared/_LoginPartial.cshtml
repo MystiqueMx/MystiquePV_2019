@@ -1,0 +1,28 @@
+﻿@using MystiqueMC.Helpers;
+@{
+    MystiqueMC.DAL.usuarios Usuario = Session.ObtenerUsuario();
+    string nombreUsuario = string.Empty;
+    if (Usuario != null) { nombreUsuario = string.Format("{0} {1}", Usuario.nombre, Usuario.paterno); }
+}
+@if (Session.TieneSesionActiva())
+{
+    using (Html.BeginForm("Logout", "Autentificacion", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+
+            <a href="javascript:document.getElementById('logoutForm').submit()"><b><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</b></a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-top-links navbar-right">
+        <li>@Html.ActionLink("Iniciar Sesión", "Login", "Autentificacion", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">

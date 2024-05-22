@@ -18,7 +18,6 @@ namespace MystiqueMC.DAL
         public CatAseguranzas()
         {
             this.DoctorAseguranzas = new HashSet<DoctorAseguranzas>();
-            this.clientes = new HashSet<clientes>();
         }
     
         public int idCatAseguranzas { get; set; }
@@ -28,7 +27,5 @@ namespace MystiqueMC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoctorAseguranzas> DoctorAseguranzas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<clientes> clientes { get; set; }
     }
 }

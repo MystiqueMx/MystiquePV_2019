@@ -34,9 +34,9 @@ namespace MystiqueMC.DAL
         public Nullable<System.DateTime> fechaActualizacion { get; set; }
         public Nullable<int> usuarioActualizo { get; set; }
     
+        public virtual sucursales sucursales { get; set; }
         public virtual usuarios usuarios { get; set; }
         public virtual Aperturas Aperturas { get; set; }
         public virtual Ventas Ventas { get; set; }
-        public virtual sucursales sucursales { get; set; }
     }
 }

@@ -18,8 +18,8 @@ namespace MystiqueMC.DAL
         public notificaciones()
         {
             this.clienteNotificaciones = new HashSet<clienteNotificaciones>();
-            this.SucursalNotificaciones = new HashSet<SucursalNotificaciones>();
             this.SectoresNotificaciones = new HashSet<SectoresNotificaciones>();
+            this.SucursalNotificaciones = new HashSet<SucursalNotificaciones>();
         }
     
         public int idNotificacion { get; set; }
@@ -40,16 +40,15 @@ namespace MystiqueMC.DAL
         public string linea2ingles { get; set; }
         public string tituloIngles { get; set; }
         public bool notificacionAutomatica { get; set; }
-        public Nullable<int> pedidoId { get; set; }
     
         public virtual beneficios beneficios { get; set; }
+        public virtual CatTipoNotificaciones CatTipoNotificaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<clienteNotificaciones> clienteNotificaciones { get; set; }
         public virtual empresas empresas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SucursalNotificaciones> SucursalNotificaciones { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SectoresNotificaciones> SectoresNotificaciones { get; set; }
-        public virtual Pedidos1 Pedidos1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SucursalNotificaciones> SucursalNotificaciones { get; set; }
     }
 }

@@ -17,13 +17,13 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public beneficios()
         {
+            this.Descuentos = new HashSet<Descuentos>();
             this.beneficioAplicados = new HashSet<beneficioAplicados>();
             this.beneficioCalificaciones = new HashSet<beneficioCalificaciones>();
             this.beneficioHorarios = new HashSet<beneficioHorarios>();
             this.confBeneficioSucursal = new HashSet<confBeneficioSucursal>();
             this.notificaciones = new HashSet<notificaciones>();
             this.wallet = new HashSet<wallet>();
-            this.Descuentos = new HashSet<Descuentos>();
         }
     
         public int idBeneficio { get; set; }
@@ -50,6 +50,8 @@ namespace MystiqueMC.DAL
         public string descripcionIngles { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Descuentos> Descuentos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<beneficioAplicados> beneficioAplicados { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<beneficioCalificaciones> beneficioCalificaciones { get; set; }
@@ -64,7 +66,5 @@ namespace MystiqueMC.DAL
         public virtual ICollection<notificaciones> notificaciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wallet> wallet { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Descuentos> Descuentos { get; set; }
     }
 }

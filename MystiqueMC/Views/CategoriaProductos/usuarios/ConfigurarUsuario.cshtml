@@ -1,0 +1,131 @@
+﻿@model MystiqueMC.DAL.usuarios
+@{
+    ViewBag.Title = "Configurar Usuario";
+    string claseVerReportes = Model.confUsuarioComercio.Any(c => c.verReportes) ? "checked" : "";
+    string claseVerSoporte = Model.confUsuarioComercio.Any(c => c.verSoporte) ? "checked" : "";
+    string claseVerComentarios = Model.confUsuarioComercio.Any(c => c.verComentarios) ? "checked" : "";
+    string claseVerNotificaciones = Model.confUsuarioComercio.Any(c => c.verNotificaciones) ? "checked" : "";
+    string claseVerArqueo = Model.confUsuarioComercio.Any(c => c.verArqueo) ? "checked" : "";
+    string claseVerFacturas = Model.confUsuarioComercio.Any(c => c.verFacturas) ? "checked" : "";
+    string claseVerCatalogos = Model.confUsuarioComercio.Any(c => c.verCatalogos) ? "checked" : "";
+    string claseVerUsuarios = Model.confUsuarioComercio.Any(c => c.verUsuarios) ? "checked" : "";
+    string claseVerComercio = Model.confUsuarioComercio.Any(c => c.verComercioAfiliado) ? "checked" : "";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Configurar Usuario - @Model.nombre @Model.paterno @Model.materno</h2>
+
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Configuracion de permisos</h5>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm("ConfigurarUsuario", "usuarios", FormMethod.Post, new { id = "form-configurar", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-lg-12" id="container-alerts"></div>
+                            
+                            <div class="form-group col-lg-8">
+                                <input type="hidden" name="UsuarioId" value="@Model.idUsuario" />
+                                @Html.ListBox("Comercios", ViewBag.IdComercios as MultiSelectList, new { data_parsley_required = "true", @class = "form-control dual_select" })
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="control-label">Permisos</label>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerReportes" value="True" @claseVerReportes>
+                                            <label class="custum-control-label" for="customCheck1">Puede ver reportes</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerSoporte" value="True" @claseVerSoporte>
+                                            <label class="custum-control-label" for="customCheck1">Puede editar información de soporte</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerComentarios" value="True" @claseVerComentarios>
+                                            <label class="custum-control-label" for="customCheck1">Puede ver y responder comentarios</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerNotificaciones" value="True" @claseVerNotificaciones>
+                                            <label class="custum-control-label" for="customCheck1">Puede enviar notificaciones a los clientes</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerArqueo" value="True" @claseVerArqueo>
+                                            <label class="custum-control-label" for="customCheck1">Puede ver el Arqueo</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerFacturas" value="True" @claseVerFacturas>
+                                            <label class="custum-control-label" for="customCheck1">Puede ver las facturas</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerUsuarios" value="True" @claseVerUsuarios>
+                                            <label class="custum-control-label" for="customCheck1">Puede agregar y editar usuarios</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerCatalogos" value="True" @claseVerCatalogos>
+                                            <label class="custum-control-label" for="customCheck1">Puede ver los catalogos</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="checkbox checkbox-primary custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="VerComercioAfiliado" value="True" @claseVerComercio>
+                                            <label class="custum-control-label" for="customCheck1">Puede ver el comercio afiliado</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <a href="@Url.Action("Index")" class="btn btn-white m-r-sm">Regresar</a>
+                                <button type="submit" class="btn btn-primary" id="btn-guardar">Guardar</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script src="~/Scripts/app/Usuarios/Configurar.js"></script>
+}
+@section Styles{
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+}

@@ -1,0 +1,254 @@
+﻿@model IEnumerable<WebApp.Web.Models.Compras.ComprasIndexViewModel>
+@{
+    ViewBag.Title = "Compras";
+    var filtroFechaFin = (DateTime?)ViewBag.ff;
+    var filtroFechaInicio = (DateTime?)ViewBag.fi;
+}
+
+<div class="row wrapper border-bottom white-bg page-heading m-b-md">
+    <div class="col-sm-12">
+        <h2>Compras</h2>
+    </div>
+</div>
+<form id="form-filtros" action="@Url.Action("Index")" method="get">
+    @if (ViewBag.Sucursales is IEnumerable<SelectListItem> sucursales && sucursales.Any() && sucursales.Count() > 1)
+    {
+        <div class="form-group col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
+
+                <select id="sucursal" name="s" class="form-control selectpicker" data-live-search="true"
+                        data-size="6" data-parsley-errors-cointainer="#error-s">
+                    <option value="">Todos</option>
+                    @foreach (var item in sucursales)
+                    {
+                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                    }
+                </select>
+
+            </div>
+        </div>
+    }
+    @if (ViewBag.Proveedores is IEnumerable<SelectListItem> proveedores && proveedores.Any() && proveedores.Count() > 1)
+    {
+        <div class="form-group col-md-3" style="margin-left: -25px;">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Proveedor:</b></span>
+
+                <select id="proveedor" name="p" class="form-control selectpicker" data-live-search="true"
+                        data-size="6" data-parsley-errors-cointainer="#error-s">
+                    <option value="">Todos</option>
+                    @foreach (var item in proveedores)
+                    {
+                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                    }
+                </select>
+            </div>
+        </div>
+    }
+
+    @if (ViewBag.EstatusCompra is IEnumerable<SelectListItem> estatusCompra && estatusCompra.Any() && estatusCompra.Count() > 1)
+    {
+        <div class="form-group col-md-2" style="margin-left: -25px;">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Estatus:</b></span>
+
+                <select id="ec" name="ec" class="form-control selectpicker" data-live-search="true"
+                        data-size="6" data-parsley-errors-cointainer="#error-s">
+                    @foreach (var item in estatusCompra)
+                    {
+                        <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                    }
+                </select>
+            </div>
+        </div>
+    }
+
+    <div class="col-md-4" style="margin-left: -25px;">
+        <div class="input-group input-daterange">
+            <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Fecha:</b></span>
+            <input autocomplete="off" type="text" class="form-control input-sm" data-provide="datepicker" data-date-language="es"
+                   id="fi" name="fi" value="@(filtroFechaInicio.HasValue ? filtroFechaInicio.Value.ToString("dd/MM/yyyy") : "")">
+            <span class="input-group-addon">
+                <i class="fas fa-calendar"></i>
+            </span>
+            <span class="input-group-addon" style="color:#6C6A67; background-color:transparent; border-color:transparent;"><b>A</b></span>
+            <input autocomplete="off" type="text" class="form-control input-sm" data-provide="datepicker" data-date-language="es"
+                   id="ff" name="ff" value="@(filtroFechaFin.HasValue ? filtroFechaFin.Value.ToString("dd/MM/yyyy") : "")">
+            <span class="input-group-addon">
+                <i class="fas fa-calendar"></i>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-primary m-r-lg" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+</form>
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <a href="@Url.Action("Create")" class="btn btn-link col-lg-7" style="float:right;width:7.333333%;margin-top: -8px;">
+                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                        <b>Agregar</b>
+                    </a>
+                    <div class="sk-spinner sk-spinner-rotating-plane"></div>
+                    <table class="table table-striped tabla-catalogos display responsive no-wrap" width="100%">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Fecha de captura
+                                </th>
+
+                                <th>
+                                    Proveedor
+                                </th>
+
+                                <th>
+                                    Sucursal
+                                </th>
+
+                                <th>
+                                    Estatus
+                                </th>
+
+                                <th class="text-right">
+                                    Total
+                                </th>
+
+                                <th class="text-right " data-orderable="false"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @item.FechaCapturaFormateada
+                                    </td>
+
+                                    <td>
+                                        @item.Proveedor
+                                    </td>
+
+                                    <td>
+                                        @item.Sucursal
+                                    </td>
+
+                                    <td>
+                                        @item.Estatus
+                                    </td>
+
+                                    <td class="text-right">
+                                        @item.Total.ToString("N")
+                                        @*@item.TotalFormateado*@
+                                    </td>
+
+                                    <td class="text-right">
+
+                                        <a href="@Url.Action("Create", new {id = item.Id})" class="href-gray m-r-sm" data-tippy="Editar"><img src="~/Content/img/edit.png" style="height:19px" /></a>
+
+                                        <a href="#" data-id="@item.Id" class="href-gray m-r-sm trigger-detalle"><i class="fa fa-search" style="color:#696969"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-10" style="padding:0pt">
+                    @Html.ActionLink("Regresar", "Menu", "Insumos", null, new { @class = "btn btn-white" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal-detalle-compra">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="width:94%; display:inline-block">
+                    <h5 class="modal-title"></h5>
+                </div>
+                <div style="width:5%; display:inline-block">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <input type="hidden" id="url-detalle-compra" value="@Url.Action("VerDetalleCompra")" />
+                    <label class="control-label col-md-12 hide" id="remision"></label>
+                    <label class="control-label col-md-12 hide" id="factura"></label>
+                    <table id="table-detalle-compra" class="table table-sm table-borderless table-striped blue-striped h-90">
+                        <thead>
+                            <tr>
+                                <th class="">Insumo</th>
+                                <th class="text-right">Importe</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="1" class="text-right">Descuentos</th>
+                                <th scope="row" id="descuentos" class="text-right"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" class="text-right">I.V.A.</th>
+                                <th scope="row" id="iva" class="text-right"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="1" class="text-right">Total</th>
+                                <th scope="row" id="total" class="text-right"></th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <label class="control-label col-md-12" id="observacion"></label>
+                </div>
+            </div>
+            <div class="modal-footer d-none">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar-variedad">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal end -->
+
+@section Scripts{
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/app/Compras/Index.js"></script>
+}
+@section Styles{
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: initial;
+        }
+    </style>
+}
+

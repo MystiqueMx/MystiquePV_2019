@@ -47,77 +47,77 @@
 
                 <input type="hidden" name="comercioId" value="@ViewBag.idcomecio" />
                 <div class="form-group">
-                    <div class="col-md-12">
-                        <div class="col-sm-6 col-md-3">
+                    <div class="col-lg-12">
+                        <div class=" col-md-3">
                             <label class="control-label">Nombre Sucursal</label>
                             <input name="nombre" id="nombre" type="text" class="form-control" maxlength="50" value="@Model.nombre" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
                                    data-parsley-required data-parsley-maxlength="50" autocomplete="off" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Calle</label>
                             <input name="calle" id="calle" type="text" class="form-control" maxlength="50" value="@Model.calle" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
                                    data-parsley-required data-parsley-maxlength="50" autocomplete="off" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Número Interior</label>
                             <input name="NoInterior" id="NoInterior" type="text" class="form-control" maxlength="5" value="@Model.NoInterior" data-inputmask-regex="[0-9]{0,5}" data-inputmask-greedy="false"
                                    data-parsley-maxlength="5" autocomplete="off" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Número Exterior</label>
                             <input name="NoExterior" id="NoExterior" type="text" class="form-control" maxlength="10" value="@Model.NoExterior" data-inputmask-regex="[0-9]{0,10}" data-inputmask-greedy="false"
                                    data-parsley-maxlength="5" autocomplete="off" />
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-sm-6 col-md-3">
+                    <div class="col-lg-12">
+                        <div class="col-md-3">
                             <label class="control-label">Código Postal</label>
                             <input name="codigoPostal" id="codigoPostal" type="text" class="form-control" maxlength="5" value="@Model.codigoPostal" data-inputmask-regex="[0-9]{0,5}" data-inputmask-greedy="false"
                                    data-parsley-maxlength="5" autocomplete="off" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Colonia</label>
                             <input name="colonia" id="colonia" type="text" class="form-control" maxlength="50" value="@Model.colonia" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
                                    data-parsley-required data-parsley-maxlength="50" autocomplete="off" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Entre Calles</label>
                             <input name="entreCalles" id="entreCalles" type="text" class="form-control" maxlength="50" value="@Model.entreCalles" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,50}" data-inputmask-greedy="false"
                                    data-parsley-maxlength="50" autocomplete="off" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Estado</label>
                             @Html.DropDownListFor(model => model.estadoId, new SelectList(ViewBag.estados, "idCatEstado", "estadoDescr"), new { @class = "form-control", data_parsley_required = "" })
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-sm-6 col-md-3">
+                    <div class="col-lg-12">
+                        <div class="col-md-3">
                             <label class="control-label">Ciudad</label>
                             @Html.DropDownListFor(model => model.ciudadId, new SelectList(ViewBag.ciudads, "idCatCiudad", "ciudadDescr"), new { @class = "form-control", data_parsley_required = "" })
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class=" col-md-3">
                             <label class="control-label">Teléfono</label>
                             <input type="text" name="telefono" class="form-control" id="telefono"
                                    maxlength=15 data-inputmask-mask="(999) 999-99-99" autocomplete="nope"
                                    data-inputmask-greedy="false" data-parsley-errors-container="#telefono-error"
                                    data-parsley-maxlength="15" value="@Model.telefono" />
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Estatus</label>
-                            @Html.DropDownList("activo", @Model.Statuses as SelectList, new { @class = "form-control", data_parsley_required = "" })
+                            @Html.DropDownList("activo", new SelectList(ViewBag.activo, "Value", "Text"), new { @class = "form-control", data_parsley_required = "" })
 
                         </div>
-                        <div class="col-sm-6 col-md-3">
+                        <div class="col-md-3">
                             <label class="control-label">Punto Venta</label>
                             @Html.EditorFor(model => model.sucursalPuntoVenta, new { htmlAttributes = new { @class = "form-control", data_inputmask_regex = "[0-9]{0,5}", @autocomplete = "off", @data_parsley_required = "" } })
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-sm-6 col-md-3">
+                    <div class="col-lg-12">
+                        <div class="col-md-3">
                             <label class="control-label">Zona</label>
-                            @Html.DropDownListFor(model => model.catZonaId, new SelectList(ViewBag.zonas, "idCatZona", "descripcion"), "Seleccione", new { @class = "form-control" , data_parsley_required = "" })
+                            @Html.DropDownListFor(model => model.catZonaId, new SelectList(ViewBag.zonas, "idCatZona", "descripcion"), "Seleccione", new { @class = "form-control" })
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-md-3">
                             <label class="control-label">Color Indicador</label>
                             <input type="color" id="picker" name="picker" value="@Model.ColorIndicador" class="form-control"
                                    data-role="colorpicker" data-opacity="true" data-parsley-required data-parsley-errors-container="#error-color" />
@@ -139,6 +139,7 @@
                         <div class="col-md-11">
                             <div class="col-md-4">
                                 <label class="control-label">Horario</label>
+
                                 <div class="checkbox checkbox-primary custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="lunes" name="diaLunes" value="Lunes" @Html.CheckBoxEditar(!String.IsNullOrEmpty(Model.diaLunes))>
                                     <label class="custum-control-label" for="customCheck1">Lunes</label>

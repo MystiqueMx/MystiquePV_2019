@@ -9,7 +9,7 @@ using MystiqueMcApi.Models.Salidas;
 using MystiqueMcApi.Models.Entradas;
 using Openpay.Entities;
 using MystiqueMC.DAL;
-using conekta;
+using Conekta;
 
 namespace MystiqueMcApi.Controllers
 {

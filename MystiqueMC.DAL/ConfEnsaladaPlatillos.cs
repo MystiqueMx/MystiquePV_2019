@@ -26,5 +26,6 @@ namespace MystiqueMC.DAL
         public int cortesia { get; set; }
     
         public virtual Productos Productos { get; set; }
+        public virtual Productos1 Productos1 { get; set; }
     }
 }

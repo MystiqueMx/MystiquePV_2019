@@ -39,5 +39,6 @@ namespace MystiqueMC.DAL
         public virtual catEstatusFactura catEstatusFactura { get; set; }
         public virtual datosFiscales datosFiscales { get; set; }
         public virtual receptorCliente receptorCliente { get; set; }
+        public virtual ticketSucursal ticketSucursal { get; set; }
     }
 }

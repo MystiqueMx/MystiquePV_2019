@@ -28,11 +28,11 @@ namespace MystiqueMC.DAL
         public string nombre { get; set; }
         public int productoId { get; set; }
     
+        public virtual Productos Productos { get; set; }
         public virtual comercios comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<confProductoPVEquivalencia> confProductoPVEquivalencia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<recompensas> recompensas { get; set; }
-        public virtual Productos Productos { get; set; }
     }
 }

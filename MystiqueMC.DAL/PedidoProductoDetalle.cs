@@ -25,8 +25,8 @@ namespace MystiqueMC.DAL
         public int insumoProductoId { get; set; }
         public string descripcionVariedad { get; set; }
     
-        public virtual PedidoProductos PedidoProductos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InsumoProducto> InsumoProducto { get; set; }
+        public virtual PedidoProductos PedidoProductos { get; set; }
     }
 }

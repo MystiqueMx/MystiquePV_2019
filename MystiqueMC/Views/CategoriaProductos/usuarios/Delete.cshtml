@@ -1,0 +1,112 @@
+﻿@model MystiqueMC.DAL.usuarios
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    if (Model.estatus)
+    {
+        ViewBag.Title = "Bloquear";
+    }
+    else
+    {
+        ViewBag.Title = "Desbloquear";
+    }
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        @if (Model.estatus)
+        {
+            @: <h2>Bloquear <b>@Model.nombre&nbsp;@Model.paterno&nbsp;@Model.materno</b></h2>
+        }
+        else
+        {
+            @: <h2>Desbloquear <b>@Model.nombre&nbsp;@Model.paterno&nbsp;@Model.materno</b></h2>
+        }
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @{
+                        if (Model.estatus)
+                        {
+                            @:<h4 class="text-danger">¿Estás seguro que deseas bloquear a este usuario?</h4>
+                        }
+                        else
+                        {
+                            @:<h4 class="text-info">¿Estás seguro que deseas desbloquear a este usuario?</h4>
+                        }
+                    }
+
+                    <dl class="dl-horizontal">
+                        <dt>Nombre</dt>
+                        <dd>@Html.DisplayFor(model => model.nombre)</dd>
+
+                        <dt>Apellido Paterno</dt>
+                        <dd>@Html.DisplayFor(model => model.paterno)</dd>
+
+                        <dt>Apellido Materno</dt>
+                        <dd>@Html.DisplayFor(model => model.materno)</dd>
+
+                        <dt>E-Mail</dt>
+                        <dd>@Html.DisplayFor(model => model.email)</dd>
+
+                        <dt>Teléfono</dt>
+                        <dd>@Html.DisplayFor(model => model.telefono)</dd>
+
+                        <dt>Estatus</dt>
+                        <dd>
+                            @{
+                                if (Model.estatus)
+                                {
+                                    @:ACTIVO
+                                }
+                                else
+                                {
+                                    @:INACTIVO
+                                }
+                            }
+                        </dd>
+                    </dl>
+
+                    @using (Html.BeginForm("EstatusBloqueosAsync", "usuarios", FormMethod.Post, new { id = "Bloqueador" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white" })
+
+                            @if (Model.estatus)
+                            {
+                                <input type="hidden" name="id" value="@Model.idUsuario" />
+                                <input type="submit" value="Bloquear" class="btn btn-danger" />
+                            }
+                            else
+                            {
+                                <input type="hidden" name="id" value="@Model.idUsuario" />
+                                <input type="submit" value="Desbloquear" class="btn btn-primary" />
+                            }
+                        </div>
+                    }
+                </div>
+                <input hidden name="configuracionSistemaId" value="@Model.nombre" />
+                <input hidden name="configuracionSistemaId" value="@Model.paterno" />
+                <input hidden name="configuracionSistemaId" value="@Model.materno" />
+                <input hidden name="configuracionSistemaId" value="@Model.email" />
+                <input hidden name="configuracionSistemaId" value="@Model.telefono" />
+                <input hidden name="configuracionSistemaId" value="@Model.fechaNacimiento" />
+                <input hidden name="configuracionSistemaId" value="@Model.userName" />
+                <input hidden name="configuracionSistemaId" value="@Model.password" />
+                <input hidden name="configuracionSistemaId" value="@Model.usuarioRegistroId" />
+                <input hidden name="configuracionSistemaId" value="@Model.FechaRegistro" />
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -24,10 +24,10 @@ namespace MystiqueMC.DAL
             this.DetalleRecetaProducto = new HashSet<DetalleRecetaProducto>();
             this.Equivalencias = new HashSet<Equivalencias>();
             this.InsumoProductos = new HashSet<InsumoProductos>();
-            this.Inventarios = new HashSet<Inventarios>();
-            this.RecetasProcesados = new HashSet<RecetasProcesados>();
-            this.MovimientoInventarios = new HashSet<MovimientoInventarios>();
             this.GastosPvDetalle = new HashSet<GastosPvDetalle>();
+            this.Inventarios = new HashSet<Inventarios>();
+            this.MovimientoInventarios = new HashSet<MovimientoInventarios>();
+            this.RecetasProcesados = new HashSet<RecetasProcesados>();
         }
     
         public int idInsumo { get; set; }
@@ -52,6 +52,7 @@ namespace MystiqueMC.DAL
     
         public virtual CategoriaIngrediente CategoriaIngrediente { get; set; }
         public virtual CategoriaInsumo CategoriaInsumo { get; set; }
+        public virtual CatRubros CatRubros { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ConteoFisicoAgrupadorInsumos> ConteoFisicoAgrupadorInsumos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -66,6 +67,8 @@ namespace MystiqueMC.DAL
         public virtual ICollection<Equivalencias> Equivalencias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InsumoProductos> InsumoProductos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GastosPvDetalle> GastosPvDetalle { get; set; }
         public virtual comercios comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventarios> Inventarios { get; set; }
@@ -73,11 +76,8 @@ namespace MystiqueMC.DAL
         public virtual UnidadMedida UnidadMedida1 { get; set; }
         public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RecetasProcesados> RecetasProcesados { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MovimientoInventarios> MovimientoInventarios { get; set; }
-        public virtual CatRubros CatRubros { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GastosPvDetalle> GastosPvDetalle { get; set; }
+        public virtual ICollection<RecetasProcesados> RecetasProcesados { get; set; }
     }
 }

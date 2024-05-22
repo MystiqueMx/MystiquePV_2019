@@ -52,6 +52,17 @@ namespace MystiqueMC.DAL
         public string ordenOP { get; set; }
         public Nullable<bool> SolicitudPorAgente { get; set; }
         public Nullable<int> ClienteCallCenterID { get; set; }
+        public int aperturaId { get; set; }
+        public int pedidoIdSucursal { get; set; }
+        public string estatusPedido { get; set; }
+        public string tipoPedido { get; set; }
+        public System.DateTime fechaRegistroPedido { get; set; }
+        public string usuarioRegistro { get; set; }
+        public string uuidPedido { get; set; }
+        public string mesero_numero { get; set; }
+        public string mesero_nombre { get; set; }
+        public string mesa_nombre { get; set; }
+        public Nullable<int> catComensales { get; set; }
     
         public virtual CatPedidoEstatus CatPedidoEstatus { get; set; }
         public virtual clientes clientes { get; set; }
@@ -69,5 +80,6 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SeguimientoPedidos> SeguimientoPedidos { get; set; }
         public virtual CatMetodoPago CatMetodoPago { get; set; }
+        public virtual Aperturas1 Aperturas { get; set; }
     }
 }

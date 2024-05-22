@@ -1,0 +1,67 @@
+﻿@model WebApp.Web.Models.Productos.ViewModels.KardexProductoViewModel
+@{
+    ViewBag.Title = "Index";
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+}
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <table class="table" width="100%">
+                        <thead>
+                        <tr>
+                            <th>
+                                Imagen
+                            </th>
+                            <th>
+                                Descripción
+                            </th>
+
+                            <th class="text-right " data-orderable="false"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in Model.VariedadProductos)
+                        {
+
+                            <tr>
+                                <td class="col-lg-2">
+                                    <img id="imagen-@item.idVariedadProducto" src="@item.imagen" alt="" class="img-md">
+                                </td>
+                                <td class="vcenter">
+                                    @Html.DisplayFor(modelItem => item.descripcion)
+                                </td>
+
+                                <td class="text-right">
+                                    <a href="#" class="href-gray m-r-sm trigger-edit-variedad"
+                                       data-id="@item.idVariedadProducto" data-descripcion="@item.descripcion">
+                                        <i class="mdi mdi-pencil icon-size-default" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#" class="href-gray m-r-sm trigger-eliminar-variedad" data-id="@item.idVariedadProducto" 
+                                        data-descripcion="@item.descripcion" data-idproducto="@item.productoId">
+                                        <i class="mdi mdi-delete icon-size-default" aria-hidden="true"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Styles{
+    <style>
+        .vcenter {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+            line-height: 100%;
+        }
+    </style>
+}

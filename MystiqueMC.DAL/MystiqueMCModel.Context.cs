@@ -27,85 +27,45 @@ namespace MystiqueMC.DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AspNetController> AspNetController { get; set; }
-        public virtual DbSet<AspNetControllerActivity> AspNetControllerActivity { get; set; }
-        public virtual DbSet<AspNetRolePermissions> AspNetRolePermissions { get; set; }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
-        public virtual DbSet<beneficioAplicados> beneficioAplicados { get; set; }
-        public virtual DbSet<beneficioCalificaciones> beneficioCalificaciones { get; set; }
-        public virtual DbSet<beneficioHorarios> beneficioHorarios { get; set; }
-        public virtual DbSet<beneficios> beneficios { get; set; }
-        public virtual DbSet<canjePuntos> canjePuntos { get; set; }
-        public virtual DbSet<cargaCompras> cargaCompras { get; set; }
-        public virtual DbSet<catCiudades> catCiudades { get; set; }
-        public virtual DbSet<catColonias> catColonias { get; set; }
-        public virtual DbSet<catComercioGiros> catComercioGiros { get; set; }
-        public virtual DbSet<catCompraAplicadoEstatus> catCompraAplicadoEstatus { get; set; }
-        public virtual DbSet<catEstados> catEstados { get; set; }
-        public virtual DbSet<catEstatusAplicaPuntos> catEstatusAplicaPuntos { get; set; }
-        public virtual DbSet<catEstatusCanjePuntos> catEstatusCanjePuntos { get; set; }
-        public virtual DbSet<catEstatusCargaCompras> catEstatusCargaCompras { get; set; }
-        public virtual DbSet<catSexos> catSexos { get; set; }
-        public virtual DbSet<catTipoComentario> catTipoComentario { get; set; }
-        public virtual DbSet<catTipoComercios> catTipoComercios { get; set; }
-        public virtual DbSet<catTipoMembresias> catTipoMembresias { get; set; }
-        public virtual DbSet<catTipoRecompensas> catTipoRecompensas { get; set; }
-        public virtual DbSet<clienteNotificaciones> clienteNotificaciones { get; set; }
-        public virtual DbSet<comentarios> comentarios { get; set; }
-        public virtual DbSet<comercios> comercios { get; set; }
-        public virtual DbSet<confBeneficioSucursal> confBeneficioSucursal { get; set; }
-        public virtual DbSet<configuracionSistema> configuracionSistema { get; set; }
-        public virtual DbSet<datosFiscales> datosFiscales { get; set; }
-        public virtual DbSet<direccion> direccion { get; set; }
-        public virtual DbSet<empresaBrandy> empresaBrandy { get; set; }
-        public virtual DbSet<empresaContactos> empresaContactos { get; set; }
-        public virtual DbSet<empresaKardex> empresaKardex { get; set; }
-        public virtual DbSet<empresas> empresas { get; set; }
-        public virtual DbSet<historicoCancelacionRecompensas> historicoCancelacionRecompensas { get; set; }
-        public virtual DbSet<login> login { get; set; }
-        public virtual DbSet<membresias> membresias { get; set; }
-        public virtual DbSet<movimientoPuntos> movimientoPuntos { get; set; }
-        public virtual DbSet<notificaciones> notificaciones { get; set; }
-        public virtual DbSet<representateLegal> representateLegal { get; set; }
-        public virtual DbSet<saldoPuntos> saldoPuntos { get; set; }
-        public virtual DbSet<sucursalHorarios> sucursalHorarios { get; set; }
-        public virtual DbSet<usuarios> usuarios { get; set; }
-        public virtual DbSet<wallet> wallet { get; set; }
-        public virtual DbSet<VW_ClientesEdadesPorRango> VW_ClientesEdadesPorRango { get; set; }
-        public virtual DbSet<VW_ObtenerClientesConMembresia> VW_ObtenerClientesConMembresia { get; set; }
-        public virtual DbSet<VW_ObtenerConfiguracionPuntosComercio> VW_ObtenerConfiguracionPuntosComercio { get; set; }
-        public virtual DbSet<VW_ObtenerListadoCupones> VW_ObtenerListadoCupones { get; set; }
-        public virtual DbSet<VW_ObtenerRecompensasPorProductos> VW_ObtenerRecompensasPorProductos { get; set; }
-        public virtual DbSet<VW_ObtenerUsuarios> VW_ObtenerUsuarios { get; set; }
-        public virtual DbSet<VW_Permisos> VW_Permisos { get; set; }
         public virtual DbSet<AgrupadorInsumos> AgrupadorInsumos { get; set; }
         public virtual DbSet<AreaPreparacion> AreaPreparacion { get; set; }
         public virtual DbSet<Arqueo> Arqueo { get; set; }
+        public virtual DbSet<CatConceptosGastos> CatConceptosGastos { get; set; }
         public virtual DbSet<CategoriaIngrediente> CategoriaIngrediente { get; set; }
         public virtual DbSet<CategoriaInsumo> CategoriaInsumo { get; set; }
+        public virtual DbSet<CategoriaProductos> CategoriaProductos { get; set; }
         public virtual DbSet<CatEstatusEquipo> CatEstatusEquipo { get; set; }
         public virtual DbSet<CatEstatusOrden> CatEstatusOrden { get; set; }
+        public virtual DbSet<CatGastos> CatGastos { get; set; }
         public virtual DbSet<CatMovimientoInventarios> CatMovimientoInventarios { get; set; }
+        public virtual DbSet<CatRubros> CatRubros { get; set; }
+        public virtual DbSet<CatRubrosGastos> CatRubrosGastos { get; set; }
         public virtual DbSet<CatTipoEquipo> CatTipoEquipo { get; set; }
         public virtual DbSet<CatTipoMantenimiento> CatTipoMantenimiento { get; set; }
         public virtual DbSet<CatTipoPagos> CatTipoPagos { get; set; }
+        public virtual DbSet<Compras> Compras { get; set; }
         public virtual DbSet<ConfiguracionArmadoProductos> ConfiguracionArmadoProductos { get; set; }
         public virtual DbSet<ConteoFisicoAgrupadorInsumos> ConteoFisicoAgrupadorInsumos { get; set; }
         public virtual DbSet<ConteoFisicoInsumos> ConteoFisicoInsumos { get; set; }
         public virtual DbSet<ConteoFisicoPeriodoCaptura> ConteoFisicoPeriodoCaptura { get; set; }
         public virtual DbSet<ConteoFisicoTipoRegistro> ConteoFisicoTipoRegistro { get; set; }
+        public virtual DbSet<Descuentos> Descuentos { get; set; }
         public virtual DbSet<DetalleCompra> DetalleCompra { get; set; }
+        public virtual DbSet<DetalleCompraReapertura> DetalleCompraReapertura { get; set; }
         public virtual DbSet<DetalleRecetaProcesados> DetalleRecetaProcesados { get; set; }
         public virtual DbSet<DetalleRecetaProducto> DetalleRecetaProducto { get; set; }
         public virtual DbSet<Equivalencias> Equivalencias { get; set; }
+        public virtual DbSet<Gastos> Gastos { get; set; }
         public virtual DbSet<InsumoProductos> InsumoProductos { get; set; }
+        public virtual DbSet<Insumos> Insumos { get; set; }
         public virtual DbSet<Inventarios> Inventarios { get; set; }
         public virtual DbSet<MantenimientoMobiliarioEquipos> MantenimientoMobiliarioEquipos { get; set; }
         public virtual DbSet<MobiliarioEquipos> MobiliarioEquipos { get; set; }
+        public virtual DbSet<MovimientoInventarios> MovimientoInventarios { get; set; }
+        public virtual DbSet<Productos> Productos { get; set; }
         public virtual DbSet<Proveedores> Proveedores { get; set; }
         public virtual DbSet<Recetas> Recetas { get; set; }
+        public virtual DbSet<RecetasProcesados> RecetasProcesados { get; set; }
         public virtual DbSet<RegistroConteoFisicoInsumos> RegistroConteoFisicoInsumos { get; set; }
         public virtual DbSet<SucursalDescuentos> SucursalDescuentos { get; set; }
         public virtual DbSet<SucursalProductos> SucursalProductos { get; set; }
@@ -113,107 +73,135 @@ namespace MystiqueMC.DAL
         public virtual DbSet<TipoRecetas> TipoRecetas { get; set; }
         public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }
         public virtual DbSet<VariedadProductos> VariedadProductos { get; set; }
-        public virtual DbSet<VW_PV_Listado_Ventas> VW_PV_Listado_Ventas { get; set; }
-        public virtual DbSet<VW_PV_Ticket_Pedido_Productos> VW_PV_Ticket_Pedido_Productos { get; set; }
         public virtual DbSet<Aperturas> Aperturas { get; set; }
         public virtual DbSet<Clientespv> Clientespv { get; set; }
         public virtual DbSet<ConsumoEmpleados> ConsumoEmpleados { get; set; }
         public virtual DbSet<GastosPv> GastosPv { get; set; }
+        public virtual DbSet<GastosPvDetalle> GastosPvDetalle { get; set; }
+        public virtual DbSet<InsumoProducto> InsumoProducto { get; set; }
         public virtual DbSet<PedidoProductoDetalle> PedidoProductoDetalle { get; set; }
         public virtual DbSet<PedidoProductos> PedidoProductos { get; set; }
+        public virtual DbSet<Pedidos> Pedidos { get; set; }
         public virtual DbSet<Retiros> Retiros { get; set; }
         public virtual DbSet<TicketCancelados> TicketCancelados { get; set; }
         public virtual DbSet<TicketDescuentos> TicketDescuentos { get; set; }
+        public virtual DbSet<TicketPagos> TicketPagos { get; set; }
         public virtual DbSet<TicketReimpresos> TicketReimpresos { get; set; }
         public virtual DbSet<Tickets> Tickets { get; set; }
-        public virtual DbSet<ConfUsuarioSucursales> ConfUsuarioSucursales { get; set; }
+        public virtual DbSet<Ventas> Ventas { get; set; }
+        public virtual DbSet<AnexoDoctor> AnexoDoctor { get; set; }
+        public virtual DbSet<AspNetController> AspNetController { get; set; }
+        public virtual DbSet<AspNetControllerActivity> AspNetControllerActivity { get; set; }
+        public virtual DbSet<AspNetRolePermissions> AspNetRolePermissions { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<catRegimenFiscal> catRegimenFiscal { get; set; }
-        public virtual DbSet<catTipoAutentificacion> catTipoAutentificacion { get; set; }
-        public virtual DbSet<catRangoEdad> catRangoEdad { get; set; }
-        public virtual DbSet<confDatosFiscalesSucursal> confDatosFiscalesSucursal { get; set; }
-        public virtual DbSet<CatRubrosGastos> CatRubrosGastos { get; set; }
-        public virtual DbSet<ProductoTieneReceta> ProductoTieneReceta { get; set; }
+        public virtual DbSet<beneficioAplicados> beneficioAplicados { get; set; }
+        public virtual DbSet<beneficioCalificaciones> beneficioCalificaciones { get; set; }
+        public virtual DbSet<beneficioHorarios> beneficioHorarios { get; set; }
+        public virtual DbSet<beneficios> beneficios { get; set; }
         public virtual DbSet<bitacoraFacturacion> bitacoraFacturacion { get; set; }
+        public virtual DbSet<canjePuntos> canjePuntos { get; set; }
+        public virtual DbSet<cargaCompras> cargaCompras { get; set; }
+        public virtual DbSet<CatAseguranzas> CatAseguranzas { get; set; }
+        public virtual DbSet<catCiudades> catCiudades { get; set; }
+        public virtual DbSet<catColonias> catColonias { get; set; }
+        public virtual DbSet<catComercioGiros> catComercioGiros { get; set; }
+        public virtual DbSet<catCompraAplicadoEstatus> catCompraAplicadoEstatus { get; set; }
+        public virtual DbSet<CatDoctorEspecialidad> CatDoctorEspecialidad { get; set; }
+        public virtual DbSet<catEstados> catEstados { get; set; }
+        public virtual DbSet<catEstatusAplicaPuntos> catEstatusAplicaPuntos { get; set; }
+        public virtual DbSet<catEstatusCanjePuntos> catEstatusCanjePuntos { get; set; }
+        public virtual DbSet<catEstatusCargaCompras> catEstatusCargaCompras { get; set; }
+        public virtual DbSet<CatEstatusCita> CatEstatusCita { get; set; }
+        public virtual DbSet<CatEstatusCompras> CatEstatusCompras { get; set; }
         public virtual DbSet<catEstatusFactura> catEstatusFactura { get; set; }
         public virtual DbSet<catEstatusTicket> catEstatusTicket { get; set; }
+        public virtual DbSet<catPaises> catPaises { get; set; }
+        public virtual DbSet<catProductos> catProductos { get; set; }
+        public virtual DbSet<catRangoEdad> catRangoEdad { get; set; }
+        public virtual DbSet<catRegimenFiscal> catRegimenFiscal { get; set; }
+        public virtual DbSet<catSexos> catSexos { get; set; }
+        public virtual DbSet<catTipoAutentificacion> catTipoAutentificacion { get; set; }
+        public virtual DbSet<catTipoComentario> catTipoComentario { get; set; }
+        public virtual DbSet<catTipoComercios> catTipoComercios { get; set; }
+        public virtual DbSet<catTipoMembresias> catTipoMembresias { get; set; }
+        public virtual DbSet<CatTipoNotificaciones> CatTipoNotificaciones { get; set; }
+        public virtual DbSet<catTipoRecompensas> catTipoRecompensas { get; set; }
         public virtual DbSet<catUsoCFDI> catUsoCFDI { get; set; }
+        public virtual DbSet<CatZonas> CatZonas { get; set; }
+        public virtual DbSet<Citas> Citas { get; set; }
+        public virtual DbSet<clienteNotificaciones> clienteNotificaciones { get; set; }
+        public virtual DbSet<clientes> clientes { get; set; }
+        public virtual DbSet<comentarios> comentarios { get; set; }
+        public virtual DbSet<comercios> comercios { get; set; }
+        public virtual DbSet<confBeneficioSucursal> confBeneficioSucursal { get; set; }
+        public virtual DbSet<confDatosFiscalesSucursal> confDatosFiscalesSucursal { get; set; }
+        public virtual DbSet<ConfiguracionCompras> ConfiguracionCompras { get; set; }
+        public virtual DbSet<configuracionSistema> configuracionSistema { get; set; }
+        public virtual DbSet<confProductoPVEquivalencia> confProductoPVEquivalencia { get; set; }
+        public virtual DbSet<confSumaPuntos> confSumaPuntos { get; set; }
+        public virtual DbSet<confUsuarioComercio> confUsuarioComercio { get; set; }
+        public virtual DbSet<ConfUsuarioSucursales> ConfUsuarioSucursales { get; set; }
+        public virtual DbSet<datosFiscales> datosFiscales { get; set; }
         public virtual DbSet<datosReceptor> datosReceptor { get; set; }
         public virtual DbSet<detalleTicketSucursal> detalleTicketSucursal { get; set; }
+        public virtual DbSet<direccion> direccion { get; set; }
+        public virtual DbSet<DoctorAseguranzas> DoctorAseguranzas { get; set; }
+        public virtual DbSet<empresaBrandy> empresaBrandy { get; set; }
+        public virtual DbSet<empresaContactos> empresaContactos { get; set; }
+        public virtual DbSet<empresaKardex> empresaKardex { get; set; }
+        public virtual DbSet<empresas> empresas { get; set; }
         public virtual DbSet<facturaCliente> facturaCliente { get; set; }
         public virtual DbSet<facturaPendiente> facturaPendiente { get; set; }
-        public virtual DbSet<receptorCliente> receptorCliente { get; set; }
-        public virtual DbSet<Insumos> Insumos { get; set; }
-        public virtual DbSet<TicketPagos> TicketPagos { get; set; }
-        public virtual DbSet<confUsuarioComercio> confUsuarioComercio { get; set; }
-        public virtual DbSet<CatEstatusCompras> CatEstatusCompras { get; set; }
-        public virtual DbSet<ConfiguracionCompras> ConfiguracionCompras { get; set; }
-        public virtual DbSet<ProductoEstaConfigurado> ProductoEstaConfigurado { get; set; }
-        public virtual DbSet<SucursalNotificaciones> SucursalNotificaciones { get; set; }
-        public virtual DbSet<SectoresNotificaciones> SectoresNotificaciones { get; set; }
-        public virtual DbSet<RecetasProcesados> RecetasProcesados { get; set; }
-        public virtual DbSet<CatZonas> CatZonas { get; set; }
-        public virtual DbSet<confSumaPuntos> confSumaPuntos { get; set; }
-        public virtual DbSet<confProductoPVEquivalencia> confProductoPVEquivalencia { get; set; }
-        public virtual DbSet<catProductos> catProductos { get; set; }
-        public virtual DbSet<AnexoDoctor> AnexoDoctor { get; set; }
-        public virtual DbSet<CatDoctorEspecialidad> CatDoctorEspecialidad { get; set; }
+        public virtual DbSet<historicoCancelacionRecompensas> historicoCancelacionRecompensas { get; set; }
         public virtual DbSet<ImagenDoctor> ImagenDoctor { get; set; }
+        public virtual DbSet<login> login { get; set; }
+        public virtual DbSet<membresias> membresias { get; set; }
+        public virtual DbSet<movimientoPuntos> movimientoPuntos { get; set; }
+        public virtual DbSet<notificaciones> notificaciones { get; set; }
+        public virtual DbSet<ProductoEstaConfigurado> ProductoEstaConfigurado { get; set; }
+        public virtual DbSet<ProductoTieneReceta> ProductoTieneReceta { get; set; }
+        public virtual DbSet<receptorCliente> receptorCliente { get; set; }
         public virtual DbSet<recompensas> recompensas { get; set; }
-        public virtual DbSet<Ventas> Ventas { get; set; }
-        public virtual DbSet<Pedidos> Pedidos { get; set; }
+        public virtual DbSet<representateLegal> representateLegal { get; set; }
+        public virtual DbSet<saldoPuntos> saldoPuntos { get; set; }
+        public virtual DbSet<SectoresNotificaciones> SectoresNotificaciones { get; set; }
         public virtual DbSet<sucursales> sucursales { get; set; }
-        public virtual DbSet<MovimientoInventarios> MovimientoInventarios { get; set; }
-        public virtual DbSet<Compras> Compras { get; set; }
-        public virtual DbSet<InsumoProducto> InsumoProducto { get; set; }
-        public virtual DbSet<CatAseguranzas> CatAseguranzas { get; set; }
-        public virtual DbSet<DoctorAseguranzas> DoctorAseguranzas { get; set; }
-        public virtual DbSet<CatGastos> CatGastos { get; set; }
+        public virtual DbSet<sucursalHorarios> sucursalHorarios { get; set; }
+        public virtual DbSet<SucursalNotificaciones> SucursalNotificaciones { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<ticketSucursal> ticketSucursal { get; set; }
+        public virtual DbSet<trasladosImpuestosTicket> trasladosImpuestosTicket { get; set; }
+        public virtual DbSet<usuarios> usuarios { get; set; }
+        public virtual DbSet<wallet> wallet { get; set; }
+        public virtual DbSet<AggregatedCounter> AggregatedCounter { get; set; }
+        public virtual DbSet<Counter> Counter { get; set; }
+        public virtual DbSet<Hash> Hash { get; set; }
+        public virtual DbSet<Job> Job { get; set; }
+        public virtual DbSet<JobParameter> JobParameter { get; set; }
+        public virtual DbSet<JobQueue> JobQueue { get; set; }
+        public virtual DbSet<List> List { get; set; }
+        public virtual DbSet<Schema> Schema { get; set; }
+        public virtual DbSet<Server> Server { get; set; }
+        public virtual DbSet<Set> Set { get; set; }
+        public virtual DbSet<State> State { get; set; }
+        public virtual DbSet<Articulos> Articulos { get; set; }
         public virtual DbSet<CatCategoriaArticulos> CatCategoriaArticulos { get; set; }
         public virtual DbSet<CatSubCategoriaArticulos> CatSubCategoriaArticulos { get; set; }
-        public virtual DbSet<DetalleCompraReapertura> DetalleCompraReapertura { get; set; }
-        public virtual DbSet<CatConceptosGastos> CatConceptosGastos { get; set; }
-        public virtual DbSet<Descuentos> Descuentos { get; set; }
-        public virtual DbSet<CatRubros> CatRubros { get; set; }
-        public virtual DbSet<Gastos> Gastos { get; set; }
-        public virtual DbSet<GastosPvDetalle> GastosPvDetalle { get; set; }
-        public virtual DbSet<CatEstatusCita> CatEstatusCita { get; set; }
-        public virtual DbSet<Citas> Citas { get; set; }
-        public virtual DbSet<clientes> clientes { get; set; }
-        public virtual DbSet<Menus> Menus { get; set; }
-        public virtual DbSet<ConfMenuPlatillos> ConfMenuPlatillos { get; set; }
-        public virtual DbSet<ConfMenuPlatillosItemDos> ConfMenuPlatillosItemDos { get; set; }
-        public virtual DbSet<ConfMenuPlatillosItemTres> ConfMenuPlatillosItemTres { get; set; }
-        public virtual DbSet<Platillos> Platillos { get; set; }
-        public virtual DbSet<ItemDos> ItemDos { get; set; }
-        public virtual DbSet<ItemTres> ItemTres { get; set; }
-        public virtual DbSet<ItemUno> ItemUno { get; set; }
-        public virtual DbSet<ConsumidorConektaTarjetas> ConsumidorConektaTarjetas { get; set; }
-        public virtual DbSet<TransaccionesConekta> TransaccionesConekta { get; set; }
-        public virtual DbSet<ConsumidorDirecciones> ConsumidorDirecciones { get; set; }
-        public virtual DbSet<catPaises> catPaises { get; set; }
-        public virtual DbSet<ConfSucursales> ConfSucursales { get; set; }
-        public virtual DbSet<ConsumidorOpenPay> ConsumidorOpenPay { get; set; }
-        public virtual DbSet<OpenPayTransacciones> OpenPayTransacciones { get; set; }
-        public virtual DbSet<ConsumidoresConekta> ConsumidoresConekta { get; set; }
-        public virtual DbSet<PedidosConekta> PedidosConekta { get; set; }
-        public virtual DbSet<SeguimientoBitacoraPedidos> SeguimientoBitacoraPedidos { get; set; }
-        public virtual DbSet<SeguimientoPedidos> SeguimientoPedidos { get; set; }
-        public virtual DbSet<CatPedidoEstatus> CatPedidoEstatus { get; set; }
-        public virtual DbSet<BitacoraSucursalesActivas> BitacoraSucursalesActivas { get; set; }
-        public virtual DbSet<CatIngredienteEnsaladaPrecios> CatIngredienteEnsaladaPrecios { get; set; }
-        public virtual DbSet<ConsumidorNotificaciones> ConsumidorNotificaciones { get; set; }
-        public virtual DbSet<NotificacionesHazPedido> NotificacionesHazPedido { get; set; }
-        public virtual DbSet<SucursalCategoriaProducto> SucursalCategoriaProducto { get; set; }
-        public virtual DbSet<CategoriaProductos> CategoriaProductos { get; set; }
-        public virtual DbSet<ConfMenuPlatillosItemUno> ConfMenuPlatillosItemUno { get; set; }
-        public virtual DbSet<ConfEnsaladaPlatillos> ConfEnsaladaPlatillos { get; set; }
-        public virtual DbSet<DetallePedidos> DetallePedidos { get; set; }
-        public virtual DbSet<ClientesCallCenter> ClientesCallCenter { get; set; }
-        public virtual DbSet<Productos> Productos { get; set; }
-        public virtual DbSet<ConfUsuariosComercioSucursal> ConfUsuariosComercioSucursal { get; set; }
-        public virtual DbSet<Pedidos1> Pedidos1 { get; set; }
-        public virtual DbSet<CatMetodoPago> CatMetodoPago { get; set; }
+        public virtual DbSet<BitacoraDoctor> BitacoraDoctor { get; set; }
+        public virtual DbSet<VW_PV_Listado_Ventas> VW_PV_Listado_Ventas { get; set; }
+        public virtual DbSet<VW_PV_Ticket_Pedido_Productos> VW_PV_Ticket_Pedido_Productos { get; set; }
+        public virtual DbSet<VW_PV_Ticket_Pedido_Productos_Combos> VW_PV_Ticket_Pedido_Productos_Combos { get; set; }
+        public virtual DbSet<VW_ClientesEdadesPorRango> VW_ClientesEdadesPorRango { get; set; }
+        public virtual DbSet<VW_ObtenerClientesConMembresia> VW_ObtenerClientesConMembresia { get; set; }
+        public virtual DbSet<VW_ObtenerConfiguracionPuntosComercio> VW_ObtenerConfiguracionPuntosComercio { get; set; }
+        public virtual DbSet<VW_ObtenerListadoCupones> VW_ObtenerListadoCupones { get; set; }
+        public virtual DbSet<VW_ObtenerRecompensasPorProductos> VW_ObtenerRecompensasPorProductos { get; set; }
+        public virtual DbSet<VW_ObtenerUsuarios> VW_ObtenerUsuarios { get; set; }
+        public virtual DbSet<VW_Permisos> VW_Permisos { get; set; }
+        public virtual DbSet<VW_REPORTE_MACHOTE> VW_REPORTE_MACHOTE { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

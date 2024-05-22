@@ -45,10 +45,10 @@ namespace MystiqueMC.DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<cargaCompras> cargaCompras { get; set; }
         public virtual catTipoMembresias catTipoMembresias { get; set; }
+        public virtual clientes clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<movimientoPuntos> movimientoPuntos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<saldoPuntos> saldoPuntos { get; set; }
-        public virtual clientes clientes { get; set; }
     }
 }

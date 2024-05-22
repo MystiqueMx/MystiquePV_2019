@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FacturacionTDCDevModelStoreContainer" CdmEntityContainer="FacturacionTDCDevEntities">
+    <EntitySetMapping Name="BitacoraPaxFacturacions">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.BitacoraPaxFacturacion">
+        <MappingFragment StoreEntitySet="BitacoraPaxFacturacion">
+          <ScalarProperty Name="idBitacoraPaxFacturacion" ColumnName="idBitacoraPaxFacturacion" />
+          <ScalarProperty Name="comprobanteFiscalId" ColumnName="comprobanteFiscalId" />
+          <ScalarProperty Name="mensajeRespuesta" ColumnName="mensajeRespuesta" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatalogoFormaPagoes">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.CatalogoFormaPago">
+        <MappingFragment StoreEntitySet="CatalogoFormaPago">
+          <ScalarProperty Name="idCatalogoFormaPago" ColumnName="idCatalogoFormaPago" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatalogoUsoCfdis">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.CatalogoUsoCfdi">
+        <MappingFragment StoreEntitySet="CatalogoUsoCfdi">
+          <ScalarProperty Name="idCatalogoUsoCfdi" ColumnName="idCatalogoUsoCfdi" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstatusComprobantes">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.CatEstatusComprobante">
+        <MappingFragment StoreEntitySet="CatEstatusComprobante">
+          <ScalarProperty Name="idCatEstatusComprobante" ColumnName="idCatEstatusComprobante" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ComprobanteFiscals">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ComprobanteFiscal">
+        <MappingFragment StoreEntitySet="ComprobanteFiscal">
+          <ScalarProperty Name="idComprobanteFiscal" ColumnName="idComprobanteFiscal" />
+          <ScalarProperty Name="facturaConfiguracionEmisorId" ColumnName="facturaConfiguracionEmisorId" />
+          <ScalarProperty Name="facturaReceptorId" ColumnName="facturaReceptorId" />
+          <ScalarProperty Name="facturaConsumoId" ColumnName="facturaConsumoId" />
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="fechaTimbrado" ColumnName="fechaTimbrado" />
+          <ScalarProperty Name="tipoComprobante" ColumnName="tipoComprobante" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="folio" ColumnName="folio" />
+          <ScalarProperty Name="rutaXml" ColumnName="rutaXml" />
+          <ScalarProperty Name="rutaPdf" ColumnName="rutaPdf" />
+          <ScalarProperty Name="uuid" ColumnName="uuid" />
+          <ScalarProperty Name="cadenaOriginal" ColumnName="cadenaOriginal" />
+          <ScalarProperty Name="documentoTimbrado" ColumnName="documentoTimbrado" />
+          <ScalarProperty Name="catEstatusComprobanteId" ColumnName="catEstatusComprobanteId" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfiguracionEmisores">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ConfiguracionEmisore">
+        <MappingFragment StoreEntitySet="ConfiguracionEmisores">
+          <ScalarProperty Name="idConfiguracionEmisores" ColumnName="idConfiguracionEmisores" />
+          <ScalarProperty Name="rutaCer" ColumnName="rutaCer" />
+          <ScalarProperty Name="rutaPrivateKey" ColumnName="rutaPrivateKey" />
+          <ScalarProperty Name="passwordPrivateKey" ColumnName="passwordPrivateKey" />
+          <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="regimenFiscal" ColumnName="regimenFiscal" />
+          <ScalarProperty Name="serieFacturas" ColumnName="serieFacturas" />
+          <ScalarProperty Name="usuarioPax" ColumnName="usuarioPax" />
+          <ScalarProperty Name="contrasenaPax" ColumnName="contrasenaPax" />
+          <ScalarProperty Name="usuarioSmtp" ColumnName="usuarioSmtp" />
+          <ScalarProperty Name="contrasenaSmtp" ColumnName="contrasenaSmtp" />
+          <ScalarProperty Name="serverSmtp" ColumnName="serverSmtp" />
+          <ScalarProperty Name="puertoSmtp" ColumnName="puertoSmtp" />
+          <ScalarProperty Name="rutaDocumentos" ColumnName="rutaDocumentos" />
+          <ScalarProperty Name="descRegimenFiscal" ColumnName="descRegimenFiscal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumoFacturas">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ConsumoFactura">
+        <MappingFragment StoreEntitySet="ConsumoFactura">
+          <ScalarProperty Name="idConsumoFactura" ColumnName="idConsumoFactura" />
+          <ScalarProperty Name="fechaCompra" ColumnName="fechaCompra" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="descuento" ColumnName="descuento" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="claveMetodoPago" ColumnName="claveMetodoPago" />
+          <ScalarProperty Name="claveFormaPago" ColumnName="claveFormaPago" />
+          <ScalarProperty Name="claveTipoComprobante" ColumnName="claveTipoComprobante" />
+          <ScalarProperty Name="referencia" ColumnName="referencia" />
+          <ScalarProperty Name="importeLetraTotal" ColumnName="importeLetraTotal" />
+          <ScalarProperty Name="numeroTareta" ColumnName="numeroTareta" />
+          <ScalarProperty Name="condicionesPago" ColumnName="condicionesPago" />
+          <ScalarProperty Name="moneda" ColumnName="moneda" />
+          <ScalarProperty Name="tipoCambio" ColumnName="tipoCambio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumoFacturaImpuestos">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ConsumoFacturaImpuesto">
+        <MappingFragment StoreEntitySet="ConsumoFacturaImpuestos">
+          <ScalarProperty Name="idConsumoFacturaImpuestos" ColumnName="idConsumoFacturaImpuestos" />
+          <ScalarProperty Name="consumoFacturaId" ColumnName="consumoFacturaId" />
+          <ScalarProperty Name="tasa" ColumnName="tasa" />
+          <ScalarProperty Name="claveImpuesto" ColumnName="claveImpuesto" />
+          <ScalarProperty Name="importe" ColumnName="importe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceptorFacturas">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ReceptorFactura">
+        <MappingFragment StoreEntitySet="ReceptorFactura">
+          <ScalarProperty Name="idReceptorFactura" ColumnName="idReceptorFactura" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="catUsoCfdi" ColumnName="catUsoCfdi" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReceptorFactura_Legado">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ReceptorFactura_Legado">
+        <MappingFragment StoreEntitySet="ReceptorFactura_Legado">
+          <ScalarProperty Name="idReceptorFactura_Legado" ColumnName="idReceptorFactura_Legado" />
+          <ScalarProperty Name="rfc" ColumnName="rfc" />
+          <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+          <ScalarProperty Name="catUsoCfdi" ColumnName="catUsoCfdi" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsumoFacturaDetalles">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.ConsumoFacturaDetalle">
+        <MappingFragment StoreEntitySet="ConsumoFacturaDetalle">
+          <ScalarProperty Name="claveUnidadSat" ColumnName="claveUnidadSat" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="unidad" ColumnName="unidad" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+          <ScalarProperty Name="importeDetalle" ColumnName="importeDetalle" />
+          <ScalarProperty Name="ivaDetalle" ColumnName="ivaDetalle" />
+          <ScalarProperty Name="ClaveSat" ColumnName="ClaveSat" />
+          <ScalarProperty Name="consumoFacturaId" ColumnName="consumoFacturaId" />
+          <ScalarProperty Name="idConsumoFacturaDetalle" ColumnName="idConsumoFacturaDetalle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BitacoraServicios">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.BitacoraServicio">
+        <MappingFragment StoreEntitySet="BitacoraServicios">
+          <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+          <ScalarProperty Name="mensajeRespuesta" ColumnName="mensajeRespuesta" />
+          <ScalarProperty Name="solicitud" ColumnName="solicitud" />
+          <ScalarProperty Name="tipoServicioId" ColumnName="tipoServicioId" />
+          <ScalarProperty Name="idBitacoraServicios" ColumnName="idBitacoraServicios" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoServicios">
+      <EntityTypeMapping TypeName="FacturacionTDCDevModel.TipoServicio">
+        <MappingFragment StoreEntitySet="TipoServicios">
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idTipoServicio" ColumnName="idTipoServicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

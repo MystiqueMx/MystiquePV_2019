@@ -40,10 +40,10 @@ namespace MystiqueMC.DAL
         public virtual ICollection<DetalleRecetaProducto> DetalleRecetaProducto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Equivalencias> Equivalencias { get; set; }
-        public virtual comercios comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Insumos> Insumos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Insumos> Insumos1 { get; set; }
+        public virtual comercios comercios { get; set; }
     }
 }

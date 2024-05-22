@@ -33,5 +33,6 @@ namespace MystiqueMC.DAL
         public virtual ICollection<ConsumidorNotificaciones> ConsumidorNotificaciones { get; set; }
         public virtual sucursales sucursales { get; set; }
         public virtual Pedidos1 Pedidos1 { get; set; }
+        public virtual Pedidos11 Pedidos11 { get; set; }
     }
 }

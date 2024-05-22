@@ -1,0 +1,64 @@
+﻿@model MystiqueMC.DAL.UnidadMedida
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Editar Unidad de Medida <b>@Model.descripcion</b></h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Edit", "UnidadMedida", FormMethod.Post, new { id = "form-edit", data_parsley_validate = "true" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.idUnidadMedida)
+                            @Html.HiddenFor(model => model.comercioId)
+
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.descripcion, "Descripción", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new
+                                        { @class = "form-control",
+                                        data_parsley_maxlength = "100",
+                                        data_parsley_required = "true",
+                                        data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,100}",
+                                        data_parsley_errors_container = "#descripcion-error"
+                                        } })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="descripcion-error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+                                        <input type="submit" value="Guardar" class="btn btn-primary" />
+                                        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+}

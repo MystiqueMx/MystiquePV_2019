@@ -46,11 +46,11 @@ namespace MystiqueMC.DAL
     
         public virtual beneficios beneficios { get; set; }
         public virtual comercios comercios { get; set; }
+        public virtual Productos Productos { get; set; }
         public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SucursalDescuentos> SucursalDescuentos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TicketDescuentos> TicketDescuentos { get; set; }
-        public virtual Productos Productos { get; set; }
     }
 }

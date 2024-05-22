@@ -1,0 +1,1 @@
+<CheckedTextView android:id="@android:id/text1" style="@style/spinnerDropDownItemStyle" android:maxLines="1" android:padding="@dimen/small_margin" android:layout_width="match_parent" android:layout_height="50dp" android:ellipsize="marquee" xmlns:android="http://schemas.android.com/apk/res/android" />

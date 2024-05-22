@@ -19,8 +19,8 @@ namespace MystiqueMC.DAL
         {
             this.Arqueo = new HashSet<Arqueo>();
             this.GastosPv = new HashSet<GastosPv>();
-            this.Retiros = new HashSet<Retiros>();
             this.Pedidos = new HashSet<Pedidos>();
+            this.Retiros = new HashSet<Retiros>();
         }
     
         public int idApertura { get; set; }
@@ -39,12 +39,12 @@ namespace MystiqueMC.DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Arqueo> Arqueo { get; set; }
+        public virtual Ventas Ventas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GastosPv> GastosPv { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Retiros> Retiros { get; set; }
-        public virtual Ventas Ventas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pedidos> Pedidos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Retiros> Retiros { get; set; }
     }
 }

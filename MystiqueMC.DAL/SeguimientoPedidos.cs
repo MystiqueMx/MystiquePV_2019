@@ -30,5 +30,6 @@ namespace MystiqueMC.DAL
         public virtual ICollection<SeguimientoBitacoraPedidos> SeguimientoBitacoraPedidos { get; set; }
         public virtual CatPedidoEstatus CatPedidoEstatus { get; set; }
         public virtual Pedidos1 Pedidos1 { get; set; }
+        public virtual Pedidos11 Pedidos11 { get; set; }
     }
 }

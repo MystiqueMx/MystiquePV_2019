@@ -24,7 +24,6 @@ namespace MystiqueMC.DAL
         public string paisDescr { get; set; }
         public int usuarioRegistroId { get; set; }
         public System.DateTime fechaRegistro { get; set; }
-        public string codigoPais { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<catEstados> catEstados { get; set; }

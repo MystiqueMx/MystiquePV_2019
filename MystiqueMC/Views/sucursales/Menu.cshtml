@@ -1,196 +1,24 @@
-﻿@model Dictionary<string, IGrouping<string, MystiqueMC.DAL.Productos>>
-@*@model IEnumerable<MystiqueMC.DAL.SucursalProductos>*@
+﻿@model IEnumerable<MystiqueMC.DAL.SucursalProductos>
 @{
     /**/
     ViewBag.Title = "Index";
-    var familiaId = ViewBag.idF;
-    var rowStart = Html.Raw("<div class=\"row\">");
-    var rowEnd = Html.Raw("</div>");
-    var productosDescripcion = "";
 }
 
-<div class="row wrapper border-bottom white-bg page-heading m-b-md">
-    @*style="padding:0 10px 7px 10px">*@
+<div class="row wrapper border-bottom white-bg page-heading" style="padding:0 10px 7px 10px">
     <div class="col-sm-6">
         <h2>Menu - Sucursal @ViewBag.NombreSucursal</h2>
     </div>
-    <div class="col-sm-6 text-right hidden" style="width:49%;margin-top:14px;margin-bottom:10px">
-        <a href="@Url.Action("Generar", new { IdS = ViewBag.sucursal, IdC = ViewBag.comercio })" class="btn btn-primary"><i class="fas fa-redo"></i>&nbsp;Actualizar Productos</a>
+    <div class="col-sm-6 text-right" style="width:49%;margin-top:14px;margin-bottom:10px">
+        <a href="@Url.Action("Generar", new { IdS = ViewBag.sucursal, IdC= ViewBag.comercio })" class="btn btn-primary"><i class="fas fa-redo"></i>&nbsp;Actualizar Productos</a>
     </div>
 </div>
-
-@using (Html.BeginForm("Menu", "sucursales", FormMethod.Get, new { @class = "one-click-form", id = "form-search-suc" }))
-{
-    <input type="hidden" id="sucursal" name="id" value=@ViewBag.sucursal>
-    <input type="hidden" id="comercio" name="idC" value=@ViewBag.comercio>
-
-    if (ViewBag.Categorias is IEnumerable<SelectListItem> categorias && categorias.Any() && categorias.Count() > 1)
-    {
-        <div class="form-group" style="margin-left: -20px;">
-            <div class="col-md-2" style="padding-bottom: 0px; margin-left: 0px;">
-                <div class="input-group">
-                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent; margin-left: 0px;"><b>Familia:</b></span>
-
-                    <select id="idF" name="idF" class="form-control selectpicker" data-live-search="true"
-                            data-size="6">
-                        <option value="">Todas</option>
-                        @foreach (var item in categorias)
-                        {
-                            <option value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
-                        }
-                    </select>
-
-                </div>
-            </div>
-            <div class="col-md-4" style="margin-bottom: 10px;">
-                <div class="input-group">
-                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Estatus:</b></span>
-                    <label class="radio-inline">
-                        <input type="radio" name="enabled" id="inlineRadio1" value="1" @(ViewBag.enabled as int? == 1 ? "checked" : "")> Activos
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="enabled" id="inlineRadio2" value="0" @(ViewBag.enabled as int? == 0 ? "checked" : "")> Inactivos
-                    </label>
-                    <label class="radio-inline m-r-sm">
-                        <input type="radio" name="enabled" id="inlineRadio3" value="3" @(ViewBag.enabled as int? != 1 && ViewBag.enabled as int? != 0 ? "checked" : "")> Todos
-                    </label>
-                    <button style="width:40px;margin-left: 10px;" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-            <div class="form-group hidden">
-                <button class="btn btn-primary m-r-lg" type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
-    }
-}
-
-  @foreach (var group in Model)
-  {
-      var cols = 0;
-      <div class="row">
-          <div class="col-md-12">
-              <div class="ibox float-e-margins">
-                  <div class="ibox-content">
-                      <h3>@group.Key</h3>
-                      <div class="view-cuadricula">
-                          @for (var i = 0; i < group.Value.Count(); i++)
-                          {
-                              var item = group.Value.ElementAt(i);
-                              @(cols == 0 ? rowStart : Html.Raw(""))
-                              <div class="col-md-4">
-                                  <div class="p-sm m-sm" style="border: 1px solid">
-                                      <div class="row">
-                                          <div class="col-sm-9">
-                                              @item.clave - @item.nombre / @(item.CategoriaProductos?.descripcion)
-                                          </div>
-                                          <div class="col-sm-3">
-                                              <div class=" btn-sm m-r-n-xs">
-                                                  <a href="@Url.Action("Edit","Menu",new { id = item.idProducto, familia = item.categoriaProductoId })" class="btn-link one-click-button hidden">
-                                                      <img class="m-t-n-md" src="~/Content/img/editar.png" style="height:19px" alt="" />
-                                                  </a>
-
-                                                  @if (item.activo == true)
-                                                  {
-                                                      <button class="btn-link btn-sm m-r-n-xs" style="vertical-align:central" data-toggle="modal" data-target="#modal-estatus-inactivo" data-id="@item.idProducto" data-nombre="@item.nombre" data-sucursal="@ViewBag.sucursal" data-comercio="@ViewBag.comercio" data-familia="@ViewBag.familiaId">
-                                                          <img class="m-t-n-md" src="~/Content/img/on.png" style="height:24px" />
-                                                      </button>
-                                                  }
-                                                  else
-                                                  {
-                                                      <button class="btn-link btn-sm m-r-n-xs" data-toggle="modal" data-target="#modal-estatus-activo" data-id="@item.idProducto" data-nombre="@item.nombre" data-sucursal="@ViewBag.sucursal" data-comercio="@ViewBag.comercio" data-familia="@ViewBag.familiaId">
-                                                          <img class="m-t-n-md" src="~/Content/img/off.png" style="height:24px" />
-                                                      </button>
-                                                  }
-                                              </div>
-                                          </div>
-                                      </div>
-                                      <div class="row">
-                                          <div class="col-sm-6">
-                                              <span style="font-size:1.1em;" class="m-t-md"><b>Precio: @item.precio.ToString("C").Replace("$", "")</b></span> <br />
-                                              @if (item.esCombo)
-                                              {
-                                                  if (item.esGeneral ?? false)
-                                                  {
-                                                      <span style="font-size:1.1em;" class="m-t-md"><b>Tipo: @("Combo")</b></span> <br />
-                                                  }
-                                                  else
-                                                  {
-
-                                                      <span style="font-size:1.1em;" class="m-t-md"><b>Tipo: @("Producto armado")</b></span> <br />
-                                                  }
-
-                                              }
-                                              else
-                                              {
-
-                                                  <span style="font-size:1.1em;" class="m-t-md"><b>Tipo: @("Producto sencillo")</b></span> <br />
-                                              }
-
-                                              @if (!item.esCombo)
-                                              {
-                                                  if (item.VariedadProductos?.Any() ?? false)
-                                                  {
-                                                      productosDescripcion = "";
-                                                      foreach (var producto in item.VariedadProductos)
-                                                      {
-                                                          if (productosDescripcion == "")
-                                                          {
-                                                              productosDescripcion = producto.descripcion;
-                                                          }
-                                                          else
-                                                          {
-                                                              productosDescripcion = productosDescripcion + ", " + producto.descripcion;
-                                                          }
-                                                      }
-                                                      <span style="font-size:1.1em;" class="m-t-md" data-toggle="tooltip" title="@productosDescripcion"><b>Variedades: @item.VariedadProductos.Count</b></span> <br />
-                                                  }
-
-                                              }
-
-                                          </div>
-                                          <div class="col-sm-6">
-                                              @if (item.urlImagen != null || item.urlImagen == "")
-                                              {
-                                                  <span>
-                                                      <img src="@item.urlImagen" style="width: 100px; height: 100px;" alt="">
-                                                  </span>
-                                              }
-                                              else
-                                              {
-                                                  <span><img src="~/Content/img/default_food.png" style="width: 100px; height: 100px;" /></span>
-                                              }
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              cols += 4;
-                              if (cols < 12)
-                              {
-                                  continue;
-                              }
-                              @(rowEnd)
-                              cols = 0;
-                          }
-                          @if (cols <= 12 && cols != 0)
-                          {
-                              @(rowEnd)
-                          }
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  }
-
-<div class="wrapper wrapper-content animated fadeInRight" style="padding-top: 0px;">
+<div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
-                <div class="ibox-content hidden">
+                <div class="ibox-content">
                     @*<div class="sk-spinner sk-spinner-rotating-plane"></div>*@
-                    @*<table id="ContentTable" class="table table-striped tabla-catalogos">
+                    <table id="ContentTable" class="table table-striped tabla-catalogos">
                         <input id="guardarPrecio" value="@Url.Action("GuardarNuevoPrecio", "Sucursales", null)" type="hidden" />
                         <thead>
                             <tr>
@@ -228,7 +56,7 @@
                                 </tr>
                             }
                         </tbody>
-                    </table>*@
+                    </table>
                 </div>
                 <div class="form-group">
                     <div class="col-md-10" style="padding:0pt">

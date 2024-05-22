@@ -32,9 +32,9 @@ namespace MystiqueMC.DAL
         public string playerId { get; set; }
         public Nullable<decimal> precioConsulta { get; set; }
     
+        public virtual CatDoctorEspecialidad CatDoctorEspecialidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<comercios> comercios { get; set; }
-        public virtual CatDoctorEspecialidad CatDoctorEspecialidad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DoctorAseguranzas> DoctorAseguranzas { get; set; }
     }

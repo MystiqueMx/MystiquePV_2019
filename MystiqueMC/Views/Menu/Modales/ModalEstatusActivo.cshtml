@@ -1,0 +1,23 @@
+﻿<div class="modal fade" id="modal-estatus-activo" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="@Url.Action("ActivarProducto")" method="post" id="form-estatus-activo" class="form-horizontal one-click-form" data-parsley-validate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Activar Producto</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="hidden" name="idProducto" id="idProducto" />
+                        <h3 style="text-align:center">¿Esta seguro que desea activar el siguiente producto?</h3>
+                        <h3 style="text-align:center">&nbsp;<strong id="producto"></strong></h3>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-guardar-modal" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" id="guardar-estatus" class="btn btn-primary">Activar</button>
+                </div>
+            </div>        
+        </form>
+    </div>
+</div>

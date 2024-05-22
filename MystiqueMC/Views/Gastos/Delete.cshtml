@@ -1,0 +1,173 @@
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.Gastos
+
+
+@{
+    ViewBag.Title = "Eliminar";
+
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Eliminar</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Listado", "Index")
+            </li>
+            <li class="active">
+                <strong>Eliminar</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Gastos</h5>
+                </div>
+                <div class="ibox-content">
+				<h4 class="text-danger">¿Estás seguro que deseas removerlo?</h4>
+				 <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.obervacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.obervacion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaGasto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaGasto)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuarioRegistroId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuarioRegistroId)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaRegistro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaRegistro)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatConceptosGastos.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatConceptosGastos.descripcion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proveedores.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proveedores.descripcion)
+        </dd>
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sucursales.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sucursales.nombre)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+		    @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Delete"))
+            { 
+             <input type="submit" value="Eliminar" class="btn btn-danger" />
+			}
+            @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white"})
+        </div>
+    }
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+

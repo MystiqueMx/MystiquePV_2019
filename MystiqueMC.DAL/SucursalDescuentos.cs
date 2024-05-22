@@ -21,8 +21,8 @@ namespace MystiqueMC.DAL
         public int usuarioRegistroId { get; set; }
         public System.DateTime fechaRegistro { get; set; }
     
-        public virtual usuarios usuarios { get; set; }
-        public virtual sucursales sucursales { get; set; }
         public virtual Descuentos Descuentos { get; set; }
+        public virtual sucursales sucursales { get; set; }
+        public virtual usuarios usuarios { get; set; }
     }
 }

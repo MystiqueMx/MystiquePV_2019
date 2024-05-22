@@ -20,7 +20,7 @@ namespace MystiqueMC.DAL
         public decimal monto { get; set; }
         public int descuentoId { get; set; }
     
-        public virtual Tickets Tickets { get; set; }
         public virtual Descuentos Descuentos { get; set; }
+        public virtual Tickets Tickets { get; set; }
     }
 }

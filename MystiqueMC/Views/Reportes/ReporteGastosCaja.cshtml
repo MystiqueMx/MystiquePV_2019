@@ -19,6 +19,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title" style="background-color:transparent;border-width:0px; margin-top:-15px">
+
                     <div class="row">
                         @using (Html.BeginForm())
                         {
@@ -59,25 +60,26 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="ibox-content">
                     <div class="table-responsive">
                         <table id="ContentTable" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>
-                                        Fecha Registro
-                                    </th>
-                                    <th>
                                         Usuario Registro
                                     </th>
+                                    <th class="text-right">
+                                        Monto
+                                    </th>
                                     <th>
-                                        Tipo de Gasto
+                                        Fecha Registro
                                     </th>
                                     <th>
                                         Observaciones
                                     </th>
-                                    <th class="text-right">
-                                        Monto
+                                    <th>
+                                        Tipo de Gasto
                                     </th>
                                 </tr>
                             </thead>
@@ -86,31 +88,23 @@
                                 {
                                     <tr>
                                         <td>
-                                            @Html.ValueFor(modelItem => item.fechaRegistro, "{0:dd/MM/yyyy HH:mm tt}")
-                                        </td>
-                                        <td>
                                             @Html.DisplayFor(modelItem => item.usuarioRegistro)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.tipoGasto)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(modelItem => item.observaciones)
                                         </td>
                                         <td class="text-right">
                                             @item.monto.ToString("N2")
                                         </td>
+                                        <td>
+                                            @Html.ValueFor(modelItem => item.fechaRegistro, "{0:dd/MM/yyyy HH:mm tt}")
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.observaciones)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.tipoGasto)
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th class="text-right" colspan="4">
-                                        Total:
-                                    </th>
-                                    <td class="text-right">@Model.Sum(i => i.monto).ToString("N2")</td>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

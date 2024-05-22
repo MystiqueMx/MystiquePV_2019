@@ -19,8 +19,8 @@ namespace MystiqueMC.DAL
         public int unidadMedidaId { get; set; }
         public decimal cantidad { get; set; }
     
+        public virtual Insumos Insumos { get; set; }
         public virtual Recetas Recetas { get; set; }
         public virtual UnidadMedida UnidadMedida { get; set; }
-        public virtual Insumos Insumos { get; set; }
     }
 }

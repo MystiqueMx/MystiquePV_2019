@@ -1,4 +1,6 @@
-﻿using MystiqueMC.Helpers;
+﻿// no se movio a publish
+
+using MystiqueMC.Helpers;
 using MystiqueMC.Helpers.FileUpload;
 using System;
 using System.Configuration;
@@ -11,11 +13,11 @@ using System.Web.Mvc;
 
 namespace MystiqueMC.Controllers
 {
-    public class AnexoDoctorController : BaseController
+    public class AnexoDoctorController : BaseController														
     {
         private readonly string HOSTNAME_IMAGENES = ConfigurationManager.AppSettings.Get("HOSTNAME_IMAGENES");
         // GET: AnexoDoctor
-        public ActionResult Index(int idEmpresa, int idComercio)
+        public ActionResult Index(int idEmpresa, int idComercio)																																																																   
         {
             ViewBag.idEmpresa = idEmpresa;
             ViewBag.idComercio = idComercio;
@@ -24,8 +26,60 @@ namespace MystiqueMC.Controllers
             return View();
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [HttpGet]
-        public ActionResult Edit(int? id, int idEmpresa, int idComercio)
+        public ActionResult Edit(int? id, int idEmpresa, int idComercio)																																																																	
         {
             var anexoDoctor = Contexto.AnexoDoctor
                 .Where(w => w.idAnexoDoctor == id)
@@ -50,17 +104,39 @@ namespace MystiqueMC.Controllers
                                 .Select(s => s.catAseguranzaId)
                                 .ToList();
 
-            ViewBag.catAseguranzas = new MultiSelectList(Contexto.CatAseguranzas, "idCatAseguranzas", "descripcion", aseguranzasDoctor);
+            ViewBag.catAseguranzas = new MultiSelectList(Contexto.CatAseguranzas, "idCatAseguranzas", "descripcion", aseguranzasDoctor);												   
             ViewBag.doctorEspecialidad = new SelectList(Contexto.CatDoctorEspecialidad, "idCatDoctorEspecialidad", "descripcion", anexoDoctor.doctorEspecialidadId);
-
             return View(anexoDoctor);
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
         [HttpPost]
-        public ActionResult Edit(int? idAnexoDoctor, int doctorEspecialidad, string descripcion, string descripcionIngles, string cedula, string usuario, string contrasena,decimal precioConsulta, int idComercio, int[] catAseguranzas)
+        public ActionResult Edit(
+		int? idAnexoDoctor, 
+		int doctorEspecialidad, 
+		string descripcion, 
+		string descripcionIngles, 
+		string cedula, 
+		string usuario, 
+		string contrasena,
+		decimal precioConsulta, 
+		int idComercio, 
+		int[] catAseguranzas)																					   
         {
-            try
+            try															 
             {
                 using (var tx = Contexto.Database.BeginTransaction())
                 {
@@ -68,6 +144,11 @@ namespace MystiqueMC.Controllers
                     {
                         var comercio = Contexto.comercios.Find(idComercio);
                         var datosDoctor = Contexto.AnexoDoctor.Find(idAnexoDoctor);
+
+
+
+
+
 
                         if (datosDoctor != null)
                         {
@@ -91,7 +172,8 @@ namespace MystiqueMC.Controllers
                             {
                                 var aseguranza = Contexto.CatAseguranzas
                                     .Where(w => w.idCatAseguranzas == item)?.FirstOrDefault();
-                                if (aseguranza != null)
+                                
+								if (aseguranza != null)
                                 {
                                     Contexto.DoctorAseguranzas.Add(new DAL.DoctorAseguranzas
                                     {
@@ -104,7 +186,12 @@ namespace MystiqueMC.Controllers
                             }
                             Contexto.SaveChanges();
                             tx.Commit();
-                            return RedirectToAction("Edit", "AnexoDoctor", new { id = datosDoctor.idAnexoDoctor, idEmpresa = comercio.empresaId, idComercio = comercio.idComercio });
+                            return RedirectToAction("Edit", "AnexoDoctor", new 
+							{ 
+							id = datosDoctor.idAnexoDoctor, 
+							idEmpresa = comercio.empresaId, 
+							idComercio = comercio.idComercio 
+							});
                         }
                         else
                         {
@@ -135,7 +222,8 @@ namespace MystiqueMC.Controllers
                             {
                                 var aseguranza = Contexto.CatAseguranzas
                                     .Where(w => w.idCatAseguranzas == item)?.FirstOrDefault();
-                                if (aseguranza != null)
+                                
+								if (aseguranza != null)
                                 {
                                     Contexto.DoctorAseguranzas.Add(new DAL.DoctorAseguranzas
                                     {
@@ -149,10 +237,13 @@ namespace MystiqueMC.Controllers
 
                             Contexto.SaveChanges();
                             tx.Commit();
-                            return RedirectToAction("Edit", "AnexoDoctor", new { id = datosDoctor.idAnexoDoctor, idEmpresa = comercio.empresaId, idComercio = comercio.idComercio });
+                            return RedirectToAction("Edit", "AnexoDoctor", new 
+							{ 
+							id = datosDoctor.idAnexoDoctor,
+							idEmpresa = comercio.empresaId,
+							idComercio = comercio.idComercio 
+							});
                         }
-
-
                     }
                     catch (Exception ex)
                     {
@@ -172,16 +263,23 @@ namespace MystiqueMC.Controllers
             return View();
         }
 
+
         [HttpPost]
-        public async Task<ActionResult> SubirImagenDoctor(string name, string type, HttpPostedFileBase file, int idComercio)
+        public async Task<ActionResult> SubirImagenDoctor(
+		string name, 
+		string type, 
+		HttpPostedFileBase file, 
+		int idComercio)
         {
+			
+			
             try
             {
                 var extension = FileIOHelper.ContentTypeToExtension(type);
                 var filesDelegate = new Helpers.Files.FilesUploadDelegate(HostingEnvironment.ApplicationPhysicalPath);
 
                 var result = await filesDelegate.UploadFileAsync(file, Helpers.Files.FilesHelper.Uploads.AnexosPath, extension);
-                if (string.IsNullOrEmpty(result))
+                if (string.IsNullOrEmpty(result))									 
                 {
                     throw new ApplicationException($"await filesDelegate.UploadFileAsync(file, {Helpers.Files.FilesHelper.Uploads.AnexosPath}, {extension})");
                 }
@@ -191,6 +289,7 @@ namespace MystiqueMC.Controllers
                     {
                         var doc = Contexto.ImagenDoctor.Add(new DAL.ImagenDoctor
                         {
+							
                             comercioId = idComercio,
                             ruta = result,
                         });
@@ -206,14 +305,13 @@ namespace MystiqueMC.Controllers
                     }
                 }
             }
-            catch (Exception ex)
-            {
+            catch (Exception ex)																					  
+            {							  
                 Logger.Error(ex);
                 return new HttpStatusCodeResult(500);
             }
         }
-
-        public ActionResult EliminarImagen(int id, int idComercios, int idEmpresa, int idAnexo)
+        public ActionResult EliminarImagen(int id, int idComercios, int idEmpresa, int idAnexo)   
         {
             try
             {
@@ -221,7 +319,13 @@ namespace MystiqueMC.Controllers
                 Contexto.ImagenDoctor.Remove(imagen);
                 Contexto.SaveChanges();
 
-                return RedirectToAction("Edit", "AnexoDoctor", new { id = idAnexo, idEmpresa = idEmpresa, idComercio = idComercios });
+
+                return RedirectToAction("Edit", "AnexoDoctor", new 
+				{ 
+				id = idAnexo, 
+				idEmpresa = idEmpresa, 
+				idComercio = idComercios 
+				});
             }
             catch (Exception e)
             {
@@ -229,6 +333,6 @@ namespace MystiqueMC.Controllers
                 ShowAlertException("Ocurrio un error, favor de contactar a su administrador.");
                 return RedirectToAction("Edit", "AnexoDoctor");
             }
-        }
-    }
+        }   
+    }  
 }

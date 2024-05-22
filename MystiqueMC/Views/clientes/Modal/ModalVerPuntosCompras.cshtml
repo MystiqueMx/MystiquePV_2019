@@ -1,0 +1,53 @@
+﻿
+<div class="modal fade" id="modal-ver-puntos-compra" tabindex="-1" role="dialog">
+    <br /><br /><br /><br /><br />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3 class="modal-title"><span> Puntos Redimidos</span></h3>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="input-group">
+                            <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;">
+                                <span class="modal-title">
+                                    <label style="color:#6C6A67">Ordenar por</label>
+                                </span>
+                            </span>
+                            <select class="form-control input-sm" id="selectOrden" aria-describedby="basic-addon1">
+                                <option value="0">Más recientes</option>
+                                <option value="1">Más antiguos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @*<div class="form-group" style="display:none">
+                        @*<label>cliente: </label> <span id="empleado-nombre"> </span>*@
+                </div>
+                    <div class="table-responsive" style="max-height:350px">
+                    <table class="table text-left" id="listado-puntos-compra">
+                        <thead>
+                            <tr>
+                                <th style="width:30%">Fecha</th>
+                                <th>No. Ticket</th>
+                                <th class="text-right">Monto Compra</th>
+                                <th>Puntos</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div><br />
+                <label id="totalPuntosCompras" style="margin-right:10pt" class ="pull-right">Total: 0 pts   </label>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="IdClienteCompras">
+</div>

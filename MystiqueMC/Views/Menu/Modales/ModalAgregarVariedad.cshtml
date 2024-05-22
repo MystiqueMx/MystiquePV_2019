@@ -1,0 +1,51 @@
+﻿<div class="modal fade" id="modal-agregar-variedad" tabindex="-1" role="dialog">
+    <div class=" modal-dialog" role="document">
+        @using (Html.BeginForm("AgregarVariedad", "Menu", FormMethod.Post, new { id = "form-agregar-varidad", data_parsley_validate = "true", @class="one-click-form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Agregar Variedad - @ViewBag.NombreProducto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label>Descripción</label>
+                                    <input class="form-control" name="Descripcion" id="Descripcion" data-parsley-maxlength="100" data-parsley-required="true"
+                                           data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,100}" required /><br />
+                                </div><br /><br /><br />
+                                <input type="hidden" name="productoId" id="productoId" value="@ViewBag.ProductoId" class="hide">
+                               
+                                <input type="hidden" name="familiaid" id="familiaid" value="@ViewBag.familia" class="hide">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-5">
+                                            <label>Imagen</label> <br />
+                                            <img id="images-variedad" height="300" src="@Url.Content("~/Content/img/default_food.png")">
+                                        </div><br /><br />
+                                        <div class="col-lg-6 col-lg-offset-1">
+                                            <label class="btn btn-primary" for="inputImages-variedad">
+                                                Cambiar imagen
+                                            </label>
+                                            <input type="file" accept="image/*" id="inputImages-variedad" class="hide">
+                                            <input type="hidden" name="ImagenAgregarVariedad" id="ImagenAgregarVariedad" class="hide">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="btn-guardar-variedad">Guardar</button>
+                </div>
+            </div>
+        }
+            @*</form>*@
+        </div>
+</div>
+

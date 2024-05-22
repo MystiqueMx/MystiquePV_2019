@@ -1,0 +1,22 @@
+﻿<div class="modal fade" id="modal-eliminar" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:red; background-color:white"></i></h4>
+            </div>
+            <div class="modal-body">
+                <h3 id="confirm-title">¿Esta seguro que desea eliminar el siguiente comercio? </h3>
+                <label>&nbsp;<strong id="confirm-item"></strong></label>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Delete", "comercios", FormMethod.Post, new { data_parsley_validate = "true", autocomplete = "off" }))
+                {
+                    <input type="hidden" id="IdItemEliminar" name="idComercio" />
+                    <input type="reset" value="Cancelar" class="btn btn-defaut" data-dismiss="modal" id="form-editar-reset">
+                    <input type="submit" value="Eliminar" class="btn btn-danger">
+                }
+            </div>
+        </div>
+    </div>
+</div>

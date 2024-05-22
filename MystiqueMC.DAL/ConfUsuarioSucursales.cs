@@ -18,7 +18,7 @@ namespace MystiqueMC.DAL
         public int usuarioId { get; set; }
         public int sucursalId { get; set; }
     
-        public virtual usuarios usuarios { get; set; }
         public virtual sucursales sucursales { get; set; }
+        public virtual usuarios usuarios { get; set; }
     }
 }

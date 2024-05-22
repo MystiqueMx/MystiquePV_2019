@@ -1,0 +1,144 @@
+﻿@model IEnumerable<MystiqueMC.DAL.MovimientoInventarios>
+@using MystiqueMC.Models
+
+@{
+    ViewBag.Title = "Index";
+    var tienePermisoParaFiltrar = true;
+}
+
+<div class="row wrapper border-bottom white-bg page-heading" style="padding: 0 10px 1px 10px;">
+    <div class="col-sm-12">
+        <h2>Movimiento Inventario / Sucursal <b>@ViewBag.nombreSucursal</b> - Insumo <b>@ViewBag.nombreInsumo</b></h2>
+    </div>
+</div><br />
+@using (Html.BeginForm("MovimientoInventario", "Inventarios", FormMethod.Post, new { enctype = "multipart/form-data", data_parsley_validate = true }))
+{
+    <div class="form-group col-md-3">
+        <div class="input-group">
+            <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Tipo Movimiento:</b></span>
+            @Html.DropDownList("movimientos", null, "Todos", htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+    <input type="hidden" name="inicio" id="inicio" value="true" />
+    <div class="col-md-2">
+        <div class="input-group input-daterange">
+            <input type="hidden" name="sucursaId" id="sucursaId" value="@ViewBag.sucursal" />
+            <input type="hidden" name="nombre" id="nombre" value="@ViewBag.nombreSucursal" />
+            <input type="hidden" name="id" id="id" value="@ViewBag.insumo" />
+            <input type="hidden" name="nombreInsumo" id="nombreInsumo" value="@ViewBag.nombreInsumo" />
+            <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Rango:</b></span>
+
+            <select id="filtroFecha" name="filtroFecha" class="form-control">
+                <option value="7">7 Días</option>
+                <option value="15">15 Días</option>
+                <option value="30">30 Días</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+}
+<div class="wrapper wrapper-content animated fadeInRight" style="padding: 0px 20px 40px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <table class="table table-striped tabla-catalogos">
+                        <thead>
+                            <tr>
+                                <th width="10%">Fecha Registro</th>
+                                <th width="10%">Movimiento</th>
+                                @if (ViewBag.sucursal == null)
+                                {
+                                    <th>Sucursal</th>
+                                }
+                                <th width="10%" class="text-right">U. Compra</th>
+                                <th width="10%" class="text-right">Cantidad</th>
+                                <th width="10%" class="text-right">U. Consumo</th>
+                                <th style="padding-left:2%;" >Observaciones</th>
+                            </tr>
+                        </thead>
+                        <tbody style="">
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@item.fechaRegistro.ToShortDateString()</td>
+                                <td>@(item.CatMovimientoInventarios != null ? item.CatMovimientoInventarios.descripcion : item.tipoMovimiento)</td>
+                                @if (ViewBag.sucursal == null)
+                                {
+                                    <td>@Html.DisplayFor(modelItem => item.sucursales.nombre)</td>
+                                }
+                                <td class="text-right">@Html.DisplayFor(modelItem => item.Insumos.UnidadMedida1.descripcion)</td>
+                                <td class="text-right">@Html.DisplayFor(modelItem => item.cantidad)</td>
+                                <td class="text-right">@((item.cantidad * item.Insumos.equivalencia).Value.ToString("N2") + " " + item.Insumos.UnidadMedida.descripcion)</td>
+
+                                <td style="padding-left:2%;" >@item.observaciones</td>
+
+                            </tr>
+                            }
+                        </tbody>
+                        <tfoot style="border-top: 2px solid #000000;">
+                            <tr>
+                                <th style="padding-top:5px;">
+                                    Totales:
+                                </th>
+                                <td></td>
+                                <td></td>
+                                <td class="text-right">
+                                    @((Model.AsEnumerable().Sum(s => s.cantidad).ToString("N2")))
+                                </td>
+                                <td class="text-right">
+                                    @((Model.AsEnumerable().Sum(s => (s.cantidad * (s.Insumos.equivalencia ?? 0))).ToString("N2")) + (Model.Any() ? " " + Model.FirstOrDefault().Insumos.UnidadMedida.descripcion : ""))
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset col-md-10">
+            @Html.ActionLink("Regresar", "Index", "Inventarios", new { sucursaId = ViewBag.sucursal, Nombre = ViewBag.NombreSearch
+    }, new { @class = "btn btn-white" })
+        </div>
+    </div>
+</div>
+@section Scripts
+                                {
+    <script>
+        jQuery(document).ready(function ($) {
+            $('#fechaInicio').datepicker({
+                language: 'es',
+                Format: "mm/dd/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+        jQuery(document).ready(function ($) {
+            $('#fechaFin').datepicker({
+                language: 'es',
+                Format: "mm/dd/yyyy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0"
+            });
+        });
+    </script>
+
+    <script>
+        $('#fechaInicio').on("change", function () {
+            var startVal = $('#fechaInicio').val();
+            $('#fechaFin').data('datepicker').setStartDate(startVal);
+        });
+        $('#fechaFin').on("change", function () {
+            var endVal = $('#fechaFin').val();
+            $('#fechaInicio').data('datepicker').setEndDate(endVal);
+        });
+    </script>
+}

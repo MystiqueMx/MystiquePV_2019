@@ -15,18 +15,19 @@ using System.Web.Mvc;
 
 namespace MystiqueMC.Controllers
 {
-
     [Authorize]
     [ValidatePermissions]
-    public class beneficiosController : BaseController
+    public class beneficiosController : BaseController								  
     {
         readonly log4net.ILog logger = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         // GET: /beneficios/
         private readonly string HOSTNAME_IMAGENES = ConfigurationManager.AppSettings.Get("HOSTNAME_IMAGENES");
         readonly string TITULO_NOTIFICACION_NUEVO_BENEFICIO = ConfigurationManager.AppSettings.Get("TITULO_NOTIFICACION_NUEVO_BENEFICIO");
-        public async Task<ActionResult> Index(int? SearchSucursal, int? SearchComercio, int? searchItem, string SearchOrden = "true")
-
+        public async Task<ActionResult> Index(
+		int? SearchSucursal, 
+		int? SearchComercio, 
+		int? searchItem, 
+		string SearchOrden = "true")											
         {
             try
             {

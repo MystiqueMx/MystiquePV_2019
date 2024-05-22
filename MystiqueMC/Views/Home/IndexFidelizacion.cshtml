@@ -1,0 +1,336 @@
+﻿@model MystiqueMC.Models.HomeViewModel
+@{
+
+    //VARIABLES
+    string etiquetaFiltroGrafica = ViewBag.FiltroGrafica ?? "Última semana";
+    string etiquetaFiltroDatos = ViewBag.FiltroSucursal;
+}
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="row">
+                                @*<div class="col-lg-12">
+                            <br>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle">Viendo: @etiquetaFiltroGrafica <span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Fidelizacion")">Última semana</a></li>
+                                    <li><a onclick="$('#resumenInput').val('1')">Últimas dos semanas</a></li>
+                                    <li><a onclick="$('#resumenInput').val('2')" href="@Url.Action("Fidelizacion", new { resumen = 2 })">Último mes</a></li>
+                                    <li><a onclick="$('#resumenInput').val('3')" href="@Url.Action("Fidelizacion", new { resumen = 3 })">Últimos 3 meses</a></li>
+                                    <li><a onclick="$('#resumenInput').val('4')" href="@Url.Action("Fidelizacion", new { resumen = 4 })">Todos</a></li>
+
+                                    <li class="divider"></li>
+                                    <li><a href="#modal-seleccion-rango" data-toggle="modal">Otro rango de fechas</a></li>
+                                </ul>
+                            </div>
+                        </div>*@
+                                <input id="resumenInput" hidden name="resumen" value="0" />
+                                <div class="col-lg-12">
+                                    <br>
+                                    <div class="btn-group">
+                                        <button data-toggle="dropdown" class="btn btn-default btn-sm dropdown-toggle">Viendo: @etiquetaFiltroDatos <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            @foreach (var item in Model.Sucursales)
+                                            {
+                                                <li><a href="@Url.Action("Fidelizacion", new { sucursalId = item.idSucursal })">@item.nombre</a></li>
+                                            }
+                                            <li class="divider"></li>
+                                            <li><a href="@Url.Action("Fidelizacion",new { sucursalId = 0 })">TODAS LAS SUCURSALES</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox-tools">
+                                @*<button class="btn btn-link" data-toggle="modal" data-target="#modal-eliminar" data-id="@item.idComercio" data-nombre="@item.nombreComercial"><img src="~/Content/img/borrar.png" height="20" /></button>*@
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="widget text-center clickable blue-bg no-padding" id="widget-compras">
+                                <div class="p-xs">
+                                    <h1 class="m-xs">@Model.ResumenCompras.TotalCompras.ToString("C2")</h1>
+
+                                    <h3 class="font-bold no-margins">
+                                        En compras sumadas
+                                    </h3>
+                                    <small>@Model.ResumenCompras.TotalComprasEnPuntos.ToString("C0").Replace("$", "") puntos sumados en total</small>
+
+                                </div>
+                                <form id="form-detalle-compras" method="get" action="@Url.Action("DetalleCompras","clientes",null)">
+                                    @if (@ViewBag.FiltroGraficaOpcion < 0)
+                                    {
+                                        <input name="desde" type="hidden" value="@ViewBag.inicio" />
+                                        <input name="hasta" type="hidden" value="@ViewBag.fin" />
+                                    }
+                                    <input name="resumen" type="hidden" value="@ViewBag.FiltroGraficaOpcion" />
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Resumen de puntos canjeados -->
+                        <div class="col-sm-3">
+                            <div class="widget text-center purple-bg clickable no-padding" id="widget-canje">
+                                <div class="p-xs">
+                                    <h1 class="m-xs">@Model.ResumenCompras.TotalCanjes.ToString("C2")</h1>
+
+                                    <h3 class="font-bold no-margins">
+                                        En canjes realizados
+                                    </h3>
+                                    <small class="p-b-md">@Model.ResumenCompras.TotalCanjesEnPuntos.ToString("C0").Replace("$", "") puntos canjeados en total</small>
+                                </div>
+                                <form id="form-detalle-canje" method="get" action="@Url.Action("DetalleCanjes","clientes",null)">
+                                    @if (@ViewBag.FiltroGraficaOpcion < 0)
+                                    {
+                                        <input name="desde" type="hidden" value="@ViewBag.inicio" />
+                                        <input name="hasta" type="hidden" value="@ViewBag.fin" />
+                                    }
+                                    <input name="resumen" type="hidden" value="@ViewBag.FiltroGraficaOpcion" />
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Resumen de beneficios -->
+                        <div class="col-sm-3">
+                            <div class="widget text-center green-bg clickable no-padding" id="widget-beneficios">
+                                <div class="p-xs">
+                                    <h1 class="m-xs"> @Model.ResumenCompras.TotalBeneficios.ToString("C2")</h1>
+
+                                    <h3 class="font-bold no-margins">
+                                        En descuentos utilizados
+                                    </h3>
+                                    <small>@Model.ResumenCompras.NumeroBeneficiosUsados.ToString("C0").Replace("$", "") descuentos usados en total</small>
+                                </div>
+                                <form id="form-detalle-beneficios" method="get" action="@Url.Action("DetalleBeneficios","clientes",null)">
+                                    @if (@ViewBag.FiltroGraficaOpcion < 0)
+                                    {
+                                        <input name="desde" type="hidden" value="@ViewBag.inicio" />
+                                        <input name="hasta" type="hidden" value="@ViewBag.fin" />
+                                    }
+                                    <input name="resumen" type="hidden" value="@ViewBag.FiltroGraficaOpcion" />
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="">
+                            @*@if (item.datosFiscales.Count > 0)
+                        {
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <label> Razón Social </label><br />
+                                    <span>@item.datosFiscales.FirstOrDefault().nombreFiscal</span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>  R.F.C. </label><br />
+                                    <span>@item.datosFiscales.FirstOrDefault().rfc</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <label> Régimen Fiscal </label><br />
+                                    <span>@item.datosFiscales.FirstOrDefault().catRegimenFiscal.descripcion</span>
+                                </div>
+                            </div>
+                        }
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <label> Dirección </label><br />
+                            <span>@item.direccion</span>
+                        </div>
+                        @if (item.datosFiscales.Count > 0)
+                            {
+                                <div class="col-lg-4">
+                                    <label> Código Postal </label><br />
+                                    <span>@item.datosFiscales.FirstOrDefault().cp</span>
+                                </div>
+                            }
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label> Giro Comercio </label><br />
+                            <span>@item.catComercioGiros.descripcion</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <label> Tipo Comercio </label><br />
+                            <span>@item.catTipoComercios.descripcion</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <label> Teléfono </label><br />
+                            <span>@item.telefono</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label> Correo </label><br />
+                            <span>@item.correo</span>
+                        </div>
+                        <div class="col-lg-4">
+                            <label> Medios Digitales </label><br />
+                            <span>@item.paginaWeb</span>
+                        </div>
+                    </div>
+                            *@
+                            <div class="row"><div class="col-lg-12">&nbsp;</div></div>
+                            @*
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <a href="@Url.Action("Index","beneficios", new { SearchComercio = item.idComercio })" class="btn btn-primary btn-lg m-xs" style="width:100%">
+                                <img src="~/Content/img/promociones.png" height="20" />
+                                <span class="m-t-md m-b-lg">Promociones y descuentos</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <a href="@Url.Action("Index", "Productos")" class="btn btn-primary btn-lg m-xs" style="width:100%">
+                                <img src="~/Content/img/canjes.png" height="20" />
+                                <span class="m-t-md m-b-lg">Canjes</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <a href="@Url.Action("Index", "ReportesFidelizacion")" class="btn btn-primary btn-lg m-xs" style="width:100%">
+                                <img src="~/Content/img/ReportesIcon.png" height="20" />
+                                <span class="m-t-md m-b-lg">Reportes</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                                <a href="@Url.Action("Index","Sucursales", new { IdComercio = item.idComercio })" class="btn btn-primary btn-lg m-xs hide" style="width:100%">
+                                    <img src="~/Content/img/sucursales.png" height="20" class="m-t-md m-b-sm" />
+                                    <span class="m-t-md m-b-lg">Sucursales</span>
+
+                                </a>
+                            </div>
+                        <div class="col-lg-6">
+                            <a href="@Url.Action("Index", "Comentarios")" class="btn btn-primary btn-lg m-xs" style="width:100%">
+                                <i class="fa fa-comments" aria-hidden="true"></i>
+                                <span class="m-t-md m-b-md">Comentarios</span>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <a href="@Url.Action("Index","Notificaciones", new { IdComercio = item.idComercio })" class="btn btn-primary btn-lg m-xs" style="width:100%">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+                                <span class="m-t-md m-b-lg">Notificaciones</span>
+
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <a href="@Url.Action("Index","Soporte", new { IdComercio = item.idComercio })" class="btn btn-primary btn-lg m-xs" style="width:100%">
+                                <i class="fas fa-wrench" aria-hidden="true"></i>
+                                <span class="m-t-md m-b-lg">Datos de Soporte</span>
+
+                            </a>
+                        </div>
+                    </div>*@
+                            <br /><br />
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <!-- Grafica de sexos -->
+                                <div class="col-lg-6">
+                                    <h4 class="hide" id="title-grafica-1">@Model.GraficaUno.Titulo</h4>
+                                    <div class="chart-container m-md" style="position: relative; width:100%">
+                                        <canvas id="chart-sexos"></canvas>
+                                    </div>
+                                    <div class="chart-datasource hide">
+                                        <table id="datasource-chart-1">
+                                            <tbody>
+                                                @foreach (var data in Model.GraficaUno.Data)
+                                                {
+                                                    <tr>
+                                                        <td>@data.Etiqueta</td>
+                                                        <td>@data.Valor</td>
+                                                        <td>@data.Color</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Grafica de edades -->
+                                <div class="col-lg-6">
+                                    <h4 class="hide" id="title-grafica-2">@Model.GraficaDos.Titulo</h4>
+                                    <div class="chart-container" style="position: relative; width:100%">
+                                        <canvas id="chart-edades"></canvas>
+                                    </div>
+                                    <div class="chart-datasource hide">
+                                        <table id="datasource-chart-2">
+                                            <tbody>
+                                                @foreach (var data in Model.GraficaDos.Data)
+                                                {
+                                                    <tr>
+                                                        <td>@data.Etiqueta</td>
+                                                        <td>@data.Valor</td>
+                                                        <td>@data.Color</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- Grafica de ubicacion -->
+                                <div class="col-lg-6">
+                                    <h4 class="hide" id="title-grafica-3">@Model.GraficaTres.Titulo</h4>
+                                    <div class="chart-container" style="position: relative; width:100%">
+                                        <canvas id="chart-ubicacion"></canvas>
+                                    </div>
+                                    <div class="chart-datasource hide">
+                                        <table id="datasource-chart-3">
+                                            <tbody>
+                                                @foreach (var data in Model.GraficaTres.Data)
+                                                {
+                                                    <tr>
+                                                        <td>@data.Etiqueta</td>
+                                                        <td>@data.Valor</td>
+                                                        <td>@data.Color</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                @*<div class="col-lg-6 text-center hide">
+                            <a href="@Url.Action("Index", "clientes")" class="m-t-xl btn btn-primary btn-lg">
+                                <img src="~/Content/img/membresia.png" height="20" />
+                                Detalles
+                            </a>
+                        </div>*@
+                            </div>
+                        </div>
+
+                    </div>
+                </div><br />
+                <div class="col-lg-6">
+                    <h4 class="hide" id="title-grafica-2">Comportamiento promedio venta</h4>
+                    <div class="chart-container" style="position: relative; width:100%">
+                        <canvas id="chart-edades"></canvas>
+                    </div>
+                    <div class="chart-datasource hide">
+                        <table id="datasource-chart-2">
+                            <tbody>
+                                @foreach (var data in Model.GraficaDos.Data)
+                                {
+                                    <tr>
+                                        <td>@data.Etiqueta</td>
+                                        <td>@data.Valor</td>
+                                        <td>@data.Color</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+</div>

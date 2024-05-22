@@ -1,20 +1,24 @@
-﻿using MystiqueMC.DAL;
+﻿using Microsoft.CSharp.RuntimeBinder;
+using MystiqueMC.DAL;
 using MystiqueMC.Helpers;
 using MystiqueMC.Models;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Web.Mvc;
 
 namespace MystiqueMC.Controllers
 {
     [Authorize]
     [ValidatePermissions]
-    public class ArqueosController : BaseController
+    public class ArqueosController : BaseController  																  
     {
         #region GET
-
         // GET: Arqueos
         public ActionResult Index(int? sucursaId, int? mes, int? año)
         {
@@ -32,23 +36,64 @@ namespace MystiqueMC.Controllers
                     .Include(a => a.Aperturas)
                     .Include(a => a.Ventas).AsEnumerable();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 if (sucursaId != null)
                 {
                     arqueo = arqueo
                         .Where(w => w.sucursalId == sucursaId)
                         .AsEnumerable();
-                    if (mes != null)
+                    
+					
+					
+					
+					if (mes != null)
                     {
                         arqueo = arqueo
                             .Where(w => w.fechaRegistroVenta.Month == mes)
                             .AsEnumerable();
                     }
-                    if (año != null)
+                    
+					
+					if (año != null)
                     {
                         arqueo = arqueo
                             .Where(w => w.fechaRegistroVenta.Year == año)
                             .AsEnumerable();
                     }
+
 
                     return View(arqueo.OrderBy(o => o.fechaRegistroVenta));
                 }
@@ -94,8 +139,57 @@ namespace MystiqueMC.Controllers
             return View();
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // GET: Arqueos/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id)														 																		
         {
             if (id == null)
             {
@@ -112,6 +206,53 @@ namespace MystiqueMC.Controllers
             ViewBag.ventaId = new SelectList(Contexto.Ventas, "idVenta", "uuidVenta", arqueo.ventaId);
             return View(arqueo);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public ActionResult Delete(int? id)
         {
@@ -128,10 +269,10 @@ namespace MystiqueMC.Controllers
         }
 
         #endregion
-
+		
+		
         #region POST
-
-        public ActionResult ActualizarArqueo(int id, decimal totalRecibido, string Observacion)
+        public ActionResult ActualizarArqueo(int id, decimal totalRecibido, string Observacion)																																																																
         {
             try
             {
@@ -144,8 +285,25 @@ namespace MystiqueMC.Controllers
                 Contexto.Entry(arqueo).State = EntityState.Modified;
                 Contexto.SaveChanges();
 
-                return RedirectToAction("Index", new { sucursaId = arqueo.sucursalId, mes = arqueo.fechaRegistroVenta.Month, año = arqueo.fechaRegistroVenta.Year });
+                return RedirectToAction("Index", new 
+				{ sucursaId = arqueo.sucursalId,
+				mes = arqueo.fechaRegistroVenta.Month,
+				año = arqueo.fechaRegistroVenta.Year });
             }
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
             catch (Exception e)
             {
                 Console.WriteLine(e);
@@ -153,6 +311,7 @@ namespace MystiqueMC.Controllers
                 return RedirectToAction("Index");
             }
         }
+		
         public ActionResult ActualizarObservacion(int id, string Observacion)
         {
             try
@@ -166,23 +325,27 @@ namespace MystiqueMC.Controllers
 
                 return Json(new Ordenamiento { exito = true });
             }
+			
+			
+			
+			
+			
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 Logger.Error(e);
                 return Json(new Ordenamiento { exito = false });
-            }
+            }																							  	
         }
         // POST: Arqueos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idArqueo,sucursalId,ventaId,aperturaId,concepto,saldoDlls,arqueoDlls,efectivo,cxc,tarjeta,gasto,total,totalRecibido,diferencia,observacion,fechaRegistro,fechaActualizacion,usuarioActualizo")] Arqueo arqueo)
+        public ActionResult Create([Bind(Include = "idArqueo,sucursalId,ventaId,aperturaId,concepto,saldoDlls,arqueoDlls,efectivo,cxc,tarjeta,gasto,total,totalRecibido,diferencia,observacion,fechaRegistro,fechaActualizacion,usuarioActualizo")] Arqueo arqueo)																																																																	
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid)																		  
+            {														   
                 Contexto.Arqueo.Add(arqueo);
                 Contexto.SaveChanges();
                 return RedirectToAction("Index");
@@ -192,8 +355,51 @@ namespace MystiqueMC.Controllers
             ViewBag.usuarioActualizo = new SelectList(Contexto.usuarios, "idUsuario", "nombre", arqueo.usuarioActualizo);
             ViewBag.aperturaId = new SelectList(Contexto.Aperturas, "idApertura", "uuidApertura", arqueo.aperturaId);
             ViewBag.ventaId = new SelectList(Contexto.Ventas, "idVenta", "uuidVenta", arqueo.ventaId);
-            return View(arqueo);
+            return View(arqueo);																								   
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // POST: Arqueos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -212,29 +418,49 @@ namespace MystiqueMC.Controllers
             ViewBag.usuarioActualizo = new SelectList(Contexto.usuarios, "idUsuario", "nombre", arqueo.usuarioActualizo);
             ViewBag.aperturaId = new SelectList(Contexto.Aperturas, "idApertura", "uuidApertura", arqueo.aperturaId);
             ViewBag.ventaId = new SelectList(Contexto.Ventas, "idVenta", "uuidVenta", arqueo.ventaId);
-            return View(arqueo);
+            return View(arqueo);													 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         // POST: Arqueos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)																																																																
         {
             var arqueo = Contexto.Arqueo.Find(id);
-            Contexto.Arqueo.Remove(arqueo);
+            Contexto.Arqueo.Remove(arqueo);										   
             Contexto.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
+
+
+
+        protected override void Dispose(bool disposing)																																																																	
         {
             if (disposing)
-            {
+            {					
                 Contexto.Dispose();
             }
             base.Dispose(disposing);
         }
         #endregion
-    }
+    }   
 }

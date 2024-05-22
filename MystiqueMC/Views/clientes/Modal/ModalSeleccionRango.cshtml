@@ -1,0 +1,39 @@
+﻿
+<div class="modal fade" id="modal-seleccion-rango" tabindex="-1" role="dialog">
+    <form action="#" method="post" data-parsley-validate>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="modal-title"><span> Selección de rango de fechas</span></h3>
+                            <button type="button" class="close pull-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label"> Rango de fechas </label>
+                            <div class="input-group input-daterange" data-provide="datepicker" data-date-language="es" todayHighlight="true"
+                                 data-date-autoclose="true" data-date-keep-empty-values="true" data-date-orientation="bottom">
+                                <div class="input-group-addon">De</div>
+                                <input name="desde" id="desde" type="text" class="form-control" data-parsley-required data-inputmask-mask="99/99/9999">
+                                <div class="input-group-addon">a</div>
+                                <input name="hasta" id="hasta" type="text" class="form-control" data-parsley-required data-inputmask-mask="99/99/9999">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <button type="reset" data-dismiss="modal" class="btn btn-white"> Cancelar </button>
+                            <button type="submit" class="btn btn-primary"> Consultar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

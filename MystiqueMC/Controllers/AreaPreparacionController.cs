@@ -2,13 +2,13 @@
 using MystiqueMC.Helpers;
 using MystiqueMC.Models;
 using MystiqueMC.Models.Graficas;
-using System;
+using System;						 
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Globalization;
-using System.Linq;
-using System.Net;
+using System.Linq;							  
+using System.Net;									  
 using System.Web.Mvc;
 
 namespace MystiqueMC.Controllers
@@ -33,9 +33,8 @@ namespace MystiqueMC.Controllers
             }
         }
 
-
         // GET: AreaPreparacion/Create
-        public ActionResult Create()
+        public ActionResult Create()																			
         {
             try
             {
@@ -51,7 +50,19 @@ namespace MystiqueMC.Controllers
                 return RedirectToAction("Index", "Catalogos");
             }
         }
+		
 
+
+
+
+
+
+
+
+
+
+
+		
         // GET: AreaPreparacion/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -78,7 +89,7 @@ namespace MystiqueMC.Controllers
         }
 
         // GET: AreaPreparacion/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id)																		
         {
             if (id == null)
             {
@@ -96,9 +107,14 @@ namespace MystiqueMC.Controllers
 
         #region POST
         // POST: AreaPreparacion/Create
+		
+		
+		
+		
+		
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idAreaPreparacion,comercioId,descripcion")] AreaPreparacion areaPreparacion)
+        public ActionResult Create([Bind(Include = "idAreaPreparacion,comercioId,descripcion")] AreaPreparacion areaPreparacion)																																																																		
         {
             if (ModelState.IsValid)
             {
@@ -110,6 +126,18 @@ namespace MystiqueMC.Controllers
             ViewBag.comercioId = new SelectList(Contexto.comercios, "idComercio", "nombreComercial", areaPreparacion.comercioId);
             return View(areaPreparacion);
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
         // POST: AreaPreparacion/Edit/5
         [HttpPost]
@@ -125,20 +153,36 @@ namespace MystiqueMC.Controllers
             ViewBag.comercioId = new SelectList(Contexto.comercios, "idComercio", "nombreComercial", areaPreparacion.comercioId);
             return View(areaPreparacion);
         }
-
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
         // POST: AreaPreparacion/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+		
         public ActionResult DeleteConfirmed(int id)
         {
-            AreaPreparacion areaPreparacion = Contexto.AreaPreparacion.Find(id);
+            AreaPreparacion areaPreparacion = Contexto.AreaPreparacion.Find(id);										   
             Contexto.AreaPreparacion.Remove(areaPreparacion);
             Contexto.SaveChanges();
             return RedirectToAction("Index");
         }
         #endregion
 
-        protected override void Dispose(bool disposing)
+
+
+        protected override void Dispose(bool disposing)																																																																				
         {
             if (disposing)
             {

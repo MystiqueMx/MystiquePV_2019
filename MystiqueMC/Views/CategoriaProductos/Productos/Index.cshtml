@@ -1,0 +1,231 @@
+﻿@model List<MystiqueMC.DAL.recompensas>
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    ViewBag.Title = "Puntos y Productos";
+    string order = ViewBag.SearchOrden as string;
+}
+
+<div class="row wrapper white-bg page-heading">
+    <div class="col-sm-3">
+        <h3></h3>
+    </div>
+    <div class="col-md-9 text-right">
+        <a class="btn btn-link no-padding" href="@Url.Action("Create")">
+            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+            <b> Agregar Producto </b>
+        </a>
+    </div>
+</div>
+<br />
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <div class="row">          
+            <div class="col-md-3" style="margin-left:10pt">
+                <div class="input-group">
+                    <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;"><b>Estatus</b></span>
+                    <select class="form-control input-sm" id="sel1_productos" aria-describedby="basic-addon1" name="SearchEstatus">
+                        <option @(order == "true" ? "selected=\"selected\"" : "") value="true">Activo</option>
+                        <option @(order == "false" ? "selected=\"selected\"" : "") value="false">Inativo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+                <span class="input-group-btn">
+                    <button id="productos_submit_button" style="width:100%" data-request-url="@Url.Action("Index", "Productos", new { IdComercio = ViewBag.idComercio})" class="btn btn-primary btn-sm" type="button">Buscar</button>
+                </span>
+            </div>
+            @*<div class="col-md-2">
+                    @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Create"))
+                    {
+                        <a href="@Url.Action("Create")" class="btn btn-link font-bold"><img src="~/Content/img/agregar.png" height="15" /> Agregar Producto</a>
+                    }
+                </div>*@
+            <div class="col-md-7 text-right">
+                <div class="btn-group">
+
+                    <a id="canjes_button" href="@Url.Action("Puntos", new { ComercioId = ViewBag.idComercio })" class="btn btn-link font-bold dropdown-toggle m-r-n-xl">
+                        <img src="~/Content/img/settings.png" height="15" />
+                        <span class="m-t-md m-b-lg">Configuración puntos</span>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    @*<div class="row">
+            <div class="col-lg-offset-8 col-lg-2">
+                @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Create"))
+                {
+                    <a href="@Url.Action("Create")" class="btn btn-link font-bold"><img src="~/Content/img/agregar.png" height="15" /> Agregar Producto</a>
+                }
+            </div>
+            <div class="col-lg-2">
+                @if (permissionsDelegate.HasPermissionForAction(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString(), "Puntos"))
+                {
+                    <div class="btn-group">
+                        <button data-toggle="dropdown" class="btn btn-link font-bold dropdown-toggle"> <img src="~/Content/img/settings.png" height="15" /> Configuración puntos <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            @foreach (var comercio in (ViewBag.Comercios as List<MystiqueMC.DAL.comercios>))
+                            {
+                                <li><a href="@Url.Action("Puntos", new { ComercioId = comercio.idComercio })" class="btn btn-link font-bold">@comercio.nombreComercial</a></li>
+                            }
+                        </ul>
+                    </div>
+
+                }
+            </div>
+        </div>*@
+    <div class="row">
+        @foreach (var recompensa in Model)
+        {
+            <div class="col-lg-6">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>@recompensa.catProductos.nombre - @recompensa.catProductos.comercios.nombreComercial</h5>
+                        <div class="ibox-tools m-b-n-md">
+                            <a href="@Url.Action("Edit", new { id = recompensa.idRecompesa, IdComercio = ViewBag.idComercio })" class="btn btn-link btn-sm" style="vertical-align:central">
+                                <img class="m-t-n-md" src="~/Content/img/edit.png" style="height:24px" />
+                            </a>
+                            @if (recompensa.estatus == true)
+                            {
+                                <button class="btn btn-link btn-sm m-r-n-xs" style="vertical-align:central" data-toggle="modal" data-target="#modal-eliminar-canje2" 
+                                        data-id="@recompensa.idRecompesa" data-nombre="@recompensa.catProductos.nombre - @recompensa.catProductos.comercios.nombreComercial">
+                                    <img class="m-t-n-md" src="~/Content/img/on.png" style="height:42px" />
+                                </button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-link btn-sm m-r-n-xs" data-toggle="modal" data-target="#modal-eliminara-canje" 
+                                        data-id="@recompensa.idRecompesa" data-nombre="@recompensa.catProductos.nombre - @recompensa.catProductos.comercios.nombreComercial">
+                                    <img class="m-t-n-md" src="~/Content/img/off.png" style="height:42px" />
+                                </button>
+                            }
+                        </div>
+                    </div>
+                    <div class="ibox-content" style="height:240px">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="form-group col-lg-6">
+                                    <label for="Precio"> Precio en venta: </label><br />
+                                    <span for="Precio" class="font-italic" id="Precio">$@recompensa.catProductos.Productos.precio</span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="Puntos_canje"> Puntos para canje: </label><br />
+                                    <span for="Puntos_canje" class="font-italic" id="Puntos_canje">@String.Format("{0:0,0.0}", recompensa.valor) pts</span>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <label for="Consumo_canje"> Para canjearlo el cliente tendrá que consumir: </label><br />
+                                    <span for="Consumo_canje" class="font-italic" id="Consumo_canje">@String.Format("{0:C}",recompensa.consumirCanje)</span>
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for=""> Vigencia: </label><br />
+                                    @if (recompensa.fechaFin.HasValue && recompensa.fechaInicio.HasValue)
+                                    {
+                                        <span for="Vigencia" id="Vigencia">@recompensa.fechaInicio.Value.ToShortDateString() a @recompensa.fechaFin.Value.ToShortDateString()</span>
+                                    }
+                                    else
+                                    {
+                                        <span for="Vigencia" id="Vigencia">Sin vigencia</span>
+                                    }
+
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label for="Descripcion"> Descripción: </label><br />
+                                    <span for="Descripcion" id="Descripcion">@recompensa.catProductos.descripcion</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group col-lg-12">
+                                    <label for="Imagen"> Imágen del producto </label><br />
+                                    <img src="@HOSTNAME_IMAGENES@recompensa.catProductos.imagen" height="115" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row hide">
+        <div class="col-md-12">
+            <a class="btn btn-default" href="@Url.Action("Index","Home" ,null)">Regresar</a>
+        </div>
+    </div>
+</div>
+
+
+@Html.Partial("DeleteModal")
+@Html.Partial("DeleteModalActivo")
+
+<script src="~/Scripts/app/Productos/Index.js"></script>
+<script>
+
+    $("#productos_submit_button").click(function (event) {
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: $(this).data('request-url'),
+            data: {
+                SearchEstatus: $("#sel1_productos").val()
+            },
+            success: function (result) {
+                if (result.success == null) {
+                    $("#canjes_div").html(result);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+
+            }
+        });
+    });
+
+
+    $('#modal-eliminara-canje').on('show.bs.modal', OnActivarModalOpenCanje);
+    $('#modal-eliminar-canje2').on('show.bs.modal', OInactivarModalOpen);
+
+    function OnActivarModalOpenCanje(event) {
+        var sender = $(event.relatedTarget);
+        var modal = $(this);
+
+        var id = sender.data('id');
+        var header = sender.data('nombre');
+
+        modal.find('#IdItemEliminar_canje').val(id);
+
+        modal.find('#ViewBag-porcentaje').val(@ViewBag.porcentaje);
+        modal.find('#ViewBag-cantidadPuntos').val(@ViewBag.cantidadPuntos);
+        modal.find('#ViewBag-equivalentePuntoPorDinero').val(@ViewBag.equivalentePuntoPorDinero);
+
+        modal.find('#confirm-item').text(header);
+    }
+
+
+    function OInactivarModalOpen(event) {
+        var sender = $(event.relatedTarget);
+        var modal = $(this);
+
+        var id = sender.data('id');
+        var header = sender.data('nombre');
+
+        modal.find('#IdItemEliminar_canje2').val(id);
+
+        modal.find('#ViewBag-porcentaje2').val(@ViewBag.porcentaje);
+        modal.find('#ViewBag-cantidadPuntos2').val(@ViewBag.cantidadPuntos);
+        modal.find('#ViewBag-equivalentePuntoPorDinero2').val(@ViewBag.equivalentePuntoPorDinero);
+
+        modal.find('#confirm-item').text(header);
+    }
+
+</script>
+@section Scripts{
+}

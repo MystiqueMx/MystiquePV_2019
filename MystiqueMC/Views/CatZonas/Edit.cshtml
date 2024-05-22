@@ -1,0 +1,95 @@
+﻿
+@using  MystiqueMC.Helpers
+@using  MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.CatZonas
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Editar</h2>
+        <ol class="breadcrumb">
+            <li>
+                @Html.ActionLink("Listado", "Index")
+            </li>
+            <li class="active">
+                <strong>Editar</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Editar Zona</h5>
+                </div>
+                <div class="ibox-content">
+                    @using (Html.BeginForm("Edit", "CatZonas", FormMethod.Post, new { id = "form-create", data_parsley_validate = "true" }))
+                    {
+                        @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.idCatZona)
+                        @Html.HiddenFor(model => model.empresaId)
+                        @Html.HiddenFor(model => model.fechaRegistro)
+                        @Html.HiddenFor(model => model.usuarioRegistroId)
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-lg-12">
+                                    <div class="col-md-4">
+                                        @Html.LabelFor(model => model.descripcion, "Descripción", htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.descripcion, new
+                                   {
+                                       htmlAttributes = new
+                                       {
+                                           @class = "form-control",
+                                           autocomplete = "off",
+                                           data_parsley_maxlength = "100",
+                                           data_parsley_required = "true",
+                                           data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9. ]{0,100}",
+                                           data_parsley_errors_container = "#descripcion-error"
+                                       }
+                                   })
+                                        <div class="row">
+                                            <span style="color:red" for="descripcion" id="descripcion-error"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <br />
+                                        <label class="control-label">
+                                            @Html.CheckBoxFor(model => model.activo)
+                                            ¿Activo?
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

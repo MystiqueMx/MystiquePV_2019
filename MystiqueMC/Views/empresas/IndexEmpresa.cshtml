@@ -1,0 +1,146 @@
+﻿@model IEnumerable<MystiqueMC.DAL.comercios>
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    ViewBag.Title = "Index";
+    string order = ViewBag.SearchOrden as string;
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>Comercios - Empresa @ViewBag.nombreEmpresa</h2>
+    </div>
+    <div class="col-lg-3 text-right">
+        <a class="btn btn-link" href="@Url.Action("Create","comercios", new { id = ViewBag.idEmpresa })" style="margin-top: 15px;">
+            <i class="fa fa-plus-square" style="color:#616161; font-size:12pt"></i>
+            <b> Agregar</b>
+        </a>
+    </div>
+</div>
+<br />
+<div>
+    @using (Html.BeginForm())
+    {
+        <div class="form-group col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Nombre:</b></span>
+                <input autocomplete="off" type="text" class="form-control input-sm" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]{0,300}" id="Nombre" name="Nombre" value="@ViewBag.Nombre">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group">
+                <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Giro Comercio:</b></span>
+                @Html.DropDownList("Giro", null, "Todos", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="col-md-3" style="margin-left:10pt">
+            <div class="input-group">
+                <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent"><b>Estatus</b></span>
+                <select class="form-control input-sm" id="sel1" aria-describedby="basic-addon1" name="SearchOrden">
+                    <option @(order == "true" ? "selected=\"selected\"" : "") value="true">Activo</option>
+                    <option @(order == "false" ? "selected=\"selected\"" : "") value="false">Inactivo</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group col-md">
+            <button style="width:3%" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+    }
+</div>
+<div class="wrapper animated fadeInRight">
+    <div class="row">
+        @foreach (var objComercio in Model)
+        {
+            <div class="wrapper animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="iboxs float-e-margins">
+                            <div class="ibox-contents">
+
+                                <div class="row row-flex">
+                                    <div class="col-lg-2 col-v-centered">
+                                        <h4>
+                                            <span class="text-center">@objComercio.nombreComercial</span><br />
+                                            <a href="@Url.Action("Edit", "comercios", new { id = (objComercio != null ? objComercio.idComercio : 0)})" class="btn btn-link m-xs" style="padding:0;">
+                                                <svg style="width:15px;height:15px; display:none;" viewBox="0 0 24 24"></svg>
+                                                <img class="img-thumbnails m-r-sm" src="@HOSTNAME_IMAGENES@objComercio.logoUrl">
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div class="col-lg-7" style="margin-top:8px;">
+                                        <div class="col-lg-10">
+                                            <div class="col-lg-8">
+                                                <label> Dirección </label><br />
+                                                <span>@objComercio.direccion, <b>Tel</b> @objComercio.telefono</span>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label> Giro comercio </label><br />
+                                                <span>@objComercio.catComercioGiros.descripcion</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10">
+                                            <div class="col-lg-8">
+                                                <label> Correo </label><br />
+                                                <span>@objComercio.correo</span>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <label> Tipo comercio </label><br />
+                                                <span>@objComercio.catTipoComercios.descripcion</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col-lg-12">
+                                            <a href="@Url.Action("Index","Sucursales", new { IdComercio = objComercio.idComercio })" class="btn btn-primary btn-lg" style="width:58%; padding:0;margin-bottom:4px;margin-top: 10px;height: 30px;">
+                                                <img src="~/Content/img/sucursales.png" height="20" />
+                                                <span class="m-t-md m-b-lg" style="font-size:15px">Sucursales</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <a href="@Url.Action("Promociones", "comercios", new { idComercio = objComercio.idComercio, idEmpresa = ViewBag.idEmpresa })" class="btn btn-primary btn-lg" style="width:58%; padding:0;margin-top: 4px;height: 30px;">
+                                                <img src="~/Content/img/membresia.png" height="20" />
+                                                <span class="m-t-md m-b-lg" style="font-size:15px">Promociones</span>
+                                            </a>
+                                        </div>
+                                        @if (objComercio.catComercioGiroId == 13)
+                                        {
+                                            if (objComercio.anexoDoctorId != null)
+                                            {
+                                                <div class="col-lg-12">
+                                                    <a href="@Url.Action("Edit", "AnexoDoctor", new { id = objComercio.anexoDoctorId, idEmpresa = objComercio.empresaId, idComercio = objComercio.idComercio })" class="btn btn-primary btn-lg" style="width:58%; padding:0;margin-bottom:4px;margin-top: 4px;height: 30px;">
+                                                        <i class="fas fa-user-md"></i>
+                                                        @*<img src="~/Content/img/promociones.png" height="20" />*@
+                                                        <span class="m-t-md m-b-lg" style="font-size:15px">Ver Detalle</span>
+                                                    </a>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="col-lg-12">
+                                                    <a href="@Url.Action("Index", "AnexoDoctor", new { idEmpresa = objComercio.empresaId, idComercio = objComercio.idComercio })" class="btn btn-primary btn-lg" style="width:58%; padding:0;margin-bottom:4px;margin-top: 4px;height: 30px;">
+                                                        <i class="fas fa-user-md"></i>
+                                                        @*<img src="~/Content/img/promociones.png" height="20" />*@
+                                                        <span class="m-t-md m-b-lg" style="font-size:15px">Ver Detalle</span>
+                                                    </a>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="row"><div class="col-md-12"><a href="@Url.Action("Index", "Home")" class="btn btn-white">Regresar</a></div></div>
+</div>
+@Html.Partial("DeleteModal")
+@section Scripts{
+    <script src="~/Scripts/app/Comercios/Index.js"></script>
+}
+

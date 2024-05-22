@@ -1,0 +1,341 @@
+﻿@model MystiqueMC.Models.NotificacionesViewModel
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    ViewBag.Title = "Envío de notificaciones";
+    string[] Sector = ViewBag.sector as string[];
+    int[] Sucursales = ViewBag.sucursales as int[];
+    string Titulo = ViewBag.Titulo as string;
+    string Contenido = ViewBag.Contenido as string;
+    if (Sector == null)
+    {
+        Sector = new string[1];
+    }
+    if (Sucursales == null)
+    {
+        Sucursales = new int[1];
+    }
+}
+
+<br />
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h3></h3>
+
+    </div>
+    <div class="col-sm-8">
+        <div class="title-action">
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Envío de notificaciones</h5>
+                </div>
+                <div class="ibox-content">
+                    <form id="enviar_notificacion_form" action="@Url.Action("NotificacionNueva")" method="post" data-parsley-validate>
+                        <div class="form-horizontal">
+                            <input type="hidden" name="idNotificacion" id="idNotificacion" />
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Título</label>
+                                <div class="col-md-8">
+                                    <input value="@Titulo" id="titulo_notificacion" class="form-control form-control-static" data-parsley-required= type="text" name="Titulo" maxlength="100" data-emoji-picker="true" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Contenido</label>
+                                <div class="col-md-8">
+                                    <textarea value="" id="contenido_notificacion" class="form-control" name="Contenido" maxlength="255" data-emoji-picker="true" data-parsley-required>@Contenido</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Sector demográfico</label>
+                                <div class="col-md-8">
+                                    @*<select id="sector_notificacion" name="sector" class="form-control"
+                                        data-parsley-remote="@Url.Action("ValidarClientesEnSector")" data-parsley-errors-container="#sector-error"
+                                        data-parsley-remote-message="Este sector de clientes se encuentra vacio">*@
+
+                                    <select id="sector_notificacion" name="sector" class="form-control">
+                                        <option value=""></option>
+                                        <optgroup label="Todos">
+                                            <option value="az-0" @Html.OptionIsSelected(Sector.Contains("az-0"))>Enviar a todos</option>
+                                        </optgroup>
+                                        <optgroup label="Sexo">
+                                            @foreach (var sexo in Model.Sexos)
+                                            {
+                                                <option value="sx-@sexo.idCatSexo" @Html.OptionIsSelected(Sector.Contains("sx-" + sexo.idCatSexo))>
+                                                    @sexo.descripcion
+                                                </option>
+                                            }
+                                        </optgroup>
+                                        <optgroup label="Rango de edades">
+                                            @foreach (var edad in Model.RangosEdades)
+                                            {
+                                                <option value="ed-@edad.idCatRangoEdad" @Html.OptionIsSelected(Sector.Contains("ed-" + edad.idCatRangoEdad))>
+                                                    @edad.etiqueta
+                                                </option>
+                                            }
+                                        </optgroup>
+                                    </select>
+                                    <div id="sector-error"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Sucursales</label>
+                                <div class="col-md-8">
+                                    <select id="sucursales_notificaciones" name="sucursales" class="form-control" data-parsley-required data-parsley-errors-container="#sucursales-error" multiple>
+                                        @foreach (var sucursal in Model.Sucursales)
+                                        {
+                                            <option value="@sucursal.idSucursal" @Html.OptionIsSelected(Sucursales.Contains(sucursal.idSucursal))>@sucursal.nombre</option>
+                                        }
+                                    </select>
+                                    <div id="sucursales-error"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-12">
+                                    @*@Html.ActionLink("Regresar", "Fidelizacion", "Home", null, new { @class = "btn btn-white" })*@
+                                    <input id="enviar_notificacion_button_submit" data-request-url="@Url.Action("NotificacionNueva", "Notificaciones")" type="submit" value="Enviar" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Mis notificaciones enviadas</h5>
+                </div>
+                <div class="ibox-content hidden @Html.OptionIsSelected(Model.NotificacionesAnteriores != null && Model.NotificacionesAnteriores.Count() > 10, "pre-scrollable")" style="min-height:500px;">
+                    <ul class="list-group">
+                        @if (Model.NotificacionesAnteriores != null)
+                        {
+                            foreach (var notif in Model.NotificacionesAnteriores.OrderByDescending(c => c.idNotificacion).ToList())
+                            {
+                                <li class="list-group-item">
+                                    @notif.titulo
+                                    <span class="badge badge-info">Visto por @notif.clienteNotificaciones.Where(c => c.revisado).Count()/@notif.clienteNotificaciones.Count</span>
+                                    <a id="editarNotificacion" name="editarNotificacion" onclick="ShowEdit(@notif.idNotificacion)"><img src="~/Content/img/edit.png" height="24" /></a>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+                <div class="ibox-content @Html.OptionIsSelected(Model.NotificacionesActuales != null && Model.NotificacionesActuales.Count() > 10, "pre-scrollable")" style="min-height:500px;">
+                    <ul class="list-group">
+                        @if (Model.NotificacionesActuales != null)
+                        {
+                            foreach (var notif in Model.NotificacionesActuales.OrderByDescending(c => c.idNotificacion).ToList())
+                            {
+                                <li class="list-group-item">
+                                    @notif.titulo
+                                    <span class="badge badge-info">Visto por @notif.clienteNotificaciones.Where(c => c.revisado).Count()/@notif.clienteNotificaciones.Count</span>
+                                    <a id="editarNotificacion" name="editarNotificacion" onclick="ShowEdit(@notif.idNotificacion)"><img src="~/Content/img/edit.png" height="24" /></a>
+                                </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row hide">
+        <div class="col-md-12">
+            <a class="btn btn-default" href="@Url.Action("Index","Home" ,null)">Regresar</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#enviar_notificacion_form').on('submit', function (event) {
+        event.preventDefault();
+        $(this).parsley().validate();
+        if (!$(this).parsley().isValid()) return;
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("NotificacionNueva", "Notificaciones")',/*$(this).data('request-url'),*/
+            data: {
+                Titulo: $("#titulo_notificacion").val(),
+                Contenido: $("#contenido_notificacion").val(),
+                sector: $("#sector_notificacion").val(),
+                sucursales: $("#sucursales_notificaciones").val(),
+                IdNotificacion: $("#idNotificacion").val(),
+            },
+            success: function (result) {
+                debugger;
+                if (result.success == null) {
+                    $("#notificaciones_div").html(result);
+                    SetUpDualSelectList();
+                    SetUpSelectize();
+                    new EmojiPicker();
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                debugger;
+            }
+        });
+
+    });
+
+    //$("#enviar_notificacion_button_submit").on("click", function () {
+
+    //    $("#enviar_notificacion_form").parsley().validate();
+    //    if (!$("#enviar_notificacion_form").parsley().isValid()) return;
+    //    $.ajax({
+    //        type: "POST",
+    //        url: $(this).data('request-url'),
+    //        data: {
+    //            Titulo: $("#titulo_notificacion").val(),
+    //            Contenido: $("#contenido_notificacion").val(),
+    //            sector: $("#sector_notificacion").val(),
+    //            sucursales: $("#sucursales_notificaciones").val(),
+    //        }
+    //        ,
+    //        success: function (result) {
+    //            if (result.success == null) {
+    //                $("#notificaciones_div").html(result);
+    //                SetUpDualSelectList();
+    //                SetUpSelectize();
+    //                new EmojiPicker();
+    //            }
+    //        },
+    //        error: function (xhr, ajaxOptions, thrownError) {
+    //            debugger;
+    //        }
+    //    });
+    //});
+
+
+    function SetUpDualSelectList() {
+        $('select[name="sucursales"]').bootstrapDualListbox({
+            nonSelectedListLabel: 'Sucursales',
+            selectedListLabel: 'Sucursales seleccionadas',
+            preserveSelectionOnMove: 'moved',
+            infoTextEmpty: 'Sin información',
+            filterTextClear: 'Ver todos',
+            filterPlaceHolder: 'Buscar...',
+            moveSelectedLabel: 'Mover',
+            moveAllLabel: 'Mover todos',
+            removeSelectedLabel: 'Remover',
+            removeAllLabel: 'Remover todos',
+            infoText: 'Opciones: {0}',
+            infoTextFiltered: '<span class="label label-info">Filtrando</span> {0} de {1}',
+            infoTextEmpty: 'Ninguna opción'
+        });
+    }
+
+    function SetUpSelectize() {
+        $('select[name="sector"]').selectize({
+            maxItems: null,
+            hideSelected: true,
+            placeholder: 'Ninguno seleccionado',
+            selectOnTab: true,
+            render: {
+                item: function (item) {
+                    if (item.value.includes('az'))
+                        return `<span class="badge badge-danger" style="margin:1px 2px 1px 2px;">${item.text}</span>`
+                    else if (item.value.includes('sx'))
+                        return `<span class="badge badge-primary" style="margin:1px 2px 1px 2px;">${item.text}</span>`
+                    else if (item.value.includes('su'))
+                        return `<span class="badge badge-info" style="margin:1px 2px 1px 2px;">${item.text}</span>`
+                    else
+                        return `<span class="badge badge-success" style="margin:1px 2px 1px 2px;">${item.text}</span>`
+                },
+                option: function (option) {
+                    if (option.value.includes('az'))
+                        return `<span class="badge badge-danger m-xs">${option.text}</span>`
+                    else if (option.value.includes('sx'))
+                        return `<span class="badge badge-primary m-xs">${option.text}</span>`
+                    else if (option.value.includes('su'))
+                        return `<span class="badge badge-info m-xs">${option.text}</span>`
+                    else
+                        return `<span class="badge badge-success m-xs">${option.text}</span>`
+                }
+            },
+            plugins: ['remove_button'],
+            onItemAdd: function (value, $item) {
+                if (!isDeleting) {
+                    if (value === 'az-0') {
+                        isDeleting = true;
+                        selectize.clear(true);
+                        selectize.addItem(value, true);
+                        isDeleting = false;
+                    } else {
+                        if (selectize.items.filter(c => c === 'az-0').length > 0) {
+                            selectize.removeItem(value, true);
+                            selectize.refreshItems();
+                        }
+                    }
+                }
+
+            },
+            onItemRemove: function (value) {
+            }
+        });
+        //selectize = $('select[name="sector"]')[0].selectize;
+    }
+
+
+    function ShowEdit(idNotificacion) {
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Edit", "Notificaciones")',
+            dataType: 'json',
+            data: { idNotificacion: idNotificacion },
+        }).done(function (response) {
+            if (response != null && response.exito)
+            {
+                try
+                {
+                    for (notificaciones of response.resultado) {
+                        debugger;
+                        var IdNotificacion = notificaciones.IdNotificacion;
+                        var Titulo = notificaciones.Titulo;
+                        var Descripcion = notificaciones.Descripcion;
+                        $("#titulo_notificacion").val(Titulo);
+                        $("#contenido_notificacion").val(Descripcion);
+                        $("#idNotificacion").val(IdNotificacion);
+                        notificaciones.SucursalesId.map(c => $(`#sucursales_notificaciones option[value='${c}']`).prop("selected", true));
+                        $("#sucursales_notificaciones").bootstrapDualListbox("refresh");
+                        notificaciones.Sectores.map(c => $(`#sector_notificacion option[value='${c}']`).prop("selected", true));
+                        //selectize.addOption(notificaciones.Sectores)
+                        //$('#sector_notificacion').selectize()[notificaciones.Sectores]
+                    }
+                }
+                catch (err) {
+                    console.error(err);
+                }
+            }
+            else {
+                alert("Ocurrio un error al obtener la información, contacte a su administrador.");
+            }
+        });
+    }
+</script>
+
+
+@section Scripts {
+
+    @*<script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+        <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+        <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+        <script src="~/Scripts/plugins/selectize/selectize.min.js"></script>
+        <script src="~/Scripts/plugins/emojis/emojiPicker.min.js"></script>
+        <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+
+        <script src="~/Scripts/app/Notificaciones/Index.js"></script>*@
+}
+@section Styles{
+
+}

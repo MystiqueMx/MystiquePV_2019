@@ -1,0 +1,369 @@
+﻿@model MystiqueMC.Models.ClientesViewModel
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /* Titulo */
+    ViewBag.Title = "Clientes";
+    /* Permisos */
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+    /* Variables */
+    string search = ViewBag.SearchPalabra;
+    string etiquetaFiltroGrafica = ViewBag.FiltroGrafica ?? "Última semana";
+    string claseGraphs = ViewBag.VerDetalle ? "" : "active";
+    string claseTable = ViewBag.VerDetalle ? "active" : "";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>Clientes con Membresía</h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+
+
+    @*<div class="row">
+        <div class="col-lg-12">
+            <div class="tabs-container">
+                <ul class="nav nav-tabs">
+                    <li class="@claseGraphs">
+                        <a data-toggle="tab" href="#graphs"> Resumen </a>
+                    </li>
+                    <li class="@claseTable">
+                        <a data-toggle="tab" href="#detail">Detalle</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <!-- RESUMEN -->
+                    <div id="graphs" class="tab-pane @claseGraphs ">
+                        <div class="panel-body">
+                            <!-- Grafica de sexos -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4 class="hide" id="title-grafica-1">@Model.GraficaUno.Titulo</h4>
+                                    <div class="chart-container m-md" style="position: relative; width:100%">
+                                        <canvas id="chart-sexos"></canvas>
+                                    </div>
+                                    <div class="chart-datasource hide">
+                                        <table id="datasource-chart-1">
+                                            <tbody>
+                                                @foreach (var data in Model.GraficaUno.Data)
+                                                {
+                                                    <tr>
+                                                        <td>@data.Etiqueta</td>
+                                                        <td>@data.Valor</td>
+                                                        <td>@data.Color</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Grafica de edades -->
+                                <div class="col-lg-6">
+                                    <h4 class="hide" id="title-grafica-2">@Model.GraficaDos.Titulo</h4>
+                                    <div class="chart-container" style="position: relative; width:100%">
+                                        <canvas id="chart-edades"></canvas>
+                                    </div>
+                                    <div class="chart-datasource hide">
+                                        <table id="datasource-chart-2">
+                                            <tbody>
+                                                @foreach (var data in Model.GraficaDos.Data)
+                                                {
+                                                    <tr>
+                                                        <td>@data.Etiqueta</td>
+                                                        <td>@data.Valor</td>
+                                                        <td>@data.Color</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Grafica de ubicacion -->
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4 class="hide" id="title-grafica-3">@Model.GraficaTres.Titulo</h4>
+                                    <div class="chart-container" style="position: relative; width:100%">
+                                        <canvas id="chart-ubicacion"></canvas>
+                                    </div>
+                                    <div class="chart-datasource hide">
+                                        <table id="datasource-chart-3">
+                                            <tbody>
+                                                @foreach (var data in Model.GraficaTres.Data)
+                                                {
+                                                    <tr>
+                                                        <td>@data.Etiqueta</td>
+                                                        <td>@data.Valor</td>
+                                                        <td>@data.Color</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- Resumen de puntos -->
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-12 text-center">
+                                            <label>Resumen de puntos</label>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 text-right">
+                                            <div class="btn-group m-md m-t-sm">
+                                                <button data-toggle="dropdown" class="btn btn-default btn-xs dropdown-toggle">Viendo: @etiquetaFiltroGrafica <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="@Url.Action("Index")">Última semana</a></li>
+                                                    <li><a href="@Url.Action("Index", new { resumen = 1 })">Últimas dos semanas</a></li>
+                                                    <li><a href="@Url.Action("Index", new { resumen = 2 })">Último mes</a></li>
+                                                    <li><a href="@Url.Action("Index", new { resumen = 3 })">Últimos 3 meses</a></li>
+                                                    <li><a href="@Url.Action("Index", new { resumen = 4 })">Todos</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="#modal-seleccion-rango" data-toggle="modal">Otro rango de fechas</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Resumen de puntos sumados -->
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="widget clickable blue-bg no-padding" id="widget-compras">
+                                                <div class="p-m">
+                                                    <h1 class="m-xs">@Model.ResumenCompras.TotalCompras.ToString("C2")</h1>
+
+                                                    <h3 class="font-bold no-margins">
+                                                        En compras sumadas
+                                                    </h3>
+                                                    <small>@Model.ResumenCompras.TotalComprasEnPuntos.ToString("C0").Replace("$", "") puntos sumados en total</small>
+
+                                                </div>
+                                                <div class="flot-chart">
+                                                    <div class="flot-chart-content" id="flot-chart1"></div>
+                                                </div>
+                                                <form id="form-detalle-compras" method="get" action="@Url.Action("DetalleCompras")">
+                                                    @if (@ViewBag.FiltroGraficaOpcion < 0)
+                                                    {
+                                                        <input name="desde" type="hidden" value="@ViewBag.inicio" />
+                                                        <input name="hasta" type="hidden" value="@ViewBag.fin" />
+                                                    }
+                                                    <input name="resumen" type="hidden" value="@ViewBag.FiltroGraficaOpcion" />
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- Resumen de puntos canjeados -->
+                                        <div class="col-lg-4">
+                                            <div class="widget purple-bg clickable no-padding" id="widget-canje">
+                                                <div class="p-m">
+                                                    <h1 class="m-xs">@Model.ResumenCompras.TotalCanjes.ToString("C2")</h1>
+
+                                                    <h3 class="font-bold no-margins">
+                                                        En canjes realizados
+                                                    </h3>
+                                                    <small class="p-b-md">@Model.ResumenCompras.TotalCanjesEnPuntos.ToString("C0").Replace("$", "") puntos canjeados en total</small>
+                                                </div>
+                                                <div class="flot-chart">
+                                                    <div class="flot-chart-content" id="flot-chart1"></div>
+                                                </div>
+                                                <form id="form-detalle-canje" method="get" action="@Url.Action("DetalleCanjes")">
+                                                    @if (@ViewBag.FiltroGraficaOpcion < 0)
+                                                    {
+                                                        <input name="desde" type="hidden" value="@ViewBag.inicio" />
+                                                        <input name="hasta" type="hidden" value="@ViewBag.fin" />
+                                                    }
+                                                    <input name="resumen" type="hidden" value="@ViewBag.FiltroGraficaOpcion" />
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- Resumen de beneficios -->
+                                        <div class="col-lg-4">
+                                            <div class="widget green-bg clickable no-padding" id="widget-beneficios">
+                                                <div class="p-m">
+                                                    <h1 class="m-xs"> @Model.ResumenCompras.TotalBeneficios.ToString("C2")</h1>
+
+                                                    <h3 class="font-bold no-margins">
+                                                        En descuentos utilizados
+                                                    </h3>
+                                                    <small>@Model.ResumenCompras.NumeroBeneficiosUsados.ToString("C0").Replace("$", "") descuentos usados en total</small>
+                                                </div>
+                                                <div class="flot-chart">
+                                                    <div class="flot-chart-content" id="flot-chart1"></div>
+                                                </div>
+                                                <form id="form-detalle-beneficios" method="get" action="@Url.Action("DetalleBeneficios")">
+                                                    @if (@ViewBag.FiltroGraficaOpcion < 0)
+                                                    {
+                                                        <input name="desde" type="hidden" value="@ViewBag.inicio" />
+                                                        <input name="hasta" type="hidden" value="@ViewBag.fin" />
+                                                    }
+                                                    <input name="resumen" type="hidden" value="@ViewBag.FiltroGraficaOpcion" />
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="detail" class="tab-pane @claseTable ">
+                        <div class="panel-body">*@
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" style="background-color:transparent;border-width:0px;">
+                        <div class="col-md-4">
+                            <div class="input-group m-l-md">
+                                <span class="input-group-addon" style="color:#000; background-color:transparent; border-color:transparent;">
+                                    <span class="modal-title">
+                                        <label style="color:#6C6A67">Buscar</label>
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control input-sm" placeholder="Palabras clave" value="@search" name="SearchPalabra">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <span>
+                                <button style="width:100%" class="btn btn-primary btn-sm" type="submit">
+                                    Buscar
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <button id="ButtonExcel" class="btn btn-primary btn-sm" onclick="$('#realExcel').click()">
+                                Excel &nbsp;
+
+                                <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <br />
+                    </div> <br />
+                    <div class="ibox-content">
+                        <div class="table-responsive">
+                            <table id="ContentTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th class="col-lg-2">
+                                            Nombre
+                                        </th>
+
+                                        <th class="col-lg-2">
+                                            Correo Electrónico
+                                        </th>
+                                        <th class="col-lg-1">
+                                            Teléfono
+                                        </th>
+                                        <th class="col-lg-1">
+                                            Sexo
+                                        </th>
+                                        <th class="col-lg-2">
+                                            Colonia
+                                        </th>
+                                        <th class="col-lg-1">Puntos Actuales</th>
+                                        <th class="col-lg-1 text-center">Compras</th>
+                                        <th class="col-lg-1 text-center">Canjeados</th>
+                                        <th class="col-lg-1 text-center">Beneficios</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Clientes)
+                                    {
+                                        <tr>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.NombreCompleto)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Telefono)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Sexo)
+                                            </td>
+
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(item.Colonia))
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.Colonia) @Html.Raw(", ") @Html.DisplayFor(modelItem => item.Ciudad)
+                                                }
+
+                                            </td>
+                                            <td class="text-right" style="padding-right: 10px;">
+                                                @item.PuntosActuales.ToString("C0").Replace("$", "")
+                                            </td>
+
+                                            <td style="padding-left: 20px;">
+
+                                                <button style="width:80px" class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#modal-ver-puntos-compra" data-idcliente="@item.Id">@item.SumaCompras.ToString("C0").Replace("$", "") pts</button>
+                                            </td>
+                                            <td style="padding-left: 20px;">
+                                                <button style="width:80px" class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#modal-ver-puntos-canjeados" data-idcanje="@item.Id">@item.SumaCanjeados.ToString("C0").Replace("$", "") pts</button>
+
+                                            </td>
+                                            <td style="padding-left: 20px;">
+                                                <button style="width:80px" class="btn btn-sm btn-primary" type="button" data-toggle="modal" data-target="#modal-ver-beneficios-solicitados" data-idsolicitado="@item.Id">@item.BeneficiosAplicados</button>
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <input type="hidden" id="UrlDetailsPointsPurchases" value="@Url.Action("DetailsPointsPurchases")">
+                        <input type="hidden" id="UrlDetailsPointsProducts" value="@Url.Action("DetailsPointsProducts")">
+                        <input type="hidden" id="UrlDetailsBenefits" value="@Url.Action("DetailsBenefits")">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    @*</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    <div class="row">
+        <div class="col-md-12">
+            <a href="@Url.Action("Fidelizacion","Home", new { tabID="reportes_button"})" class="btn btn-white m-r-sm">Regresar</a>
+        </div>
+    </div>
+
+    @Html.Partial("Modal/ModalVerPuntosCompras")
+    @Html.Partial("Modal/ModalVerPuntosCanjeados")
+    @Html.Partial("Modal/ModalBeneficiosSolicitados")
+    @Html.Partial("Modal/ModalSeleccionRango")
+
+
+    @section Scripts{
+        <script src="~/Scripts/plugins/chart/Chart.bundle.min.js"></script>
+        <script src="~/Scripts/app/Clientes/Modals.js"></script>
+        <script src="~/Scripts/app/Clientes/Charts.js"></script>
+
+        <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+        <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+    }
+
+    @section Styles {
+        @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    }
+

@@ -22,7 +22,7 @@ namespace MystiqueMC.DAL
         public System.DateTime fechaRegistro { get; set; }
     
         public virtual Proveedores Proveedores { get; set; }
-        public virtual usuarios usuarios { get; set; }
         public virtual sucursales sucursales { get; set; }
+        public virtual usuarios usuarios { get; set; }
     }
 }

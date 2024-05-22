@@ -24,22 +24,22 @@ namespace MystiqueMC.DAL
         }
     
         public int idDatoFiscal { get; set; }
+        public Nullable<int> comercioId { get; set; }
         public string nombreFiscal { get; set; }
         public string rfc { get; set; }
         public Nullable<int> direccionId { get; set; }
+        public string serieFactura { get; set; }
         public Nullable<int> usuarioRegistroId { get; set; }
         public Nullable<System.DateTime> fechaRegistro { get; set; }
         public string cp { get; set; }
         public Nullable<int> catRegimenFiscalId { get; set; }
-        public Nullable<int> comercioId { get; set; }
-        public string serieFactura { get; set; }
     
-        public virtual direccion direccion { get; set; }
-        public virtual usuarios usuarios { get; set; }
-        public virtual comercios comercios { get; set; }
         public virtual catRegimenFiscal catRegimenFiscal { get; set; }
+        public virtual comercios comercios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<confDatosFiscalesSucursal> confDatosFiscalesSucursal { get; set; }
+        public virtual direccion direccion { get; set; }
+        public virtual usuarios usuarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<facturaCliente> facturaCliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

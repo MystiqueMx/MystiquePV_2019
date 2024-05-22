@@ -101,7 +101,7 @@
           "lib/Xamarin.iOS10/MBAutoComplete.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/2.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -927,8 +927,7 @@
           "Humanizer.Core.es": "2.5.1",
           "Newtonsoft.Json": "11.0.2",
           "RestSharp": "106.3.1",
-          "RestSharp.Newtonsoft.Json": "1.5.0",
-          "Xamarin.Build.Download": "0.4.11"
+          "RestSharp.Newtonsoft.Json": "1.5.0"
         },
         "compile": {
           "bin/placeholder/MystiqueNative.dll": {}
@@ -1038,7 +1037,7 @@
           "lib/Xamarin.iOS10/MBAutoComplete.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/2.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -1800,8 +1799,7 @@
           "Humanizer.Core.es": "2.5.1",
           "Newtonsoft.Json": "11.0.2",
           "RestSharp": "106.3.1",
-          "RestSharp.Newtonsoft.Json": "1.5.0",
-          "Xamarin.Build.Download": "0.4.11"
+          "RestSharp.Newtonsoft.Json": "1.5.0"
         },
         "compile": {
           "bin/placeholder/MystiqueNative.dll": {}
@@ -1911,7 +1909,7 @@
           "lib/Xamarin.iOS10/MBAutoComplete.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/2.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -2673,8 +2671,7 @@
           "Humanizer.Core.es": "2.5.1",
           "Newtonsoft.Json": "11.0.2",
           "RestSharp": "106.3.1",
-          "RestSharp.Newtonsoft.Json": "1.5.0",
-          "Xamarin.Build.Download": "0.4.11"
+          "RestSharp.Newtonsoft.Json": "1.5.0"
         },
         "compile": {
           "bin/placeholder/MystiqueNative.dll": {}
@@ -2784,7 +2781,7 @@
           "lib/Xamarin.iOS10/MBAutoComplete.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/2.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -3546,8 +3543,7 @@
           "Humanizer.Core.es": "2.5.1",
           "Newtonsoft.Json": "11.0.2",
           "RestSharp": "106.3.1",
-          "RestSharp.Newtonsoft.Json": "1.5.0",
-          "Xamarin.Build.Download": "0.4.11"
+          "RestSharp.Newtonsoft.Json": "1.5.0"
         },
         "compile": {
           "bin/placeholder/MystiqueNative.dll": {}
@@ -3657,7 +3653,7 @@
           "lib/Xamarin.iOS10/MBAutoComplete.dll": {}
         }
       },
-      "Microsoft.NETCore.Platforms/3.1.0": {
+      "Microsoft.NETCore.Platforms/2.1.0": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/_._": {}
@@ -4419,8 +4415,7 @@
           "Humanizer.Core.es": "2.5.1",
           "Newtonsoft.Json": "11.0.2",
           "RestSharp": "106.3.1",
-          "RestSharp.Newtonsoft.Json": "1.5.0",
-          "Xamarin.Build.Download": "0.4.11"
+          "RestSharp.Newtonsoft.Json": "1.5.0"
         },
         "compile": {
           "bin/placeholder/MystiqueNative.dll": {}
@@ -4541,17 +4536,17 @@
         "mbautocomplete.nuspec"
       ]
     },
-    "Microsoft.NETCore.Platforms/3.1.0": {
-      "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
+    "Microsoft.NETCore.Platforms/2.1.0": {
+      "sha512": "ok+RPAtESz/9MUXeIEz6Lv5XAGQsaNmEYXMsgVALj4D7kqC8gveKWXWXbufLySR2fWrwZf8smyN5RmHu0e4BHA==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/3.1.0",
+      "path": "microsoft.netcore.platforms/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+        "microsoft.netcore.platforms.2.1.0.nupkg.sha512",
         "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
@@ -7782,7 +7777,7 @@
       "GoogleApi >= 3.4.2",
       "MBAutoComplete >= 0.8.3",
       "MaterialControls >= 1.2.2",
-      "Microsoft.NETCore.Platforms >= 3.1.0",
+      "Microsoft.NETCore.Platforms >= 2.1.0",
       "Microsoft.Win32.Primitives >= 4.3.0",
       "MystiqueNative >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
@@ -7850,24 +7845,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {},
+    "C:\\Users\\moise\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative.iOS\\MystiqueNative.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.iOS\\MystiqueNative.iOS.csproj",
       "projectName": "MystiqueNative.iOS",
-      "projectPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative.iOS\\MystiqueNative.iOS.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative.iOS\\obj\\",
+      "projectPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.iOS\\MystiqueNative.iOS.csproj",
+      "packagesPath": "C:\\Users\\moise\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\moise\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -7876,14 +7871,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\andre\\OneDrive\\Documents\\1. PROJECTS\\MYSTIQUE\\WEB\\Mystique2.0\\CodigoWeb\\MystiqueMC\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj": {
-              "projectPath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj"
+            "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj": {
+              "projectPath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj"
             }
           }
         }
@@ -7915,7 +7909,7 @@
           },
           "Microsoft.NETCore.Platforms": {
             "target": "Package",
-            "version": "[3.1.0, )"
+            "version": "[2.1.0, )"
           },
           "Microsoft.Win32.Primitives": {
             "target": "Package",
@@ -8192,7 +8186,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Newtonsoft.Json\" 11.0.2 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
@@ -8206,7 +8200,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"RestSharp\" 106.3.1 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
+      "message": "Package 'RestSharp' 106.3.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
       "libraryId": "RestSharp",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
@@ -8220,7 +8214,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"System.Net.Http\" 4.3.3 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
+      "message": "Package 'System.Net.Http' 4.3.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
       "libraryId": "System.Net.Http",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
@@ -8234,22 +8228,8 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"System.Text.RegularExpressions\" 4.3.0 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-cmhx-cq75-c4mj",
+      "message": "Package 'System.Text.RegularExpressions' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cmhx-cq75-c4mj",
       "libraryId": "System.Text.RegularExpressions",
-      "targetGraphs": [
-        "Xamarin.iOS,Version=v1.0",
-        "Xamarin.iOS,Version=v1.0/win",
-        "Xamarin.iOS,Version=v1.0/win-arm64",
-        "Xamarin.iOS,Version=v1.0/win-x64",
-        "Xamarin.iOS,Version=v1.0/win-x86"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Degradación del paquete detectada: Xamarin.Build.Download de 0.4.11 a 0.4.7. Haga referencia al paquete directamente desde el proyecto para seleccionar una versión diferente. \r\n MystiqueNative.iOS -> MystiqueNative -> Xamarin.Build.Download (>= 0.4.11) \r\n MystiqueNative.iOS -> Xamarin.Build.Download (>= 0.4.7)",
-      "libraryId": "Xamarin.Build.Download",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
         "Xamarin.iOS,Version=v1.0/win",

@@ -1,0 +1,40 @@
+﻿<div class="modal fade" id="modal-editar-equivalencia" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <form action="@Url.Action("EditarEquivalencia")" method="post" id="form-editar-equivalencia" class="form-horizontal" data-parsley-validate>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Editar Equivalencia</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <input type="hidden" name="idInsumo" id="idInsumo" />
+                                <input type="hidden" name="idEquivalencia" id="idEquivalencia" />
+                                <input type="hidden" name="nombre" id="nombre" />
+                                <input type="hidden" name="categoria" id="categoria" />
+                                <input type="hidden" name="nombreSearch" id="nombreSearch" />
+                                <div class="col-md-12">
+                                    <label class="control-label">Unidad de Medida</label>
+                                    @Html.DropDownList("unidadMedidaId", null, "Seleccionar", htmlAttributes: new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label class="control-label">Cantidad</label>
+                                    <input type="text" class="form-control" name="cantidad" id="cantidad" data-parsley-required="true" data-parsley-type="number"
+                                           data-inputmask-greedy="false" data-inputmask-regex="[0-9]{0,5}\.{0,1}[0-9]{0,2}" data-parsley-maxlength="5" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="btn-guardar-modal" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" id="guardar-equivalencia" class="btn btn-primary">Agregar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

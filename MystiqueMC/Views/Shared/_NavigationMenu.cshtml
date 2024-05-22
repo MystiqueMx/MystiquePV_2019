@@ -32,25 +32,16 @@
         </a>
     </li>
 }
-@if (permissionsDelegate.HasPermissionForController(rol, "ReportesMed"))
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Insumos"))
 {
-    <li class="@Html.IsSelected(controller: "ReportesMed")">
-        <a href="@Url.Action("Index", "ReportesMed")">
-            <i class="fa fa-chart-pie" aria-hidden="true"></i>
-            <span class="nav-label">&nbsp;&nbsp;Reportes</span>
+    <li class="@Html.IsSelected(action: "Menu", controller: "Insumos")">
+        <a href="@Url.Action("Menu", "Insumos")">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <span class="nav-label">&nbsp;&nbsp;Insumos</span>
         </a>
     </li>
 }
-
-@*@if (permissionsDelegate.HasPermissionForController(rol, "Insumos"))
-    {
-        <li class="@Html.IsSelected(action: "Menu", controller: "Insumos")">
-            <a href="@Url.Action("Menu", "Insumos")">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <span class="nav-label">&nbsp;&nbsp;Insumos</span>
-            </a>
-        </li>
-    }*@
 
 @if (permissionsDelegate.HasPermissionForController(rol, "FacturacionComercio"))
 {
@@ -71,32 +62,12 @@
         </a>
     </li>
 }
-
-@if (permissionsDelegate.HasPermissionForController(rol, "CatalogosMed"))
-{
-    <li class="@Html.IsSelected(controller: "CatalogosMed")">
-        <a href="@Url.Action(actionName: "Index", controllerName: "CatalogosMed")" data-tippy="Catalogos">
-            <i class="fas fa-users" aria-hidden="true"></i>
-            <span class="nav-label">&nbsp;&nbsp;Catálogos</span>
-        </a>
-    </li>
-}
 @if (permissionsDelegate.HasPermissionForController(rol, "Inventarios"))
 {
     <li class="@Html.IsSelected(controller: "Inventarios")">
-        <a href="@Url.Action(actionName: "IndexSeleccionSucursal", controllerName: "Inventarios")" data-tippy="Inventario">
+        <a href="@Url.Action(actionName: "Index", controllerName: "Inventarios")" data-tippy="Inventario">
             <i class="fas fa-users" aria-hidden="true"></i>
             <span class="nav-label">&nbsp;&nbsp;Inventarios</span>
-        </a>
-    </li>
-}
-
-@if (permissionsDelegate.HasPermissionForController(rol, "Egresos"))
-{
-    <li class="@Html.IsSelected(controller: "Egresos")">
-        <a href="@Url.Action(actionName: "Menu", controllerName: "Egresos")" data-tippy="Egresos">
-            <i class="fa fa-home" aria-hidden="true"></i>
-            <span class="nav-label">&nbsp;&nbsp;Egresos</span>
         </a>
     </li>
 }

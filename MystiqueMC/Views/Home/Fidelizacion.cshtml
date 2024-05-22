@@ -1,0 +1,202 @@
+﻿@model MystiqueMC.Models.HomeViewModel
+@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+
+    /* Variables */
+    string rol = Session.ObtenerRol();
+    string HOSTNAME_IMAGENES = ViewBag.HOSTNAME_IMAGENES;
+    var item = Model.Comercios.FirstOrDefault();
+    IEnumerable<MystiqueMC.DAL.recompensas> recompensas = ViewBag.Recompensas;
+    IEnumerable<MystiqueMC.DAL.catTipoMembresias> membresias = ViewBag.Membresias;
+    ViewBag.Title = "Inicio - " + item.nombreComercial;
+    string search = ViewBag.SearchPalabra;
+    string etiquetaFiltroGrafica = ViewBag.FiltroGrafica ?? "Última semana";
+    string claseGraphs = ViewBag.VerDetalle ?? false ? "" : "active";
+    string claseTable = ViewBag.VerDetalle ?? false ? "active" : "";
+    var tabID = ViewBag.TabID as string;
+
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-md-12">
+        <h2>
+            Fidelización - <b>@item.nombreComercial</b>
+            <img class="img-thumbnail img-md m-r-sm" src="@HOSTNAME_IMAGENES@item.logoUrl">
+        </h2>
+    </div>
+    <form hidden id="form_to_login" action="@Url.Action("Login", "Autentificacion")" method="get"></form>
+    <input hidden id="validar-sesion-url" value="@Url.Action("ValidarSesion")" />
+
+    <div class="col-md-12">
+        <ul class="nav" role="tablist">
+            <content>
+
+                @if (rol == "Comercio")
+                {
+                    <a id="fidelizacion_button" href="#fidelizacion_id" class="btn_con btn-tab @(rol == "Comercio" ? "active greenbuton" : "")" role="tab" data-toggle="tab" style="width:13%">
+                        @*<img src="~/Content/img/promociones.png" height="20" />*@
+                        @*@Url.Action("Fidelizacion", "Home")*@
+                        <span class="m-t-md m-b-lg">Fidelización</span>
+                    </a>
+                }
+
+                @if (rol == "Comercio" || rol.Equals("Empresa"))
+                {
+                    <a id="promociones_button" data-request-url="@Url.Action("Index", "beneficios", new { SearchComercio = item.idComercio })" href="#promociones_id" class="btn_con  @(rol == "Empresa" ? "active greenbuton" : "btn-tab")" role="tab" data-toggle="tab" style="width:13%">
+                        @*<img src="~/Content/img/promociones.png" height="20" />*@
+                        @*<i class="fas fa-wrench" aria-hidden="true"></i>*@
+                        @*@Url.Action("Index", "beneficios", new { SearchComercio = item.idComercio })*@
+                        <span class="m-t-md m-b-lg">Promociones</span>
+                    </a>
+                }
+                @if (rol == "Comercio")
+                {
+                    <a id="canjes_button" href="#canjes_id" data-request-url="@Url.Action("Index", "Productos", new { IdComercio = item.idComercio })" class="btn_con btn-tab" role="tab" data-toggle="tab" style="width:13%">
+                        @*<img src="~/Content/img/canjes.png" height="20" />*@
+                        @*@Url.Action("Index", "Productos")*@
+                        <span class="m-t-md m-b-lg">Canjes</span>
+                    </a>
+                }
+
+                @if (rol == "Comercio" || rol == "Empresa")
+                {
+                    <a id="reportes_button" href="#reportes_id" class="btn_con btn-tab" role="tab" data-toggle="tab" style="width:13%">
+                        @*<img src="~/Content/img/ReportesIcon.png" height="20" />*@
+                        @*@Url.Action("Index", "ReportesFidelizacion")*@
+                        <span class="m-t-md m-b-lg">Reportes</span>
+                    </a>
+                }
+                @if (rol == "Comercio")
+                {
+                    <a id="comentarios_button" data-request-url="@Url.Action("Index", "Comentarios")" href="#comentarios_id" class="btn_con btn-tab" role="tab" data-toggle="tab" style="width:13%">
+                        @*<i class="fa fa-comments" aria-hidden="true"></i>*@
+                        @*@Url.Action("Index", "Comentarios")*@
+                        <span class="m-t-md m-b-md">Comentarios</span>
+                    </a>
+                }
+
+                @if (rol == "Comercio")
+                {
+                    <a id="notificaciones_button" href="#notificaciones_id" data-request-url="@Url.Action("Index", "Notificaciones", new { IdComercio = item.idComercio })" class="btn_con btn-tab" role="tab" data-toggle="tab" style="width:13%">
+                        @*<i class="fa fa-bell" aria-hidden="true"></i>*@
+                        @*@Url.Action("Index", "Notificaciones", new { IdComercio = item.idComercio })*@
+                        <span class="m-t-md m-b-lg">Notificaciones</span>
+                    </a>
+                }
+
+                @if (rol == "Comercio")
+                {
+                    <a id="soporte_button" href="#soporte_id" data-request-url="@Url.Action("Index", "Soporte", new { IdComercio = item.idComercio })" class="btn_con btn-tab" role="tab" data-toggle="tab" style="width:13%">
+                        @*<i class="fas fa-wrench" aria-hidden="true"></i>*@
+                        @*@Url.Action("Index", "Soporte", new { IdComercio = item.idComercio })*@
+                        <span class="m-t-md m-b-lg">Soporte</span>
+                    </a>
+                }
+            </content>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane @(rol == "Comercio" ? "active" : "") " id="fidelizacion_id">
+
+                @Html.Partial("~/Views/Home/IndexFidelizacion.cshtml")
+            </div>
+            <div role="tabpanel" class="tab-pane @(rol == "Empresa" ? "active" : "")" id="promociones_id">
+                @if (rol.Equals("Empresa"))
+                {
+                    <br />
+                    <div class="gray-bg" style="border-radius:3px" id="promociones_div">
+
+                        @Html.Action("Index", "beneficios", new { SearchComercio = item.idComercio })
+                    </div>
+                }
+                else
+                {
+                    <br />
+                    <div class="gray-bg" style="border-radius:3px" id="promociones_div"></div>
+                }
+            </div>
+            <div role="tabpanel" class="tab-pane" id="canjes_id">
+                <br />
+                <div class="gray-bg" style="border-radius:3px" id="canjes_div"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="reportes_id">
+                @Html.Partial("~/Views/ReportesFidelizacion/Index.cshtml")
+            </div>
+            <div role="tabpanel" class="tab-pane" id="comentarios_id">
+                <div id="comentarios_div"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="notificaciones_id">
+                <div id="notificaciones_div"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="soporte_id">
+                <div id="soporte_div"></div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <a class="btn btn-default" href="@Url.Action("Index","Home" ,null)">Regresar</a>
+            </div>
+        </div>
+        <br />
+    </div>
+
+</div>
+@*<div class="col-md-9 text-right m-t-xs">
+        <a class="btn hide btn-link m-sm" href="@Url.Action("Create","comercios")">
+            <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+            <b> Agregar Comercio </b>
+        </a>
+    </div>*@
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+
+        </div>
+    }
+</div>
+
+
+@Html.Partial("Modal/ModalSeleccionRango")
+
+@section Scripts{
+
+    @Scripts.Render("~/plugins/dataTables")
+    <script>
+        var tabID = '@tabID';
+
+    </script>
+    <script src="~/Scripts/app/Fidelizacion/Fidelizacion.js"></script>
+    <script src="~/Scripts/plugins/chart/Chart.bundle.min.js"></script>
+    <script src="~/Scripts/app/Home/Charts.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+
+    @*NOTIFICACIONES*@
+    <script src="~/Scripts/plugins/selectize/selectize.min.js"></script>
+    <script src="~/Scripts/plugins/emojis/emojiPicker.min.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    @*<script src="~/Scripts/app/Notificaciones/Index.js"></script>*@
+}
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    <link href="~/Content/plugins/selectize/selectize.bootstrap3.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .btn-catalogos {
+            color: black;
+            font-size: small;
+            font-weight: 900;
+        }
+
+            .btn-catalogos:hover {
+                color: #20B193;
+                font-size: small;
+                font-weight: bold;
+            }
+    </style>
+}
+

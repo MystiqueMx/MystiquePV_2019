@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FacturacionTDCDevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BitacoraPaxFacturacion">
+    <Key>
+      <PropertyRef Name="idBitacoraPaxFacturacion" />
+    </Key>
+    <Property Name="idBitacoraPaxFacturacion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comprobanteFiscalId" Type="bigint" Nullable="false" />
+    <Property Name="mensajeRespuesta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BitacoraServicios">
+    <Key>
+      <PropertyRef Name="idBitacoraServicios" />
+    </Key>
+    <Property Name="idBitacoraServicios" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoServicioId" Type="bigint" Nullable="false" />
+    <Property Name="solicitud" Type="bigint" />
+    <Property Name="mensajeRespuesta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CatalogoFormaPago">
+    <Key>
+      <PropertyRef Name="idCatalogoFormaPago" />
+    </Key>
+    <Property Name="idCatalogoFormaPago" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CatalogoUsoCfdi">
+    <Key>
+      <PropertyRef Name="idCatalogoUsoCfdi" />
+    </Key>
+    <Property Name="idCatalogoUsoCfdi" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CatEstatusComprobante">
+    <Key>
+      <PropertyRef Name="idCatEstatusComprobante" />
+    </Key>
+    <Property Name="idCatEstatusComprobante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComprobanteFiscal">
+    <Key>
+      <PropertyRef Name="idComprobanteFiscal" />
+    </Key>
+    <Property Name="idComprobanteFiscal" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="facturaConfiguracionEmisorId" Type="int" Nullable="false" />
+    <Property Name="facturaReceptorId" Type="bigint" Nullable="false" />
+    <Property Name="facturaConsumoId" Type="bigint" Nullable="false" />
+    <Property Name="fechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="fechaTimbrado" Type="datetime" />
+    <Property Name="tipoComprobante" Type="int" Nullable="false" />
+    <Property Name="serie" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="folio" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="rutaXml" Type="nvarchar" MaxLength="255" />
+    <Property Name="rutaPdf" Type="nvarchar" MaxLength="255" />
+    <Property Name="uuid" Type="uniqueidentifier" />
+    <Property Name="cadenaOriginal" Type="nvarchar(max)" />
+    <Property Name="documentoTimbrado" Type="nvarchar(max)" />
+    <Property Name="catEstatusComprobanteId" Type="int" Nullable="false" />
+    <Property Name="fechaCompra" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConfiguracionEmisores">
+    <Key>
+      <PropertyRef Name="idConfiguracionEmisores" />
+    </Key>
+    <Property Name="idConfiguracionEmisores" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rutaCer" Type="nvarchar" MaxLength="255" />
+    <Property Name="rutaPrivateKey" Type="nvarchar" MaxLength="255" />
+    <Property Name="passwordPrivateKey" Type="nvarchar" MaxLength="255" />
+    <Property Name="razonSocial" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="rfc" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="codigoPostal" Type="int" Nullable="false" />
+    <Property Name="regimenFiscal" Type="int" Nullable="false" />
+    <Property Name="serieFacturas" Type="nvarchar" MaxLength="255" />
+    <Property Name="usuarioPax" Type="nvarchar" MaxLength="255" />
+    <Property Name="contrasenaPax" Type="nvarchar" MaxLength="255" />
+    <Property Name="usuarioSmtp" Type="nvarchar" MaxLength="255" />
+    <Property Name="contrasenaSmtp" Type="nvarchar" MaxLength="255" />
+    <Property Name="serverSmtp" Type="nvarchar" MaxLength="255" />
+    <Property Name="puertoSmtp" Type="nvarchar" MaxLength="255" />
+    <Property Name="rutaDocumentos" Type="nvarchar" MaxLength="255" />
+    <Property Name="descRegimenFiscal" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConsumoFactura">
+    <Key>
+      <PropertyRef Name="idConsumoFactura" />
+    </Key>
+    <Property Name="idConsumoFactura" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fechaCompra" Type="datetime" Nullable="false" />
+    <Property Name="subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="iva" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="descuento" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="claveMetodoPago" Type="int" Nullable="false" />
+    <Property Name="claveFormaPago" Type="int" Nullable="false" />
+    <Property Name="claveTipoComprobante" Type="int" Nullable="false" />
+    <Property Name="referencia" Type="nvarchar" MaxLength="100" />
+    <Property Name="importeLetraTotal" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="numeroTareta" Type="nvarchar" MaxLength="50" />
+    <Property Name="condicionesPago" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="moneda" Type="int" Nullable="false" />
+    <Property Name="tipoCambio" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConsumoFacturaDetalle">
+    <Key>
+      <PropertyRef Name="idConsumoFacturaDetalle" />
+    </Key>
+    <Property Name="idConsumoFacturaDetalle" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="consumoFacturaId" Type="bigint" Nullable="false" />
+    <Property Name="ClaveSat" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ivaDetalle" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="importeDetalle" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="valorUnitario" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="cantidad" Type="int" Nullable="false" />
+    <Property Name="unidad" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="claveUnidadSat" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ConsumoFacturaImpuestos">
+    <Key>
+      <PropertyRef Name="idConsumoFacturaImpuestos" />
+    </Key>
+    <Property Name="idConsumoFacturaImpuestos" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="consumoFacturaId" Type="bigint" Nullable="false" />
+    <Property Name="tasa" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="claveImpuesto" Type="int" Nullable="false" />
+    <Property Name="importe" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ReceptorFactura">
+    <Key>
+      <PropertyRef Name="idReceptorFactura" />
+    </Key>
+    <Property Name="idReceptorFactura" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rfc" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="razonSocial" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigoPostal" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="catUsoCfdi" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="ReceptorFactura_Legado">
+    <Key>
+      <PropertyRef Name="idReceptorFactura_Legado" />
+    </Key>
+    <Property Name="idReceptorFactura_Legado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rfc" Type="nvarchar" MaxLength="14" Nullable="false" />
+    <Property Name="razonSocial" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="correo" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="codigoPostal" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="catUsoCfdi" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="TipoServicios">
+    <Key>
+      <PropertyRef Name="idTipoServicio" />
+    </Key>
+    <Property Name="idTipoServicio" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BitacoraPaxFacturacion_ComprobanteFiscal">
+    <End Role="ComprobanteFiscal" Type="Self.ComprobanteFiscal" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BitacoraPaxFacturacion" Type="Self.BitacoraPaxFacturacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComprobanteFiscal">
+        <PropertyRef Name="idComprobanteFiscal" />
+      </Principal>
+      <Dependent Role="BitacoraPaxFacturacion">
+        <PropertyRef Name="comprobanteFiscalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BitacoraServicios_TipoServicio">
+    <End Role="TipoServicios" Type="Self.TipoServicios" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BitacoraServicios" Type="Self.BitacoraServicios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoServicios">
+        <PropertyRef Name="idTipoServicio" />
+      </Principal>
+      <Dependent Role="BitacoraServicios">
+        <PropertyRef Name="tipoServicioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComprobanteFiscal_CatEstatusComprobante">
+    <End Role="CatEstatusComprobante" Type="Self.CatEstatusComprobante" Multiplicity="1" />
+    <End Role="ComprobanteFiscal" Type="Self.ComprobanteFiscal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CatEstatusComprobante">
+        <PropertyRef Name="idCatEstatusComprobante" />
+      </Principal>
+      <Dependent Role="ComprobanteFiscal">
+        <PropertyRef Name="catEstatusComprobanteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComprobanteFiscal_ComprobanteFiscal">
+    <End Role="ReceptorFactura" Type="Self.ReceptorFactura" Multiplicity="1" />
+    <End Role="ComprobanteFiscal" Type="Self.ComprobanteFiscal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReceptorFactura">
+        <PropertyRef Name="idReceptorFactura" />
+      </Principal>
+      <Dependent Role="ComprobanteFiscal">
+        <PropertyRef Name="facturaReceptorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComprobanteFiscal_ConfiguracionEmisores">
+    <End Role="ConfiguracionEmisores" Type="Self.ConfiguracionEmisores" Multiplicity="1" />
+    <End Role="ComprobanteFiscal" Type="Self.ComprobanteFiscal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConfiguracionEmisores">
+        <PropertyRef Name="idConfiguracionEmisores" />
+      </Principal>
+      <Dependent Role="ComprobanteFiscal">
+        <PropertyRef Name="facturaConfiguracionEmisorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ComprobanteFiscal_ConsumoFactura">
+    <End Role="ConsumoFactura" Type="Self.ConsumoFactura" Multiplicity="1" />
+    <End Role="ComprobanteFiscal" Type="Self.ComprobanteFiscal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConsumoFactura">
+        <PropertyRef Name="idConsumoFactura" />
+      </Principal>
+      <Dependent Role="ComprobanteFiscal">
+        <PropertyRef Name="facturaConsumoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsumoFacturaDetalle_ConsumoFactura">
+    <End Role="ConsumoFactura" Type="Self.ConsumoFactura" Multiplicity="1" />
+    <End Role="ConsumoFacturaDetalle" Type="Self.ConsumoFacturaDetalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConsumoFactura">
+        <PropertyRef Name="idConsumoFactura" />
+      </Principal>
+      <Dependent Role="ConsumoFacturaDetalle">
+        <PropertyRef Name="consumoFacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsumoFacturaImpuestos_ConsumoFactura">
+    <End Role="ConsumoFactura" Type="Self.ConsumoFactura" Multiplicity="1" />
+    <End Role="ConsumoFacturaImpuestos" Type="Self.ConsumoFacturaImpuestos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConsumoFactura">
+        <PropertyRef Name="idConsumoFactura" />
+      </Principal>
+      <Dependent Role="ConsumoFacturaImpuestos">
+        <PropertyRef Name="consumoFacturaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FacturacionTDCDevModelStoreContainer">
+    <EntitySet Name="BitacoraPaxFacturacion" EntityType="Self.BitacoraPaxFacturacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BitacoraServicios" EntityType="Self.BitacoraServicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatalogoFormaPago" EntityType="Self.CatalogoFormaPago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatalogoUsoCfdi" EntityType="Self.CatalogoUsoCfdi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CatEstatusComprobante" EntityType="Self.CatEstatusComprobante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComprobanteFiscal" EntityType="Self.ComprobanteFiscal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConfiguracionEmisores" EntityType="Self.ConfiguracionEmisores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsumoFactura" EntityType="Self.ConsumoFactura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsumoFacturaDetalle" EntityType="Self.ConsumoFacturaDetalle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsumoFacturaImpuestos" EntityType="Self.ConsumoFacturaImpuestos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceptorFactura" EntityType="Self.ReceptorFactura" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReceptorFactura_Legado" EntityType="Self.ReceptorFactura_Legado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoServicios" EntityType="Self.TipoServicios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BitacoraPaxFacturacion_ComprobanteFiscal" Association="Self.FK_BitacoraPaxFacturacion_ComprobanteFiscal">
+      <End Role="ComprobanteFiscal" EntitySet="ComprobanteFiscal" />
+      <End Role="BitacoraPaxFacturacion" EntitySet="BitacoraPaxFacturacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BitacoraServicios_TipoServicio" Association="Self.FK_BitacoraServicios_TipoServicio">
+      <End Role="TipoServicios" EntitySet="TipoServicios" />
+      <End Role="BitacoraServicios" EntitySet="BitacoraServicios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComprobanteFiscal_CatEstatusComprobante" Association="Self.FK_ComprobanteFiscal_CatEstatusComprobante">
+      <End Role="CatEstatusComprobante" EntitySet="CatEstatusComprobante" />
+      <End Role="ComprobanteFiscal" EntitySet="ComprobanteFiscal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComprobanteFiscal_ComprobanteFiscal" Association="Self.FK_ComprobanteFiscal_ComprobanteFiscal">
+      <End Role="ReceptorFactura" EntitySet="ReceptorFactura" />
+      <End Role="ComprobanteFiscal" EntitySet="ComprobanteFiscal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComprobanteFiscal_ConfiguracionEmisores" Association="Self.FK_ComprobanteFiscal_ConfiguracionEmisores">
+      <End Role="ConfiguracionEmisores" EntitySet="ConfiguracionEmisores" />
+      <End Role="ComprobanteFiscal" EntitySet="ComprobanteFiscal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ComprobanteFiscal_ConsumoFactura" Association="Self.FK_ComprobanteFiscal_ConsumoFactura">
+      <End Role="ConsumoFactura" EntitySet="ConsumoFactura" />
+      <End Role="ComprobanteFiscal" EntitySet="ComprobanteFiscal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsumoFacturaDetalle_ConsumoFactura" Association="Self.FK_ConsumoFacturaDetalle_ConsumoFactura">
+      <End Role="ConsumoFactura" EntitySet="ConsumoFactura" />
+      <End Role="ConsumoFacturaDetalle" EntitySet="ConsumoFacturaDetalle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsumoFacturaImpuestos_ConsumoFactura" Association="Self.FK_ConsumoFacturaImpuestos_ConsumoFactura">
+      <End Role="ConsumoFactura" EntitySet="ConsumoFactura" />
+      <End Role="ConsumoFacturaImpuestos" EntitySet="ConsumoFacturaImpuestos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

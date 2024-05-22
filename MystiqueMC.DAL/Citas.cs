@@ -28,7 +28,7 @@ namespace MystiqueMC.DAL
         public string cadenaCodigo { get; set; }
     
         public virtual CatEstatusCita CatEstatusCita { get; set; }
-        public virtual sucursales sucursales { get; set; }
         public virtual clientes clientes { get; set; }
+        public virtual sucursales sucursales { get; set; }
     }
 }

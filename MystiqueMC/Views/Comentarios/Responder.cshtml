@@ -1,0 +1,90 @@
+﻿@model MystiqueMC.DAL.comentarios
+@{
+    ViewBag.Title = "Responder";
+    var Categorias = ViewBag.Categorias as List<MystiqueMC.DAL.catTipoComentario>;
+    var NoLeidos = ViewBag.NoLeidos as int?;
+}
+
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content mailbox-content">
+                    <div class="file-manager">
+                        <h5>Folders</h5>
+                        <ul class="folder-list m-b-md" style="padding: 0">
+                            <li><a href="@Url.Action("Index", "Comentarios")"> <i class="fa fa-inbox "></i> Bandeja de entrada <span class="label label-info pull-right">@NoLeidos</span> </a></li>
+                        </ul>
+                        <h5>Categorias</h5>
+                        <ul class="category-list" style="padding: 0">
+                            @foreach (var tipo in Categorias)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Index", "Comentarios", new { filter = tipo.idCatTipoComentario })"><i class="fa fa-circle @Html.ClaseTipoComentario(tipo.idCatTipoComentario)"></i> @tipo.descripcion </a>
+                                </li>
+                            }
+
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 animated fadeInRight">
+            <div class="mail-box-header">
+                <div class="pull-right tooltip-demo">
+                    <a href="@Url.Action("Index", "Comentarios")" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Descartar"><i class="fa fa-times"></i> Descartar</a>
+                </div>
+                <h2>
+                    Componer respuesta
+                </h2>
+            </div>
+            <div class="mail-box">
+                <form action="@Url.Action("Responder","Comentarios")" class="form-horizontal" method="post">
+                    <input type="hidden" name="IdComentario" value="@Model.idComentario" />
+                    <div class="mail-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Para:</label>
+
+                            <div class="col-sm-10"><input type="text" class="form-control" value="@Model.clientes.email" readonly=""></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Asunto:</label>
+
+                            <div class="col-sm-10"><input type="text" name="Asunto" class="form-control" value="@Model.catTipoComentario.descripcion"></div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="mail-text h-200">
+                        <textarea id="summernote" name="Body">                      
+                        </textarea>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="mail-body text-right tooltip-demo">
+                        <button type="submit" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Enviar"><i class="fa fa-reply"></i> Enviar</button>
+                        <a href="@Url.Action("Fidelizacion","Home", new { tabID="comentarios_button"})" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Descartar">
+                            <i class="fa fa-times">
+                            </i> Descartar
+                        </a>
+                    </div>
+                </form>
+                <input type="hidden" id="encabezado-respuesta" value="@Model.clientes.nombre @Model.clientes.paterno comentó el @Model.fechaRegistro.GetValueOrDefault().ToLongDateString() a las @Model.fechaRegistro.GetValueOrDefault().ToShortTimeString()" />
+                <input type="hidden" id="mensaje-original" value="@Model.mensaje" />
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link href="~/Content/plugins/summernote/summernote.css" rel="stylesheet" type="text/css" />
+}
+@section Scripts {
+    <script src="~/Scripts/plugins/summernote/summernote.min.js"></script>
+    <script src="~/Scripts/plugins/summernote/summernote-es-ES.js"></script>
+    <script src="~/Scripts/app/Comentarios/Responder.js"></script>
+}

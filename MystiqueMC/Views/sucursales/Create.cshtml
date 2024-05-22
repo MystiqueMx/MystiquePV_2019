@@ -55,77 +55,77 @@
                 <input type="hidden" name="idSucursalHorarioViernes" value="@Model.idSucursalHorarioViernes" />
                 <input type="hidden" name="idSucursalHorarioSabado" value="@Model.idSucursalHorarioSabado" />
                 <input type="hidden" name="idSucursalHorarioDomingo" value="@Model.idSucursalHorarioDomingo" />
-                <div class="col-md-12">
-                    <div class="col-sm-6 col-md-3">
+                <div class="col-lg-12">
+                    <div class=" col-md-3">
                         <label class="control-label">Nombre Sucursal</label>
                         @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control", @data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,100}", @data_inputmask_greedy = "false", @data_parsley_required = "", @data_parsley_maxlength = "100", @autocomplete = "off" } })
                         <label style="font-weight:lighter; color:black">
                         </label>
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Calle</label>
                         <input name="calle" id="calle" type="text" class="form-control" maxlength="60" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,60}" data-inputmask-greedy="false"
                                data-parsley-required data-parsley-maxlength="60" autocomplete="off" />
                         <label style="font-weight:lighter; color:black">
                         </label>
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Número Interior</label>
                         <input name="NoInterior" id="numInterior" type="text" class="form-control" maxlength="5" data-inputmask-regex="[a-zA-ZñÑ0-9 \\-]{0,5}" data-inputmask-greedy="false"
                                data-parsley-maxlength="5" autocomplete="off" />
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Número Exterior</label>
                         <input name="NoExterior" id="numExterior" type="text" class="form-control" maxlength="10" data-inputmask-regex="[0-9]{0,10}" data-inputmask-greedy="false"
                                data-parsley-maxlength="5" autocomplete="off" />
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-sm-6 col-md-3">
+                <div class="col-lg-12">
+                    <div class="col-md-3">
                         <label class="control-label">Código Postal</label>
                         <input name="codigoPostal" id="cp" type="text" class="form-control" maxlength="5" data-inputmask-regex="[0-9]{0,5}" data-inputmask-greedy="false"
                                data-parsley-maxlength="5" autocomplete="off" />
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Colonia</label>
                         <input name="colonia" id="colonia" type="text" class="form-control" maxlength="60" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,60}" data-inputmask-greedy="false"
                                data-parsley-required data-parsley-maxlength="60" autocomplete="off" />
                         <label style="font-weight:lighter; color:black">
                         </label>
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Entre Calles</label>
                         <input name="entreCalles" id="entreC" type="text" class="form-control" maxlength="60" data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,60}" data-inputmask-greedy="false"
                                data-parsley-maxlength="60" autocomplete="off" />
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Estado</label>
                         @Html.DropDownList("estadoId", null, htmlAttributes: new { @class = "form-control", @data_parsley_required = "" })
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-sm-6 col-md-3">
+                <div class="col-lg-12">
+                    <div class="col-md-3">
                         <label class="control-label">Ciudad</label>
                         @Html.DropDownList("ciudadId", null, htmlAttributes: new { @class = "form-control", @data_parsley_required = "" })
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class=" col-md-3">
                         <label class="control-label">Teléfono</label>
                         <input type="text" name="telefono" class="form-control" id="telefono"
                                maxlength=10 autocomplete="nope" data-parsley-required
                                data-parsley-errors-container="#telefono-error" data-inputmask-mask="(999) 999-99-99"
                                data-parsley-maxlength="10" />
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Punto Venta</label>
                         @Html.EditorFor(model => model.sucursalPuntoVenta, new { htmlAttributes = new { @class = "form-control", data_inputmask_regex = "[0-9]{0,5}", @autocomplete = "off", @data_parsley_required = "" } })
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-md-3">
                         <label class="control-label">Zona</label>
-                        @Html.DropDownList("catZonaId", null, "Seleccione", htmlAttributes: new { @class = "form-control", @data_parsley_required = "" })
+                        @Html.DropDownList("catZonaId", null, "Seleccione", htmlAttributes: new { @class = "form-control" })
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col" style="margin-left: 15px;">
+                <div class="col-lg-12">
+                    <div class="col-md-3">
                         <label class="control-label">Color Indicador</label>
                         <input type="text" id="picker" name="picker" data-parsley-required data-parsley-errors-container="#error-color" />
                         <span id="error-color" class="text-danger"></span>
@@ -308,7 +308,8 @@
         </div>
 
         <div class="row">
-                <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-2">
                     <a href="@Url.Action("Index", "sucursales", new { IdComercio = @ViewBag.idcomecio })" class="btn btn-white m-r-sm">Regresar</a>
 
                     @if (permissionsDelegate.HasPermissionForController(rol, HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()))
@@ -316,6 +317,7 @@
                         <input type="submit" value="Guardar" class="btn btn-primary" />
                     }
                 </div>
+            </div>
         </div>
     </div>
 }

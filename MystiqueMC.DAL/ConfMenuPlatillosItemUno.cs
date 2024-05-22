@@ -34,5 +34,7 @@ namespace MystiqueMC.DAL
         public virtual ItemUno ItemUno { get; set; }
         public virtual sucursales sucursales { get; set; }
         public virtual Productos Productos { get; set; }
+        public virtual CategoriaProductos1 CategoriaProductos1 { get; set; }
+        public virtual Productos1 Productos1 { get; set; }
     }
 }

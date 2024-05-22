@@ -25,8 +25,8 @@ namespace MystiqueMC.DAL
         public Nullable<decimal> montoCompra { get; set; }
     
         public virtual beneficios beneficios { get; set; }
+        public virtual clientes clientes { get; set; }
         public virtual membresias membresias { get; set; }
         public virtual sucursales sucursales { get; set; }
-        public virtual clientes clientes { get; set; }
     }
 }

@@ -94,7 +94,6 @@
                                             </span>
                                         </div>
                                         <div class="col-lg-3">
-                                            delete.png
                                             <span>@(item.cantidadProcesado.HasValue ? item.cantidadProcesado.Value.ToString("N") : "") @item.Insumos.UnidadMedida1.descripcion</span>
                                         </div>
                                         <div class="col-lg-2">
@@ -147,8 +146,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-10" style="padding:0pt">
-                        @*@Html.ActionLink("Regresar", "Index", "Inventarios", new { sucursaId = ViewBag.sucursaId }, new { @class = "btn btn-white" })*@
-                        @Html.ActionLink("Regresar", "Index", "Catalogos", null, new { @class = "btn btn-white" })
+                        @Html.ActionLink("Regresar", "Menu", "Insumos", null, new { @class = "btn btn-white" })
                     </div>
                 </div>
             </div>

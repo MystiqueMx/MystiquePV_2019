@@ -1,0 +1,168 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    /**/
+
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+@model MystiqueMC.DAL.ConteoFisicoInsumos
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Agregar Insumo a <b>@ViewBag.NombreAgrupador</b></h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <br />
+                    @using (Html.BeginForm("Create", "ConteoFisicoInsumos", FormMethod.Post, new { id = "form-create", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" value="true" name="activo" id="activo" />
+                        <input type="hidden" id="getInsumos-url" value="@Url.Action("ObtenerInsumos")" />
+                        <input type="hidden" value="@ViewBag.IdAgrupador" name="conteoFisicoAgrupadorInsumosId" id="conteoFisicoAgrupadorInsumosId" />
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @*<div class="form-group hide">
+                                    @Html.Label("Descripción", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" ,
+                                       data_parsley_maxlength = "30",
+                                       data_parsley_required = "true",
+                                       data_inputmask_regex = "[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9.// ]{0,30}",
+                                   } })
+                                        @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+                            <div class="form-group">
+                                @Html.Label("Familia", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownList("categoriaInsumoId", null, "Seleccionar", htmlAttributes: new { @class = "form-control selectpicker", data_size = "6", data_live_search = "true", @data_parsley_required="true" })
+                                    @Html.ValidationMessageFor(model => model.insumoId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Nombre" class="control-label col-md-2">Insumo</label>
+
+                                <div class="col-md-4">
+                                    <select id="ddl_Productos" name="indumosIds" class="form-control selectpicker" multiple data-parsley-min="1" data-parsley-errors-container="productoId-error" data-parsley-required>
+                                        <option>Seleccionar</option>
+                                    </select>
+                                    <span for="descripcion" id="productoId-error"></span>
+
+                                    <input name="Nombre" id="Nombre" type="text" class="form-control hidden" maxlength=100
+                                           data-inputmask-regex="[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 \\.'\\-]{0,100}" data-inputmask-greedy="false"
+                                           data-parsley-required data-parsley-maxlength="100" data-parsley-errors-container="#nombre-error" />
+                                    @*<span for="Nombre" id="nombre-error"></span>*@
+                                </div>
+                            </div>
+
+                            @*<div class="form-group">
+                                    @Html.Label("Insumo", htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("insumoId", null, htmlAttributes: new { @class = "form-control selectpicker", data_size = "10", data_live_search = "true" })
+                                        @Html.ValidationMessageFor(model => model.insumoId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>*@
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-4">
+                                    <input type="submit" value="Agregar" class="btn btn-primary" />
+                                    @Html.ActionLink("Cancelar", "Details", "ConteoFisicoAgrupadorInsumos", new { id = ViewBag.IdAgrupador }, new { @class = "btn btn-white" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles{
+    <link href="~/Content/plugins/bootstrap-duallistbox/bootstrap-duallistbox.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/plugins/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        .img-container,
+        .img-preview {
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/plugins/parsley/validators/comparison.js"></script>
+    <script src="~/Scripts/plugins/bootstrap-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+    <script>
+        //$('#insumoId').change(function () {
+        //    var selectedOption = $("#insumoId option:selected").text()
+        //    $("#descripcion").val(selectedOption);
+        //});
+
+        $("#ddl_Productos").selectpicker("val", "Seleccionar");
+
+        $("#categoriaInsumoId").change(function () {
+
+            debugger;
+            var idSeccion = $(this).val();
+            var idConteoFisicoAgrupadorInsumos = $("#conteoFisicoAgrupadorInsumosId").val();
+            var parametro = { id: idSeccion, idAgrupador: idConteoFisicoAgrupadorInsumos };
+
+            console.log(parametro);
+            $.ajax({
+                type: "POST",
+                url: $('#getInsumos-url').val(),
+                dataType: 'json',
+                data: parametro
+            }).done(function (response) {
+                if (response != null && response.exito) {
+                    $("#ddl_Productos").empty();
+
+                    var select = document.getElementById("ddl_Productos");
+                    $("#ddl_Productos").selectpicker("val", "Seleccionar");
+                    var option = document.createElement("option");
+                    option.text = "Seleccionar";
+                    option.disabled = true;
+                    option.value = "";
+                    select.add(option);
+
+                    for (x = 0; x < response.data.length; x++) {
+                        var option = document.createElement("option");
+                        option.text = "" + response.data[x].nombre;
+                        option.value = response.data[x].idProducto;
+                        select.add(option);
+                    }
+                    $(`#ddl_Productos option[value='Seleccionar']`).attr('selected', true);
+                    $("#ddl_Productos").bootstrapDualListbox("refresh");
+                    $("#ddl_Productos").selectpicker("refresh");
+                    var id = $('#ddl_Productos option:selected').val("");
+                    $('#Configuracion').val(id);
+                    var nombreProducto = $('#ddl_Productos option:selected').text();
+                    $('#Nombre').val(nombreProducto);
+                }
+                else {
+                    alert("Ocurrio un error, contacte a su administrador.");
+                }
+            });
+
+        });
+    </script>
+}
+
