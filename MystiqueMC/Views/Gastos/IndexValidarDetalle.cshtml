@@ -1,0 +1,256 @@
+﻿@using MystiqueMC.Models.Gastos
+
+@model MystiqueMC.Models.Gastos.ValidarGastosDetallesViewModel
+
+@{
+    ViewBag.Title = "Validar Gastos";
+    //var filtroFechaGastoFin = (DateTime?)ViewBag.fgf;
+    //var filtroFechaGastoInicio = (DateTime?)ViewBag.fgi;
+
+    var controllerName = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
+<div class="row wrapper border-bottom white-bg page-heading m-b-md">
+    <div class="col-sm-12">
+        <h2>Validar Egresos de Caja <strong>@Model.Sucursal</strong> Fecha: <strong>@Model.FechaRegistroVentaFormateada</strong> Folio: <strong>@Model.Folio</strong></h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <table id="ContentTable" class="table table-striped tabla-catalogos display responsive no-wrap" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="hide">
+                                    IdGastoPv
+                                </th>
+                                <th>
+                                    Apertura
+                                </th>
+                                <th>
+                                    Observaciones
+                                </th>
+                                <th class="hide"></th>@*Monto sin formato para subtotales*@
+                                <th style="text-align:center">
+                                    Validado
+                                </th>
+                                <th style="text-align:right">
+                                    Monto
+                                </th>
+                                <th class="text-right" data-orderable="false"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (AperturaViewModel apertura in Model.Aperturas)
+                            {
+                                foreach (GastosPvViewModel gasto in apertura.GastosPv)
+                                {
+                                    <tr>
+                                        <td class="hide">
+                                            @Html.DisplayFor(modelItem => gasto.IdGastoPv)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => gasto.AperturaId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => gasto.ObservacionesConcat)
+                                        </td>
+                                        <td class="hide">
+                                            @Html.DisplayFor(modelItem => gasto.Monto)
+                                        </td>
+                                        <td style="text-align:center">
+                                            @if (gasto.Aplicado == true)
+                                            {
+                                                <img src="~/Content/img/check.png" style="height:24px" />
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/img/minus.png" style="height:24px" />
+                                            }
+                                        </td>
+                                        <td style="text-align:right">
+                                            @Html.DisplayFor(modelItem => gasto.MontoFormateado)
+                                        </td>
+
+                                        <td class="text-right">
+                                            @*<a onclick='ShowEditModal(@gasto.IdGastoPv,@gasto.IdVenta)' class="href-gray m-r-sm" data-tippy="Editar"><img src="~/Content/img/editar.png" /></a>*@
+                                            <a href="@Url.Action("ValidarDetalle", new { id = gasto.IdGastoPv, idv =gasto.VentaId })" class="href-gray m-r-sm btn-link" data-tippy="Validar Egreso">
+                                                <img src="~/Content/Images/Actualizar inventario.png" height="20" style="cursor:pointer;" alt="Validar Egreso Caja"/>
+                                            </a>                                           
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                        <tfoot style="margin-top:10px">
+                            <tr>
+                                <th class="text-right" colspan="3">
+                                    Gran Total:
+                                </th>
+                                <td class="text-right"> <b>@Model.MontoFormateado </b> </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><br />
+                <div class="form-group">
+                    <div class="col-md-10" style="padding:0pt">
+                        @Html.ActionLink("Regresar", "IndexValidar", "Gastos", null,new { @class = "btn btn-white" })
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+       
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script>
+        $(document).ready(function () {
+
+            var groupColumn = 1;
+
+            $('#ContentTable').dataTable({
+                "pageLength": 50,
+                "columnDefs": [
+                    {
+                        "visible": false,
+                        "targets": groupColumn
+                    },                   
+                ],
+                "order": [[groupColumn, 'asc']],
+
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({ page: 'current' }).nodes();
+                    var last = null;
+                    var aData = new Array();
+
+                    api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
+
+                        var vals = api.row(api.row($(rows).eq(i)).index()).data();
+                        var monto = vals[3] ? parseFloat(vals[3]) : 0;
+
+                        if (typeof aData[group] == 'undefined') {
+                            aData[group] = new Array();
+                            aData[group].rows = [];
+                            aData[group].monto = [];
+                        }
+
+                        aData[group].rows.push(i);
+                        aData[group].monto.push(monto);
+
+                        if (last !== group) {
+                            $(rows).eq(i).before(
+                                '<tr class="group"><td colspan="5"><b>' + group + '</b></td></tr>'
+                            );
+
+                            last = group;
+                        }
+
+                    });
+
+                    var lastIndex = 0;
+
+                    for (var apertura in aData) {
+
+                        lastIndex = Math.max.apply(Math, aData[apertura].rows);
+
+                        var subtotal = 0;
+
+                        $.each(aData[apertura].monto, function (k, v) {
+                            subtotal = subtotal + v;
+                        });
+
+                        $(rows).eq(lastIndex).after(
+                            '<tr class="group text-right"><th class="text-right" colspan="3">Total Apertura:</th><td><b>' + Number(subtotal.toFixed(2)).toLocaleString() + '</b></td></tr>'
+                            
+                        );
+                    };
+                },
+
+                "dom": 'T<"clear">lrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "language": {
+                    "search": "Buscar ",
+                    "lengthMenu": "Elementos por página:  _MENU_",
+                    "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                    "emptyTable": "No hay información",
+                    "paginate": {
+                        "first": "Primera",
+                        "last": "Ultima",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+        });
+
+        @*function ShowEditModal(IdGastoPv, IdVenta) {
+
+            $('#b_modal_title_lg').text('Validar Gasto');
+
+        $.ajax({
+            type: "Get",
+            url: '@Url.Action("ValidarDetalle", controllerName)',
+            data: { IdGastoPv, IdVenta },
+            success: function (result) {
+                if (result.success != null) {
+                    if (result.message != null) {                       
+                        SendAlert(result.message, "error", true);     
+
+                    } else {                       
+                        SendAlert('Registro no encontrado.', "error", true);     
+                    }
+                } else {
+                    $('#modal_body_preview_lg').html(result);
+                    $('#modal_generic_lg').modal('show');
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                SendAlert('Ocurrió un error, favor de contactar al administrador.', "error",true);                
+            }
+        });
+    }*@
+    </script>
+}
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: initial;
+        }
+
+        #modal_generic_lg .modal-lg {
+            height: 70%; !important
+        }
+
+    </style>
+}

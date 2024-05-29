@@ -1,0 +1,676 @@
+﻿@using MystiqueMC.Models.Gastos
+@using MystiqueMC.DAL
+
+@model GastoPvValidarViewModel
+
+@{
+
+    ViewBag.Title = "Validar Gasto";
+
+    var rubros = ViewBag.Rubros as IEnumerable<SelectListItem>;
+    var catRubros = ViewBag.catRubros as List<CatRubros>;
+    var catRubrosJs = "";
+    var conceptosGasto = ViewBag.ConceptosGasto as IEnumerable<SelectListItem>;
+    var proveedores = ViewBag.Proveedores as IEnumerable<SelectListItem>;
+
+    foreach (var rubro in catRubros)
+    {
+        catRubrosJs += $"{{'IdCatRubro':{rubro.idCatRubro}, 'comercioId':{rubro.comercioId}, 'descripcion':'{rubro.descripcion}', 'ponderacion':{rubro.ponderacion}, 'esCosto':'{rubro.esCosto}', 'activo':'{rubro.activo}'}},";
+    }
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Validar Egreso de Caja <strong>@Model.Sucursal</strong></h2>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+
+                    @using (Html.BeginForm("CreateGastoPVDetalle", "Gastos", FormMethod.Post, new { id = "form_CreateGastoPVDetalle", @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        @Html.HiddenFor(model => model.VentaId)
+                        @Html.HiddenFor(model => model.IdGastoPv, new { @id = "GastoPvId" })
+                        @Html.HiddenFor(model => model.SucursalId)
+
+                        <div class="form-horizontal">
+                            <div class="row">
+
+                                <div class="col-md-2">
+                                    <label>Fecha Venta: @Model.FechaVentaFormateada</label>
+                                </div>
+
+                                @if (Model.FolioVenta.HasValue && Model.FolioVenta > 0)
+                                {
+                                    <div class="col-md-1">
+                                        <label>Folio: @Model.FolioVenta</label>
+                                    </div>
+                                }
+
+                                <div class="col-md-2">
+                                    <label>Registró: @Model.UsuarioRegistro</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>
+                                        Validado:
+                                        @if (Model.Aplicado == true)
+                                        {
+                                            <img src="~/Content/img/check.png" style="height:24px" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/img/minus.png" style="height:24px" />
+                                        }
+                                    </label>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Monto: @Model.MontoFormateado</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="control-label">Observaciones: @Model.ObservacionesConcat </label>
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <label for="catRubroId">Rubro de egreso</label>
+                                    <div>
+                                        <select id="ddl_Rubros" name="@Html.NameFor(m => m.catRubroId)" class="selectpicker" data-live-search="true"
+                                                data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-rubro">
+                                            <option value="">Seleccionar</option>
+                                            @foreach (var item in rubros)
+                                            {
+                                                <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="row">
+                                        <span style="color:red" for="@Html.NameFor(m => m.catRubroId)" id="#error-rubro"></span>
+                                    </div>
+                                </div>
+                                <div id="divGastos" class="hidden">
+                                    <div class="col-md-2">
+                                        <label for="catConceptoGastoId">Concepto de gasto</label>
+                                        <div>
+                                            <select id="ddl_CatConceptosGastos" name="@Html.NameFor(m => m.catConceptoGastoId)" class="form-control" data-live-search="true"
+                                                    data-size="6" data-parsley-errors-cointainer="#error-cat-Concepto-Gasto"></select>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.catConceptoGastoId, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+
+                                <div id="divCostos" class="hidden">
+                                    <div class="col-md-2" style="max-width: 80%; margin-left:15px; margin-right:15px;">
+                                        <label for="ddl_Proveedores">Proveedor</label>
+                                        <div>
+                                            <select id="ddl_Proveedores" name="@Html.NameFor(m => m.ProveedorId)" class="selectpicker" data-live-search="true"
+                                                    data-size="6" data-parsley-errors-cointainer="#error-proveedor">
+                                                <option value="">Seleccionar</option>
+                                                @foreach (var item in proveedores)
+                                                {
+                                                    <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        @*<div>
+                                <span class="text-danger" id="error-proveedor"></span>
+                            </div>*@
+                                        @Html.ValidationMessageFor(model => model.ProveedorId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label for="InsumoId">Insumo</label>
+                                        <div>
+                                            <select id="ddl_Insumos" name="@Html.NameFor(m => m.InsumoId)" class="form-control" data-live-search="true"
+                                                    data-size="6" data-parsley-errors-cointainer="#error-Insumo"></select>
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.InsumoId, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="form-group col-md-1">
+                                        <label for="cantidad">Cantidad</label>
+                                        @*<div class="col-md-10">*@
+                                        <div class="input-group">
+                                            @*style="width:180px;">*@
+                                            <input type="text" id="cantidad" name="@Html.NameFor(m => m.Cantidad)" class="form-control text-right"
+                                                   data-inputmask-regex="[0-9]{0,9}" data-inputmask-greedy="false" style="width:180px;"
+                                                   data-parsley-required data-parsley-errors-container="#error-cantidad" placeholder="0">
+                                            <div class="input-group-addon" id="label-unidad-medida">-</div>
+                                        </div>
+                                        @*<small id="help-cantidad" class="form-text text-muted"></small>
+                            <span class="text-danger" id="error-cantidad"></span>*@
+                                        @*</div>*@
+                                        @Html.ValidationMessageFor(model => model.Cantidad, "", new { @class = "text-danger" })
+
+                                    </div>
+
+                                    <div class="form-group col-md-2">
+                                        <label for="importe">Importe</label>
+                                        @*<div class="col-md-4">*@
+                                        <input type="text" id="importe" name="@Html.NameFor(m => m.Monto)" class="form-control text-right"
+                                               data-inputmask-regex="[0-9,]{0,10}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                               data-parsley-required data-parsley-errors-container="#error-importe" placeholder="0.00">
+                                        <small id="help-importe" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-importe"></span>
+                                        @*</div>*@
+                                        @Html.ValidationMessageFor(model => model.Monto, "", new { @class = "text-danger" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            @*<a class="btn btn-link col-lg-7" href="@Url.Action("Create")" style="float:right;width:7.333333%">
+                    <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                    <b>Agregar</b>
+                </a>*@
+                            <div class="row">
+                                <div class="col-md-1 pull-right">
+                                    <button id="btn_submit" type="submit" class="btn btn-link col-lg-7">
+                                        <i class="fas fa-plus-square m-r-xs " style="color:#616161; font-size:12pt"></i>
+                                        <b>Agregar</b>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                    @using (Html.BeginForm("ValidarDetalle", "Gastos", FormMethod.Post, new { id = "form_ValidarDetalle", @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+
+                        @Html.HiddenFor(model => model.IdGastoPv)
+                        @Html.HiddenFor(model => model.VentaId)
+                        @Html.HiddenFor(model => model.SucursalId)
+                        @Html.HiddenFor(model => model.UsuarioRegistro)
+                        @Html.HiddenFor(model => model.Monto)
+                        @Html.HiddenFor(model => model.FechaRegistro)
+                        @Html.HiddenFor(model => model.Observaciones)
+                        @Html.HiddenFor(model => model.TipoGasto)
+                        @Html.HiddenFor(model => model.Aplicado)
+
+                        <div class="row" style="clear: both;">
+                            <div class="col-md-6">
+                                @*<label>Costos</label>*@
+
+                                <table id="tblCostos" class="table table-striped tabla-catalogos display responsive no-wrap" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Costo
+                                            </th>
+
+                                            <th style="text-align:right">
+                                                Cantidad
+                                            </th>
+
+                                            <th style="text-align:right">
+                                                Monto
+                                            </th>
+
+                                            <th class="text-right " data-orderable="false"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @*@foreach (var item in Model.RubrosVM)
+                            {
+                                <tr id="@item.IdCatRubro">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </td>
+
+                                    <td style="text-align:right">
+                                        @Html.DisplayFor(modelItem => item.Ponderacion)
+                                    </td>
+
+                                    <td class="text-right">
+                                        <button type="button" class="btn btn-link" data-toggle="modal"
+                                                data-target="@if (item.Activo) { <text>#modal-inactivar-rubro</text> }else{ <text>#modal-activar-rubro</text> }"
+                                                data-id="@item.IdCatRubro" data-descripcion="@item.Descripcion">
+                                            @if (item.Activo)
+                                            {
+                                                <img src="~/Content/Images/on.png" style="width: 30px;">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/Images/off.png" style="width: 30px;">
+                                            }
+                                        </button>
+                                        <a href="@Url.Action("Edit", new {id = item.IdCatRubro})" class="href-gray m-r-sm" data-tippy="Editar"><img src="~/Content/img/editar.png" /></a>
+                                        <a href="@Url.Action("Delete", new {id = item.IdCatRubro})" class="href-gray m-r-sm" data-tippy="Desactivar"><img src="~/Content/img/borrar.png" /></a>
+                                    </td>
+                                </tr>
+                            }*@
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <b>Total:</b>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                @*<label>Gastos</label>*@
+
+                                <div>
+                                    <table id="tblGastos" class="table table-striped tabla-catalogos display responsive no-wrap" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Gasto
+                                                </th>
+
+                                                <th style="text-align:right">
+                                                    Monto
+                                                </th>
+
+                                                <th class="text-right " data-orderable="false"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @*@foreach (var item in Model.RubrosVM)
+                                {
+                                    <tr id="@item.IdCatRubro">
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Descripcion)
+                                        </td>
+
+                                        <td style="text-align:right">
+                                            @Html.DisplayFor(modelItem => item.Ponderacion)
+                                        </td>
+
+                                        <td class="text-right">
+                                            <button type="button" class="btn btn-link" data-toggle="modal"
+                                                    data-target="@if (item.Activo) { <text>#modal-inactivar-rubro</text> }else{ <text>#modal-activar-rubro</text> }"
+                                                    data-id="@item.IdCatRubro" data-descripcion="@item.Descripcion">
+                                                @if (item.Activo)
+                                                {
+                                                    <img src="~/Content/Images/on.png" style="width: 30px;">
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Content/Images/off.png" style="width: 30px;">
+                                                }
+                                            </button>
+                                            <a href="@Url.Action("Edit", new {id = item.IdCatRubro})" class="href-gray m-r-sm" data-tippy="Editar"><img src="~/Content/img/editar.png" /></a>
+                                            <a href="@Url.Action("Delete", new {id = item.IdCatRubro})" class="href-gray m-r-sm" data-tippy="Desactivar"><img src="~/Content/img/borrar.png" /></a>
+                                        </td>
+                                    </tr>
+                                }*@
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td></td>
+                                                <td class="text-right">
+                                                    <b>Total:</b>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                <label for="fechaGasto">Fecha de gasto</label>
+                                <div>
+                                    <input autocomplete="off" type="text" class="form-control input-sm " id="fechaGasto" name="@Html.NameFor(m => m.FechaGasto)"
+                                           style="display:inline-block; width:70%;" value="@(Model.FechaGasto > @DateTime.MinValue ? Model.FechaGasto.ToShortDateString() : "")"
+                                           data-parsley-required data-parsley-remote="@(Url.Action("ValidarFechaGasto") + "?fecha={value}")"
+                                           data-parsley-errors-container="#error-fechaGasto">
+                                    <span class="input-group-addon " id="calendarIcon" style="display:inline-block; width:40px;">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <small id="help-fechaGasto" class="form-text text-muted"></small>
+                                    <span class="" id="error-fechaGasto"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label for="remision">Número de remisión</label>
+                                <div>
+                                    <input type="text" name="@Html.NameFor(m => m.NoRemision)" id="NoRemision" class="form-control" placeholder="Opcional"
+                                           data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,30}" data-inputmask-greedy="false"
+                                           data-parsley-errors-container="#error-NoRemision" value="@Model.NoRemision">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="factura">Folio de factura</label>
+                                <div>
+                                    <input type="text" name="@Html.NameFor(m => m.NoFactura)" id="NoFactura" class="form-control" placeholder="Opcional"
+                                           data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,40}" data-inputmask-greedy="false"
+                                           data-parsley-errors-container="#error-NoFactura" value="@Model.NoFactura">
+                                </div>
+                            </div>
+
+                            @*<div class="col-md-2">
+                     <label for="MontoValidado">Monto</label>
+                     @Html.EditorFor(model => model.MontoValidado, new { htmlAttributes = new { @class = "form-control",
+                    @style = "text-align:right",
+                    data_parsley_maxlength = "12",
+                    data_parsley_required = "true",
+                    data_inputmask_regex = "^\\d{0,10}(\\.\\d{1,2})?$",
+                    data_parsley_min = ".01",
+                    maxlength = "12",
+                    data_parsley_errors_container = "#MontoValidado-error"
+                } })
+                     @Html.ValidationMessageFor(model => model.MontoValidado, "", new { @class = "text-danger" })
+
+                     <div class="row">
+                         <span style="color:red" for="MontoValidado" id="MontoValidado-error"></span>
+                     </div>
+                 </div>*@
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <div class="col-md-12">
+                                        <label for="observacion" class="control-label">Observaciones</label>
+                                        <textarea name="@Html.NameFor(m => m.ObservacionesValidar)" id="ObservacionesValidar" class="form-control" rows="2" placeholder="Opcional"
+                                                  data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,500}" data-inputmask-greedy="false"
+                                                  data-parsley-errors-container="#ObservacionesValidar-error">@Model.ObservacionesValidar</textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        if (!Model.Aplicado)
+                        {
+                            <div class="row">
+                                <div class="col-md-2 pull-right">
+                                    <button id="btn_submit" type="submit" class="btn btn-primary  btn-block">
+                                        <i class="fa fa-save"></i>&nbsp;Guardar
+                                    </button>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="form-group">
+                            <div class="col-md-10" style="padding:0pt">
+                                @Html.ActionLink("Regresar", "IndexValidarDetalle", "Gastos", new { id = Model.VentaId }, new { @class = "btn btn-white" })
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/app/Gastos/Create.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js "></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+
+}
+
+@Scripts.Render("~/plugins/dataTables")
+@Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+@section Styles {
+
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <style>
+        div.dataTables_wrapper div.dataTables_filter label {
+            font-weight: normal;
+            white-space: nowrap;
+            text-align: left;
+            /* margin-left: 73px; */
+            margin-left: 9px;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter {
+            text-align: left;
+        }
+
+        .table-responsive {
+            min-height: .01%;
+            overflow-x: initial;
+        }
+    </style>
+}
+
+<script>
+
+     var catRubros = [@Html.Raw(catRubrosJs)]
+
+    $(document).ready(function () {
+
+        //Onchange ddls
+        $('#ddl_Rubros').on('change', onRubrosChange)
+
+        $('#tblGastos').DataTable({
+            "dom": 'T<"clear">lrtip',
+            "bLengthChange": false,
+			"pageLength": 50,
+			"tableTools": {
+				"sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+			},
+			"language": {
+				"search": "Buscar ",
+				"lengthMenu": "Elementos por página:  _MENU_",
+				"info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+				"emptyTable": "No hay información",
+				"paginate": {
+					"first": "Primera",
+					"last": "Ultima",
+					"next": "Siguiente",
+					"previous": "Anterior"
+				}
+			}
+        });
+
+        $('#tblCostos').DataTable({
+            "dom": 'T<"clear">lrtip',
+            "bLengthChange": false,
+            "pageLength": 50,
+            "tableTools": {
+                "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+            },
+            "language": {
+                "search": "Buscar ",
+                "lengthMenu": "Elementos por página:  _MENU_",
+                "info": "Mostrando _START_ - _END_ de _TOTAL_ elementos",
+                "emptyTable": "No hay información",
+                "paginate": {
+                    "first": "Primera",
+                    "last": "Ultima",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+
+    });
+
+    function onRubrosChange() {
+        //debugger;
+        var idRubro = $('#ddl_Rubros').val();
+
+        if (idRubro != "") {
+
+            var rubro = catRubros.find(rubro => rubro.IdCatRubro == idRubro);
+
+            if (rubro != undefined) {
+                //Checar si es costo
+                if (rubro.esCosto === "True") {
+
+                    //$("#btn_submit").addClass('hidden');
+
+                    //si es costo mostrar y llenar ddl de insumos que sean de ese rubro, al seleccionar rubro, pedir proveedor,
+                    //cantidad del producto, # de factura, remision, observaciones y el total
+                    $("#ddl_CatConceptosGastos").empty();
+                    $("#ddl_Insumos").empty();
+
+                     $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ObtenerInsumosPorRubro", "Gastos")',
+                        dataType: 'json',
+                        data: { idRubro: idRubro },
+                        success: function (insumos) {
+
+                            debugger;
+                            if (insumos.hasException == null) {
+                                if (insumos == null || insumos == "") {
+                                    $('#ddl_Insumos').append('<option value>Seleccionar</option>');
+                                } else {
+                                    $('#ddl_Insumos').append('<option value>Seleccionar</option>');
+
+                                    $.each(insumos,
+                                        function (i, insumo) {
+                                            $('#ddl_Insumos').append('<option data-text="' + insumo.Text + '" value="' + insumo.Value + '">' +
+                                                insumo.Text + '</option>');
+
+
+                                            //<option data-text="POLLO - COSTO" value="1005">POLLO - COSTO</option>
+
+
+                                        });                                 
+                                }
+                            } else {
+                                //SendAlert
+                            }
+                        },
+                        error: function (ex) {
+                            //SendAlert("error....", "error", true);
+                        }
+                    });
+
+                    ShowCaptura(rubro.esCosto);
+                }
+                else {
+                    //debugger;
+
+                    //$("#btn_submit").removeClass('hidden');
+
+                    //Es gasto. Llenar ddl_CatConceptosGastos
+                    $("#ddl_CatConceptosGastos").empty();
+                    $("#ddl_Insumos").empty();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("ObtenerConceptoGastoPorRubro", "Gastos")',
+                        dataType: 'json',
+                        data: { idRubro: idRubro },
+                        success: function (conceptosGasto) {
+
+                            //debugger;
+                            if (conceptosGasto.hasException == null) {
+                                if (conceptosGasto == null || conceptosGasto == "") {
+                                    $('#ddl_CatConceptosGastos').append('<option value>Seleccionar</option>');
+                                } else {
+                                    $('#ddl_CatConceptosGastos').append('<option value>Seleccionar</option>');
+                                    $.each(conceptosGasto,
+                                        function (i, conceptosGasto) {
+                                            $('#ddl_CatConceptosGastos').append('<option value="' +
+                                                conceptosGasto.Value +
+                                                '">' +
+                                                conceptosGasto.Text +
+                                                '</option>');
+                                        });
+                                }
+                            } else {
+                                //SendAlert
+                            }
+                        },
+                        error: function (ex) {
+                            //SendAlert("error....", "error", true);
+                        }
+                    });
+
+                    //captuar observacion, remision o factura
+
+                    ShowCaptura(rubro.esCosto);
+
+                }
+            }
+        }
+        else {
+            $('#ddl_CatConceptosGastos').append('<option value>Seleccionar</option>');
+        }
+    }
+
+    function ShowCaptura(esCosto) {
+
+        if (esCosto == 'True') {
+            //COSTO
+
+            //Campos obligatorios            
+            $('#ddl_Insumos').attr("required", "required");
+            $('#ddl_Proveedores').attr("required", "required");
+            $('#cantidad').attr("required", "required");
+            $('#importe').attr("required", "required");
+
+
+            //Ocultar divGastos
+            $('#ddl_CatConceptosGastos').removeAttr("required");
+            $('#divGastos').addClass('hidden');
+
+
+            //Mostrar divCostos
+            $('#divCostos').removeClass('hidden');
+
+            $('#ddl_Insumos').attr("required", "required");
+            $('#ddl_Proveedores').attr("required", "required");
+
+
+        } else {
+            //GASTO
+
+            //Campos obligatorios
+            $('#ddl_CatConceptosGastos').attr("required", "required"); 
+            $('#importe').attr("required", "required");
+
+            $('#ddl_Insumos').removeAttr("required");
+            $('#ddl_Proveedores').removeAttr("required");
+            $('#cantidad').removeAttr("required");  
+
+            //Ocultar divCostos
+            $('#divCostos').addClass('hidden');
+            //Mostrar divGastos
+            $('#divGastos').removeClass('hidden');
+
+        }
+
+        // destroy ParsleyForm instance
+        $('#form_CreateGastoPVDetalle').parsley().destroy();
+
+        // bind parsley
+        $('#form_CreateGastoPVDetalle').parsley();
+
+    }
+
+</script>

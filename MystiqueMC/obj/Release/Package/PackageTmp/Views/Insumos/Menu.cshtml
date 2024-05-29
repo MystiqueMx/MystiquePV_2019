@@ -1,0 +1,169 @@
+﻿@using MystiqueMC.Helpers
+@using MystiqueMC.Helpers.Permissions
+@{
+    string rol = Session.ObtenerRol();
+    PermissionsDelegate permissionsDelegate = new PermissionsDelegate(Session.ObtenerPermisos());
+}
+
+@if (permissionsDelegate.HasPermissionForController(rol, "Reportes"))
+{
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-sm-6">
+            <h2>Insumos</h2>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated">
+        <!-- CATALOGOS -->
+        <div class="row" style="margin-top: -30px;">
+            <h2 style="margin-left:20px;">Catálogos</h2>
+        </div>
+
+        <div class="row">
+            <!-- REPORTE DE VENTAS -->
+            @*<div class="col-lg-3" style="margin-bottom:10pt">
+            <div class="row">
+                <div class="col-md-2 col-xs-3" style="float:left">
+                    <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                </div>
+                <div class="col-md-10 col-xs-9">
+                    <a href="@Url.Action("Index", "CategoriaInsumos")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Familia Insumos</a>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+            <!-- REPORTE DE VENTAS POR HORA -->
+            @*<div class="col-lg-3" style="margin-bottom:10pt">
+            <div class="row">
+                <div class="col-md-2 col-xs-3" style="float:left">
+                    <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                </div>
+                <div class="col-md-10 col-xs-9">
+                    <a href="@Url.Action("Index", "CategoriaIngredientes")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Seccion Insumos VS Menu</a>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+            <!-- REPORTE CORTE Z -->
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "UnidadMedida")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Unidad de Medida</a>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- RUBROS
+    <div class="col-lg-3" style="margin-bottom:10pt">
+        <div class="row">
+            <div class="col-md-2 col-xs-3" style="float:left">
+                <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+            </div>
+            <div class="col-md-10 col-xs-9">
+                <a href="@Url.Action("Index", "CatRubros")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Rubros</a>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+        </div>
+
+
+        <!-- INSUMOS -->
+        <div class="row" style="margin-top: -20px;">
+            <h2 style="margin-left:20px;">Insumos</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "Insumos")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Insumos</a>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "Compras")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Compras</a>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "ConteoFisicoAgrupadorInsumos")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Agupador de Insumos</a>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-lg-3" style="margin-bottom:10pt">
+                    <div class="row">
+                        <div class="col-md-2 col-xs-3" style="float:left">
+                            <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                        </div>
+                        <div class="col-md-10 col-xs-9">
+                            <a href="@Url.Action("Index", "ConteoFisicoAgrupadorInsumos")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Conteo Fisico</a>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        <!-- PROCESADOS -->
+        <div class="row" style="margin-top: -20px;">
+            <h2 style="margin-left:20px;">Procesados</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3" style="margin-bottom:10pt">
+                <div class="row">
+                    <div class="col-md-2 col-xs-3" style="float:left">
+                        <img src="~/Content/img/Catalog.png" style="margin-top:13px;float:left" />
+                    </div>
+                    <div class="col-md-10 col-xs-9">
+                        <a href="@Url.Action("Index", "Recetas")" class="btn btn-catalogos" style="text-align:initial;margin-left:-13px;font-size:16px;margin-bottom:-5px">Receta Procesado</a>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+@section Styles{
+    <style>
+        .btn-catalogos {
+            color: black;
+            font-size: small;
+            font-weight: bold;
+        }
+
+            .btn-catalogos:hover {
+                color: #20B193;
+                font-size: small;
+                font-weight: bold;
+            }
+    </style>
+}
+
+

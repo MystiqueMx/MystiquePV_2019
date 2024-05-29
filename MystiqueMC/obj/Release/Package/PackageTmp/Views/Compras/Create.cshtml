@@ -1,0 +1,495 @@
+﻿@using WebApp.Web.Models.Compras
+@model WebApp.Web.Models.Compras.JSON.RegistroCompraViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Agregar compra";
+    var insumos = ViewBag.Insumos as IEnumerable<SelectListItem>;
+    var insumosJS = "";
+    var detallesJS = "";
+    var sucursales = ViewBag.Sucursales as IEnumerable<SelectListItem>;
+    var proveedores = ViewBag.Proveedores as IEnumerable<SelectListItem>;
+
+    //var total = Model.total;
+    //var iva = Model.iva;
+    //var descuentos = Model.descuentos;
+    //var observaciones = Model.observacion;
+
+
+    if (insumos == null)
+    {
+        insumos = new SelectListItem[] { };
+    }
+    foreach (var insumo in insumos)
+    {
+        insumosJS += $"{{ 'Value':'{insumo.Value}', 'Text':'{insumo.Text}' }},";
+    }
+    foreach (var item in Model.detalle)
+    {
+        detallesJS += $"{{'idDetalleCompra':{item.idDetalleCompra}, 'compra':{item.compra}, 'desc':'{item.desc}', 'insumo':{item.insumo}, 'importe':{item.importe}, 'cantidad':{item.cantidad}, 'unidad':'{item.unidad}' }},";
+    }
+}
+<div id="divAlertaCompra">
+
+</div>
+<div class="row wrapper border-bottom white-bg page-heading" style="padding: 0 10px 1px 10px;">
+    <div class="col-sm-12">
+        <div class="form-group col-md-2" style="display:inline-block; max-width:145px; min-width:165px; margin-bottom:0px;">
+            <h3 style="margin-top:20px; margin-bottom:20px">Agregar Compra</h3>
+        </div>
+        <div class="form-group col-md-2" style="display:inline-block;">
+            <div class="input-group" style="width:100%; margin-top:10px;">
+                <div>
+                    <select id="sucursal" name="sucursal" class="form-control " data-live-search="true"
+                            data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-sucursal">
+
+                        @if (Model.estatusCompra <= 1) //Abierta, reapertura
+                        {
+                            <option value="">Seleccionar sucursal</option>
+                        }
+
+                        @foreach (var item in sucursales)
+                        {
+                            if (Model.estatusCompra >= 2) //Cerrada
+                            {
+                                <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "disabled")>@item.Text</option>
+                            }
+                            else
+                            {
+                                <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div>
+                    <span class="text-danger" id="error-sucursal"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight" style="padding-top:8px;">
+    <div class="">
+        <div class="row" id="divGuardarCompra">
+            <div class="ibox float-e-margins" style="margin-bottom: 8px;">
+                <div class="ibox-content">
+                    <input type="hidden" value="@Url.Action("RegistrarCompra")" id="hUrlRegistrar" />
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="form-group col-md-2" style="max-width: 30%; margin-left:15px; margin-right:15px;">
+                                <label for="proveedor">Proveedor</label>
+                                <div>
+                                    <select id="proveedor" name="proveedor" class="form-control selectpicker" data-live-search="true"
+                                            data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-proveedor">
+                                        <option value="">Seleccionar</option>
+                                        @foreach (var item in proveedores)
+                                        {
+                                            <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                        }
+                                    </select>
+                                </div>
+                                <div>
+                                    <span class="text-danger" id="error-proveedor"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2" style="max-width: 30%; margin-left:15px; margin-right:15px;">
+                                <label for="remision">Número de remisión</label>
+                                <div>
+                                    <input type="text" name="remision" id="remision" class="form-control" placeholder="Opcional"
+                                           data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,30}" data-inputmask-greedy="false"
+                                           data-parsley-errors-container="#error-remision" value="@Model.remision">
+                                </div>
+                                <div>
+                                    <small id="help-remision" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-remision"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2" style="max-width: 30%; margin-left:15px; margin-right:15px;">
+                                <label for="factura">Folio de factura</label>
+                                <div>
+                                    <input type="text" name="factura" id="factura" class="form-control" placeholder="Opcional"
+                                           data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,40}" data-inputmask-greedy="false"
+                                           data-parsley-errors-container="#error-factura" value="@Model.factura">
+                                </div>
+                                <div>
+                                    <small id="help-factura" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-factura"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-2" style="max-width: 30%; margin-left:15px; margin-right:15px;">
+                                <label for="fechaCompra">Fecha de compra</label>
+                                <div>
+                                    <input autocomplete="off" type="text" class="form-control input-sm " id="fechaCompra" name="fechaCompra"
+                                           style="display:inline-block; width:70%;" value="@(Model.fechaCompra.HasValue ? Model.fechaCompra.Value.ToShortDateString() : "")"
+                                           data-parsley-required data-parsley-remote="@(Url.Action("ValidarFechaCompra") + "?fecha={value}")"
+                                           data-parsley-errors-container="#error-fechaCompra">
+                                    <span class="input-group-addon " id="calendarIcon" style="display:inline-block; width:40px;">
+                                        <i class="fas fa-calendar"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <small id="help-fechaCompra" class="form-text text-muted"></small>
+                                    <span class="" id="error-fechaCompra"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3 text-right" style="margin-top: 15px;">
+                                <a href="#" class="btn btn-primary hide" id="btn-registro-compra">Guardar compra</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="ibox float-e-margins hide" style="margin-bottom: 8px;" id="card-insumos">
+                <div class="ibox-title">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h5>
+                                Insumos
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <form action="@Url.Action("AgregarInsumo")" data-parsley-validate id="form-agregar-insumo" class="form-horizontal">
+                                <input name="idDetalleCompra" id="idDetalleCompra" type="hidden" />
+                                <div class="form-group col-md-3">
+                                    <label for="insumo" class="control-label col-md-2">Insumo</label>
+                                    <div class="col-md-10">
+                                        <select id="insumo" name="insumo" class="form-control selectpicker select-insumo" data-live-search="true"
+                                                data-size="6" data-parsley-required data-parsley-errors-container="#error-insumo">
+                                            <option>Seleccionar</option>
+                                            @foreach (var item in insumos)
+                                            {
+                                                <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                                            }
+                                        </select>
+
+                                        <small id="help-insumo" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-insumo"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="cantidad" class="control-label col-md-2">Cantidad</label>
+                                    <div class="col-md-10">
+                                        <div class="input-group" style="width:200px;">
+                                            <input type="text" id="cantidad" name="cantidad" class="form-control text-right"
+                                                   data-inputmask-regex="[0-9]{0,9}" data-inputmask-greedy="false" style="width:180px;"
+                                                   data-parsley-required data-parsley-errors-container="#error-cantidad" placeholder="0">
+                                            <div class="input-group-addon" id="label-unidad-medida">-</div>
+                                        </div>
+                                        <small id="help-cantidad" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-cantidad"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-5">
+                                    <label for="importe" class="control-label col-md-2">Importe</label>
+                                    <div class="col-md-4">
+                                        <input type="text" id="importe" name="importe" class="form-control text-right"
+                                               data-inputmask-regex="[0-9,]{0,10}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                               data-parsley-required data-parsley-errors-container="#error-importe" placeholder="0.00">
+                                        <small id="help-importe" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-importe"></span>
+                                    </div>
+
+                                    <div class="col-md-5 text-left " id="divAgregarInsumo">
+                                        <label id="btnAgregarInsumo" style="cursor:pointer">
+                                            <i class="fas fa-plus-square m-r-xs" style="color:#616161; font-size:12pt"></i><b>Agregar</b>
+                                        </label>
+
+                                    </div>
+                                    <div class="col-md-5 text-left hidden" id="divEditarInsumo">
+                                        <label id="btnEditarInsumo" style="cursor:pointer">
+                                            <img src="~/Content/Images/editar.png" height="20" style="cursor:pointer;" />
+                                            <b>Editar</b>
+                                        </label>
+                                        <label id="btnCancelarEdicion" style="cursor:pointer">
+                                            <img src="~/Content/Icons/cancel.png" height="20" style="cursor:pointer;" />
+                                            <b>Cancelar</b>
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table id="tabla-detalle-compra" class="table table-striped tabla-catalogos display responsive no-wrap" width="100%">
+                        <thead>
+                            <tr>
+
+                                <th>
+                                    Insumo
+                                </th>
+
+                                <th>
+                                    Cantidad
+                                </th>
+
+                                <th class="text-right">
+                                    Importe
+                                </th>
+
+                                <th class="text-right" data-orderable="false"></th>
+                                <th class="text-right" data-orderable="false"></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                            <tr>
+                                <th class="text-warning text-center" colspan="3">
+                                    No has agregado ningún insumo
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="divCerrarCompra" class="ibox float-e-margins hide">
+                <div class="ibox-title">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h5>
+                                Cerrar Compra
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form action="@Url.Action("ConfirmarCierreCompra")" data-parsley-validate id="form-confirmar" class="form-horizontal">
+                        <div class="row">
+                            <input type="hidden" value="@Model.id" name="id" id="idCompra" />
+
+                            <div class="form-group col-md-3">
+                                <label for="descuentos" class="control-label col-md-3">Descuentos</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="descuentos" name="descuentos" class="form-control text-right convert-to-currency"
+                                           data-inputmask-regex="[0-9,]{0,12}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                           data-parsley-errors-container="#error-descuentos" placeholder="0.00" value="@(Model.estatusCompra == 2 ? Model.descuentos.ToString() : "")">
+                                    <small id="help-descuentos" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-descuentos"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="iva" class="control-label col-md-3">I.V.A.</label>
+                                <div class="col-md-9">
+                                    <input type="text" id="iva" name="iva" class="form-control text-right convert-to-currency"
+                                           data-inputmask-regex="[0-9,]{0,12}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                           data-parsley-errors-container="#error-iva" placeholder="0.00" value="@(Model.estatusCompra == 2 ? Model.iva.ToString() : "")">
+                                    <small id="help-iva" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-iva"></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="total" class="control-label col-md-3">Total compra</label>
+                                <div class="col-md-9">
+                                    <input type="text" name="total" id="total" class="form-control text-right convert-to-currency"
+                                           data-inputmask-regex="[0-9,]{0,12}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                           data-parsley-required data-parsley-errors-container="#error-total" placeholder="0.00" value="@(Model.estatusCompra == 2 ? Model.total.ToString() : "")">
+                                    <small id="help-total" class="form-text text-muted"></small>
+                                    <span class="text-danger" id="error-total"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="observacion" class="control-label " style="padding-left: 15px;">Observaciones</label>
+                            <div class="form-group col-md-12">
+                                <div class="col-md-9">
+                                    <textarea name="observacion" id="observacion" class="form-control" rows="3" placeholder="Opcional"
+                                              data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,120}" data-inputmask-greedy="false"
+                                              data-parsley-errors-container="#error-observacion">@Model.observacion</textarea>
+                                    <span class="text-danger" id="error-observacion"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row ">
+                            <b><span id="mensajeWarning" style="color:red;margin-left:15px;"></span></b>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="form-group col-md-1">
+                @Html.ActionLink("Regresar", "Index", null, new { @class = "btn btn-white" })
+            </div>
+
+            <div class="form-group col-md-10 text-right ">
+
+                @if (Model.estatusCompra == (int)EstatusCompras.Pendiente || Model.estatusCompra == (int)EstatusCompras.Reapertura)
+                {
+                    <button type="button" class="btn btn-primary hide" id="btn-guardar-compra">Cerrar compra</button>
+                }
+                else
+                {                   
+                    <button type="button" class="btn btn-primary hide" id="btn-Confirmar-Reapertura" data-toggle="modal" data-target="#modal-confirmar-reapertura">Reabrir compra</button>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End body -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-agregar-insumos">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Agregar insumos</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-warning" id="warning-compra" role="alert">
+                            <p> Existe una gran diferencia entre la compra anterior, por favor confirma que el monto es correcto:</p>
+                            <p><strong>Precio unitario en la compra anterior: </strong><span id="compra-anterior"></span></p>
+                            <p><strong>Precio unitario en la compra actual: </strong><span id="compra-actual"></span></p>
+                        </div>
+                        <input type="hidden" id="url-detalle-eliminar" value="@Url.Action("EliminarDetalleCompra")" />
+                        <input type="hidden" id="url-search-unidad-minima" value="@Url.Action("ObtenerUnidadMedida")">
+                        <input type="hidden" id="url-back" value="@Url.Action("Index")">
+                        <input name="item" id="item" type="hidden" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btn-confirmar-compra-anterior">Confirmar compra</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-confirmar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirma el total de la compra</h4>
+            </div>
+            @*<div class="col-lg-12"><b><span id="mensajeWarning" style="color:red;font-size:15px"></span></b></div>*@
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        @*<form action="@Url.Action("ConfirmarCierreCompra")" data-parsley-validate id="form-confirmar" class="form-horizontal">
+                                <div class="form-group">
+                                    <input type="hidden" value="@Model.id" name="id" id="idCompra" />
+                                    <label for="descuentos" class="control-label col-md-2">Descuentos</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="descuentos" name="descuentos" class="form-control text-right convert-to-currency"
+                                               data-inputmask-regex="[0-9,]{0,12}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                               data-parsley-required data-parsley-errors-container="#error-descuentos" value="0.00">
+                                        <small id="help-descuentos" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-descuentos"></span>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="iva" class="control-label col-md-2">I.V.A.</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id="iva" name="iva" class="form-control text-right convert-to-currency"
+                                               data-inputmask-regex="[0-9,]{0,12}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                               data-parsley-required data-parsley-errors-container="#error-iva" value="0.00">
+                                        <small id="help-iva" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-iva"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="total" class="control-label col-md-2">Total compra</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="total" id="total" class="form-control text-right convert-to-currency"
+                                               data-inputmask-regex="[0-9,]{0,12}([\.][0-9]{0,2})?" data-inputmask-greedy="false" style="width:180px;"
+                                               data-parsley-required data-parsley-errors-container="#error-total" value="0.00">
+                                        <small id="help-total" class="form-text text-muted"></small>
+                                        <span class="text-danger" id="error-total"></span>
+                                    </div>
+                                </div>
+                            </form>*@
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal --><!-- ./modal -->
+<!-- QUITAR ESTE MODAL / NO SE UTILIZARA MAS-->
+<div class="modal" id="modal-compra-anterior" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Diferencia en compras</h5>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <form id="form-compra-anterior" action="@Url.Action("ValidarInsumoCompra")"></form>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cerrar-actualizar">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div><!-- ./modal -->
+
+<!-- MODAL CONFIRMAR REAPERTURA -->
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" id="modal-confirmar-reapertura">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Confirmar reapertura</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <input type="hidden" id="url-reabrir-compra" value="@Url.Action("ReabrirCompra")">
+                    <input type="hidden" id="url-back-reabrir-compra" value="@Url.Action("Create", new {Model.id })">
+
+                    <div class="col-lg-12">
+                        <div class="alert alert-warning" id="warning-compra" role="alert">
+                            <p> ¿Seguro que desea reabrir esta compra?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btn-reabrir-compra">SI</button>
+            </div>
+        </div>
+    </div>
+</div> <!-- ./modal -->
+
+@section Scripts {
+    <script>
+        window.CatalogoInsumos = [@Html.Raw(insumosJS)];
+        window.Compra = @(Model.id.HasValue ? Model.id.Value : -1);
+        window.estatusCompraId = @Model.estatusCompra;
+        window.DetalleCompra = [@Html.Raw(detallesJS)];
+        //var startDateFrom = new Date(currentTime.getFullYear(), currentTime.getMonth()-1, 1);
+
+    </script>
+    <script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.min.js"></script>
+    <script src="~/Scripts/Plugins/parsley/parsley.es.js"></script>
+    <script src="~/Scripts/app/Compras/Create.js"></script>
+}
+@section Styles {
+    <link href="~/Content/Plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+}
+

@@ -1,0 +1,395 @@
+﻿@using MystiqueMC.Models.Gastos
+@using MystiqueMC.DAL
+
+@model GastoPvValidarViewModel
+
+@{
+
+    ViewBag.Title = "Validar Gasto";
+
+    var rubros = ViewBag.Rubros as IEnumerable<SelectListItem>;
+    var catRubros = ViewBag.catRubros as List<CatRubros>;
+    var catRubrosJs = "";
+    var conceptosGasto = ViewBag.ConceptosGasto as IEnumerable<SelectListItem>;
+
+    foreach (var rubro in catRubros)
+    {
+        catRubrosJs += $"{{'IdCatRubro':{rubro.idCatRubro}, 'comercioId':{rubro.comercioId}, 'descripcion':'{rubro.descripcion}', 'ponderacion':{rubro.ponderacion}, 'esCosto':'{rubro.esCosto}', 'activo':'{rubro.activo}'}},";
+    }
+}
+
+@using (Html.BeginForm("ValidarDetalle", "Gastos", FormMethod.Post, new { id = "form_ValidarDetalle", @class = "form-horizontal", role = "form", data_parsley_validate = "true", autocomplete = "off" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(model => model.IdGastoPv)
+    @Html.HiddenFor(model => model.IdVenta)
+    @Html.HiddenFor(model => model.UsuarioRegistro)
+    @Html.HiddenFor(model => model.Monto)
+    @Html.HiddenFor(model => model.FechaRegistro)
+    @Html.HiddenFor(model => model.Observaciones)
+    @Html.HiddenFor(model => model.TipoGasto)
+    @Html.HiddenFor(model => model.Aplicado)
+
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="monto">Registró</label>
+                @Html.EditorFor(model => model.UsuarioRegistro, new { htmlAttributes = new { @class = "form-control", @disabled = true } })
+            </div>
+
+            <div class="col-md-4">
+                <label for="monto">Validado</label>
+                <div>
+                    @if (Model.Aplicado == true)
+                    {
+                        <img src="~/Content/img/check.png" style="height:24px" />
+                    }
+                    else
+                    {
+                        <img src="~/Content/img/minus.png" style="height:24px" />
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="monto">Monto</label>
+                @Html.EditorFor(model => model.MontoFormateado, new { htmlAttributes = new { @class = "form-control", @style = "text-align:right", @disabled = true } })
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <label for="observacion" class="control-label">Observaciones</label>
+                        <textarea name="@Html.NameFor(m => m.ObservacionesConcat)" id="observacion" class="form-control" rows="2"
+                                  data-inputmask-greedy="false" disabled="true">@Model.ObservacionesConcat</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label for="catRubroId">Rubro</label>
+                <div>
+                    <select id="ddl_Rubros" name="@Html.NameFor(m => m.catRubroId)" class="form-control" data-live-search="true"
+                            data-size="6" data-parsley-required data-parsley-errors-cointainer="#error-rubro">
+                        <option value="">Seleccionar</option>
+                        @foreach (var item in rubros)
+                        {
+                            <option data-text="@item.Text" value="@item.Value" @(item.Selected ? "selected" : "")>@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="row">
+                    <span style="color:red" for="@Html.NameFor(m => m.catRubroId)" id="#error-rubro"></span>
+                </div>
+            </div>
+
+            <div class="col-md-4" style="max-width: 35%;">
+                <label for="fechaGasto">Fecha de gasto</label>
+                <div>
+                    <input autocomplete="off" type="text" class="form-control input-sm " id="fechaGasto" name="@Html.NameFor(m => m.FechaGasto)"
+                           style="display:inline-block; width:70%;" value="@(Model.FechaGasto > @DateTime.MinValue ? Model.FechaGasto.ToShortDateString() : "")"
+                           data-parsley-required data-parsley-remote="@(Url.Action("ValidarFechaGasto") + "?fecha={value}")"
+                           data-parsley-errors-container="#error-fechaGasto">
+                    <span class="input-group-addon " id="calendarIcon" style="display:inline-block; width:40px;">
+                        <i class="fas fa-calendar"></i>
+                    </span>
+                </div>
+                <div>
+                    <small id="help-fechaGasto" class="form-text text-muted"></small>
+                    <span class="" id="error-fechaGasto"></span>
+                </div>
+            </div>
+            
+                <div class="col-md-4">
+                    <label for="MontoValidado">Monto</label>
+                    @Html.EditorFor(model => model.MontoValidado, new { htmlAttributes = new { @class = "form-control",
+                   @style = "text-align:right",
+                   data_parsley_maxlength = "12",
+                   data_parsley_required = "true",
+                   data_inputmask_regex = "^\\d{0,10}(\\.\\d{1,2})?$",
+                   data_parsley_min = ".01",
+                   maxlength = "12",
+                   data_parsley_errors_container = "#MontoValidado-error"
+               } })
+                    @Html.ValidationMessageFor(model => model.MontoValidado, "", new { @class = "text-danger" })
+
+                    <div class="row">
+                        <span style="color:red" for="MontoValidado" id="MontoValidado-error"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="divGastos" class="hidden">
+                    <div class="col-md-3">
+                        <label for="catConceptoGastoId">Concepto de gasto</label>
+                        <div>
+                            <select id="ddl_CatConceptosGastos" name="@Html.NameFor(m => m.catConceptoGastoId)" class="form-control" data-live-search="true"
+                                    data-size="6" data-parsley-errors-cointainer="#error-cat-Concepto-Gasto"></select>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.catConceptoGastoId, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="form-group col-md-3" style="max-width: 30%; margin-left:15px; margin-right:15px;">
+                        <label for="remision">Número de remisión</label>
+                        <div>
+                            <input type="text" name="@Html.NameFor(m => m.NoRemision)" id="NoRemision" class="form-control" placeholder="Opcional"
+                                   data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,30}" data-inputmask-greedy="false"
+                                   data-parsley-errors-container="#error-NoRemision" value="@Model.NoRemision">
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3" style="max-width: 30%; margin-left:15px; margin-right:15px;">
+                        <label for="factura">Folio de factura</label>
+                        <div>
+                            <input type="text" name="@Html.NameFor(m => m.NoFactura)" id="NoFactura" class="form-control" placeholder="Opcional"
+                                   data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,40}" data-inputmask-greedy="false"
+                                   data-parsley-errors-container="#error-NoFactura" value="@Model.NoFactura">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div id="divCostos" class="hidden">
+                    Costo
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <label for="observacion" class="control-label">Observaciones</label>
+                            <textarea name="@Html.NameFor(m => m.ObservacionesValidar)" id="ObservacionesValidar" class="form-control" rows="3" placeholder="Opcional"
+                                      data-inputmask-regex="[A-Za-z\.\-'0-9 ]{0,500}" data-inputmask-greedy="false"
+                                      data-parsley-errors-container="#ObservacionesValidar-error">@Model.ObservacionesValidar</textarea>
+
+                        </div>
+                    </div>
+
+                    @*<div class="col-md-4">
+                    <label for="monto">Monto Validado</label>
+                    @Html.EditorFor(model => model.MontoValidado, new { htmlAttributes = new { @class = "form-control" } })
+                </div>*@
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-cancel btn-block" data-dismiss="modal">Cancelar</button>
+                </div>
+                <div class="col-md-3">
+                    <button id="btn_submit" type="submit" class="btn btn-primary  btn-block">
+                        <i class="fa fa-save"></i>&nbsp;Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+}
+
+<script src="~/Scripts/Plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="~/Scripts/Plugins/bootstrap-select/defaults-es_ES.min.js"></script>
+<script src="~/Scripts/Plugins/parsley/parsley.min.js"></script>
+<script src="~/Scripts/Plugins/parsley/parsley.es.js"></script>
+<link href="~/Content/timePicker.css" rel="stylesheet" />
+<script src="~/Scripts/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="~/Scripts/plugins/datepicker/bootstrap-datepicker.es.min.js"></script>
+<script src="~/Scripts/jquery.timePicker.min.js"></script>
+
+<script>
+
+     var catRubros = [@Html.Raw(catRubrosJs)]
+
+    $(document).ready(function () {
+
+    //Onchange ddls
+    $('#ddl_Rubros').on('change', onRubrosChange)
+
+    });
+
+    $("#fechaGasto").datepicker({
+        language: 'es',
+        dateFormat: "dd/mm/yy"
+    });
+
+
+
+    function onRubrosChange() {
+        debugger;
+        var idRubro = $('#ddl_Rubros').val();
+
+        if (idRubro != "") {
+
+            var rubro = catRubros.find(rubro => rubro.IdCatRubro == idRubro);
+
+            if (rubro != undefined) {
+                //Checar si es costo
+                if (rubro.esCosto === "True") {
+
+                    //si es costo mostrar y llenar ddl de insumos que sean de ese rubro, al seleccionar rubro, pedir proveedor,
+                    //cantidad del producto, # de factura, remision, observaciones y el total
+                    $("#ddl_CatConceptosGastos").empty();
+                    ShowCaptura(rubro.esCosto);
+
+                }
+                else {
+                    //debugger;
+                    //Es gasto. Llenar ddl_CatConceptosGastos
+                    $("#ddl_CatConceptosGastos").empty();
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GetConceptoGastoPorRubro", "Gastos")',
+                        dataType: 'json',
+                        data: { idRubro: idRubro },
+                        success: function (conceptosGasto) {
+
+                            //debugger;
+                            if (conceptosGasto.hasException == null) {
+                                if (conceptosGasto == null || conceptosGasto == "") {
+                                    $('#ddl_CatConceptosGastos').append('<option value>Seleccionar</option>');
+                                } else {
+                                    $('#ddl_CatConceptosGastos').append('<option value>Seleccionar</option>');
+                                    $.each(conceptosGasto,
+                                        function (i, conceptosGasto) {
+                                            $('#ddl_CatConceptosGastos').append('<option value="' +
+                                                conceptosGasto.Value +
+                                                '">' +
+                                                conceptosGasto.Text +
+                                                '</option>');
+                                        });
+                                }
+                            } else {
+                                //SendAlert
+                            }
+                        },
+                        error: function (ex) {
+                            //SendAlert("error....", "error", true);
+                        }
+                    });
+
+                    //captuar observacion, remision o factura
+
+                    ShowCaptura(rubro.esCosto);
+
+                }
+            }
+        }
+        else {
+            $('#ddl_CatConceptosGastos').append('<option value>Seleccionar</option>');
+        }
+    }
+
+    function ShowCaptura(esCosto) {
+
+        if (esCosto == 'True') {
+            //COSTO
+
+            //Campos obligatorios
+            $('#ddl_CatConceptosGastos').removeClass('data-parsley-required')
+
+            //Ocultar divGastos
+            $('#divGastos').addClass('hidden');
+            //Mostrar divCostos
+            $('#divCostos').removeClass('hidden');
+
+
+        } else {
+            //GASTO
+
+            //Campos obligatorios
+            $('#ddl_CatConceptosGastos').addClass('data-parsley-required')
+
+            //Ocultar divCostos
+            $('#divCostos').addClass('hidden');
+            //Mostrar divGastos
+            $('#divGastos').removeClass('hidden');
+
+        }
+
+    }
+
+    //Validar form manualmente
+    $(function () {
+        var parsley_valiation_options = {
+            errorTemplate: '<span class="error-msg"></span>',
+            errorClass: 'data-parsley-error',
+        }
+       
+        if ($('#modal_generic_lg').length > 0) {
+           
+            $('#modal_generic_lg input').parsley(parsley_valiation_options);
+            
+            $('#btn_submit').click(function (event) {
+
+                //debugger
+                event.preventDefault();
+
+                var isValid = true;
+
+                //Todos los inputs
+                $('#modal_generic_lg input').each(function () {
+                    if ($(this).parsley().validate() !== true)
+                        isValid = false;
+                })
+
+                //ddls
+                if ($('#ddl_Rubros').parsley().validate() !== true)
+                    isValid = false;
+
+            });
+        }
+    });
+
+     //Send form
+    $('#form_ValidarDetalle').submit(function () {
+
+            $.ajax({
+                url: '@Url.Action("ValidarDetalle", "Gastos")',
+                type: "Post",
+                data: $('#form_ValidarDetalle').serialize(),
+                success: function (result) {
+                    //debugger;
+
+                    if (result.success) {
+                        debugger;
+                        $('#modal_generic_lg').modal('toggle');
+                        if (result.message != null) {
+                            SendAlert(result.message, "error", true);
+                            //TODO: mostrar siguiente o refrescar grid
+                        } else {
+                            SendAlert('Registro no encontrado.', "error", true);
+                        }
+                    } else {
+                        //debugger;
+                        if (result.hasException != null) {
+                            $('#modal_generic_lg').modal('toggle');
+                            if (result.message != null) {
+                                SendAlert(result.message, "error", true);
+                            } else {
+                                SendAlert('Registro no encontrado.', "error", true);
+                            }
+                        } else {
+                            //Mostrar errores en modal_body_preview div
+                            $('#modal_body_preview_lg').html(result);
+                        }
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    SendAlert('Ocurrió un error, favor de contactar al administrador.', "error", true);
+                }
+            });
+            return false;
+        });
+</script>

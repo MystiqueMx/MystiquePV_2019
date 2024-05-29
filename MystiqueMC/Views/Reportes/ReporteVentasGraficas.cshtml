@@ -27,13 +27,13 @@
                         @using (Html.BeginForm("ReporteVentasGraficas", "Reportes", FormMethod.Post, new { enctype = "multipart/form-data", data_parsley_validate = true }))
                         {
                             @*<div class="form-group col-md-3" style="margin-left:-20pt">
-                                <div class="input-group">
-                                    <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
+                                    <div class="input-group">
+                                        <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Sucursal:</b></span>
 
-                                    @Html.DropDownList("Sucursales", null, "SELECCIONE", new { @class = "form-control input-sm", data_parsley_required = "true", data_parsley_errors_container = "#error-Nombre" })
-                                </div>
-                                @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Nombre" })
-                            </div>*@
+                                        @Html.DropDownList("Sucursales", null, "SELECCIONE", new { @class = "form-control input-sm", data_parsley_required = "true", data_parsley_errors_container = "#error-Nombre" })
+                                    </div>
+                                    @Html.ValidationMessage("", new { @class = "text-danger", id = "error-Nombre" })
+                                </div>*@
                             <div class="form-group col-md-4 col-sm-6 col-lg-3" style="margin-left:-20pt">
                                 <div class="input-group">
                                     <span class="input-group-addon" style="color: #6C6A67; background-color:transparent; border-color:transparent;"><b>Venta por:</b></span>
@@ -87,13 +87,12 @@
                         </div>
                     </div>
                 </div>
-                 
+
                 <div class="ibox-content">
-                    <h2 class="hide" id="title-grafica-1">Compor de ventas</h2>
+                    <h2 class="hide" id="title-grafica-1">Comportamiento de ventas</h2>
                     <div id="chart-container-div" class="chart-container wrapper" style="height:350pt">
                         <canvas id="chart-ventas" class="chartjs-render-monitor"></canvas>
                     </div>
-
                     <div id="chart-data-content" class="chart-datasource">
                         @foreach (var item in Model)
                         {
@@ -156,10 +155,10 @@
                 @:window.labels.push('@item');
             }
             console.log(window.labels);
-            
+
 
             @foreach (var items in colors)
-            {                
+            {
                @:window.chartColors.push('@items');
             }
             console.log(window.chartColors);
