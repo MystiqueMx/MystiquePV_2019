@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MystiqueNative")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5914af3e2521b116f77682cccc019a7bae4d6c8a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c89ff03cf48fdfb36458fa134643342444a78736")]
 [assembly: System.Reflection.AssemblyProductAttribute("MystiqueNative")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MystiqueNative")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

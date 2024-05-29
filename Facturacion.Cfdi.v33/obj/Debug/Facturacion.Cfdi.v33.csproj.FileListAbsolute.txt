@@ -1,0 +1,6 @@
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\Facturacion.Cfdi.v33\bin\Debug\Facturacion.Cfdi.v33.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\Facturacion.Cfdi.v33\bin\Debug\Facturacion.Cfdi.v33.pdb
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\Facturacion.Cfdi.v33\obj\Debug\Facturacion.Cfdi.v33.csproj.AssemblyReference.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\Facturacion.Cfdi.v33\obj\Debug\Facturacion.Cfdi.v33.csproj.CoreCompileInputs.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\Facturacion.Cfdi.v33\obj\Debug\Facturacion.Cfdi.v33.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\Facturacion.Cfdi.v33\obj\Debug\Facturacion.Cfdi.v33.pdb

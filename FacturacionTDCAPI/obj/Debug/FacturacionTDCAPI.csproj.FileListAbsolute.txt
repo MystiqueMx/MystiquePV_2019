@@ -1,0 +1,2 @@
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI\obj\Debug\FacturacionTDCAPI.csproj.AssemblyReference.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI\obj\Debug\FacturacionTDCAPI.csproj.CoreCompileInputs.cache

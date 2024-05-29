@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "glANGelah/XsXT+Se0dJCKHB2bZ4TwRK4T06paCRnsCOzYoYJ8ZjrX5jEtLq/mv1oDn06NPe73QJfdt4dSMK4g==",
+  "dgSpecHash": "xxbAM4UWLhw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj",
+  "projectFilePath": "C:\\Users\\moises\\Documents\\proyecto mystique\\MystiquePV_2019\\MystiqueNative\\MystiqueNative.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\moise\\.nuget\\packages\\humanizer.core\\2.5.1\\humanizer.core.2.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\humanizer.core.es\\2.5.1\\humanizer.core.es.2.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\restsharp\\106.3.1\\restsharp.106.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\restsharp.newtonsoft.json\\1.5.0\\restsharp.newtonsoft.json.1.5.0.nupkg.sha512"
+    "C:\\Users\\moises\\.nuget\\packages\\humanizer.core\\2.5.1\\humanizer.core.2.5.1.nupkg.sha512",
+    "C:\\Users\\moises\\.nuget\\packages\\humanizer.core.es\\2.5.1\\humanizer.core.es.2.5.1.nupkg.sha512",
+    "C:\\Users\\moises\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\moises\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\moises\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\moises\\.nuget\\packages\\restsharp\\106.3.1\\restsharp.106.3.1.nupkg.sha512",
+    "C:\\Users\\moises\\.nuget\\packages\\restsharp.newtonsoft.json\\1.5.0\\restsharp.newtonsoft.json.1.5.0.nupkg.sha512"
   ],
   "logs": [
     {

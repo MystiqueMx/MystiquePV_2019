@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638507014177429537
+_nugetassetstimestamp=638525141595151617
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\users\moise\onedrive\documents\mystique\mystiquepv_2019\mystiquenative.android\mystiquenative.android.csproj
+projectfullpath=c:\users\moises\documents\proyecto mystique\mystiquepv_2019\mystiquenative.android\mystiquenative.android.csproj

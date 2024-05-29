@@ -18,7 +18,7 @@ namespace MystiqueMC.Controllers
     public class GastosController : BaseController
     {
         private ControlInventario controlInventarioHelper;
-
+         
         /// <summary>
         /// 
         /// </summary>
@@ -28,6 +28,9 @@ namespace MystiqueMC.Controllers
         /// <param name="fgi">fecha gasto inicio</param>
         /// <param name="fgf">fecha gasto fin</param>
         /// <returns></returns>
+        /// 
+
+
         // GET: /Gastos/
         public ActionResult Index(int? s, int? p, int? cg, string fgi, string fgf)
         {
@@ -40,7 +43,7 @@ namespace MystiqueMC.Controllers
                                                .Include(c => c.Gastos.Select(g => g.Proveedores))
                                                .SelectMany(c => c.Gastos)
                                                .AsQueryable();
-                
+
                 //Filtro por sucursal 
                 if (s.HasValue)
                 {
@@ -91,7 +94,7 @@ namespace MystiqueMC.Controllers
                 ViewBag.ConceptosGasto = ObtenerConceptosGasto(cg);
                 ViewBag.Sucursales = ObtenerSucursales(s);
                 ViewBag.Proveedores = ObtenerProveedores(p);
-                
+
                 var listadoGastos = gastos
                     .OrderByDescending(g => g.fechaGasto)
                     .Select(g => new GastosIndexViewModel
@@ -116,10 +119,10 @@ namespace MystiqueMC.Controllers
                 ShowAlertException(ex);
                 Logger.Error(ex);
                 return RedirectToAction("Menu", "Egresos");
-            }            
+            }
 
         }
-        
+
         // GET: /Gastos/Create
         public ActionResult Create()
         {
@@ -133,24 +136,25 @@ namespace MystiqueMC.Controllers
 
             }
             catch (Exception ex)
-            {                
+            {
                 Logger.Error(ex);
                 ShowAlertException(ex);
                 return RedirectToAction("Menu", "Egresos");
-            }           
+            }
         }
 
         // POST: /Gastos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="idGasto,sucursalId,catConceptoGastoId,proveedorId,monto,obervacion,fechaGasto")] Gastos gasto)
+        public ActionResult Create([Bind(Include = "idGasto,sucursalId,catConceptoGastoId,proveedorId,monto,obervacion,fechaGasto")] Gastos gasto)
         {
             try
             {
                 var usuarioFirmado = Session.ObtenerUsuario();
-                               
+
                 gasto.fechaRegistro = DateTime.Now;
-                gasto.usuarioRegistroId = usuarioFirmado.idUsuario;                
+                gasto
+                    .usuarioRegistroId = usuarioFirmado.idUsuario;
 
                 if (ModelState.IsValid)
                 {
@@ -172,11 +176,12 @@ namespace MystiqueMC.Controllers
             {
                 Logger.Error(ex);
                 ShowAlertException(ex);
-                return RedirectToAction("Menu", "Egresos"); 
+                return RedirectToAction("Menu", "Egresos");
             }
-            
+
         }
 
+        // GET: /Gastos/Edit/5
         // GET: /Gastos/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -185,7 +190,7 @@ namespace MystiqueMC.Controllers
                 if (id == null)
                 {
                     ShowAlertDanger("No se encontró el gasto seleccionado.");
-                    RedirectToAction("Index");
+                    return RedirectToAction("Index");
                 }
 
                 Gastos gastos = Contexto.Gastos.Find(id);
@@ -193,28 +198,29 @@ namespace MystiqueMC.Controllers
                 if (gastos == null)
                 {
                     ShowAlertDanger("No se encontró el gasto seleccionado.");
-                    RedirectToAction("Index");
+                    return RedirectToAction("Index");
                 }
 
-                ViewBag.ConceptosGasto = ObtenerConceptosGasto(gastos.catConceptoGastoId);
-                ViewBag.Sucursales = ObtenerSucursales(gastos.sucursalId);
-                ViewBag.Proveedores = ObtenerProveedores(gastos.proveedorId);
+                ViewBag.catConceptoGastoId = new SelectList(ObtenerConceptosGasto(), "Value", "Text", gastos.catConceptoGastoId);
+                ViewBag.Sucursales = new SelectList(ObtenerSucursales(), "Value", "Text", gastos.sucursalId);
+                ViewBag.Proveedores = new SelectList(ObtenerProveedores(), "Value", "Text", gastos.proveedorId);
 
                 return View(gastos);
-
             }
             catch (Exception ex)
             {
                 Logger.Error(ex);
                 ShowAlertException(ex);
                 return RedirectToAction("Menu", "Egresos");
-            }           
+            }
         }
+
+
 
         // POST: /Gastos/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="idGasto,sucursalId,catConceptoGastoId,proveedorId,monto,obervacion,fechaGasto,usuarioRegistroId,fechaRegistro")] Gastos gasto)
+        public ActionResult Edit([Bind(Include = "idGasto,sucursalId,catConceptoGastoId,proveedorId,monto,obervacion,fechaGasto,usuarioRegistroId,fechaRegistro")] Gastos gasto)
         {
             try
             {
@@ -240,7 +246,7 @@ namespace MystiqueMC.Controllers
                 ShowAlertException(ex);
                 return RedirectToAction("Menu", "Egresos");
             }
-            
+
         }
 
         // GET: /Gastos/Delete/5
@@ -268,7 +274,7 @@ namespace MystiqueMC.Controllers
                 Logger.Error(ex);
                 ShowAlertException(ex);
                 return RedirectToAction("Menu", "Egresos");
-            }           
+            }
         }
 
         // POST: /Gastos/Delete/5
@@ -293,7 +299,7 @@ namespace MystiqueMC.Controllers
                 ShowAlertException(ex);
                 return RedirectToAction("Menu", "Egresos");
             }
-           
+
         }
 
         /// <summary>
@@ -317,7 +323,7 @@ namespace MystiqueMC.Controllers
                                                     .AsQueryable();
 
                 //Filtro por sucursal 
-                if (s.HasValue) 
+                if (s.HasValue)
                 {
                     gastosVentaValidar = gastosVentaValidar.Where(c => c.sucursalId == s);
                 }
@@ -356,6 +362,7 @@ namespace MystiqueMC.Controllers
                         Folio = v.folio,
                         Monto = v.Aperturas.SelectMany(gv => gv.GastosPv).Sum(gpv => gpv.monto)
                     })
+
                     .ToArray();
 
                 return View(listadoGastos);
@@ -391,7 +398,7 @@ namespace MystiqueMC.Controllers
                                             .Include(v => v.Aperturas.Select(g => g.GastosPv))
                                             .Where(v => v.idVenta == id)
                                             .Select(v => new ValidarGastosDetallesViewModel
-                                            {                                               
+                                            {
                                                 IdVenta = v.idVenta,
                                                 FechaRegistroVenta = v.fechaRegistroVenta,
                                                 SucursalId = v.sucursalId,
@@ -438,7 +445,7 @@ namespace MystiqueMC.Controllers
                 {
                     ShowAlertDanger("No se encontró la venta seleccionada.");
                 }
-             
+
 
                 return View(ventaVM);
 
@@ -450,7 +457,7 @@ namespace MystiqueMC.Controllers
                 return RedirectToAction("Menu", "Egresos");
             }
         }
-        
+
         public ActionResult ValidarDetalle(int id, int idv)
         {
             try
@@ -496,15 +503,15 @@ namespace MystiqueMC.Controllers
 
                 //}               
 
-                ViewBag.Rubros = ObtenerRubros(gastoPvValidarViewModel.catRubroId,null,true);
+                ViewBag.Rubros = ObtenerRubros(gastoPvValidarViewModel.catRubroId, null, true);
                 ViewBag.catRubros = ObtenerCatRubros();
-                ViewBag.ConceptosGasto = ObtenerConceptosGasto(gastoPvValidarViewModel.catConceptoGastoId);               
+                ViewBag.ConceptosGasto = ObtenerConceptosGasto(gastoPvValidarViewModel.catConceptoGastoId);
                 ViewBag.Proveedores = ObtenerProveedores(gastoPvValidarViewModel.ProveedorId);
 
                 return View(gastoPvValidarViewModel);
 
                 //return PartialView("_ModalValidarDetalle", gastoVM);
-                
+
             }
             catch (Exception ex)
             {
@@ -572,38 +579,38 @@ namespace MystiqueMC.Controllers
                         decimal totalCompra = costos.Sum(c => c.monto);
                         //crear compra
                         Compras compra = new Compras
-                                                    {
-                                                        activo = true,
-                                                        descuento = gastoPvValidarViewModel.Descuento ?? 0,
-                                                        fechaRegistro = DateTime.Now,
-                                                        iva = gastoPvValidarViewModel.IVA ?? 0,
-                                                        noFactura = gastoPvValidarViewModel.NoFactura,
-                                                        noRemision = gastoPvValidarViewModel.NoRemision,
-                                                        observaciones = gastoPvValidarViewModel.Observaciones,
-                                                        sucursalId = gastoPvValidarViewModel.SucursalId,
-                                                        proveedorId = gastoPvValidarViewModel.ProveedorId.Value,
-                                                        total = totalCompra,
-                                                        usuarioRegistroId = IdUsuarioActual,
-                                                        estatusCompraId = (int)EstatusCompras.Cerrada,
-                                                        fechaCompra = gastoPvValidarViewModel.FechaGasto
-                                                    };
+                        {
+                            activo = true,
+                            descuento = gastoPvValidarViewModel.Descuento ?? 0,
+                            fechaRegistro = DateTime.Now,
+                            iva = gastoPvValidarViewModel.IVA ?? 0,
+                            noFactura = gastoPvValidarViewModel.NoFactura,
+                            noRemision = gastoPvValidarViewModel.NoRemision,
+                            observaciones = gastoPvValidarViewModel.Observaciones,
+                            sucursalId = gastoPvValidarViewModel.SucursalId,
+                            proveedorId = gastoPvValidarViewModel.ProveedorId.Value,
+                            total = totalCompra,
+                            usuarioRegistroId = IdUsuarioActual,
+                            estatusCompraId = (int)EstatusCompras.Cerrada,
+                            fechaCompra = gastoPvValidarViewModel.FechaGasto
+                        };
 
 
                         //crear detalles compra
-                        controlInventarioHelper = new ControlInventario();                       
+                        controlInventarioHelper = new ControlInventario();
 
                         foreach (GastosPvDetalle costo in costos)
                         {
                             var inventarioInsumo = Contexto.Inventarios.FirstOrDefault(f => f.sucursalId == compra.sucursalId && f.insumoId == costo.insumoId.Value);
 
                             DetalleCompra detalleCompra = new DetalleCompra
-                                                                        {
-                                                                        cantidad = costo.cantidad.Value,
-                                                                        insumoId = costo.insumoId.Value,
-                                                                        importe = costo.monto,
-                                                                        precioUnitario = costo.monto / costo.cantidad,
-                                                                        unidadCompraId = inventarioInsumo.Insumos.UnidadMedida1.idUnidadMedida //Unidad de Medida compra                                                                       
-                                                                       };
+                            {
+                                cantidad = costo.cantidad.Value,
+                                insumoId = costo.insumoId.Value,
+                                importe = costo.monto,
+                                precioUnitario = costo.monto / costo.cantidad,
+                                unidadCompraId = inventarioInsumo.Insumos.UnidadMedida1.idUnidadMedida //Unidad de Medida compra                                                                       
+                            };
 
                             compra.DetalleCompra.Add(detalleCompra);
 
@@ -616,7 +623,7 @@ namespace MystiqueMC.Controllers
                                 (String.IsNullOrEmpty(compra.noRemision) ? "" : " Remision: " + compra.noRemision) +
                                 (String.IsNullOrEmpty(compra.noFactura) ? "" : " Factura: " + compra.noFactura) +
                                 (String.IsNullOrEmpty(compra.observaciones) ? "" : " Observaciones: " + compra.observaciones), false).hasError;
-                          
+
                             compra.estatusCompraId = (int)EstatusCompras.Cerrada;
                             Contexto.Entry(compra).State = EntityState.Modified;
 
@@ -629,10 +636,10 @@ namespace MystiqueMC.Controllers
                             string msg = $"No fue posible generar compra ni movimientos de inventario para el GastoPV: {gastosPvId}.";
 
                             ShowAlertDanger(msg);
-                            Logger.Error(msg);                           
-                        }                       
+                            Logger.Error(msg);
+                        }
 
-                    }                   
+                    }
 
                     //Modificar GastosPv como aplicado
                     gastosPv.aplicado = true;
@@ -640,10 +647,10 @@ namespace MystiqueMC.Controllers
                     Contexto.Entry(gastosPv).State = EntityState.Modified;
 
                     if (!hasError)
-                    {                       
+                    {
                         Contexto.SaveChanges();
 
-                       return RedirectToAction("IndexValidar"); //, new { id = gastoPvValidarViewModel.VentaId });
+                        return RedirectToAction("IndexValidar"); //, new { id = gastoPvValidarViewModel.VentaId });
 
                     }
 
@@ -713,14 +720,14 @@ namespace MystiqueMC.Controllers
                     //        Contexto.SaveChanges();
                     //    }                      
 
-                }              
+                }
 
-                ViewBag.Rubros = ObtenerRubros(gastoPvValidarViewModel.catRubroId,null,true);
+                ViewBag.Rubros = ObtenerRubros(gastoPvValidarViewModel.catRubroId, null, true);
                 ViewBag.catRubros = ObtenerCatRubros();
                 ViewBag.ConceptosGasto = ObtenerConceptosGasto(null, gastoPvValidarViewModel.catRubroId);
 
                 return RedirectToAction("IndexValidarDetalle", new { id = gastoPvValidarViewModel.VentaId });
-              
+
             }
             catch (Exception ex)
             {
@@ -744,7 +751,7 @@ namespace MystiqueMC.Controllers
                     CatRubros rubro = Contexto.CatRubros.Find(gastoPvDetalleViewModel.catRubroId);
 
                     if (rubro != null)
-                    {                        
+                    {
                         GastosPv gastosPv = Contexto.GastosPv.Find(gastoPvDetalleViewModel.GastoPvId);
 
                         if (gastoPvDetalleViewModel.IdGastoPvDetalle > 0)
@@ -775,7 +782,7 @@ namespace MystiqueMC.Controllers
                             };
 
                             gastosPv.GastosPvDetalle.Add(gastoPvDetalle);
-                            Contexto.Entry(gastosPv).State = EntityState.Modified;                           
+                            Contexto.Entry(gastosPv).State = EntityState.Modified;
                         }
 
                         Contexto.SaveChanges();
@@ -784,7 +791,7 @@ namespace MystiqueMC.Controllers
                     else
                     {
                         ShowAlertWarning("No se encontró el rubro seleccionado.");
-                    }                   
+                    }
                 }
 
                 return RedirectToAction("IndexValidarDetalle", new { id = gastoPvDetalleViewModel.VentaId });
@@ -804,11 +811,11 @@ namespace MystiqueMC.Controllers
         }
 
         private void ValidarGasto(GastoPvValidarViewModel gasto)
-        {           
+        {
             if (gasto.IdGastoPv <= 0)
-                ModelState.AddModelError("IdGastoPv","Campo requerido.");
+                ModelState.AddModelError("IdGastoPv", "Campo requerido.");
 
-            if(gasto.MontoValidado <= 0)
+            if (gasto.MontoValidado <= 0)
                 ModelState.AddModelError("Monto", "Debe ser mayor a 0.");
 
             if (gasto.FechaGasto.Date > DateTime.Now.Date || gasto.FechaGasto.Date < DateTime.Now.Date.AddDays(-30))
@@ -816,16 +823,16 @@ namespace MystiqueMC.Controllers
         }
 
         public ActionResult ObtenerConceptoGastoPorRubro(int idRubro)
-        {           
+        {
             try
-            {      
+            {
                 return Json(ObtenerConceptosGasto(null, idRubro));
             }
             catch (Exception ex)
             {
                 return Json(new { hasException = true, message = ObtenerExInfo(ex) }, JsonRequestBehavior.AllowGet);
             }
-           
+
         }
 
         public ActionResult ObtenerInsumosPorRubro(int idRubro)
@@ -834,7 +841,7 @@ namespace MystiqueMC.Controllers
             {
                 var comprasController = DependencyResolver.Current.GetService<ComprasController>();
                 comprasController.ControllerContext = new ControllerContext(this.Request.RequestContext, comprasController);
-                               
+
                 return Json(comprasController.ObtenerInsumosPorRubro(null, idRubro));
             }
             catch (Exception ex)
@@ -854,7 +861,7 @@ namespace MystiqueMC.Controllers
         }
 
         #region HELPERS
-       
+
         [ValidateInput(false)]
         public ActionResult ValidarFechaGasto(string fecha)
         {
@@ -881,7 +888,7 @@ namespace MystiqueMC.Controllers
                     .ToArray() //necesario para poder armar la descripcion concatenada
                     .Select(c => new SelectListItem
                     {
-                        Text = (descripcionLarga) ? string.Format("{0} - {1}", c.descripcion, c.esCosto ? "COSTO":"GASTO") : c.descripcion,
+                        Text = (descripcionLarga) ? string.Format("{0} - {1}", c.descripcion, c.esCosto ? "COSTO" : "GASTO") : c.descripcion,
                         Value = c.idCatRubro.ToString(),
                         Selected = c.idCatRubro == selected,
                     }).ToArray();
@@ -889,7 +896,7 @@ namespace MystiqueMC.Controllers
 
         public SelectListItem[] ObtenerConceptosGasto(int? selected = null, int? idRubro = null)
         {
-            if(idRubro !=null)
+            if (idRubro != null)
             {
                 return ComerciosFirmados
                .Include(c => c.CatConceptosGastos)
@@ -915,9 +922,9 @@ namespace MystiqueMC.Controllers
                    Selected = c.idCatConceptoGasto == selected,
                }).ToArray();
             }
-            
+
         }
-               
+
         public List<CatRubros> ObtenerCatRubros()
         {
             return ComerciosFirmados
@@ -926,7 +933,7 @@ namespace MystiqueMC.Controllers
                .Where(c => c.activo)
                .ToList();
         }
-        
+
         #endregion
     }
 }

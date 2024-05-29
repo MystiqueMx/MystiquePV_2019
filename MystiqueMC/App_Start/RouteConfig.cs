@@ -17,7 +17,7 @@ namespace MystiqueMC
       routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
       routes.MapRoute("Default", "{controller}/{action}/{id}", (object) new
       {
-        controller = "Autentificacion",
+        controller = "Account",
         action = "Login",
         id = UrlParameter.Optional
       });

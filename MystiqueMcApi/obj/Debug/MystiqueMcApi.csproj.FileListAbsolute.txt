@@ -1,0 +1,2 @@
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueMcApi\obj\Debug\MystiqueMcApi.csproj.AssemblyReference.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueMcApi\obj\Debug\MystiqueMcApi.csproj.CoreCompileInputs.cache

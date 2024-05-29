@@ -1,0 +1,11 @@
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\bin\Debug\netstandard2.0\MystiqueNative.deps.json
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\bin\Debug\netstandard2.0\MystiqueNative.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\bin\Debug\netstandard2.0\MystiqueNative.pdb
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.csproj.AssemblyReference.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.AssemblyInfoInputs.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.AssemblyInfo.cs
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.csproj.CoreCompileInputs.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.sourcelink.json
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\MystiqueNative\obj\Debug\netstandard2.0\MystiqueNative.pdb

@@ -1,0 +1,12 @@
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\FacturacionTDCAPI.DAL.dll.config
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\FacturacionTDCAPI.DAL.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\FacturacionTDCAPI.DAL.pdb
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\EntityFramework.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\EntityFramework.xml
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\obj\Debug\FacturacionTDCAPI.DAL.csproj.AssemblyReference.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\obj\Debug\FacturacionTDCAPI.DAL.csproj.CoreCompileInputs.cache
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\obj\Debug\FacturacionTDCAPI.DAL.csproj.CopyComplete
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\obj\Debug\FacturacionTDCAPI.DAL.dll
+C:\Users\moises\Documents\proyecto mystique\MystiquePV_2019\FacturacionTDCAPI.DAL\obj\Debug\FacturacionTDCAPI.DAL.pdb
