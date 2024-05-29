@@ -1,93 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "9SBO8m+q2V+iS8gLvP2qasGqDnU10vHM4OXDFkkERqnXfbzu2YUCNXJATkh4zqvk1/AE7AJ6YrRbZ1nHA6u74w==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.iOS\\MystiqueNative.iOS.csproj",
+  "dgSpecHash": "6/6Wl8D4yiA=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiqueMx\\MystiquePV_2019\\MystiquePV_2019\\MystiqueNative.iOS\\MystiqueNative.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\moise\\.nuget\\packages\\cirrious.fluentlayout\\2.5.0\\cirrious.fluentlayout.2.5.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\com.onesignal\\3.2.0\\com.onesignal.3.2.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\googleapi\\3.4.2\\googleapi.3.4.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\humanizer.core\\2.5.1\\humanizer.core.2.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\humanizer.core.es\\2.5.1\\humanizer.core.es.2.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\materialcontrols\\1.2.2\\materialcontrols.1.2.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\mbautocomplete\\0.8.3\\mbautocomplete.0.8.3.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.0\\microsoft.netcore.platforms.2.1.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\plugin.share\\7.1.1\\plugin.share.7.1.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\portable.bouncycastle-signed\\1.7.0.2\\portable.bouncycastle-signed.1.7.0.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\restsharp\\106.3.1\\restsharp.106.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\restsharp.newtonsoft.json\\1.5.0\\restsharp.newtonsoft.json.1.5.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\saturdaymp.xplugins.ios.bemcheckbox\\1.4.3\\saturdaymp.xplugins.ios.bemcheckbox.1.4.3.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\sidebarnavigation\\2.0.0\\sidebarnavigation.2.0.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\syncfusion.xamarin.sfautocomplete.ios\\16.1.0.37\\syncfusion.xamarin.sfautocomplete.ios.16.1.0.37.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.console\\4.3.1\\system.console.4.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.diagnostics.debug\\4.3.0\\system.diagnostics.debug.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.diagnostics.tools\\4.3.0\\system.diagnostics.tools.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.diagnostics.tracing\\4.3.0\\system.diagnostics.tracing.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.globalization.calendars\\4.3.0\\system.globalization.calendars.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.io.compression\\4.3.0\\system.io.compression.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.net.http\\4.3.3\\system.net.http.4.3.3.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.runtime.extensions\\4.3.0\\system.runtime.extensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.runtime.handles\\4.3.0\\system.runtime.handles.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.runtime.interopservices\\4.3.0\\system.runtime.interopservices.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.runtime.interopservices.runtimeinformation\\4.3.0\\system.runtime.interopservices.runtimeinformation.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.runtime.numerics\\4.3.0\\system.runtime.numerics.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.security.cryptography.algorithms\\4.3.1\\system.security.cryptography.algorithms.4.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.security.cryptography.encoding\\4.3.0\\system.security.cryptography.encoding.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.security.cryptography.primitives\\4.3.0\\system.security.cryptography.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.security.cryptography.x509certificates\\4.3.2\\system.security.cryptography.x509certificates.4.3.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.xml.readerwriter\\4.3.1\\system.xml.readerwriter.4.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\webp.touch\\1.0.8\\webp.touch.1.0.8.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.build.download\\0.4.7\\xamarin.build.download.0.4.7.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.ios\\4.33.0\\xamarin.facebook.ios.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.ffimageloading\\2.4.3.840\\xamarin.ffimageloading.2.4.3.840.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.ffimageloading.transformations\\2.4.3.840\\xamarin.ffimageloading.transformations.2.4.3.840.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.ios.analytics\\4.0.5.1\\xamarin.firebase.ios.analytics.4.0.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.ios.core\\4.0.13.1\\xamarin.firebase.ios.core.4.0.13.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.ios.crashlytics\\3.10.1\\xamarin.firebase.ios.crashlytics.3.10.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.ios.instanceid\\2.0.8\\xamarin.firebase.ios.instanceid.2.0.8.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.ios.performancemonitoring\\1.1.0.1\\xamarin.firebase.ios.performancemonitoring.1.1.0.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.google.ios.maps\\2.5.0\\xamarin.google.ios.maps.2.5.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.google.ios.signin\\4.1.1.1\\xamarin.google.ios.signin.4.1.1.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.google.places.api.ios\\1.2.17\\xamarin.google.places.api.ios.1.2.17.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.sidemenu\\1.0.0\\xamarin.sidemenu.1.0.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamariniosviewshaker\\1.1.0\\xamariniosviewshaker.1.1.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512"
+    "C:\\Users\\andre\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": [
     {
-      "code": "NU1903",
+      "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "message": "MystiqueNative.iOS depende de Newtonsoft.Json (>= 11.0.2), pero no se encontró Newtonsoft.Json 11.0.2. Se resolvió una mejor coincidencia aproximada de Newtonsoft.Json 13.0.1.",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
@@ -98,10 +22,74 @@
       ]
     },
     {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'RestSharp' 106.3.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Com.OneSignal. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Com.OneSignal",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete GoogleApi. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "GoogleApi",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete MaterialControls. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "MaterialControls",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete MBAutoComplete. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "MBAutoComplete",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Plugin.Share. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Plugin.Share",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete RestSharp. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
       "libraryId": "RestSharp",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
@@ -112,10 +100,490 @@
       ]
     },
     {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Net.Http' 4.3.3 has a known high severity vulnerability, https://github.com/advisories/GHSA-7jgj-8wvc-jh57",
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete SaturdayMP.XPlugins.iOS.BEMCheckBox. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "SaturdayMP.XPlugins.iOS.BEMCheckBox",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete SidebarNavigation. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "SidebarNavigation",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Syncfusion.Xamarin.SfAutoComplete.IOS. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Syncfusion.Xamarin.SfAutoComplete.IOS",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.ValueTuple. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "System.ValueTuple",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Build.Download. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Build.Download",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Facebook.iOS. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Facebook.iOS",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.FFImageLoading.Transformations. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.FFImageLoading.Transformations",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Firebase.iOS.Analytics. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Firebase.iOS.Analytics",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Firebase.iOS.Crashlytics. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Firebase.iOS.Crashlytics",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Firebase.iOS.PerformanceMonitoring. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Firebase.iOS.PerformanceMonitoring",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Google.iOS.Maps. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Google.iOS.Maps",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Google.iOS.SignIn. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Google.iOS.SignIn",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Google.Places.Api.iOS. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Google.Places.Api.iOS",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.SideMenu. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.SideMenu",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete xamariniosviewShaker. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "xamariniosviewShaker",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete ZXing.Net.Mobile. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "ZXing.Net.Mobile",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Humanizer.Core.es. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Humanizer.Core.es",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete RestSharp.Newtonsoft.Json. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "RestSharp.Newtonsoft.Json",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.NETCore.Platforms con la versión (>= 2.1.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 1.0.1 ]",
+      "libraryId": "Microsoft.NETCore.Platforms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete Microsoft.Win32.Primitives con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "Microsoft.Win32.Primitives",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete NETStandard.Library con la versión (>= 2.0.3)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 1.6.0 ]",
+      "libraryId": "NETStandard.Library",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.AppContext con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.AppContext",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Collections con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Collections",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Collections.Concurrent con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.12 ]",
+      "libraryId": "System.Collections.Concurrent",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Console con la versión (>= 4.3.1)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.0.0 ]",
+      "libraryId": "System.Console",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Diagnostics.Debug con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Diagnostics.Debug",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Diagnostics.Tools con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Diagnostics.Tools",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Diagnostics.Tracing con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Diagnostics.Tracing",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Globalization con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Globalization",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Globalization.Calendars con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Globalization.Calendars",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.IO con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.IO",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.IO.Compression con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.IO.Compression",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.IO.Compression.ZipFile con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.IO.Compression.ZipFile",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.IO.FileSystem con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.IO.FileSystem",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.IO.FileSystem.Primitives con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.IO.FileSystem.Primitives",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Linq con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Linq",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Linq.Expressions con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Linq.Expressions",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Net.Http con la versión (>= 4.3.3)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
       "libraryId": "System.Net.Http",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
@@ -126,11 +594,322 @@
       ]
     },
     {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Text.RegularExpressions' 4.3.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-cmhx-cq75-c4mj",
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Net.Primitives con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Net.Primitives",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Net.Sockets con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Net.Sockets",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.ObjectModel con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.12 ]",
+      "libraryId": "System.ObjectModel",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Reflection con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Reflection",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Reflection.Extensions con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Reflection.Extensions",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Reflection.Primitives con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Reflection.Primitives",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Resources.ResourceManager con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Resources.ResourceManager",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Runtime con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Runtime",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Runtime.Extensions con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Runtime.Extensions",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Runtime.Handles con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Runtime.Handles",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Runtime.InteropServices con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Runtime.InteropServices",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Runtime.InteropServices.RuntimeInformation con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.0.0 ]",
+      "libraryId": "System.Runtime.InteropServices.RuntimeInformation",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Runtime.Numerics con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Runtime.Numerics",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Security.Cryptography.Algorithms con la versión (>= 4.3.1)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.2.0 ]",
+      "libraryId": "System.Security.Cryptography.Algorithms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Security.Cryptography.Encoding con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.0.0 ]",
+      "libraryId": "System.Security.Cryptography.Encoding",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Security.Cryptography.Primitives con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.0.0 ]",
+      "libraryId": "System.Security.Cryptography.Primitives",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Security.Cryptography.X509Certificates con la versión (>= 4.3.2)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 1 [ versión más cercana: 4.1.0 ]",
+      "libraryId": "System.Security.Cryptography.X509Certificates",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Text.Encoding con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Text.Encoding",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Text.Encoding.Extensions con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Text.Encoding.Extensions",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Text.RegularExpressions con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.1.0 ]",
       "libraryId": "System.Text.RegularExpressions",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Threading con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Threading",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Threading.Tasks con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Threading.Tasks",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Threading.Timer con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.1 ]",
+      "libraryId": "System.Threading.Timer",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Xml.ReaderWriter con la versión (>= 4.3.1)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Xml.ReaderWriter",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-arm64",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.Xml.XDocument con la versión (>= 4.3.0)\r\n  - Versiones encontradas en Microsoft Visual Studio Offline Packages: 2 [ versión más cercana: 4.0.11 ]",
+      "libraryId": "System.Xml.XDocument",
       "targetGraphs": [
         "Xamarin.iOS,Version=v1.0",
         "Xamarin.iOS,Version=v1.0/win",

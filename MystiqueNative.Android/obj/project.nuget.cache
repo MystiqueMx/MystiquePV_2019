@@ -1,91 +1,423 @@
 {
   "version": 2,
-  "dgSpecHash": "1WwYanDg2Qu2wsP4aUdTKZCbCXgQcQNnkmY1UajI9Jz+IAunxJW4k2NNPag0jhO13tM2dEoRVx1pU3Ehobl6dw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\moise\\OneDrive\\Documents\\mystique\\MystiquePV_2019\\MystiqueNative.Android\\MystiqueNative.Android.csproj",
+  "dgSpecHash": "TzAGpdVUaps=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\andre\\Downloads\\AMBIENTE DESARROLLO POS MYSTIQUE\\MystiqueMx\\MystiquePV_2019\\MystiquePV_2019\\MystiqueNative.Android\\MystiqueNative.Android.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\moise\\.nuget\\packages\\bolts\\1.4.0.1\\bolts.1.4.0.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\com.onesignal\\3.2.0\\com.onesignal.3.2.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\fastandroidcamera\\2.0.0\\fastandroidcamera.2.0.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\flexboxlayoutxamarinbindingandroid\\1.0.2\\flexboxlayoutxamarinbindingandroid.1.0.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\humanizer.core\\2.5.1\\humanizer.core.2.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\humanizer.core.es\\2.5.1\\humanizer.core.es.2.5.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\nventive.crashlytics.droid.binding\\1.4.0\\nventive.crashlytics.droid.binding.1.4.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\restsharp\\106.3.1\\restsharp.106.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\restsharp.newtonsoft.json\\1.5.0\\restsharp.newtonsoft.json.1.5.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\skiasharp\\1.60.1\\skiasharp.1.60.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.arch.core.common\\1.0.0.1\\xamarin.android.arch.core.common.1.0.0.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.arch.lifecycle.common\\1.0.3.1\\xamarin.android.arch.lifecycle.common.1.0.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.arch.lifecycle.runtime\\1.0.3.1\\xamarin.android.arch.lifecycle.runtime.1.0.3.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.animated.vector.drawable\\27.0.2.1\\xamarin.android.support.animated.vector.drawable.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.annotations\\27.0.2.1\\xamarin.android.support.annotations.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.compat\\27.0.2.1\\xamarin.android.support.compat.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.core.ui\\27.0.2.1\\xamarin.android.support.core.ui.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.core.utils\\27.0.2.1\\xamarin.android.support.core.utils.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.customtabs\\27.0.2.1\\xamarin.android.support.customtabs.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.design\\27.0.2.1\\xamarin.android.support.design.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.exif\\27.0.2.1\\xamarin.android.support.exif.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.fragment\\27.0.2.1\\xamarin.android.support.fragment.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.media.compat\\27.0.2.1\\xamarin.android.support.media.compat.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.transition\\27.0.2.1\\xamarin.android.support.transition.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.v14.preference\\27.0.2.1\\xamarin.android.support.v14.preference.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.v4\\27.0.2.1\\xamarin.android.support.v4.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.v7.appcompat\\27.0.2.1\\xamarin.android.support.v7.appcompat.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.v7.cardview\\27.0.2.1\\xamarin.android.support.v7.cardview.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.v7.preference\\27.0.2.1\\xamarin.android.support.v7.preference.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.v7.recyclerview\\27.0.2.1\\xamarin.android.support.v7.recyclerview.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.android.support.vector.drawable\\27.0.2.1\\xamarin.android.support.vector.drawable.27.0.2.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.build.download\\0.4.11\\xamarin.build.download.0.4.11.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.android\\4.33.0\\xamarin.facebook.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.applinks.android\\4.33.0\\xamarin.facebook.applinks.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.common.android\\4.33.0\\xamarin.facebook.common.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.core.android\\4.33.0\\xamarin.facebook.core.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.login.android\\4.33.0\\xamarin.facebook.login.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.messenger.android\\4.33.0\\xamarin.facebook.messenger.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.places.android\\4.33.0\\xamarin.facebook.places.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.facebook.share.android\\4.33.0\\xamarin.facebook.share.android.4.33.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.ffimageloading\\2.4.3.840\\xamarin.ffimageloading.2.4.3.840.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.ffimageloading.svg\\2.4.3.840\\xamarin.ffimageloading.svg.2.4.3.840.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.ffimageloading.transformations\\2.4.3.840\\xamarin.ffimageloading.transformations.2.4.3.840.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.analytics\\60.1142.1\\xamarin.firebase.analytics.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.analytics.impl\\60.1142.1\\xamarin.firebase.analytics.impl.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.common\\60.1142.1\\xamarin.firebase.common.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.iid\\60.1142.1\\xamarin.firebase.iid.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.firebase.perf\\60.1142.1\\xamarin.firebase.perf.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.google.zxing.core\\3.3.0\\xamarin.google.zxing.core.3.3.0.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.auth\\60.1142.1\\xamarin.googleplayservices.auth.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.auth.api.phone\\60.1142.1\\xamarin.googleplayservices.auth.api.phone.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.auth.base\\60.1142.1\\xamarin.googleplayservices.auth.base.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.base\\60.1142.1\\xamarin.googleplayservices.base.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.basement\\60.1142.1\\xamarin.googleplayservices.basement.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.clearcut\\60.1142.1\\xamarin.googleplayservices.clearcut.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.gcm\\60.1142.1\\xamarin.googleplayservices.gcm.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.iid\\60.1142.1\\xamarin.googleplayservices.iid.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.location\\60.1142.1\\xamarin.googleplayservices.location.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.maps\\60.1142.1\\xamarin.googleplayservices.maps.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.places\\60.1142.1\\xamarin.googleplayservices.places.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\xamarin.googleplayservices.tasks\\60.1142.1\\xamarin.googleplayservices.tasks.60.1142.1.nupkg.sha512",
-    "C:\\Users\\moise\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512"
+    "C:\\Users\\andre\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": [
     {
-      "code": "NU1903",
+      "code": "NU1603",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "message": "Fresco depende de Newtonsoft.Json (>= 11.0.2), pero no se encontró Newtonsoft.Json 11.0.2. Se resolvió una mejor coincidencia aproximada de Newtonsoft.Json 13.0.1.",
       "libraryId": "Newtonsoft.Json",
       "targetGraphs": [
         "MonoAndroid,Version=v8.1"
       ]
     },
     {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'RestSharp' 106.3.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-9pq7-rcxv-47vq",
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Com.OneSignal. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Com.OneSignal",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete FlexboxLayoutXamarinBindingAndroid. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "FlexboxLayoutXamarinBindingAndroid",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete nventive.Crashlytics.Droid.Binding. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "nventive.Crashlytics.Droid.Binding",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete RestSharp. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
       "libraryId": "RestSharp",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete RestSharp.Newtonsoft.Json. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "RestSharp.Newtonsoft.Json",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete SkiaSharp. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "SkiaSharp",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete System.ValueTuple. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "System.ValueTuple",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Arch.Core.Common. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Arch.Core.Common",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Arch.Lifecycle.Common. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Arch.Lifecycle.Common",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Arch.Lifecycle.Runtime. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Arch.Lifecycle.Runtime",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Animated.Vector.Drawable. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Animated.Vector.Drawable",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Annotations. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Annotations",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Compat. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Compat",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Core.UI. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Core.UI",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Core.Utils. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Core.Utils",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.CustomTabs. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.CustomTabs",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Design. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Design",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Exif. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Exif",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Fragment. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Fragment",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Media.Compat. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Media.Compat",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Transition. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Transition",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.v14.Preference. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.v14.Preference",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.v4. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.v4",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.v7.AppCompat. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.v7.AppCompat",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.v7.CardView. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.v7.CardView",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.v7.Preference. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.v7.Preference",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.v7.RecyclerView. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.v7.RecyclerView",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Android.Support.Vector.Drawable. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Android.Support.Vector.Drawable",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Build.Download. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Build.Download",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Facebook.Android. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Facebook.Android",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.FFImageLoading.Svg. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.FFImageLoading.Svg",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.FFImageLoading.Transformations. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.FFImageLoading.Transformations",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Firebase.Analytics. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Firebase.Analytics",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.Firebase.Perf. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.Firebase.Perf",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Auth. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Auth",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Base. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Base",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Basement. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Basement",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Gcm. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Gcm",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Iid. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Iid",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Location. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Location",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Maps. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Maps",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Places. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Places",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Xamarin.GooglePlayServices.Tasks. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Xamarin.GooglePlayServices.Tasks",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete ZXing.Net.Mobile. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "ZXing.Net.Mobile",
+      "targetGraphs": [
+        "MonoAndroid,Version=v8.1"
+      ]
+    },
+    {
+      "code": "NU1101",
+      "level": "Error",
+      "message": "No se encuentra el paquete Humanizer.Core.es. No existe ningún paquete con este id. en los orígenes: Microsoft Visual Studio Offline Packages",
+      "libraryId": "Humanizer.Core.es",
       "targetGraphs": [
         "MonoAndroid,Version=v8.1"
       ]

@@ -10,3 +10,15 @@ C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\De
 C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\Mystique.EA34CBB8.Up2Date
 C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.dll
 C:\Users\moise\OneDrive\Documents\mystique\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.pdb
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\MystiqueMC.DAL.dll.config
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\MystiqueMC.DAL.dll
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\MystiqueMC.DAL.pdb
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.dll
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.xml
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.csproj.AssemblyReference.cache
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.csproj.CoreCompileInputs.cache
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\Mystique.EA34CBB8.Up2Date
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.dll
+C:\Users\andre\Downloads\AMBIENTE DESARROLLO POS MYSTIQUE\MystiqueMx\MystiquePV_2019\MystiquePV_2019\MystiqueMC.DAL\obj\Debug\MystiqueMC.DAL.pdb
